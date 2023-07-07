@@ -1,0 +1,145 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace VisionPlatform
+{
+    public partial class FormCalib : Form
+    {
+        public int m_nCamCalibType;//选择的标定方法
+        public CirclePointCalibParam circlePointCalibParam = new CirclePointCalibParam(); //圆点标定参数
+        public CheckerCalibParam checkerCalibParam = new CheckerCalibParam(); //棋盘格标定参数
+        public Code2DCalibParam code2DCalibParam = new Code2DCalibParam();
+        public FormCalib()
+        {
+            InitializeComponent();
+        }
+
+        private void but_Calib_Click(object sender, EventArgs e)
+        {
+            if (null == Function.m_hImage) return;
+            CalibrateResult calibrateResult = new CalibrateResult();
+            double dMeanDiam = 0;
+
+            LoadParam();
+            switch (m_nCamCalibType)
+            {
+                case 0://棋盘格
+                    Function.CheckerCalib(checkerCalibParam, out calibrateResult);
+                    break;
+                case 1://圆点标定
+                    Function.CirclePointCalib(circlePointCalibParam, out dMeanDiam, out calibrateResult);
+                    break;
+                case 2://二维码标定
+                    Function.BarCode2DCalib(code2DCalibParam, out calibrateResult);
+                    break;
+                default:
+                    break;
+            }
+            textBox_X.Text = Math.Round(calibrateResult.dXCalib,5).ToString();
+            textBox_Y.Text = Math.Round(calibrateResult.dYCalib,5).ToString();
+            textBox_Average.Text = Math.Round(calibrateResult.dCalibVal(),5).ToString();
+        }
+
+        private void InitWindowParam()
+        {
+            //棋盘格
+            //textBox_CheckerDiam.Text = "1";
+            //textBox_checkArea.Text = "500";
+            //trackBar_CheckThd.Value = 128;
+            ////圆点
+            //textBox_CirclePointDiam.Text = "6";
+            //textBox_CirclePointSapce.Text = "12";
+        }
+
+        private void LoadParam()
+        {
+            //棋盘格
+            if ("" != textBox_CheckerDiam.Text && double.Parse(textBox_CheckerDiam.Text) > 0)
+                checkerCalibParam.dLength = double.Parse(textBox_CheckerDiam.Text);
+            if ("" != textBox_checkerRectangularity.Text && double.Parse(textBox_checkerRectangularity.Text) > 0)
+                checkerCalibParam.dRectangularity = double.Parse(textBox_checkerRectangularity.Text);
+            if (0 != trackBar_CheckThd.Value)
+                checkerCalibParam.nThreshold = trackBar_CheckThd.Value;
+
+            //圆点
+            if (""!= textBox_CirclePointDiam.Text && double.Parse(textBox_CirclePointDiam.Text)>0)
+                circlePointCalibParam.dCircleDiam = double.Parse(textBox_CirclePointDiam.Text);
+            if ("" != textBox_CirclePointSapce.Text && double.Parse(textBox_CirclePointSapce.Text) > 0)
+                circlePointCalibParam.dCircleSpace = double.Parse(textBox_CirclePointSapce.Text);
+            if ("" != textBox_Circularity.Text && double.Parse(textBox_Circularity.Text) > 0)
+                circlePointCalibParam.dCircularity = double.Parse(textBox_Circularity.Text);
+            if (0 != trackBar_thd.Value)
+                circlePointCalibParam.nThd = trackBar_thd.Value;
+
+            //二维码
+            if (-1 != comboBox_Code2DType.SelectedIndex && comboBox_Code2DType.SelectedIndex >= 0)
+                code2DCalibParam.strCodeType = comboBox_Code2DType.SelectedItem.ToString();
+        }
+
+        private void FormCalib_Load(object sender, EventArgs e)
+        {
+            tabControl.Visible = false;
+        }
+
+        private void trackBar_thd_Scroll(object sender, EventArgs e)
+        {
+            if (null == Function.m_hImage)
+                return;
+            LoadParam();
+            label_thd.Text = trackBar_thd.Value.ToString();
+            double dMeanDiam = 0;
+            CalibrateResult calibResult = new CalibrateResult();
+            Function.CirclePointCalib(circlePointCalibParam, out dMeanDiam, out calibResult);
+        }
+
+        private void but_Checker_Click(object sender, EventArgs e)
+        {
+            tabControl.Visible = true;
+            tabPage1.Parent = tabControl;
+            tabPage2.Parent = null;
+            tabPage3.Parent = null;
+            m_nCamCalibType = (int)CamCalibType.Checker;
+        }
+
+        private void but_CirclePoint_Click(object sender, EventArgs e)
+        {
+            tabControl.Visible = true;
+            tabPage1.Parent = null;
+            tabPage2.Parent = tabControl;
+            tabPage3.Parent = null;
+            m_nCamCalibType = (int)CamCalibType.CirclePoint;
+        }
+
+        private void but_2DCode_Click(object sender, EventArgs e)
+        {
+            tabControl.Visible = true;
+            tabPage1.Parent = null;
+            tabPage2.Parent = null;
+            tabPage3.Parent = tabControl;
+            m_nCamCalibType = (int)CamCalibType.Code2D;
+        }
+
+        private void trackBar_CheckThd_Scroll(object sender, EventArgs e)
+        {
+            if (null == Function.m_hImage)
+                return;
+            LoadParam();
+            label_CheckerThd.Text = trackBar_CheckThd.Value.ToString();
+            CalibrateResult calibResult = new CalibrateResult();
+            Function.CheckerCalib(checkerCalibParam, out calibResult);
+        }
+
+        private void comboBox_Code2DType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int n = comboBox_Code2DType.SelectedIndex;
+            string str = comboBox_Code2DType.SelectedItem.ToString();
+        }
+    }
+}

@@ -1,0 +1,29 @@
+﻿# St.Vision.CommonTools
+该类库主要是提供一些常用的工具类库。常用的工具推荐使用Masuit.Tools,本工程补充该开源库未实现的部分。
+
+## Masuit.Tools
+包含一些常用的操作类，大都是静态类，加密解密，反射操作，动态编译，硬件信息，字符串扩展方法，日期时间扩展操作，大文件拷贝，图像裁剪，验证码，断点续传，实体映射等常用封装。  
+https://github.com/ldqk/Masuit.Tools  
+
+
+## EXCEL工具类 NPOIHelper
+NPOIHelper在不用安装OFFICE的情况下读写EXCEL文件。类似的工具还有EPPlus  
+https://github.com/JanKallman/EPPlus  
+1.为什么使用DataTable作为输入参数?  
+-> DataTable的列宽度不限,比较适合各种字段数量不等的实体
+
+## SFTP工具类 SSHHelper
+C#链接LINUX服务器的类库。  
+SFTP在LINUX安装ssh后的服务，是比较通用的文件传输方案，各种系统都可以通过ssh连接。  
+如果使用windows系统做服务器，可以使用bitvise server搭建sftp服务端。  
+https://www.bitvise.com/ssh-server-download
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,118 @@
+﻿using Renci.SshNet;
+using System;
+using System.IO;
+
+namespace St.Vision.CommonTools
+{
+    /// <summary>
+    /// windows下连接linux服务器的sftp
+    /// </summary>
+    public class SSHHelper
+    {
+        private SftpClient sftpClient = null;
+
+        /// <summary>
+        /// 连接FTP
+        /// 如果需要长期连接可使用该方式,短期连接建议使用using(...)
+        /// </summary>
+        /// <param name="host"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public bool Connect(string host, string username, string password)
+        {
+            try
+            {
+                if (sftpClient != null)
+                {
+                    sftpClient.Disconnect();
+                    sftpClient.Dispose();
+                }
+
+                sftpClient = new SftpClient(host, username, password);
+                sftpClient.KeepAliveInterval = TimeSpan.FromSeconds(30);
+                sftpClient.Connect();
+
+                return sftpClient.IsConnected;
+            }
+            catch (Exception ex)
+            {
+                sftpClient = null;
+                return false;
+            }
+        }
+        /// <summary>
+        /// SFTP上传文件
+        /// </summary>
+        /// <param name="host"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="local_path">本地文件 </param>
+        /// <param name="remote_path">远程文件,最好是全路径</param>
+        public void UploadFile(string local_path, string remote_base, string remote_sub, string remote_filename, bool remove_local = true)
+        {
+            try
+            {
+                if (sftpClient == null)
+                    return;
+                if (!sftpClient.IsConnected)
+                    return;
+
+                sftpClient.ChangeDirectory(remote_base);
+                var sub_folders = remote_sub.Split(new char[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var d in sub_folders)
+                {
+                    if (!sftpClient.Exists(d))
+                        sftpClient.CreateDirectory(d);
+                    sftpClient.ChangeDirectory(d);
+                }
+                sftpClient.UploadFile(
+                    File.Open(local_path, FileMode.Open, FileAccess.Read, FileShare.Delete), //FileShare.Delete允许后续可以删除这个文件(而不是删除时候抛出异常)
+                    remote_filename,
+                    new Action<ulong>((e) =>
+                    {
+                        string log = string.Format("file:{0}->{1}", remote_filename, e);
+                        Console.WriteLine(log);
+                    })
+                );
+
+                if (remove_local)
+                {
+                    File.Delete(local_path);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteExceptionLog(ex);
+            }
+        }
+
+        /// <summary>
+        /// 下载文件
+        /// </summary>
+        /// <param name="host"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="local_path">本地文件(WINDOWS)的绝对路径</param>
+        /// <param name="remote_path">远程文件(LINUX)的绝对路径</param>
+        public void DownloadFile(string local_path, string remote_path)
+        {
+            try
+            {
+                if (sftpClient == null)
+                    return;
+                if (!sftpClient.IsConnected)
+                    return;
+
+                var folder = Path.GetDirectoryName(local_path);
+                if (!Directory.Exists(folder))
+                    Directory.CreateDirectory(folder);
+                sftpClient.DownloadFile(remote_path, File.Open(local_path, FileMode.OpenOrCreate));
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteExceptionLog(ex);
+            }
+        }
+    }
+}

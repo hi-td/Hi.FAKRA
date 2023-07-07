@@ -1,0 +1,314 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+using System.Text;
+
+namespace St.Vision.CommonTools
+{
+    /// <summary>
+    /// 日志消息的级别
+    /// </summary>
+    public enum LOG_LEVEL
+    {
+        /// <summary>
+        /// 调试信息,最细粒度日志，包括任何想记录的内容
+        /// </summary>
+        DEBUG,
+
+        /// <summary>
+        /// 一般信息,一般记录业务流程数据流向
+        /// </summary>
+        INFO,
+
+        /// <summary>
+        /// 警告信息,记录一些信息变化但不影响程序运行的信息，如人为修改参数、关闭SOCKET监控等
+        /// </summary>
+        WARN,
+
+        /// <summary>
+        /// 错误信息,可能有数据丢失或造成显示数据异常但不会影响主流程的继续，比如查询AEI失败,查询线路失败，事务执行失败、文件格式错误等。
+        /// </summary>
+        ERROR,
+
+        /// <summary>
+        /// 严重错误信息,阻塞主要业务流程的错误，如果某核心线程异常退出等
+        /// </summary>
+        FATAL
+    }
+
+    /// <summary>
+    /// 日志消息类型
+    /// </summary>
+    public enum LOG_TYPE
+    {
+        /// <summary>
+        /// 普通日志,json序列化内容
+        /// </summary>
+        LOG_TYPE_SERIALIZE,
+
+        /// <summary>
+        /// <summary>
+        /// 普通日志,原始HEX格式数据
+        /// </summary>
+        LOG_TYPE_HEX,
+
+        #region ==========普通日志==========
+
+        /// <summary>
+        /// 普通日志,可以被使能开关关闭
+        /// </summary>
+        LOG_TYPE_COMMON,
+
+        /// <summary>
+        /// 普通日志，不能被使能开关关闭
+        /// </summary>
+        LOG_TYPE_FORCE
+
+        #endregion ==========普通日志==========
+    }
+
+    /// <summary>
+    /// 日志类,采用LOG4NET
+    /// </summary>
+    public sealed class Logger
+    {
+        #region =========='CommonLog'自定义事件==========
+
+        public delegate void CommonLogEventHandler(object sender, CommonLogEventArgs e);
+
+        public static event CommonLogEventHandler CommonLog;
+
+        internal static void NewCommonLog(Object sender, LOG_LEVEL level, LOG_TYPE type, string logcontent)
+        {
+            CommonLogEventArgs e = new CommonLogEventArgs(level, type, logcontent);
+            if (CommonLog != null)
+            {
+                CommonLog(sender, e);
+            }
+        }
+
+        [Serializable]
+        public class CommonLogEventArgs : System.EventArgs
+        {
+            public CommonLogEventArgs(LOG_LEVEL level, LOG_TYPE type, string logcontent)
+            {
+                Level = level;
+                Type = type;
+                Logcontent = logcontent;
+            }
+
+            public LOG_LEVEL Level { get; set; }
+            public LOG_TYPE Type { get; set; }
+            public string Logcontent { get; set; }
+        }
+
+        #endregion =========='CommonLog'自定义事件==========
+
+        #region 日志操作类
+
+        private static log4net.ILog _logCpsCommonLog = log4net.LogManager.GetLogger("VSE_COMMON_LOG");
+        private static log4net.ILog _logCpsExceptionLog = log4net.LogManager.GetLogger("VSE_EXCEPTION_LOG");
+        private static Dictionary<LOG_TYPE, bool> _dicTypeBitOperation = new Dictionary<LOG_TYPE, bool>();
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        static Logger()
+        {
+            //ExceptionlessClient.Default.Register(false);
+            string DllDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);//获取当前dll（此处指INVENGO.XC4.TOO.UTILITY.dll)所在目录
+            //只有采用下面方法加载配置文件才有效
+            log4net.Config.XmlConfigurator.ConfigureAndWatch(new FileInfo(DllDirectory + @"\Logger.config"));
+            InitTypeBitOperation();
+            CreateLogDirectives();
+        }
+
+        /// <summary>
+        /// 写运行日志
+        /// </summary>
+        /// <param name="content"></param>
+        public static void WriteRunLog(string content)
+        {
+            WriteLog(LOG_LEVEL.INFO, LOG_TYPE.LOG_TYPE_COMMON, content);
+        }
+
+        /// <summary>
+        /// 调试信息
+        /// </summary>
+        /// <param name="content"></param>
+        public static void WriteDebugLog(string content)
+        {
+            StackTrace trace = new StackTrace();
+            StackFrame frame = trace.GetFrame(1);//1代表上级，2代表上上级，以此类推
+            MethodBase method = frame.GetMethod();
+            String className = method.ReflectedType.Name;
+            //Console.Write("ClassName:" + className + "\nMethodName:" + method.Name);
+
+            string log = string.Format("[{0}].[{1}]. {2}", className, method.Name, content);
+            WriteLog(LOG_LEVEL.DEBUG, LOG_TYPE.LOG_TYPE_COMMON, log);
+        }
+
+        /// <summary>
+        /// 写错误日志
+        /// </summary>
+        /// <param name="content"></param>
+        public static void WriteErrLog(string content)
+        {
+            WriteLog(LOG_LEVEL.ERROR, LOG_TYPE.LOG_TYPE_COMMON, content);
+        }
+
+        /// <summary>
+        /// 写异常错误日志
+        /// </summary>
+        /// <param name="content"></param>
+        public static void WriteExceptionLog(Exception ex)
+        {
+            StackTrace trace = new StackTrace();
+            StackFrame frame = trace.GetFrame(1);//1代表上级，2代表上上级，以此类推
+            MethodBase method = frame.GetMethod();
+            String className = method.ReflectedType.Name;
+
+            string log = string.Format("[{0}].[{1}]", className, method.Name);
+            WriteLog(LOG_LEVEL.FATAL, LOG_TYPE.LOG_TYPE_FORCE, log, ex);
+
+            //ex.ToExceptionless().Submit();
+        }
+
+        public static void WriteExceptionLog(string summary, Exception ex)
+        {
+            StackTrace trace = new StackTrace();
+            StackFrame frame = trace.GetFrame(1);//1代表上级，2代表上上级，以此类推
+            MethodBase method = frame.GetMethod();
+            String className = method.ReflectedType.Name;
+
+            string log = string.Format("[{0}].[{1}].{2}", className, method.Name, summary);
+            WriteLog(LOG_LEVEL.FATAL, LOG_TYPE.LOG_TYPE_FORCE, log, ex);
+
+            //ex.ToExceptionless().Submit();
+        }
+
+        /// <summary>
+        /// 将信息写入日志
+        /// </summary>
+        /// <param name="level">日志级别</param>
+        /// <param name="type">日志类型</param>
+        /// <param name="message">信息</param>
+        public static void WriteLog(LOG_LEVEL level, LOG_TYPE type, object message)
+        {
+            //默认采用CPS_COMMON_LOG
+            WriteLogFunc(_logCpsCommonLog, level, type, message);
+        }
+
+        /// <summary>
+        /// 将信息写入日志(并记录异常抛出的位置信息)
+        /// </summary>
+        /// <param name="level">信息级别</param>
+        /// <param name="type">信息类型</param>
+        /// <param name="shortMsg">异常简要说明</param>
+        /// <param name="ex">异常信息</param>
+        public static void WriteLog(LOG_LEVEL level, LOG_TYPE type, string shortMsg, Exception ex)
+        {
+            StringBuilder strLog = new StringBuilder();
+            if (string.IsNullOrEmpty(shortMsg) == false)
+            {
+                strLog.Append(Environment.NewLine);
+                strLog.Append("描述：");
+                strLog.Append(shortMsg);
+                strLog.Append(Environment.NewLine);
+            }
+            strLog.Append("信息：" + ex.Message);
+            strLog.Append(Environment.NewLine);
+            strLog.Append("位置：" + ex.StackTrace);
+            strLog.Append(Environment.NewLine);
+
+            //异常信息采用CPS_EXCEPTION_LOG
+            WriteLogFunc(_logCpsExceptionLog, level, type, strLog.ToString());
+        }
+
+        /// <summary>
+        /// 写入日志
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="level"></param>
+        /// <param name="type"></param>
+        /// <param name="message"></param>
+        private static void WriteLogFunc(log4net.ILog logger, LOG_LEVEL level, LOG_TYPE type, object message)
+        {
+            //
+            if (!_dicTypeBitOperation.ContainsKey(type)) return;
+            if (_dicTypeBitOperation[type] == false) return;
+
+            string msg = string.Format(" [{0}] {1}", Enum.GetName(typeof(LOG_TYPE), type).Substring(9), message);
+            switch (level)
+            {
+                case LOG_LEVEL.DEBUG:
+                    if (logger.IsDebugEnabled)
+                        logger.Debug(msg);
+                    break;
+
+                case LOG_LEVEL.ERROR:
+                    if (logger.IsErrorEnabled)
+                        logger.Error(msg);
+                    break;
+
+                case LOG_LEVEL.FATAL:
+                    if (logger.IsFatalEnabled)
+                        logger.Fatal(msg);
+                    break;
+
+                case LOG_LEVEL.INFO:
+                    if (logger.IsInfoEnabled)
+                        logger.Info(msg);
+                    break;
+
+                case LOG_LEVEL.WARN:
+                    if (logger.IsWarnEnabled)
+                        logger.Warn(msg);
+                    break;
+            }
+            Logger.NewCommonLog(null, level, type, msg);
+
+#if DEBUG
+            //System.Console.WriteLine(message);
+#endif
+        }
+
+        private static void InitTypeBitOperation()
+        {
+            foreach (LOG_TYPE type in Enum.GetValues(typeof(LOG_TYPE)))
+            {
+                _dicTypeBitOperation[type] = true;
+            }
+        }
+
+        /// <summary>
+        /// 使能或使不能某种类型的消息
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="isEnable"></param>
+        public static void SetTypeBitOperation(LOG_TYPE type, bool isEnable)
+        {
+            if (type == LOG_TYPE.LOG_TYPE_FORCE)
+                isEnable = true;
+            _dicTypeBitOperation[type] = isEnable;
+        }
+
+        private static void CreateLogDirectives()
+        {
+            string DllDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);//获取当前dll（此处指
+            string dir1 = Path.Combine(DllDirectory, "Log");
+            string dir2 = Path.Combine(DllDirectory, "Log", "Common");
+            string dir3 = Path.Combine(DllDirectory, "Log", "Exception");
+            if (!Directory.Exists(dir1))
+                Directory.CreateDirectory(dir1);
+            if (!Directory.Exists(dir2))
+                Directory.CreateDirectory(dir2);
+            if (!Directory.Exists(dir3))
+                Directory.CreateDirectory(dir3);
+        }
+
+        #endregion 日志操作类
+    }
+}

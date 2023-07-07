@@ -1,0 +1,218 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace VisionPlatform
+{
+    public partial class FormSingleLine : Form
+    {
+        public LineParam m_lineParam = new LineParam();
+
+        //add by Rocky @ 20181207
+        private string strParamKey;
+
+        public FormSingleLine()
+        {
+            InitializeComponent();
+           
+        }
+
+        public void LoadParam(LineParam globalData)
+        {
+            try
+            {
+                m_lineParam = globalData;
+                //检测框宽
+                textBox_MeasureLen1.Text = globalData.EPMeasure.nMeasureLen1.ToString();
+                //检测框长
+                textBox_MeasureLen2.Text = globalData.EPMeasure.nMeasureLen2.ToString();
+                //边缘极性
+                string strTrans = globalData.EPMeasure.strTransition;
+                if ("positive" == strTrans)
+                    comboBox_Trans.SelectedIndex = 0;
+                else if ("negative" == strTrans)
+                    comboBox_Trans.SelectedIndex = 1;
+                //边缘选择
+                string strSel = globalData.EPMeasure.strSelect;
+                if ("first" == strSel)
+                    comboBox_Select.SelectedIndex = 0;
+                else if ("last" == strSel)
+                    comboBox_Select.SelectedIndex = 1;
+                //阈值
+                trackBar_Thd.Value = globalData.EPMeasure.nMeasureThd;
+                label_Thd.Text = globalData.EPMeasure.nMeasureThd.ToString();
+                Function.m_line  = globalData.lineIn;
+            }
+            catch (System.Exception ex)
+            {
+                //ErrorPrinter.WriteLine(string.Format("单直线模板参数加载出错！错误信息：{0}", ex.Message), ETraceDisplay.LISTBOX);
+                
+            }
+            return;
+        }
+
+        public LineParam InitParam()
+        {
+            LineParam param = new LineParam();
+            try
+            {
+                //检测框宽
+                if ("0" != textBox_MeasureLen1.Text)
+                {
+                    param.EPMeasure.nMeasureLen1 = int.Parse(textBox_MeasureLen1.Text);
+                }
+                else
+                    textBox_MeasureLen1.Text = "15";
+                //检测框长
+                if ("0" != textBox_MeasureLen2.Text)
+                {
+                    param.EPMeasure.nMeasureLen2 = int.Parse(textBox_MeasureLen2.Text);
+                }
+                else
+                    textBox_MeasureLen2.Text = "3";
+                //边缘极性
+                int nTrans = comboBox_Trans.SelectedIndex;
+                switch (nTrans)
+                {
+                    case 0:
+                        param.EPMeasure.strTransition = "positive";
+                        break;
+                    case 1:
+                        param.EPMeasure.strTransition = "negative";
+                        break;
+                    default:
+                        comboBox_Trans.SelectedIndex = 0;
+                        break;
+                }
+                //边缘选择
+                int nSel = comboBox_Select.SelectedIndex;
+                switch (nSel)
+                {
+                    case 0:
+                        param.EPMeasure.strSelect = "first";
+                        break;
+                    case 1:
+                        param.EPMeasure.strSelect = "last";
+                        break;
+                    default:
+                        comboBox_Select.SelectedIndex = 0;
+                        break;
+                }
+                //阈值
+                if(0 != trackBar_Thd.Value)
+                {
+                    param.EPMeasure.nMeasureThd = trackBar_Thd.Value;
+                    label_Thd.Text = param.EPMeasure.nMeasureThd.ToString();
+                }
+                else
+                {
+                    trackBar_Thd.Value = 20;
+                    label_Thd.Text = "20";
+                }
+                param.lineIn = Function.m_line;
+                m_lineParam = param;
+                return param;
+            }
+            catch (System.Exception ex)
+            {
+                return param;
+            }
+
+        }
+
+        private void trackBar_Thd_Scroll(object sender, EventArgs e)
+        {
+            if (null == Function.m_hImage)
+                return;
+            try
+            {
+                LineParam param = InitParam();
+                Line line = new Line();
+                if (!Function.FitLine(param, out line))
+                {
+                   // DebugPrinter.WriteLine(string.Format("直线获取失败！"), ETraceDisplay.LISTBOX);
+                    return;
+                }
+            }
+            catch (System.Exception ex)
+            {
+
+            }
+        }
+
+        private void but_SaveData_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                m_lineParam = InitParam();
+
+                //add by Rocky @ 20181207
+                if (strParamKey != null && !strParamKey.Equals(""))
+                {
+                    //if (FormMainUI.dicToolsParams.ContainsKey(strParamKey))
+                    //{
+                    //    FormMainUI.dicToolsParams[strParamKey] = m_lineParam;
+                    //}
+                    //else
+                    //{
+                    //    FormMainUI.dicToolsParams.Add(strParamKey, m_lineParam);
+                    //}
+                }
+
+                Line line = new Line();
+                if(Function.FitLine(m_lineParam, out line))
+                {
+                    ListViewItem listView = new ListViewItem();
+                    listView.SubItems.Add(Math.Round(line.dStartCol, 3).ToString());
+                    listView.SubItems.Add(Math.Round(line.dStartRow, 3).ToString());
+                    listView.SubItems.Add(Math.Round(line.dEndCol, 3).ToString());
+                    listView.SubItems.Add(Math.Round(line.dEndRow, 3).ToString());
+                    this.listView.Items.Add(listView);
+                    //update by Rocky @ 20181210
+                    //Function.m_richTextBox.AppendText("单条线段参数保存成功。\n");
+                   // DebugPrinter.WriteLine(string.Format("单条线段参数保存成功！"), ETraceDisplay.LISTBOX);
+                }
+                else
+                {
+                    //update by Rocky @ 20181210
+                    //Function.m_richTextBox.AppendText("单条线段参数保存失败！\n");
+                  //  DebugPrinter.WriteLine(string.Format("单条线段参数保存失败！"), ETraceDisplay.LISTBOX);
+                }
+            }
+            catch (System.Exception ex)
+            {
+            	
+            }
+        }
+
+        private void but_ClearData_Click(object sender, EventArgs e)
+        {
+            listView.Items.Clear();
+        }
+
+        private void FormSingleLine_Load(object sender, EventArgs e)
+        {
+            //检测框宽
+           textBox_MeasureLen1.Text = m_lineParam.EPMeasure.nMeasureLen1.ToString();
+           textBox_MeasureLen2.Text = m_lineParam.EPMeasure.nMeasureLen2.ToString();
+           comboBox_Trans.Text = m_lineParam.EPMeasure.strTransition;
+           comboBox_Select.Text = m_lineParam.EPMeasure.strSelect;
+           trackBar_Thd.Value = m_lineParam.EPMeasure.nMeasureThd;
+            label_Thd.Text = trackBar_Thd.Value.ToString();
+           LineParam param = InitParam();
+        }
+
+        //add by Rocky @ 20181207
+        public void SetParamKey(string strKey)
+        {
+            strParamKey = strKey;
+        }
+
+    }
+}

@@ -1,0 +1,303 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace VisionPlatform
+{
+    public partial class FormSizeMeasure : Form
+    {
+        public CircleParam m_circleParam = new CircleParam();
+        public LineParam m_lineParam = new LineParam();
+        public EllipseParam m_ellipseParam = new EllipseParam();
+        public Rect2Param m_rect2Param = new Rect2Param();
+
+        public FormCircle formCircle = new FormCircle();
+        public FormSingleLine formSingleLine = new FormSingleLine();
+        public FormEllipse formEllipse = new FormEllipse();
+        public FormRect2 formRect2 = new FormRect2();
+
+        public Line m_lineLeft = new Line();
+        public Line m_lineRight = new Line();
+
+        public int m_num = 0;
+        public FormSizeMeasure()
+        {
+            InitializeComponent();
+        }
+
+        private void FormSizeMeasure_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void treeView_Left_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            try
+            {
+                if(false == e.Node.Checked)
+                    this.panel_Left.Controls.Clear();
+                string strCheckName = e.Node.Text;
+                bool bChecked = e.Node.Checked;
+                foreach (TreeNode tn1 in treeView_Left.Nodes)
+                {
+                    if (tn1.Text != strCheckName)
+                    {
+                        if (tn1.Checked)
+                            tn1.Checked = false;
+                    }
+                }
+                if ("直线" == strCheckName && true == bChecked)
+                {
+                    formSingleLine.TopLevel = false;
+                    formSingleLine.Visible = true;
+                    formSingleLine.Dock = DockStyle.Fill;
+                    this.panel_Left.Controls.Clear();
+                    this.panel_Left.Controls.Add(formSingleLine);
+                }
+                if ("圆" == strCheckName && true == bChecked)
+                {
+                    formCircle.TopLevel = false;
+                    formCircle.Visible = true;
+                    formCircle.Dock = DockStyle.Fill;
+                    this.panel_Left.Controls.Clear();
+                    this.panel_Left.Controls.Add(formCircle);
+                }
+                if ("椭圆" == strCheckName && true == bChecked)
+                {
+                    formEllipse.TopLevel = false;
+                    formEllipse.Visible = true;
+                    formEllipse.Dock = DockStyle.Fill;
+                    this.panel_Left.Controls.Clear();
+                    this.panel_Left.Controls.Add(formEllipse);
+                }
+                if ("矩形" == strCheckName && true == bChecked)
+                {
+                    formRect2.TopLevel = false;
+                    formRect2.Visible = true;
+                    formRect2.Dock = DockStyle.Fill;
+                    this.panel_Left.Controls.Clear();
+                    this.panel_Left.Controls.Add(formRect2);
+                }
+            }
+            catch (SystemException err)
+            {
+
+            }
+
+        }
+
+        private void but_LeftCal_Click(object sender, EventArgs e)
+        {
+            if (null == Function.m_hImage)
+                return;
+            Line line = new Line();
+            Circle circle = new Circle();
+            Ellipse ellipse = new Ellipse();
+            Rect2 rect2 = new Rect2();
+
+            foreach (TreeNode tn in treeView_Left.Nodes)
+            {
+                if (tn.Checked)
+                {
+                    if("直线" == tn.Text)
+                    {
+                        Function.FitLine(formSingleLine.m_lineParam, out m_lineLeft);
+                        tn.FirstNode.Text = tn.FirstNode.Text + Math.Round(line.dStartRow,2).ToString() + "," + Math.Round(line.dStartCol,2).ToString();
+                        tn.LastNode.Text = tn.LastNode.Text + Math.Round(line.dEndRow, 2).ToString() + "," + Math.Round(line.dEndCol, 2).ToString();
+                    }
+                    if("圆" == tn.Text)
+                    {
+                        Function.FitCircle(formCircle.m_circleParam, out circle);
+                        tn.FirstNode.Text = tn.FirstNode.Text + Math.Round(circle.dRow, 2).ToString() + "," + Math.Round(circle.dCol, 2).ToString();
+                        tn.LastNode.Text = tn.LastNode.Text + Math.Round(circle.dRadius, 2).ToString();
+                    }
+                    if("椭圆" == tn.Text)
+                    {
+                        Function.FitEllipse(formEllipse.m_ellipseParam, out ellipse);
+                        tn.Nodes[0].Text = tn.Nodes[0].Text + Math.Round(ellipse.dRow, 2).ToString() + "," + Math.Round(ellipse.dColumn, 2).ToString();
+                        tn.Nodes[1].Text = tn.Nodes[1].Text + Math.Round(ellipse.dPhi, 2).ToString();
+                        tn.Nodes[2].Text = tn.Nodes[2].Text + Math.Round(ellipse.dRadius1, 2).ToString();
+                        tn.Nodes[3].Text = tn.Nodes[3].Text + Math.Round(ellipse.dRadius2, 2).ToString();
+                    }
+                    if("矩形" == tn.Text)
+                    {
+                        Function.FitRect2(formRect2.m_rect2Param, out rect2);
+                        tn.Nodes[0].Text = tn.Nodes[0].Text + Math.Round(rect2.dRect2Row, 2).ToString() + "," + Math.Round(rect2.dRect2Col, 2).ToString();
+                        tn.Nodes[1].Text = tn.Nodes[1].Text + Math.Round(rect2.dPhi, 2).ToString();
+                        tn.Nodes[2].Text = tn.Nodes[2].Text + Math.Round(rect2.dLength1, 2).ToString();
+                        tn.Nodes[3].Text = tn.Nodes[3].Text + Math.Round(rect2.dLength2, 2).ToString();
+                    }
+                }
+               
+            }
+        }
+
+        private void treeView_Right_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            try
+            {
+                if (false == e.Node.Checked)
+                    this.panel_right.Controls.Clear();
+                string strCheckName = e.Node.Text;
+                bool bChecked = e.Node.Checked;
+                foreach (TreeNode tn1 in treeView_Right.Nodes)
+                {
+                    if (tn1.Text != strCheckName)
+                    {
+                        if (tn1.Checked)
+                            tn1.Checked = false;
+                    }
+                }
+                if ("直线" == strCheckName && true == bChecked)
+                {
+                    formSingleLine.TopLevel = false;
+                    formSingleLine.Visible = true;
+                    formSingleLine.Dock = DockStyle.Fill;
+                    this.panel_right.Controls.Clear();
+                    this.panel_right.Controls.Add(formSingleLine);
+                }
+                if ("圆" == strCheckName && true == bChecked)
+                {
+                    formCircle.TopLevel = false;
+                    formCircle.Visible = true;
+                    formCircle.Dock = DockStyle.Fill;
+                    this.panel_right.Controls.Clear();
+                    this.panel_right.Controls.Add(formCircle);
+                }
+                if ("椭圆" == strCheckName && true == bChecked)
+                {
+                    formEllipse.TopLevel = false;
+                    formEllipse.Visible = true;
+                    formEllipse.Dock = DockStyle.Fill;
+                    this.panel_right.Controls.Clear();
+                    this.panel_right.Controls.Add(formEllipse);
+                }
+                if ("矩形" == strCheckName && true == bChecked)
+                {
+                    formRect2.TopLevel = false;
+                    formRect2.Visible = true;
+                    formRect2.Dock = DockStyle.Fill;
+                    this.panel_right.Controls.Clear();
+                    this.panel_right.Controls.Add(formRect2);
+                }
+            }
+            catch (SystemException err)
+            {
+
+            }
+        }
+
+        private void but_RightCal_Click(object sender, EventArgs e)
+        {
+            if (null == Function.m_hImage)
+                return;
+            Line line = new Line();
+            Circle circle = new Circle();
+            Ellipse ellipse = new Ellipse();
+            Rect2 rect2 = new Rect2();
+
+            foreach (TreeNode tn in treeView_Right.Nodes)
+            {
+                if (tn.Checked)
+                {
+                    if ("直线" == tn.Text)
+                    {
+                        Function.FitLine(formSingleLine.m_lineParam, out m_lineRight);
+                        tn.FirstNode.Text = tn.FirstNode.Text + Math.Round(line.dStartRow, 2).ToString() + "," + Math.Round(line.dStartCol, 2).ToString();
+                        tn.LastNode.Text = tn.LastNode.Text + Math.Round(line.dEndRow, 2).ToString() + "," + Math.Round(line.dEndCol, 2).ToString();
+                    }
+                    if ("圆" == tn.Text)
+                    {
+                        Function.FitCircle(formCircle.m_circleParam, out circle);
+                        tn.FirstNode.Text = tn.FirstNode.Text + Math.Round(circle.dRow, 2).ToString() + "," + Math.Round(circle.dCol, 2).ToString();
+                        tn.LastNode.Text = tn.LastNode.Text + Math.Round(circle.dRadius, 2).ToString();
+                    }
+                    if ("椭圆" == tn.Text)
+                    {
+                        Function.FitEllipse(formEllipse.m_ellipseParam, out ellipse);
+                        tn.Nodes[0].Text = tn.Nodes[0].Text + Math.Round(ellipse.dRow, 2).ToString() + "," + Math.Round(ellipse.dColumn, 2).ToString();
+                        tn.Nodes[1].Text = tn.Nodes[1].Text + Math.Round(ellipse.dPhi, 2).ToString();
+                        tn.Nodes[2].Text = tn.Nodes[2].Text + Math.Round(ellipse.dRadius1, 2).ToString();
+                        tn.Nodes[3].Text = tn.Nodes[3].Text + Math.Round(ellipse.dRadius2, 2).ToString();
+                    }
+                    if ("矩形" == tn.Text)
+                    {
+                        Function.FitRect2(formRect2.m_rect2Param, out rect2);
+                        tn.Nodes[0].Text = tn.Nodes[0].Text + Math.Round(rect2.dRect2Row, 2).ToString() + "," + Math.Round(rect2.dRect2Col, 2).ToString();
+                        tn.Nodes[1].Text = tn.Nodes[1].Text + Math.Round(rect2.dPhi, 2).ToString();
+                        tn.Nodes[2].Text = tn.Nodes[2].Text + Math.Round(rect2.dLength1, 2).ToString();
+                        tn.Nodes[3].Text = tn.Nodes[3].Text + Math.Round(rect2.dLength2, 2).ToString();
+                    }
+                }
+
+            }
+        }
+
+        private void but_Add_Click(object sender, EventArgs e)
+        {
+            PointF interPoint = new PointF();
+            double dDistMin = 0, dDistMax = 0, dAngle = 0;
+            int n = this.listView.Items.Count;
+            foreach (TreeNode tn_left in treeView_Left.Nodes)
+            {
+                foreach (TreeNode tn_right in treeView_Right.Nodes)
+                {
+                    if (tn_left.Checked && tn_right.Checked)
+                    {
+                        this.listView.Items.Add(n.ToString());
+                        this.listView.Items[n].SubItems.Add(tn_left.Text);
+                        this.listView.Items[n].SubItems.Add(tn_right.Text);
+                    }
+                }
+            }
+            //Function.IntersectionL2L(m_lineLeft, m_lineRight, out interPoint, out dDistMin, out dDistMax, out dAngle);
+        }
+
+        private void but_Del_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (ListViewItem lvi in listView.SelectedItems)  //选中项遍历 
+                {
+                    listView.Items.RemoveAt(lvi.Index); // 按索引移除 //listView1.Items.Remove(lvi);   //按项移除
+
+                    List<ListViewItem> aa = new List<ListViewItem>();
+                    foreach (ListViewItem item in listView.Items)
+                    {
+                        ListViewItem listViewitem = new ListViewItem();
+
+                        for (int i = 1; i < item.SubItems.Count; i++)
+                        {
+                            listViewitem.SubItems.Add(item.SubItems[i].Text);
+                        }
+                        aa.Add(listViewitem);
+                    }
+                    listView.Items.Clear();
+                    for (int n = 0; n < aa.Count; n++)
+                    {
+                        this.listView.Items.Add(n.ToString());
+                        for (int i = 1; i < aa[n].SubItems.Count; i++)
+                        {
+                            this.listView.Items[n].SubItems.Add(aa[n].SubItems[i].Text);
+                        }
+                    }
+                }
+            }
+            catch(SystemException ex)
+            {
+
+            }
+        }
+
+        private void but_Calculate_Click(object sender, EventArgs e)
+        {
+           
+        }
+    }
+}

@@ -1,0 +1,717 @@
+﻿namespace VisionPlatform
+{
+    partial class FormMainUI
+    {
+        /// <summary>
+        /// 必需的设计器变量。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// 清理所有正在使用的资源。
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows 窗体设计器生成的代码
+
+        /// <summary>
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainUI));
+            this.tabControlFunctionList = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripBut_Calib = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBut_Locate = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBut_Measure = new System.Windows.Forms.ToolStripButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelWindow = new System.Windows.Forms.Panel();
+            this.hWindowControl = new HalconDotNet.HWindowControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem_SetDraw = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_SetDrawFill = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_SetDrawMargin = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_SetColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.red = new System.Windows.Forms.ToolStripMenuItem();
+            this.green = new System.Windows.Forms.ToolStripMenuItem();
+            this.yellow = new System.Windows.Forms.ToolStripMenuItem();
+            this.blue = new System.Windows.Forms.ToolStripMenuItem();
+            this.cyan = new System.Windows.Forms.ToolStripMenuItem();
+            this.orange = new System.Windows.Forms.ToolStripMenuItem();
+            this.pink = new System.Windows.Forms.ToolStripMenuItem();
+            this.orange_red = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripBut_InputImage = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBut_SaveImg2File = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripBut_DrawRect1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBut_DrawCircle = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBut_DrawLine = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBut_DrawRect2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBut_DrawEllipse = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripBut_RecoverImg = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBut_MoveImage = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBut_ShowCross = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripComboBox_lineWidth = new System.Windows.Forms.ToolStripComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label_DrawShape = new System.Windows.Forms.Label();
+            this.label_GrayVal = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label_Column = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label_Row = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label_DrawShapeArea = new System.Windows.Forms.Label();
+            this.panel_WinForm = new System.Windows.Forms.Panel();
+            this.panel_ShowControl = new System.Windows.Forms.Panel();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.tabControlFunctionList.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panelWindow.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // tabControlFunctionList
+            // 
+            this.tabControlFunctionList.Controls.Add(this.tabPage1);
+            this.tabControlFunctionList.Controls.Add(this.tabPage2);
+            this.tabControlFunctionList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControlFunctionList.Location = new System.Drawing.Point(0, 0);
+            this.tabControlFunctionList.Name = "tabControlFunctionList";
+            this.tabControlFunctionList.SelectedIndex = 0;
+            this.tabControlFunctionList.Size = new System.Drawing.Size(1105, 91);
+            this.tabControlFunctionList.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.DimGray;
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1097, 65);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "文件";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.DimGray;
+            this.tabPage2.Controls.Add(this.toolStrip2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1097, 65);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "功能";
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripBut_Calib,
+            this.toolStripBut_Locate,
+            this.toolStripBut_Measure});
+            this.toolStrip2.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip2.Size = new System.Drawing.Size(1091, 59);
+            this.toolStrip2.TabIndex = 0;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripBut_Calib
+            // 
+            this.toolStripBut_Calib.AutoSize = false;
+            this.toolStripBut_Calib.BackColor = System.Drawing.Color.DarkGray;
+            this.toolStripBut_Calib.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripBut_Calib.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBut_Calib.Image")));
+            this.toolStripBut_Calib.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBut_Calib.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBut_Calib.Name = "toolStripBut_Calib";
+            this.toolStripBut_Calib.Size = new System.Drawing.Size(50, 50);
+            this.toolStripBut_Calib.Text = "标定";
+            this.toolStripBut_Calib.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripBut_Calib.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripBut_Calib.Click += new System.EventHandler(this.toolStripBut_Calib_Click);
+            // 
+            // toolStripBut_Locate
+            // 
+            this.toolStripBut_Locate.AutoSize = false;
+            this.toolStripBut_Locate.BackColor = System.Drawing.Color.DarkGray;
+            this.toolStripBut_Locate.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripBut_Locate.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBut_Locate.Image")));
+            this.toolStripBut_Locate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBut_Locate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBut_Locate.Name = "toolStripBut_Locate";
+            this.toolStripBut_Locate.Size = new System.Drawing.Size(50, 50);
+            this.toolStripBut_Locate.Text = "定位";
+            this.toolStripBut_Locate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripBut_Locate.Click += new System.EventHandler(this.toolStripBut_Locate_Click);
+            // 
+            // toolStripBut_Measure
+            // 
+            this.toolStripBut_Measure.AutoSize = false;
+            this.toolStripBut_Measure.BackColor = System.Drawing.Color.DarkGray;
+            this.toolStripBut_Measure.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripBut_Measure.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBut_Measure.Image")));
+            this.toolStripBut_Measure.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBut_Measure.Name = "toolStripBut_Measure";
+            this.toolStripBut_Measure.Size = new System.Drawing.Size(45, 43);
+            this.toolStripBut_Measure.Text = "尺寸测量";
+            this.toolStripBut_Measure.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripBut_Measure.Click += new System.EventHandler(this.toolStripBut_Measure_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.Controls.Add(this.panelWindow, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel_WinForm, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel_ShowControl, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 91);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1105, 499);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // panelWindow
+            // 
+            this.panelWindow.Controls.Add(this.hWindowControl);
+            this.panelWindow.Controls.Add(this.toolStrip1);
+            this.panelWindow.Controls.Add(this.panel1);
+            this.panelWindow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelWindow.Location = new System.Drawing.Point(446, 4);
+            this.panelWindow.Name = "panelWindow";
+            this.panelWindow.Size = new System.Drawing.Size(655, 491);
+            this.panelWindow.TabIndex = 0;
+            // 
+            // hWindowControl
+            // 
+            this.hWindowControl.BackColor = System.Drawing.Color.Black;
+            this.hWindowControl.BorderColor = System.Drawing.Color.Black;
+            this.hWindowControl.ContextMenuStrip = this.contextMenuStrip1;
+            this.hWindowControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hWindowControl.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
+            this.hWindowControl.Location = new System.Drawing.Point(0, 25);
+            this.hWindowControl.Name = "hWindowControl";
+            this.hWindowControl.Size = new System.Drawing.Size(655, 439);
+            this.hWindowControl.TabIndex = 1;
+            this.hWindowControl.WindowSize = new System.Drawing.Size(655, 439);
+            this.hWindowControl.HMouseMove += new HalconDotNet.HMouseEventHandler(this.hWindowControl_HMouseMove);
+            this.hWindowControl.HMouseDown += new HalconDotNet.HMouseEventHandler(this.hWindowControl_HMouseDown);
+            this.hWindowControl.HMouseUp += new HalconDotNet.HMouseEventHandler(this.hWindowControl_HMouseUp);
+            this.hWindowControl.HMouseWheel += new HalconDotNet.HMouseEventHandler(this.hWindowControl_HMouseWheel);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_SetDraw,
+            this.toolStripMenuItem_SetColor});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
+            // 
+            // toolStripMenuItem_SetDraw
+            // 
+            this.toolStripMenuItem_SetDraw.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_SetDrawFill,
+            this.toolStripMenuItem_SetDrawMargin});
+            this.toolStripMenuItem_SetDraw.Name = "toolStripMenuItem_SetDraw";
+            this.toolStripMenuItem_SetDraw.Size = new System.Drawing.Size(124, 22);
+            this.toolStripMenuItem_SetDraw.Text = "绘制形式";
+            // 
+            // toolStripMenuItem_SetDrawFill
+            // 
+            this.toolStripMenuItem_SetDrawFill.Name = "toolStripMenuItem_SetDrawFill";
+            this.toolStripMenuItem_SetDrawFill.Size = new System.Drawing.Size(100, 22);
+            this.toolStripMenuItem_SetDrawFill.Text = "填充";
+            this.toolStripMenuItem_SetDrawFill.Click += new System.EventHandler(this.toolStripMenuItem_SetDrawFill_Click);
+            // 
+            // toolStripMenuItem_SetDrawMargin
+            // 
+            this.toolStripMenuItem_SetDrawMargin.Name = "toolStripMenuItem_SetDrawMargin";
+            this.toolStripMenuItem_SetDrawMargin.Size = new System.Drawing.Size(100, 22);
+            this.toolStripMenuItem_SetDrawMargin.Text = "轮廓";
+            this.toolStripMenuItem_SetDrawMargin.Click += new System.EventHandler(this.toolStripMenuItem_SetDrawMargin_Click);
+            // 
+            // toolStripMenuItem_SetColor
+            // 
+            this.toolStripMenuItem_SetColor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.red,
+            this.green,
+            this.yellow,
+            this.blue,
+            this.cyan,
+            this.orange,
+            this.pink,
+            this.orange_red});
+            this.toolStripMenuItem_SetColor.Name = "toolStripMenuItem_SetColor";
+            this.toolStripMenuItem_SetColor.Size = new System.Drawing.Size(124, 22);
+            this.toolStripMenuItem_SetColor.Text = "显示颜色";
+            // 
+            // red
+            // 
+            this.red.Name = "red";
+            this.red.Size = new System.Drawing.Size(142, 22);
+            this.red.Text = "red";
+            this.red.Click += new System.EventHandler(this.red_Click);
+            // 
+            // green
+            // 
+            this.green.Name = "green";
+            this.green.Size = new System.Drawing.Size(142, 22);
+            this.green.Text = "green";
+            this.green.Click += new System.EventHandler(this.green_Click);
+            // 
+            // yellow
+            // 
+            this.yellow.Name = "yellow";
+            this.yellow.Size = new System.Drawing.Size(142, 22);
+            this.yellow.Text = "yellow";
+            this.yellow.Click += new System.EventHandler(this.yellow_Click);
+            // 
+            // blue
+            // 
+            this.blue.Name = "blue";
+            this.blue.Size = new System.Drawing.Size(142, 22);
+            this.blue.Text = "blue";
+            this.blue.Click += new System.EventHandler(this.blue_Click);
+            // 
+            // cyan
+            // 
+            this.cyan.Name = "cyan";
+            this.cyan.Size = new System.Drawing.Size(142, 22);
+            this.cyan.Text = "cyan";
+            this.cyan.Click += new System.EventHandler(this.cyan_Click);
+            // 
+            // orange
+            // 
+            this.orange.Name = "orange";
+            this.orange.Size = new System.Drawing.Size(142, 22);
+            this.orange.Text = "orange";
+            this.orange.Click += new System.EventHandler(this.orange_Click);
+            // 
+            // pink
+            // 
+            this.pink.Name = "pink";
+            this.pink.Size = new System.Drawing.Size(142, 22);
+            this.pink.Text = "pink";
+            this.pink.Click += new System.EventHandler(this.pink_Click);
+            // 
+            // orange_red
+            // 
+            this.orange_red.Name = "orange_red";
+            this.orange_red.Size = new System.Drawing.Size(142, 22);
+            this.orange_red.Text = "orange red";
+            this.orange_red.Click += new System.EventHandler(this.orange_red_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripBut_InputImage,
+            this.toolStripBut_SaveImg2File,
+            this.toolStripSeparator1,
+            this.toolStripBut_DrawRect1,
+            this.toolStripBut_DrawCircle,
+            this.toolStripBut_DrawLine,
+            this.toolStripBut_DrawRect2,
+            this.toolStripBut_DrawEllipse,
+            this.toolStripSeparator2,
+            this.toolStripBut_RecoverImg,
+            this.toolStripBut_MoveImage,
+            this.toolStripBut_ShowCross,
+            this.toolStripSeparator3,
+            this.toolStripDropDownButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(655, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripBut_InputImage
+            // 
+            this.toolStripBut_InputImage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBut_InputImage.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBut_InputImage.Image")));
+            this.toolStripBut_InputImage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBut_InputImage.Name = "toolStripBut_InputImage";
+            this.toolStripBut_InputImage.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBut_InputImage.Tag = "";
+            this.toolStripBut_InputImage.Text = "从本地文件导入图片";
+            this.toolStripBut_InputImage.Click += new System.EventHandler(this.toolStripBut_InputImage_Click);
+            // 
+            // toolStripBut_SaveImg2File
+            // 
+            this.toolStripBut_SaveImg2File.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBut_SaveImg2File.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBut_SaveImg2File.Image")));
+            this.toolStripBut_SaveImg2File.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBut_SaveImg2File.Name = "toolStripBut_SaveImg2File";
+            this.toolStripBut_SaveImg2File.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBut_SaveImg2File.Text = "保存图片到本地文件";
+            this.toolStripBut_SaveImg2File.Click += new System.EventHandler(this.toolStripBut_SaveImg2File_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripBut_DrawRect1
+            // 
+            this.toolStripBut_DrawRect1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBut_DrawRect1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBut_DrawRect1.Image")));
+            this.toolStripBut_DrawRect1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBut_DrawRect1.Name = "toolStripBut_DrawRect1";
+            this.toolStripBut_DrawRect1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBut_DrawRect1.Text = "绘制矩形1";
+            this.toolStripBut_DrawRect1.Click += new System.EventHandler(this.toolStripBut_DrawRect1_Click);
+            // 
+            // toolStripBut_DrawCircle
+            // 
+            this.toolStripBut_DrawCircle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBut_DrawCircle.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBut_DrawCircle.Image")));
+            this.toolStripBut_DrawCircle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBut_DrawCircle.Name = "toolStripBut_DrawCircle";
+            this.toolStripBut_DrawCircle.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBut_DrawCircle.Text = "绘制圆形";
+            this.toolStripBut_DrawCircle.Click += new System.EventHandler(this.toolStripBut_DrawCircle_Click);
+            // 
+            // toolStripBut_DrawLine
+            // 
+            this.toolStripBut_DrawLine.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBut_DrawLine.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBut_DrawLine.Image")));
+            this.toolStripBut_DrawLine.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBut_DrawLine.Name = "toolStripBut_DrawLine";
+            this.toolStripBut_DrawLine.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBut_DrawLine.Text = "绘制直线";
+            this.toolStripBut_DrawLine.Click += new System.EventHandler(this.toolStripBut_DrawLine_Click);
+            // 
+            // toolStripBut_DrawRect2
+            // 
+            this.toolStripBut_DrawRect2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBut_DrawRect2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBut_DrawRect2.Image")));
+            this.toolStripBut_DrawRect2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBut_DrawRect2.Name = "toolStripBut_DrawRect2";
+            this.toolStripBut_DrawRect2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBut_DrawRect2.Text = "绘制矩形2";
+            this.toolStripBut_DrawRect2.Click += new System.EventHandler(this.toolStripBut_DrawRect2_Click);
+            // 
+            // toolStripBut_DrawEllipse
+            // 
+            this.toolStripBut_DrawEllipse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBut_DrawEllipse.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBut_DrawEllipse.Image")));
+            this.toolStripBut_DrawEllipse.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBut_DrawEllipse.Name = "toolStripBut_DrawEllipse";
+            this.toolStripBut_DrawEllipse.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBut_DrawEllipse.Text = "绘制椭圆";
+            this.toolStripBut_DrawEllipse.Click += new System.EventHandler(this.toolStripBut_DrawEllipse_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripBut_RecoverImg
+            // 
+            this.toolStripBut_RecoverImg.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBut_RecoverImg.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBut_RecoverImg.Image")));
+            this.toolStripBut_RecoverImg.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBut_RecoverImg.Name = "toolStripBut_RecoverImg";
+            this.toolStripBut_RecoverImg.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBut_RecoverImg.Text = "原图比例";
+            this.toolStripBut_RecoverImg.Click += new System.EventHandler(this.toolStripBut_RecoverImg_Click);
+            // 
+            // toolStripBut_MoveImage
+            // 
+            this.toolStripBut_MoveImage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBut_MoveImage.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBut_MoveImage.Image")));
+            this.toolStripBut_MoveImage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBut_MoveImage.Name = "toolStripBut_MoveImage";
+            this.toolStripBut_MoveImage.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBut_MoveImage.Text = "移动图像";
+            this.toolStripBut_MoveImage.Click += new System.EventHandler(this.toolStripBut_MoveImage_Click);
+            // 
+            // toolStripBut_ShowCross
+            // 
+            this.toolStripBut_ShowCross.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBut_ShowCross.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBut_ShowCross.Image")));
+            this.toolStripBut_ShowCross.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBut_ShowCross.Name = "toolStripBut_ShowCross";
+            this.toolStripBut_ShowCross.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBut_ShowCross.Text = "显示十字线";
+            this.toolStripBut_ShowCross.Click += new System.EventHandler(this.toolStripBut_ShowCross_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBox_lineWidth});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 22);
+            this.toolStripDropDownButton1.Text = "线条粗细";
+            // 
+            // toolStripComboBox_lineWidth
+            // 
+            this.toolStripComboBox_lineWidth.AutoSize = false;
+            this.toolStripComboBox_lineWidth.DropDownWidth = 45;
+            this.toolStripComboBox_lineWidth.MergeIndex = 0;
+            this.toolStripComboBox_lineWidth.Name = "toolStripComboBox_lineWidth";
+            this.toolStripComboBox_lineWidth.Size = new System.Drawing.Size(45, 25);
+            this.toolStripComboBox_lineWidth.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox_lineWidth_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label_DrawShape);
+            this.panel1.Controls.Add(this.label_GrayVal);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label_Column);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label_Row);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label_DrawShapeArea);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 464);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(655, 27);
+            this.panel1.TabIndex = 2;
+            // 
+            // label_DrawShape
+            // 
+            this.label_DrawShape.AutoSize = true;
+            this.label_DrawShape.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_DrawShape.Location = new System.Drawing.Point(631, 0);
+            this.label_DrawShape.Name = "label_DrawShape";
+            this.label_DrawShape.Size = new System.Drawing.Size(11, 12);
+            this.label_DrawShape.TabIndex = 8;
+            this.label_DrawShape.Text = "-";
+            this.label_DrawShape.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label_GrayVal
+            // 
+            this.label_GrayVal.AutoSize = true;
+            this.label_GrayVal.Location = new System.Drawing.Point(285, 9);
+            this.label_GrayVal.Name = "label_GrayVal";
+            this.label_GrayVal.Size = new System.Drawing.Size(11, 12);
+            this.label_GrayVal.TabIndex = 7;
+            this.label_GrayVal.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(235, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "灰度值：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(212, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 12);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "）";
+            // 
+            // label_Column
+            // 
+            this.label_Column.AutoSize = true;
+            this.label_Column.Location = new System.Drawing.Point(169, 9);
+            this.label_Column.Name = "label_Column";
+            this.label_Column.Size = new System.Drawing.Size(11, 12);
+            this.label_Column.TabIndex = 4;
+            this.label_Column.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(120, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 12);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Column:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(107, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(11, 12);
+            this.label3.TabIndex = 2;
+            this.label3.Text = ",";
+            // 
+            // label_Row
+            // 
+            this.label_Row.AutoSize = true;
+            this.label_Row.Location = new System.Drawing.Point(70, 9);
+            this.label_Row.Name = "label_Row";
+            this.label_Row.Size = new System.Drawing.Size(11, 12);
+            this.label_Row.TabIndex = 1;
+            this.label_Row.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "坐标（Row:";
+            // 
+            // label_DrawShapeArea
+            // 
+            this.label_DrawShapeArea.AutoSize = true;
+            this.label_DrawShapeArea.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_DrawShapeArea.Location = new System.Drawing.Point(642, 0);
+            this.label_DrawShapeArea.Name = "label_DrawShapeArea";
+            this.label_DrawShapeArea.Size = new System.Drawing.Size(11, 12);
+            this.label_DrawShapeArea.TabIndex = 9;
+            this.label_DrawShapeArea.Text = "-";
+            this.label_DrawShapeArea.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel_WinForm
+            // 
+            this.panel_WinForm.BackColor = System.Drawing.Color.DimGray;
+            this.panel_WinForm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_WinForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_WinForm.Location = new System.Drawing.Point(115, 4);
+            this.panel_WinForm.Name = "panel_WinForm";
+            this.panel_WinForm.Size = new System.Drawing.Size(324, 491);
+            this.panel_WinForm.TabIndex = 1;
+            // 
+            // panel_ShowControl
+            // 
+            this.panel_ShowControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_ShowControl.Location = new System.Drawing.Point(4, 4);
+            this.panel_ShowControl.Name = "panel_ShowControl";
+            this.panel_ShowControl.Size = new System.Drawing.Size(104, 491);
+            this.panel_ShowControl.TabIndex = 2;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            // 
+            // FormMainUI
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DimGray;
+            this.ClientSize = new System.Drawing.Size(1105, 590);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tabControlFunctionList);
+            this.Name = "FormMainUI";
+            this.Text = "视觉通用平台";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormMainUI_Load);
+            this.tabControlFunctionList.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panelWindow.ResumeLayout(false);
+            this.panelWindow.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TabControl tabControlFunctionList;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panelWindow;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private HalconDotNet.HWindowControl hWindowControl;
+        private System.Windows.Forms.ToolStripButton toolStripBut_InputImage;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton toolStripBut_Locate;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.ToolStripButton toolStripBut_SaveImg2File;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripBut_DrawRect1;
+        private System.Windows.Forms.ToolStripButton toolStripBut_DrawCircle;
+        private System.Windows.Forms.ToolStripButton toolStripBut_DrawLine;
+        private System.Windows.Forms.ToolStripButton toolStripBut_DrawRect2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton toolStripBut_RecoverImg;
+        private System.Windows.Forms.ToolStripButton toolStripBut_MoveImage;
+        private System.Windows.Forms.ToolStripButton toolStripBut_Calib;
+        private System.Windows.Forms.ToolStripButton toolStripBut_Measure;
+        private System.Windows.Forms.Panel panel_WinForm;
+        private System.Windows.Forms.ToolStripButton toolStripBut_ShowCross;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_Column;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_Row;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_GrayVal;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label_DrawShapeArea;
+        private System.Windows.Forms.Label label_DrawShape;
+        private System.Windows.Forms.Panel panel_ShowControl;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_SetDraw;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_SetColor;
+        private System.Windows.Forms.ToolStripMenuItem red;
+        private System.Windows.Forms.ToolStripMenuItem green;
+        private System.Windows.Forms.ToolStripMenuItem yellow;
+        private System.Windows.Forms.ToolStripMenuItem blue;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_SetDrawFill;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_SetDrawMargin;
+        private System.Windows.Forms.ToolStripMenuItem cyan;
+        private System.Windows.Forms.ToolStripMenuItem orange;
+        private System.Windows.Forms.ToolStripMenuItem pink;
+        private System.Windows.Forms.ToolStripMenuItem orange_red;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox_lineWidth;
+        private System.Windows.Forms.ToolStripButton toolStripBut_DrawEllipse;
+    }
+}
+

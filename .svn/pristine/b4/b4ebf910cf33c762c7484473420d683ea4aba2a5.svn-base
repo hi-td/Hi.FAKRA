@@ -1,0 +1,201 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using HalconDotNet;
+
+namespace VisionPlatform
+{
+    public struct ShowParam
+    {
+        public string draw;
+        public int lineWidth;
+        public string color;
+    }
+
+    [Serializable]
+    //矩形1
+    public struct Rect1
+    {
+        public double dRectRow1;
+        public double dRectCol1;
+        public double dRectRow2;
+        public double dRectCol2;
+    }
+
+    [Serializable]
+    //矩形2
+    public struct Rect2
+    {
+        public double dRect2Row;
+        public double dRect2Col;
+        public double dPhi;
+        public double dLength1;
+        public double dLength2;
+    }
+
+    [Serializable]
+    //圆
+    public struct Circle
+    {
+        public double dRow;
+        public double dCol;
+        public double dRadius;
+    }
+
+    [Serializable]
+    //椭圆
+    public struct Ellipse
+    {
+        public double dRow;
+        public double dColumn;
+        public double dPhi;
+        public double dRadius1;
+        public double dRadius2;
+    }
+
+    [Serializable]
+    //直线
+    public struct Line
+    {
+        public double dStartRow;            //直线起始点row
+        public double dStartCol;            //直线起始点col
+        public double dEndRow;              //直线结束点row
+        public double dEndCol;              //直线结束点col
+    }
+
+    [Serializable]
+    //边缘梯度变化点参数
+    public struct EdgePointMeasure
+    {
+        public int nMeasureLen1;             //直线搜索框length1
+        public int nMeasureLen2;             //直线搜索框length2
+        public int nMeasureThd;              //边缘点阈值  
+        public string strTransition;         //边缘灰度变化,暗到亮positive，亮到暗negative
+        public string strSelect;             //边缘点选择:first,last
+    }
+
+    [Serializable]
+
+    //定位模板输入参数
+    public struct LocatInParams
+    {
+        public int nModelType;         //创建模板的方式：1轮廓，0区域，2灰度
+        public double dAngleStart;     //模板搜索起始角度  备注：弧度
+        public double dAngleEnd;       //模板搜索结束角度  备注：弧度
+        public string strModelName;           //模板名字
+    }
+
+    [Serializable]
+    //定位模板输出参数
+    public struct LocatOutParams
+    {
+        public double dModelRow;
+        public double dModelCol;
+        public double dModelAngle;
+        public int nModelID;
+    }
+
+    #region 相机标定
+    public enum CamCalibType
+    {
+        Checker,
+        CirclePoint,
+        Code2D
+    };
+
+    //棋盘格标定
+    [Serializable]
+    public struct CheckerCalibParam
+    {
+        public double dLength;    //棋盘格大小
+        public double dRectangularity; //棋盘格矩形度
+        public int nThreshold;     //阈值：白色背景，黑色格子
+    }
+
+    //圆点标定
+    [Serializable]
+    public struct CirclePointCalibParam
+    {
+        public double dCircleDiam;  //圆点直径
+        public double dCircleSpace; //圆点间距    
+        public int nThd;            //阈值：白色背景，黑色圆点
+        public double dCircularity; //圆形度
+    }
+    //二维码标定
+    [Serializable]
+    public struct Code2DCalibParam
+    {
+        public string strCodeType;
+    }
+
+    [Serializable]
+    //标定结果
+    public struct CalibrateResult
+    {
+        public double dXCalib;    //水平方向标定系数
+        public double dYCalib;    //垂直方向标定系数
+        public double dCalibVal() //平均标定系数
+        {
+            double dCalib = (dXCalib + dYCalib) / 2.0;
+            return dCalib;
+        }
+    }
+    #endregion
+
+    [Serializable]
+    public struct DoubleLineParam
+    {
+        public int nThd;                     //阈值分割
+        public int nTransType;
+        public EdgePointMeasure EPMeasure;
+        public Rect2 rect2;
+    }
+
+    [Serializable]
+    public struct DoubleLineOut
+    {
+        public Line lineLeft;
+        public Line lineRight;
+        public double dDist;     //像素距离
+        public double dAngle;
+    }
+
+    [Serializable]
+    public struct LineParam
+    {
+        public EdgePointMeasure EPMeasure;
+        public Line lineIn;
+    }
+
+    [Serializable]
+    public struct CircleParam
+    {
+        public EdgePointMeasure EPMeasure;
+        public Circle circleIn;
+    }
+
+    [Serializable]
+    public struct EllipseParam
+    {
+        public EdgePointMeasure EPMeasure;
+        public Ellipse ellipseIn;
+    }
+    [Serializable]
+    public struct Rect2Param
+    {
+        public EdgePointMeasure EPMeasure;
+        public Rect2 rect2In;
+    }
+    //[Serializable]
+    //public class Code2DResults
+    //{
+    //    public List<string> strListCodeVal; //二维码值
+    //    public List<double> dListCodeRow;   //二维码中心点坐标Row
+    //    public List<double> dListCodeCol;   //二维码中心点坐标Col
+    //    public List<double> dListCodeArea;  //二维码的面积
+    //    public bool bHasVal;
+    //}
+
+}

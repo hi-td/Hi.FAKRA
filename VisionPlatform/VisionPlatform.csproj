@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CCF933F7-7480-413E-9AF6-4C171D5ECA5A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VisionPlatform</RootNamespace>
+    <AssemblyName>VisionPlatform</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <Langversion>preview</Langversion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>VisionPlatform.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Chustange, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Chustange.dll</HintPath>
+    </Reference>
+    <Reference Include="GxIAPINET, Version=1.0.7684.26772, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\GxIAPINET.dll</HintPath>
+    </Reference>
+    <Reference Include="halcondotnet">
+      <HintPath>..\lib\halcondotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="MC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\MC.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualC" />
+    <Reference Include="MvCameraControl.Net, Version=3.4.0.1, Culture=neutral, PublicKeyToken=52fddfb3f94be800, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\MvCameraControl.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NModbus4, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\NModbus4.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThridLibray">
+      <HintPath>相机SDK\大华\ThridLibray.dll</HintPath>
+    </Reference>
+    <Reference Include="TIS.Imaging.ICImagingControl34, Version=3.4.2.2744, Culture=neutral, PublicKeyToken=257805929e8b7928, processorArchitecture=AMD64" />
+    <Reference Include="Vlc.DotNet.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vlc.DotNet.Core.3.1.0\lib\net45\Vlc.DotNet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Core.Interops, Version=3.1.0.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vlc.DotNet.Core.Interops.3.1.0\lib\net45\Vlc.DotNet.Core.Interops.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Forms, Version=3.1.0.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vlc.DotNet.Forms.3.1.0\lib\net45\Vlc.DotNet.Forms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Auxiliary\Constant.cs" />
+    <Compile Include="Auxiliary\Dog.cs" />
+    <Compile Include="Auxiliary\Invoke.cs" />
+    <Compile Include="Auxiliary\Logging.cs" />
+    <Compile Include="Auxiliary\Variable.cs" />
+    <Compile Include="VlcVideo.cs" />
+    <Compile Include="其他\FormImageColorTrans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\FormImageColorTrans.designer.cs">
+      <DependentUpon>FormImageColorTrans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\函数\Camimage.cs" />
+    <Compile Include="多线插\数据序列化\ConfigDate.cs" />
+    <Compile Include="多线插\检测功能\FAKRA检测\FormFAKRA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\检测功能\FAKRA检测\FormFAKRA.designer.cs">
+      <DependentUpon>FormFAKRA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\检测功能\坐标标定\XYCalib.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="多线插\检测功能\坐标标定\XYCalib.Designer.cs">
+      <DependentUpon>XYCalib.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\操作说明视频\FormOperateInstruct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\操作说明视频\FormOperateInstruct.Designer.cs">
+      <DependentUpon>FormOperateInstruct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\联系我们\FormContactEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\联系我们\FormContactEdit.Designer.cs">
+      <DependentUpon>FormContactEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\联系我们\FormLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\联系我们\FormLogIn.Designer.cs">
+      <DependentUpon>FormLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\联系我们\FormContactUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\联系我们\FormContactUs.Designer.cs">
+      <DependentUpon>FormContactUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Security\Md5.cs" />
+    <Compile Include="多线插\4三相机\Show3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\4三相机\Show3.designer.cs">
+      <DependentUpon>Show3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\函数\Events.cs" />
+    <Compile Include="多线插\通讯\光源控制器\FormLightCH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\通讯\光源控制器\FormLightCH.Designer.cs">
+      <DependentUpon>FormLightCH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\FormShowResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\FormShowResult.Designer.cs">
+      <DependentUpon>FormShowResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\函数\Logging.cs" />
+    <Compile Include="多线插\数据序列化\Json.cs" />
+    <Compile Include="多线插\通讯\光源控制器\FormLedSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\通讯\光源控制器\FormLedSet.designer.cs">
+      <DependentUpon>FormLedSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\通讯\光源控制器\LEDSet.cs" />
+    <Compile Include="多线插\通讯\文煜IO\FormIOSend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\通讯\文煜IO\FormIOSend.Designer.cs">
+      <DependentUpon>FormIOSend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\FormImageSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\FormImageSave.designer.cs">
+      <DependentUpon>FormImageSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\FormShowSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\FormShowSet.designer.cs">
+      <DependentUpon>FormShowSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\FormTMCheckItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\FormTMCheckItem.Designer.cs">
+      <DependentUpon>FormTMCheckItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Init.cs" />
+    <Compile Include="多线插\通讯\文煜IO\FormModbusIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\通讯\文煜IO\FormModbusIO.Designer.cs">
+      <DependentUpon>FormModbusIO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\通讯\文煜IO\FormSetCom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\通讯\文煜IO\FormSetCom.designer.cs">
+      <DependentUpon>FormSetCom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="相机SDK\FormCamParamSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="相机SDK\FormCamParamSet.designer.cs">
+      <DependentUpon>FormCamParamSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="相机SDK\FormCamShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="相机SDK\FormCamShow.designer.cs">
+      <DependentUpon>FormCamShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\FormReadGlobalData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\FormReadGlobalData.designer.cs">
+      <DependentUpon>FormReadGlobalData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\FormSaveGlobalData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\FormSaveGlobalData.designer.cs">
+      <DependentUpon>FormSaveGlobalData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\3相机6界面%281相机4界面%29\Show7.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\3相机6界面%281相机4界面%29\Show7.designer.cs">
+      <DependentUpon>Show7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\函数\StaticFun.cs" />
+    <Compile Include="多线插\数据序列化\EnumData.cs" />
+    <Compile Include="多线插\数据序列化\Path.cs" />
+    <Compile Include="其他\FormSTATS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\FormSTATS.Designer.cs">
+      <DependentUpon>FormSTATS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\FormUIConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\FormUIConfig.Designer.cs">
+      <DependentUpon>FormUIConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\通讯\串口\Class_RTU.cs" />
+    <Compile Include="多线插\通讯\文煜IO\FormIOcomm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\通讯\文煜IO\FormIOcomm.Designer.cs">
+      <DependentUpon>FormIOcomm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\通讯\光源控制器\FormLED.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\通讯\光源控制器\FormLED.Designer.cs">
+      <DependentUpon>FormLED.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\通讯\网口\FormPLCCommQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\通讯\网口\FormPLCCommQ.Designer.cs">
+      <DependentUpon>FormPLCCommQ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\通讯\串口\FormPLCRTU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\通讯\串口\FormPLCRTU.Designer.cs">
+      <DependentUpon>FormPLCRTU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\通讯\串口\Modbus_RTU.cs" />
+    <Compile Include="多线插\通讯\文煜IO\WENYU_PIO32P.cs" />
+    <Compile Include="多线插\检测功能配置\LoginTX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\检测功能配置\LoginTX.Designer.cs">
+      <DependentUpon>LoginTX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\通讯\网口\WLANComm.cs" />
+    <Compile Include="相机SDK\CamCommon.cs" />
+    <Compile Include="相机SDK\大华\Camera.cs" />
+    <Compile Include="相机SDK\大华\CameraOperator.cs" />
+    <Compile Include="相机SDK\大华\DaHuaCam.cs" />
+    <Compile Include="相机SDK\大恒相机\common\CFps.cs" />
+    <Compile Include="相机SDK\大恒相机\common\CStatistics.cs" />
+    <Compile Include="相机SDK\大恒相机\common\CStopWatch.cs" />
+    <Compile Include="相机SDK\大恒相机\DaHengCam.cs" />
+    <Compile Include="相机SDK\大恒相机\common\CDeviceStateInfo.cs" />
+    <Compile Include="相机SDK\海康威视\HikVisionCam.cs" />
+    <Compile Include="多线插\检测功能\FormTeachMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\检测功能\FormTeachMaster.Designer.cs">
+      <DependentUpon>FormTeachMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\1单相机\Show1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\1单相机\Show1.Designer.cs">
+      <DependentUpon>Show1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\2双相机\Show2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\2双相机\Show2.Designer.cs">
+      <DependentUpon>Show2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\通讯\网口\FormPLCComm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\通讯\网口\FormPLCComm.Designer.cs">
+      <DependentUpon>FormPLCComm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\检测功能配置\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\检测功能配置\Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\函数\SingleHead_Function.cs" />
+    <Compile Include="多线插\数据序列化\data.cs" />
+    <Compile Include="多线插\数据序列化\TMData_Serializer.cs" />
+    <Compile Include="多线插\检测功能配置\Registered.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\检测功能配置\Registered.Designer.cs">
+      <DependentUpon>Registered.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\数据序列化\DateSerialize.cs" />
+    <Compile Include="多线插\数据序列化\Serializer.cs" />
+    <Compile Include="相机SDK\大恒相机\common\GxBitmap.cs" />
+    <Compile Include="相机SDK\大恒相机\Operate.cs" />
+    <Compile Include="相机SDK\大恒相机\common\Win32Bitmap.cs" />
+    <Compile Include="多线插\主显示界面\FormMainUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\主显示界面\FormMainUI.Designer.cs">
+      <DependentUpon>FormMainUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\函数\Function.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="其他\FormImageColorTrans.en-US.resx">
+      <DependentUpon>FormImageColorTrans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FormImageColorTrans.resx">
+      <DependentUpon>FormImageColorTrans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\检测功能\FAKRA检测\FormFAKRA.en-US.resx">
+      <DependentUpon>FormFAKRA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\检测功能\FAKRA检测\FormFAKRA.resx">
+      <DependentUpon>FormFAKRA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\检测功能\坐标标定\XYCalib.resx">
+      <DependentUpon>XYCalib.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\操作说明视频\FormOperateInstruct.resx">
+      <DependentUpon>FormOperateInstruct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\联系我们\FormContactEdit.resx">
+      <DependentUpon>FormContactEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\联系我们\FormLogIn.resx">
+      <DependentUpon>FormLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\联系我们\FormContactUs.resx">
+      <DependentUpon>FormContactUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\4三相机\Show3.en-US.resx">
+      <DependentUpon>Show3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\4三相机\Show3.resx">
+      <DependentUpon>Show3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\通讯\光源控制器\FormLightCH.resx">
+      <DependentUpon>FormLightCH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FormShowResult.resx">
+      <DependentUpon>FormShowResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FormSTATS.en-US.resx">
+      <DependentUpon>FormSTATS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\通讯\光源控制器\FormLedSet.resx">
+      <DependentUpon>FormLedSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\通讯\文煜IO\FormIOSend.resx">
+      <DependentUpon>FormIOSend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FormImageSave.en-US.resx">
+      <DependentUpon>FormImageSave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FormImageSave.resx">
+      <DependentUpon>FormImageSave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FormShowSet.resx">
+      <DependentUpon>FormShowSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FormTMCheckItem.resx">
+      <DependentUpon>FormTMCheckItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\通讯\文煜IO\FormModbusIO.resx">
+      <DependentUpon>FormModbusIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\通讯\文煜IO\FormSetCom.resx">
+      <DependentUpon>FormSetCom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="相机SDK\FormCamParamSet.resx">
+      <DependentUpon>FormCamParamSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="相机SDK\FormCamShow.en-US.resx">
+      <DependentUpon>FormCamShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="相机SDK\FormCamShow.resx">
+      <DependentUpon>FormCamShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FormReadGlobalData.resx">
+      <DependentUpon>FormReadGlobalData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FormSaveGlobalData.resx">
+      <DependentUpon>FormSaveGlobalData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\3相机6界面%281相机4界面%29\Show7.resx">
+      <DependentUpon>Show7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FormSTATS.resx">
+      <DependentUpon>FormSTATS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FormUIConfig.resx">
+      <DependentUpon>FormUIConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\通讯\文煜IO\FormIOcomm.resx">
+      <DependentUpon>FormIOcomm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\检测功能\FormTeachMaster.resx">
+      <DependentUpon>FormTeachMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\1单相机\Show1.resx">
+      <DependentUpon>Show1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\2双相机\Show2.resx">
+      <DependentUpon>Show2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\通讯\光源控制器\FormLED.resx">
+      <DependentUpon>FormLED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\通讯\网口\FormPLCComm.resx">
+      <DependentUpon>FormPLCComm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\检测功能配置\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\检测功能配置\LoginTX.resx">
+      <DependentUpon>LoginTX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\检测功能配置\Registered.resx">
+      <DependentUpon>Registered.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\通讯\网口\FormPLCCommQ.resx">
+      <DependentUpon>FormPLCCommQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\通讯\串口\FormPLCRTU.resx">
+      <DependentUpon>FormPLCRTU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\主显示界面\FormMainUI.resx">
+      <DependentUpon>FormMainUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\lib\halcondotnet.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\60f97dac2a846.png" />
+    <None Include="Resources\favicon %281%29.png" />
+    <None Include="Resources\tgrss-xtrq6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1~1.ico" />
+    <Content Include="20210125022420555_easyicon_net_96.ico" />
+    <Content Include="yixing.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="序列化\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\VideoLAN.LibVLC.Windows.3.0.18\build\VideoLAN.LibVLC.Windows.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\VideoLAN.LibVLC.Windows.3.0.18\build\VideoLAN.LibVLC.Windows.targets'))" />
+  </Target>
+  <Import Project="..\packages\VideoLAN.LibVLC.Windows.3.0.18\build\VideoLAN.LibVLC.Windows.targets" Condition="Exists('..\packages\VideoLAN.LibVLC.Windows.3.0.18\build\VideoLAN.LibVLC.Windows.targets')" />
+</Project>

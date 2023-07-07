@@ -1,0 +1,343 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace VisionPlatform
+{
+    public partial class FormMainUI : Form
+    {
+        private double m_dImageRow0;
+        private double m_dImageCol0;
+        private double m_dImageRow1;
+        private double m_dImageCol1;
+
+        public Rect1 m_Rect1 = new Rect1();
+        public Rect2 m_Rect2= new Rect2();
+        public Circle m_Circle = new Circle();
+        public ShowParam m_showParam = new ShowParam(); //显示设置：颜色，线条粗细等
+
+        public Point m_pMuoseDown;//用来记录按下鼠标时的坐标位置
+        public bool m_bMoveImage = false; //是否开启移动图像功能，初始值为关闭
+        public bool m_bShowCross = false; //是否开启显示十字线功能，初始值为关闭
+        
+        public FormCalib formCalib = new FormCalib();
+        public FormLocate formLocate = new FormLocate();
+        private FormSizeMeasure formSizeMeasure = new FormSizeMeasure();
+
+        public FormMainUI()
+        {
+            InitializeComponent();
+            Function.GetHalconWnd(hWindowControl); //初始化m_hWnd;
+           
+        }
+
+        private void toolStripBut_InputImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Stream inputStream = null;
+                openFileDialog.InitialDirectory = "e:/";
+                openFileDialog.Filter = "BMP图片|*.bmp|JPG图片|*.jpg|Gif图片|*.gif";
+                openFileDialog.RestoreDirectory = true;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if ((inputStream = openFileDialog.OpenFile()) != null)
+                    {
+                        using (inputStream)
+                        {
+                            string strImageFile = openFileDialog.FileName;
+                            if (!Function.LoadImageFromFile(strImageFile, hWindowControl, out m_dImageRow0, out m_dImageCol0, out m_dImageRow1, out m_dImageCol1))
+                            {
+                                MessageBox.Show("图片读取错误！");
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void toolStripBut_SaveImg2File_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                saveFileDialog.InitialDirectory = "e:/";
+                saveFileDialog.Filter = "BMP图片|*.bmp|JPG图片|*.jpg|Gif图片|*.gif";
+                saveFileDialog.RestoreDirectory = true;
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string strImageFile = saveFileDialog.FileName;
+                    Function.SaveImage(strImageFile);
+                
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void toolStripBut_DrawRect1_Click(object sender, EventArgs e)
+        {
+            if(!m_bMoveImage)
+            {
+                m_Rect1 = Function.DrawRect1();
+                Function.m_rect1 = m_Rect1;
+                double dArea = (m_Rect1.dRectCol2 - m_Rect1.dRectCol1) * (m_Rect1.dRectRow2 - m_Rect1.dRectRow1);
+                label_DrawShape.Text = "面积：";
+                label_DrawShapeArea.Text = Math.Round(dArea, 2).ToString() + "pixel";
+            }   
+        }
+
+        private void toolStripBut_DrawCircle_Click(object sender, EventArgs e)
+        {
+            if (!m_bMoveImage)
+            {
+                m_Circle = Function.DrawCircle();
+                Function.m_circle = m_Circle;
+                double dArea = Math.PI * Math.Pow(m_Circle.dRadius, 2);
+                label_DrawShape.Text = "面积：";
+                label_DrawShapeArea.Text = Math.Round(dArea, 2).ToString() + "pixel";
+            }
+        }
+
+        private void toolStripBut_DrawLine_Click(object sender, EventArgs e)
+        {
+            if (!m_bMoveImage)
+            {
+                Function.m_line =  Function.DrawLine();
+            }
+        }
+
+        private void toolStripBut_DrawRect2_Click(object sender, EventArgs e)
+        {
+            if (!m_bMoveImage)
+            {
+                m_Rect2 = Function.DrawRect2();
+                Function.m_rect2 = m_Rect2;
+                double dArea = m_Rect2.dLength1 * 2 * m_Rect2.dLength2 * 2;
+                label_DrawShape.Text = "面积：";
+                label_DrawShapeArea.Text = Math.Round(dArea, 2).ToString() + "pixel"+ "pixel";
+            }
+        }
+
+        private void toolStripBut_RecoverImg_Click(object sender, EventArgs e)
+        {
+            Function.FitImageToWindow(hWindowControl, out m_dImageRow0, out m_dImageCol0, out m_dImageRow1, out m_dImageCol1);
+        }
+
+        private void hWindowControl_HMouseWheel(object sender, HalconDotNet.HMouseEventArgs e)
+        {
+            Point pt = new Point();
+            pt.X = (int)e.X;
+            pt.Y = (int)e.Y;
+            Function.ZoomImage(hWindowControl, e.Delta, pt, ref m_dImageRow0,ref m_dImageCol0, ref m_dImageRow1, ref m_dImageCol1);
+        }
+
+        private void hWindowControl_HMouseUp(object sender, HalconDotNet.HMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && m_bMoveImage)
+            {
+                m_bMoveImage = false;
+            }
+            if (e.Button == MouseButtons.Right && m_bShowCross)
+            {
+                m_bShowCross = false;
+
+            }
+            if (e.Button == MouseButtons.Left && m_bMoveImage)
+            {
+                Point pt = new Point();
+                pt.X = (int)e.X;
+                pt.Y = (int)e.Y;
+                Function.MoveImage(m_pMuoseDown, pt, hWindowControl, ref m_dImageRow0, ref m_dImageCol0,ref m_dImageRow1,ref m_dImageCol1);
+            }
+        }
+
+        private void hWindowControl_HMouseDown(object sender, HalconDotNet.HMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && m_bMoveImage)
+            {
+                m_pMuoseDown.X = (int)e.X;
+                m_pMuoseDown.Y = (int)e.Y;
+            }
+        }
+
+        private void toolStripBut_MoveImage_Click(object sender, EventArgs e)
+        {
+            if (!m_bMoveImage)
+                m_bMoveImage = true;
+            else
+                m_bMoveImage = false;
+        }
+
+        private void toolStripBut_Calib_Click(object sender, EventArgs e)
+        {
+            formCalib.TopLevel = false;
+            formCalib.Dock = DockStyle.Fill;
+            formCalib.Visible = true;
+            this.panel_WinForm.Controls.Clear();
+            this.panel_WinForm.Controls.Add(formCalib);
+        }
+
+        private void toolStripBut_Locate_Click(object sender, EventArgs e)
+        {
+            formLocate.TopLevel = false;
+            formLocate.Dock = DockStyle.Fill;
+            formLocate.Visible = true;
+            this.panel_WinForm.Controls.Clear();
+            this.panel_WinForm.Controls.Add(formLocate);
+        }
+
+        private void toolStripBut_Measure_Click(object sender, EventArgs e)
+        {
+            formSizeMeasure.TopLevel = false;
+            formSizeMeasure.Dock = DockStyle.Fill;
+            formSizeMeasure.Visible = true;
+            this.panel_WinForm.Controls.Clear();
+            this.panel_WinForm.Controls.Add(formSizeMeasure);
+        }
+
+        private void hWindowControl_HMouseMove(object sender, HalconDotNet.HMouseEventArgs e)
+        {
+            try
+            {
+                //设置窗口显示坐标
+                int nRow, nCol;
+                List<double> listGrayVal = new List<double>();
+                Function.ShowCoordinateGrayVal(out nRow, out nCol, out listGrayVal);
+                label_Row.Text = nRow.ToString();
+                label_Column.Text = nCol.ToString();
+                //设置窗口显示灰度值
+                string strGrayVal = "";
+                for (int i = 0; i < listGrayVal.Count(); i++)
+                {
+                    strGrayVal = strGrayVal + (Math.Round(listGrayVal[i], 2).ToString());
+                    if (i < listGrayVal.Count() - 1)
+                        strGrayVal = strGrayVal + ",";
+                }
+                label_GrayVal.Text = strGrayVal;
+                //设置显示十字线
+                if (true == m_bShowCross)
+                    Function.ShowCross(m_dImageRow0, m_dImageCol0, m_dImageRow1, m_dImageCol1);
+            }
+            catch(SystemException ex)
+            {
+
+            }
+           
+        }
+
+        private void toolStripBut_ShowCross_Click(object sender, EventArgs e)
+        {
+            if (!m_bShowCross)
+                m_bShowCross = true;
+            else
+                m_bShowCross = false;
+        }
+
+        private void FormMainUI_Load(object sender, EventArgs e)
+        {
+            for(int i=1; i<=99;i++)
+            {
+                toolStripComboBox_lineWidth.Items.Add(i);
+            }
+            toolStripComboBox_lineWidth.SelectedIndex = 0;
+            m_showParam.color = "red";
+            m_showParam.draw = "margin";
+            Function.SetShow(m_showParam);
+
+        }
+
+        private void toolStripMenuItem_SetDrawFill_Click(object sender, EventArgs e)
+        {
+            m_showParam.draw = "fill";
+            Function.SetShow(m_showParam);
+        }
+
+        private void toolStripMenuItem_SetDrawMargin_Click(object sender, EventArgs e)
+        {
+            m_showParam.draw = "margin";
+            Function.SetShow(m_showParam);
+        }
+
+        private void red_Click(object sender, EventArgs e)
+        {
+            m_showParam.color = "red";
+            Function.SetShow(m_showParam);
+        }
+
+        private void green_Click(object sender, EventArgs e)
+        {
+            m_showParam.color = "green";
+            Function.SetShow(m_showParam);
+        }
+
+        private void yellow_Click(object sender, EventArgs e)
+        {
+            m_showParam.color = "yellow";
+            Function.SetShow(m_showParam);
+        }
+
+        private void blue_Click(object sender, EventArgs e)
+        {
+            m_showParam.color = "blue";
+            Function.SetShow(m_showParam);
+        }
+
+        private void cyan_Click(object sender, EventArgs e)
+        {
+            m_showParam.color = "cyan";
+            Function.SetShow(m_showParam);
+        }
+
+        private void orange_Click(object sender, EventArgs e)
+        {
+            m_showParam.color = "orange";
+            Function.SetShow(m_showParam);
+        }
+
+        private void pink_Click(object sender, EventArgs e)
+        {
+            m_showParam.color = "pink";
+            Function.SetShow(m_showParam);
+        }
+
+        private void orange_red_Click(object sender, EventArgs e)
+        {
+            m_showParam.color = "orange red";
+            Function.SetShow(m_showParam);
+        }
+
+        private void toolStripComboBox_lineWidth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int n = toolStripComboBox_lineWidth.SelectedIndex;
+            m_showParam.lineWidth = n+1;
+            Function.SetShow(m_showParam);
+        }
+
+        private void toolStripBut_DrawEllipse_Click(object sender, EventArgs e)
+        {
+            if (!m_bMoveImage)
+            {
+                Function.m_ellipse = Function.DrawEllipse();
+                double dArea = Math.PI * Function.m_ellipse.dRadius1*Function.m_ellipse.dRadius2;
+                label_DrawShape.Text = "面积：";
+                label_DrawShapeArea.Text = Math.Round(dArea, 2).ToString() + "pixel";
+            }
+        }
+    }
+}

@@ -1,0 +1,552 @@
+﻿namespace VisionPlatform
+{
+    partial class FormSizeMeasure
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("起始点");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("结束点");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("直线", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("圆心");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("半径");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("圆", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("中心点");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("角度");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("长半轴");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("短半轴");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("椭圆", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8,
+            treeNode9,
+            treeNode10});
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("中心点");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("角度");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("长边半径");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("短边半径");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("矩形", new System.Windows.Forms.TreeNode[] {
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("起始点");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("结束点");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("直线", new System.Windows.Forms.TreeNode[] {
+            treeNode17,
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("圆心");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("半径");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("圆", new System.Windows.Forms.TreeNode[] {
+            treeNode20,
+            treeNode21});
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("中心点");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("角度");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("长半轴");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("短半轴");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("椭圆", new System.Windows.Forms.TreeNode[] {
+            treeNode23,
+            treeNode24,
+            treeNode25,
+            treeNode26});
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("中心点");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("角度");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("长边半径");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("短边半径");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("矩形", new System.Windows.Forms.TreeNode[] {
+            treeNode28,
+            treeNode29,
+            treeNode30,
+            treeNode31});
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.listView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.treeView_Right = new System.Windows.Forms.TreeView();
+            this.treeView_Left = new System.Windows.Forms.TreeView();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.but_Add = new System.Windows.Forms.Button();
+            this.but_Del = new System.Windows.Forms.Button();
+            this.listBox_Result = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.but_Calculate = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage_Left = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.but_LeftCal = new System.Windows.Forms.Button();
+            this.panel_Left = new System.Windows.Forms.Panel();
+            this.tabPage_Right = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.but_RightCal = new System.Windows.Forms.Button();
+            this.panel_right = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage_Left.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.tabPage_Right.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31F));
+            this.tableLayoutPanel1.Controls.Add(this.listView, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.treeView_Right, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.treeView_Left, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 3, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 287);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(422, 226);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // listView
+            // 
+            this.listView.BackColor = System.Drawing.Color.DarkGray;
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView.GridLines = true;
+            this.listView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listView.Location = new System.Drawing.Point(293, 3);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(126, 220);
+            this.listView.TabIndex = 1;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "序号";
+            this.columnHeader1.Width = 38;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "左值";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 45;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "右值";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader3.Width = 45;
+            // 
+            // treeView_Right
+            // 
+            this.treeView_Right.BackColor = System.Drawing.Color.DarkGray;
+            this.treeView_Right.CheckBoxes = true;
+            this.treeView_Right.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView_Right.Location = new System.Drawing.Point(125, 3);
+            this.treeView_Right.Name = "treeView_Right";
+            treeNode1.Name = "节点1";
+            treeNode1.Text = "起始点";
+            treeNode2.Name = "节点2";
+            treeNode2.Text = "结束点";
+            treeNode3.Name = "节点0";
+            treeNode3.Text = "直线";
+            treeNode4.Name = "节点4";
+            treeNode4.Text = "圆心";
+            treeNode5.Name = "节点5";
+            treeNode5.Text = "半径";
+            treeNode6.Name = "节点3";
+            treeNode6.Text = "圆";
+            treeNode7.Name = "节点7";
+            treeNode7.Text = "中心点";
+            treeNode8.Name = "节点8";
+            treeNode8.Text = "角度";
+            treeNode9.Name = "节点9";
+            treeNode9.Text = "长半轴";
+            treeNode10.Name = "节点10";
+            treeNode10.Text = "短半轴";
+            treeNode11.Name = "节点6";
+            treeNode11.Text = "椭圆";
+            treeNode12.Name = "节点15";
+            treeNode12.Text = "中心点";
+            treeNode13.Name = "节点16";
+            treeNode13.Text = "角度";
+            treeNode14.Name = "节点17";
+            treeNode14.Text = "长边半径";
+            treeNode15.Name = "节点18";
+            treeNode15.Text = "短边半径";
+            treeNode16.Name = "节点14";
+            treeNode16.Text = "矩形";
+            this.treeView_Right.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode6,
+            treeNode11,
+            treeNode16});
+            this.treeView_Right.Size = new System.Drawing.Size(112, 220);
+            this.treeView_Right.TabIndex = 2;
+            this.treeView_Right.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeView_Right_AfterCheck);
+            // 
+            // treeView_Left
+            // 
+            this.treeView_Left.BackColor = System.Drawing.Color.DarkGray;
+            this.treeView_Left.CheckBoxes = true;
+            this.treeView_Left.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView_Left.Location = new System.Drawing.Point(3, 3);
+            this.treeView_Left.Name = "treeView_Left";
+            treeNode17.Name = "节点1";
+            treeNode17.Text = "起始点";
+            treeNode18.Name = "节点2";
+            treeNode18.Text = "结束点";
+            treeNode19.Name = "节点0";
+            treeNode19.Text = "直线";
+            treeNode20.Name = "节点4";
+            treeNode20.Text = "圆心";
+            treeNode21.Name = "节点5";
+            treeNode21.Text = "半径";
+            treeNode22.Name = "节点3";
+            treeNode22.Text = "圆";
+            treeNode23.Name = "节点7";
+            treeNode23.Text = "中心点";
+            treeNode24.Name = "节点8";
+            treeNode24.Text = "角度";
+            treeNode25.Name = "节点9";
+            treeNode25.Text = "长半轴";
+            treeNode26.Name = "节点10";
+            treeNode26.Text = "短半轴";
+            treeNode27.Name = "节点6";
+            treeNode27.Text = "椭圆";
+            treeNode28.Name = "节点15";
+            treeNode28.Text = "中心点";
+            treeNode29.Name = "节点16";
+            treeNode29.Text = "角度";
+            treeNode30.Name = "节点17";
+            treeNode30.Text = "长边半径";
+            treeNode31.Name = "节点18";
+            treeNode31.Text = "短边半径";
+            treeNode32.Name = "节点14";
+            treeNode32.Text = "矩形";
+            this.treeView_Left.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode19,
+            treeNode22,
+            treeNode27,
+            treeNode32});
+            this.treeView_Left.Size = new System.Drawing.Size(112, 220);
+            this.treeView_Left.TabIndex = 0;
+            this.treeView_Left.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeView_Left_AfterCheck);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.but_Add, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.but_Del, 0, 3);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(243, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 6;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(44, 220);
+            this.tableLayoutPanel2.TabIndex = 3;
+            // 
+            // but_Add
+            // 
+            this.but_Add.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.but_Add.Location = new System.Drawing.Point(3, 75);
+            this.but_Add.Name = "but_Add";
+            this.but_Add.Size = new System.Drawing.Size(38, 30);
+            this.but_Add.TabIndex = 0;
+            this.but_Add.Text = "添加";
+            this.but_Add.UseVisualStyleBackColor = true;
+            this.but_Add.Click += new System.EventHandler(this.but_Add_Click);
+            // 
+            // but_Del
+            // 
+            this.but_Del.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.but_Del.Location = new System.Drawing.Point(3, 111);
+            this.but_Del.Name = "but_Del";
+            this.but_Del.Size = new System.Drawing.Size(38, 30);
+            this.but_Del.TabIndex = 1;
+            this.but_Del.Text = "删除";
+            this.but_Del.UseVisualStyleBackColor = true;
+            this.but_Del.Click += new System.EventHandler(this.but_Del_Click);
+            // 
+            // listBox_Result
+            // 
+            this.listBox_Result.Dock = System.Windows.Forms.DockStyle.Top;
+            this.listBox_Result.FormattingEnabled = true;
+            this.listBox_Result.ItemHeight = 12;
+            this.listBox_Result.Location = new System.Drawing.Point(0, 513);
+            this.listBox_Result.Name = "listBox_Result";
+            this.listBox_Result.Size = new System.Drawing.Size(422, 100);
+            this.listBox_Result.TabIndex = 4;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 5;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Controls.Add(this.but_Calculate, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.button3, 3, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 613);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(422, 35);
+            this.tableLayoutPanel3.TabIndex = 5;
+            // 
+            // but_Calculate
+            // 
+            this.but_Calculate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.but_Calculate.Location = new System.Drawing.Point(87, 3);
+            this.but_Calculate.Name = "but_Calculate";
+            this.but_Calculate.Size = new System.Drawing.Size(99, 29);
+            this.but_Calculate.TabIndex = 0;
+            this.but_Calculate.Text = "计算";
+            this.but_Calculate.UseVisualStyleBackColor = true;
+            this.but_Calculate.Click += new System.EventHandler(this.but_Calculate_Click);
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.Location = new System.Drawing.Point(234, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(99, 29);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "保存参数";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage_Left);
+            this.tabControl1.Controls.Add(this.tabPage_Right);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(422, 287);
+            this.tabControl1.TabIndex = 6;
+            // 
+            // tabPage_Left
+            // 
+            this.tabPage_Left.BackColor = System.Drawing.Color.DimGray;
+            this.tabPage_Left.Controls.Add(this.tableLayoutPanel6);
+            this.tabPage_Left.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Left.Name = "tabPage_Left";
+            this.tabPage_Left.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Left.Size = new System.Drawing.Size(414, 261);
+            this.tabPage_Left.TabIndex = 0;
+            this.tabPage_Left.Text = "左值";
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.panel_Left, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(408, 255);
+            this.tableLayoutPanel6.TabIndex = 1;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 3;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel7.Controls.Add(this.but_LeftCal, 1, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 227);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(402, 25);
+            this.tableLayoutPanel7.TabIndex = 7;
+            // 
+            // but_LeftCal
+            // 
+            this.but_LeftCal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.but_LeftCal.Location = new System.Drawing.Point(163, 3);
+            this.but_LeftCal.Name = "but_LeftCal";
+            this.but_LeftCal.Size = new System.Drawing.Size(74, 19);
+            this.but_LeftCal.TabIndex = 0;
+            this.but_LeftCal.Text = "左值计算";
+            this.but_LeftCal.UseVisualStyleBackColor = true;
+            this.but_LeftCal.Click += new System.EventHandler(this.but_LeftCal_Click);
+            // 
+            // panel_Left
+            // 
+            this.panel_Left.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Left.Location = new System.Drawing.Point(3, 3);
+            this.panel_Left.Name = "panel_Left";
+            this.panel_Left.Size = new System.Drawing.Size(402, 218);
+            this.panel_Left.TabIndex = 8;
+            // 
+            // tabPage_Right
+            // 
+            this.tabPage_Right.BackColor = System.Drawing.Color.DimGray;
+            this.tabPage_Right.Controls.Add(this.tableLayoutPanel5);
+            this.tabPage_Right.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Right.Name = "tabPage_Right";
+            this.tabPage_Right.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Right.Size = new System.Drawing.Size(414, 261);
+            this.tabPage_Right.TabIndex = 1;
+            this.tabPage_Right.Text = "右值";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel4, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.panel_right, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(408, 255);
+            this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel4.Controls.Add(this.but_RightCal, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 227);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(402, 25);
+            this.tableLayoutPanel4.TabIndex = 7;
+            // 
+            // but_RightCal
+            // 
+            this.but_RightCal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.but_RightCal.Location = new System.Drawing.Point(163, 3);
+            this.but_RightCal.Name = "but_RightCal";
+            this.but_RightCal.Size = new System.Drawing.Size(74, 19);
+            this.but_RightCal.TabIndex = 0;
+            this.but_RightCal.Text = "右值计算";
+            this.but_RightCal.UseVisualStyleBackColor = true;
+            this.but_RightCal.Click += new System.EventHandler(this.but_RightCal_Click);
+            // 
+            // panel_right
+            // 
+            this.panel_right.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_right.Location = new System.Drawing.Point(3, 3);
+            this.panel_right.Name = "panel_right";
+            this.panel_right.Size = new System.Drawing.Size(402, 218);
+            this.panel_right.TabIndex = 8;
+            // 
+            // FormSizeMeasure
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DimGray;
+            this.ClientSize = new System.Drawing.Size(422, 687);
+            this.Controls.Add(this.tableLayoutPanel3);
+            this.Controls.Add(this.listBox_Result);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FormSizeMeasure";
+            this.Text = "FormSizeMeasure";
+            this.Load += new System.EventHandler(this.FormSizeMeasure_Load);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage_Left.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tabPage_Right.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TreeView treeView_Right;
+        private System.Windows.Forms.TreeView treeView_Left;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button but_Add;
+        private System.Windows.Forms.Button but_Del;
+        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ListBox listBox_Result;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button but_Calculate;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage_Left;
+        private System.Windows.Forms.TabPage tabPage_Right;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Button but_LeftCal;
+        private System.Windows.Forms.Panel panel_Left;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Button but_RightCal;
+        private System.Windows.Forms.Panel panel_right;
+    }
+}

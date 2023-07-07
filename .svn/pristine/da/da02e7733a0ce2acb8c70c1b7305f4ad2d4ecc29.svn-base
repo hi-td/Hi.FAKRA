@@ -1,0 +1,112 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace VisionPlatform
+{
+    public partial class FormRect2 : Form
+    {
+        public Rect2Param m_rect2Param = new Rect2Param();
+        public FormRect2()
+        {
+            InitializeComponent();
+        }
+
+        public Rect2Param InitParam()
+        {
+            Rect2Param param = new Rect2Param();
+            try
+            {
+                //检测框宽
+                if ("0" != textBox_MeasureLen1.Text)
+                {
+                    param.EPMeasure.nMeasureLen1 = int.Parse(textBox_MeasureLen1.Text);
+                }
+                else
+                    textBox_MeasureLen1.Text = "15";
+                //检测框长
+                if ("0" != textBox_MeasureLen2.Text)
+                {
+                    param.EPMeasure.nMeasureLen2 = int.Parse(textBox_MeasureLen2.Text);
+                }
+                else
+                    textBox_MeasureLen2.Text = "3";
+                //边缘极性
+                int nTrans = comboBox_Trans.SelectedIndex;
+                switch (nTrans)
+                {
+                    case 0:
+                        param.EPMeasure.strTransition = "positive";
+                        break;
+                    case 1:
+                        param.EPMeasure.strTransition = "negative";
+                        break;
+                    default:
+                        comboBox_Trans.SelectedIndex = 0;
+                        break;
+                }
+                //边缘选择
+                int nSel = comboBox_Select.SelectedIndex;
+                switch (nSel)
+                {
+                    case 0:
+                        param.EPMeasure.strSelect = "first";
+                        break;
+                    case 1:
+                        param.EPMeasure.strSelect = "last";
+                        break;
+                    default:
+                        comboBox_Select.SelectedIndex = 0;
+                        break;
+                }
+                //阈值
+                if (0 != trackBar_Thd.Value)
+                {
+                    param.EPMeasure.nMeasureThd = trackBar_Thd.Value;
+                    label_Thd.Text = param.EPMeasure.nMeasureThd.ToString();
+                }
+                else
+                {
+                    trackBar_Thd.Value = 20;
+                    label_Thd.Text = "20";
+                }
+                param.rect2In = Function.m_rect2;
+                return param;
+            }
+            catch (System.Exception ex)
+            {
+                return param;
+            }
+
+        }
+        private void trackBar_Thd_Scroll(object sender, EventArgs e)
+        {
+            if (null == Function.m_hImage)
+                return;
+            try
+            {
+                Rect2Param param = InitParam();
+                Rect2 rect2 = new Rect2();
+                if (!Function.FitRect2(param, out rect2))
+                {
+                    return;
+                }
+            }
+            catch (SystemException ex)
+            {
+                return;
+            }
+        }
+
+        private void but_SaveData_Click(object sender, EventArgs e)
+        {
+            m_rect2Param = InitParam();
+        }
+    }
+}

@@ -1,0 +1,176 @@
+﻿using System;
+using System.Linq;
+using Microsoft.Win32;
+
+namespace St.Vision.CommonTools
+{
+    public class AutoRun
+    {
+        private static object _lockerForLog = new object();
+
+        /// <summary>
+        /// 将应用程序设置为随电脑自动启动
+        /// </summary>
+        /// <param name="fileName">EXE文件的绝对路径</param>
+        /// <param name="isAutoRun">是否随机启动 true-是 false-否</param>
+        public static void SetPCStartAutoRun(string fileName, bool isAutoRun)
+        {
+            /*
+             * 注意：本段代码在32位机器上影响的是
+             * HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+             * 但在64位机器上，64位操作系统自动将此注册表位置更改为
+             * HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run
+             *
+             * 即此代码在32位和64位机器上都可运行，但影响的注册表位置不同
+             */
+
+            RegistryKey reg = null;
+            try
+            {
+                WriteLog("start to set autorun params.");
+                if (string.IsNullOrEmpty(fileName) || !System.IO.File.Exists(fileName))
+                {
+                    WriteLog(string.Format("because the target file is not exist, so can not to set params. the file path is {0}", fileName));
+                    return;
+                }
+                String name = fileName.Substring(fileName.LastIndexOf(@"\") + 1);
+                string regRunName = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
+                reg = Registry.LocalMachine.OpenSubKey(regRunName, true);
+                if (isAutoRun)
+                {
+                    //自启动 添加键
+                    if (reg == null)
+                    {
+                        WriteLog(string.Format("start to set autorun reg key [{0}]\r\n add \r\n name=[{1}]\r\n value=[{2}]", reg.Name, name, fileName));
+                        reg = Registry.LocalMachine.CreateSubKey(regRunName, RegistryKeyPermissionCheck.ReadWriteSubTree);
+                        reg.SetValue(name, fileName);
+                    }
+                    else
+                    {
+                        if (reg.GetValueNames().Length > 0 && reg.GetValueNames().ToList<string>().Contains(name))//已存在键
+                        {
+                            object cpsRegValue = reg.GetValue(name);
+                            if (cpsRegValue == null)//有键无值
+                            {
+                                reg.SetValue(name, fileName);
+                                WriteLog("succeed to set this file to autorun when pc restart！");
+                            }
+                            else//有键有值
+                            {
+                                if (cpsRegValue.ToString().Trim() != fileName)//有键有值，但值与待设参数不同
+                                {
+                                    reg.SetValue(name, fileName);
+                                    WriteLog("succeed！");
+                                }
+                                else//有键有值，值与待设参数相同
+                                {
+                                    WriteLog("the autorun has been set to allowed！");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            WriteLog(string.Format("succed to set autorun is allowed. reg key [{0}]\r\n add \r\n name=[{1}]\r\n value=[{2}]", reg.Name, name, fileName));
+                            reg = Registry.LocalMachine.CreateSubKey(regRunName, RegistryKeyPermissionCheck.ReadWriteSubTree);
+                            reg.SetValue(name, fileName);
+                        }
+                    }
+                }
+                else
+                {
+                    WriteLog(string.Format("start to set autorun is forbiden. [{0}]\r\n del \r\n name=[{1}]\r\n value=[{2}]", reg.Name, name, fileName));
+                    //设置为开机不启动 删除键
+                    if (reg != null)
+                    {
+                        if (reg.GetValueNames().Length > 0 && reg.GetValueNames().ToList<string>().Contains(name))
+                            reg.DeleteValue(name);
+                    }
+                }
+                WriteLog("succeed to set autorun params！");
+            }
+            catch (Exception ex)
+            {
+                //throw new Exception(ex.ToString());
+                WriteLog(string.Format("failed to set autorun params!reason is [{0}]", ex.Message));
+            }
+            finally
+            {
+                if (reg != null)
+                    reg.Close();
+            }
+        }
+
+        /// <summary>
+        /// 检查某个EXE文件是否已经设置为随机启动
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public static bool GetAutoRunFlag(string fileName)
+        {
+            /*
+             * 注意：本段代码在32位机器上影响的是
+             * HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+             * 但在64位机器上，64位操作系统自动将此注册表位置更改为
+             * HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run
+             *
+             * 即此代码在32位和64位机器上都可运行，但影响的注册表位置不同
+             */
+
+            RegistryKey reg = null;
+            try
+            {
+                if (string.IsNullOrEmpty(fileName) || !System.IO.File.Exists(fileName))
+                {
+                    WriteLog(string.Format("the file is not exist, can not to search reg key. file path is[{0}]", fileName));
+                    return false;
+                }
+                String name = fileName.Substring(fileName.LastIndexOf(@"\") + 1);
+                string regRunName = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
+                reg = Registry.LocalMachine.OpenSubKey(regRunName, true);
+                if (reg == null)
+                    return false;
+                else
+                {
+                    if (reg.GetValueNames().Length > 0 && reg.GetValueNames().ToList<string>().Contains(name))//已存在键
+                    {
+                        object cpsRegValue = reg.GetValue(name);
+                        if (cpsRegValue == null)//有键无值
+                            return false;
+                        else
+                        {
+                            if (cpsRegValue.ToString().Trim() != fileName)//有键有值，但值与待设参数不同
+                                return false;
+                            else //有键有值，值与待设参数相同
+                                return true;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                if (reg != null)
+                    reg.Close();
+            }
+
+            return false;
+        }
+
+        private static void WriteLog(string content)
+        {
+            try
+            {
+                lock (_lockerForLog)
+                {
+                    Logger.WriteLog(LOG_LEVEL.INFO, LOG_TYPE.LOG_TYPE_COMMON, content);
+                }
+            }
+            catch
+            {
+            }
+        }
+    }
+}

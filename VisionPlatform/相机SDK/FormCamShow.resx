@@ -1,0 +1,1878 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label_d.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label_d.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label_d.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 10pt, style=Bold</value>
+  </data>
+  <data name="label_d.Location" type="System.Drawing.Point, System.Drawing">
+    <value>545, 0</value>
+  </data>
+  <data name="label_d.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 19</value>
+  </data>
+  <data name="label_d.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label_d.Text" xml:space="preserve">
+    <value>放大</value>
+  </data>
+  <data name="label_d.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="label_d.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;label_d.Name" xml:space="preserve">
+    <value>label_d</value>
+  </data>
+  <data name="&gt;&gt;label_d.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_d.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;label_d.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="label_x.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label_x.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="label_x.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 10pt, style=Bold</value>
+  </data>
+  <data name="label_x.Location" type="System.Drawing.Point, System.Drawing">
+    <value>508, 0</value>
+  </data>
+  <data name="label_x.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 19</value>
+  </data>
+  <data name="label_x.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label_x.Text" xml:space="preserve">
+    <value>缩小</value>
+  </data>
+  <data name="label_x.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="label_x.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;label_x.Name" xml:space="preserve">
+    <value>label_x</value>
+  </data>
+  <data name="&gt;&gt;label_x.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_x.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;label_x.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="but_ImageList.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="but_ImageList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="but_ImageList.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="but_ImageList.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_ImageList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAd1JREFUWEft
+        ljtIA0EQhq/X1trCThtbLSSNFmqjEFFQ8NFZKV4XklwSTS/2VoJgo1gL6awtfDSCoNgaBAWt4v8Ps2EN
+        5m73SBHhPvjZ2bl53W3uNMjoW8rl8lkURe9QK4VeoEhL+YPcVxaqVCqX0BbsXFppSXeQtAzxLo7UFWCI
+        PPZpWdcybmgSBxjX/YnuUws3cCvFXUACadEulUrTtHshHqc0SALBRAbAukO7R2pKgyQQSMwAYvdK0iAJ
+        BJJsgP89gH5FI13bfmmQBBNNsLE99I3XbU0KKXyV4XvkdXXFg0CSZoA3NJqTIgD7XBiGA2pP4ml8yIUk
+        EEy8BkDxZ6xTUgCYR4+B9tTFz/mCmvEgkTgPgGb3WOWzTTrOfV7d7iCJ+DyBVUkEdnPccV7dfiCZuA7Q
+        kCQA+9P40fxL90b0P9VqtREN7w4CidcAWAc7/N20yPhYEERcB2hC5s/2vuV/gLZxJEuWZhiXCBJnWURt
+        Yjf8S+eSCHjulv8GGtVLfrCArsRu1k3HkgjsIWC3X0Ps/f49Q/IGkjZNMQcdaqoZooF1hftCoTCM/alc
+        9KFYLE5YDVx0oKm/gP8Ow+zq1g/+eJB83dEoThfVanWMufV6fQi5V1D7KDIy+owg+AGIP0Gk2wfrZwAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="but_ImageList.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="but_ImageList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>282, 0</value>
+  </data>
+  <data name="but_ImageList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 57</value>
+  </data>
+  <data name="but_ImageList.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="but_ImageList.Text" xml:space="preserve">
+    <value>批量测试</value>
+  </data>
+  <data name="but_ImageList.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;but_ImageList.Name" xml:space="preserve">
+    <value>but_ImageList</value>
+  </data>
+  <data name="&gt;&gt;but_ImageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_ImageList.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;but_ImageList.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="but_LoadImage.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="but_LoadImage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="but_LoadImage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="but_LoadImage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_LoadImage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAUtJREFUWEft
+        l09OAjEYxRuuwdZDuHTDQdAjeAC69hKGzB+0HRaK7SzlIsatSxM3hg3OFx8C5dN+lEmQZF7ySybt9/pe
+        wsyQUZ3+hbJ7p0vrn2MUVX2bT/05bO2psH65B++ldUNY2xETEiU37gb2w8UFiKj8Y2YeznBMutjDxdQf
+        3P0SI7OzC8QfWiCRyr8i/kgFGhB/wgXo/dHcAyNuTwLikwuMYSf/ONgTAXtSgbnWyx7sSmvdo7VgJgrs
+        exd44Z59WqO9YPZPYJUXyI1flMYNYNsR7RXNDOflgE1eYFL5S1h+VWGerjgvByzSAvUI41F9Px3cGdtg
+        XFjAuLf1Y7dbhvZW0KuWPSMAVvlPsIICYP2RNHQTWLsCJ1ig4dOYWR92Rde0FsxEgT2pAP2f3+XWXxN0
+        zc5EQHxigRZAfFdA/mHSJpSJ+E7HlFJf9Zamjht7BPIAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="but_LoadImage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="but_LoadImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>218, 0</value>
+  </data>
+  <data name="but_LoadImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 57</value>
+  </data>
+  <data name="but_LoadImage.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="but_LoadImage.Text" xml:space="preserve">
+    <value>导入图像</value>
+  </data>
+  <data name="but_LoadImage.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;but_LoadImage.Name" xml:space="preserve">
+    <value>but_LoadImage</value>
+  </data>
+  <data name="&gt;&gt;but_LoadImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_LoadImage.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;but_LoadImage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="but_RecoverImg.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="but_RecoverImg.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="but_RecoverImg.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="but_RecoverImg.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_RecoverImg.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAxJJREFUWEfl
+        lj9IVVEcx10jl1qiogishpCmGoIGwSHMlnAoCUExh8KgpaFoaDEIQaEgCI3KJWqQBAle7+l7/nkWEU0S
+        7i0uBaLN9vldvudy7vWe6/XpEn3hyzn3e36/3/nec8479zX9U5ibmzs2OzvbWa1W+2kf0A7Sds3Pz59R
+        yN5jenr6wMzMzCMm+wI3c7gMR2GrUnePWq12i4IrmqAoN8gbUonGobeOC1P0D+13+BY+hFfQ+uAI/TJc
+        hX58XaV2jvTk7PPzcrl8XMNBEGdm4jy4rqHiyJi8U0OFwJt3kLPm1ahqaHuQbHseTy65IZDvn50xyWHY
+        afeTMHPfdNoXvNFTfmqHo8Ac8DO9TG7VVnFxcfGIq2WkRrvCsuEvPZNOmUa/zWnWjwJz4NWIlp06A3qO
+        awZhSRYIN+r1eou0oAEKdqS1tAEDcZ+kbVYqlUOSk7DldUHwq+SgAfrXs/QsA3SfSdtkvEdyEnbSXRB8
+        JTlogLe67XT63ZJDBgalGYclJ8FAvwui4D3JQQNMdBTTT9BGJUUIGLgozWpPSE6CYvZhiYLsJEsOGggh
+        YKBZmhkoSU6CwXiZCOqTHDSwtLS0jwN1Fu2kpAhZBhYWFk5LM8bbmwAr0OWCMDAiOWiAvn8IYxNZBqjX
+        LS2xvQnY99wFwbLkPAM3nU7R85JDBh67WH97t4AA+55b4KqkPANtFL5De6NUKu2XHDoDH6QZT0jeCgbt
+        z0QUyJZE20B/V4eQOpf0bHwfBYVAQCvccAm8YYe25hu01Qm7F4jptVwYHTban3q2W/BCFJQHJh1yCbhf
+        k9wQyH/jasHs058FTNS9xBX7qmmoMMireDWM265eAiSs+wUwNaChXBDbS+wvP1f8qJDiIMkQF6GwfdXs
+        w2KXll2vzRy6FvSrOnyT0J80QeLeqXRxkDiWLlSQk9yWB2nPpfRxlS4ODlM77qdShUL8DK8pNULqkjO+
+        1tDOYH8mWOoeCgxjaAKW4Eue72Kyk1vulEK3QCZ+y0Bj27FbmAkm/uFMwG0vtj2HVmLZVlDSf4+mpr/v
+        QM2Dfy0JCQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="but_RecoverImg.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="but_RecoverImg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 0</value>
+  </data>
+  <data name="but_RecoverImg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 57</value>
+  </data>
+  <data name="but_RecoverImg.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="but_RecoverImg.Text" xml:space="preserve">
+    <value>原图比例</value>
+  </data>
+  <data name="but_RecoverImg.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;but_RecoverImg.Name" xml:space="preserve">
+    <value>but_RecoverImg</value>
+  </data>
+  <data name="&gt;&gt;but_RecoverImg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_RecoverImg.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;but_RecoverImg.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="but_SaveImg.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="but_SaveImg.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="but_SaveImg.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="but_SaveImg.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_SaveImg.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAUFJREFUWEft
+        lrFKxEAURfMp/oS1tR9gJ4uVpRZiI6yVgoWw2FlaKSyCzS4IgqydjWAjwiZDTPwCO7sxL9yVYXJfslkH
+        qzlwurnvvkwgJIlEGKkpR5kp8tQU1nV3b2g3NrdblTPV2WOM6k8VHrulrj0WsNUDPBhTrmPs8vilrn0W
+        gN/z7OMQo5fDCTdcYYHa6jYm73m+hop2/LDrqgvAr3mW76BGhwR/vbq+o6WucoZlF6JGh4VCihodFgop
+        anRYKKSo0WGhkKJGh4VCihodFgopanRYKKSo0WEhcXI/s8OTi/pD0+Xp+aV9eX2jc1Cjw0I3t1P60Wlz
+        a7DfmCOiRoeFDo7OaEmXj0/PjVmo0fEDolwrK+hSXps/CzU6fkCMC8QF/nuBxk9pwAXGqGlHfsvTrPhc
+        BP+8QD2rHGF8JOKQJD+Dz3crecomIAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="but_SaveImg.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="but_SaveImg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>90, 0</value>
+  </data>
+  <data name="but_SaveImg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 57</value>
+  </data>
+  <data name="but_SaveImg.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="but_SaveImg.Text" xml:space="preserve">
+    <value>保存图像</value>
+  </data>
+  <data name="but_SaveImg.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;but_SaveImg.Name" xml:space="preserve">
+    <value>but_SaveImg</value>
+  </data>
+  <data name="&gt;&gt;but_SaveImg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_SaveImg.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;but_SaveImg.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="but_GrabImage.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="but_GrabImage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="but_GrabImage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="but_GrabImage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_GrabImage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAZZJREFUWEft
+        lj9LA0EQxe+DWAj5EKKpxSaIjZ221hG0t7cRLUSIBCws0oiFoHB/i+tE0MrOylosLKz0TZjc7Y2zXrJ7
+        192DHwe7b/bNziUkQadO8yiKoqM0Td+TJPmRxHF8yrZ2ROFasGDC9uaFw19EmAoa7XGJnzDSDYz7kG4+
+        5+2nzPw24BmGYbjOMboQfCkPbhrK4LiquEu1qGkoi2NLYeNGGn3BbffxSvfkOtbuOLYUNkgVoycJH62d
+        XewVokXINP3HCGPcxXMZLOGm27jVtbE/YwLGYo1wbyDLsk0u+SPsH0i/BecGzthuFTw7okbDqYF7ttYK
+        r+RBqTdZvAH1q2MR/MeyXuA0gQFbawXvlqiVLN4AfZ/ZWiv4h7Je4DSBEVtrhc/AlVJv4jSBb3wO1thu
+        VZ7nPTTwpZ1h4DQB4o3tVsHzJGo0nBsgXvGzusplhbA+wM3Vf00KXg1MwSt5xnOM0As8H829OfBvwBO1
+        gRPD0DbnHFsKI+0rxlZA1grHVkVNgFvwqRV68sFn9zmuUycoCH4BlNBw+vfZnvoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="but_GrabImage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="but_GrabImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>45, 0</value>
+  </data>
+  <data name="but_GrabImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 57</value>
+  </data>
+  <data name="but_GrabImage.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="but_GrabImage.Text" xml:space="preserve">
+    <value>拍照</value>
+  </data>
+  <data name="but_GrabImage.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;but_GrabImage.Name" xml:space="preserve">
+    <value>but_GrabImage</value>
+  </data>
+  <data name="&gt;&gt;but_GrabImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_GrabImage.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;but_GrabImage.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="but_Live.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="but_Live.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="but_Live.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="but_Live.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_Live.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAARlJREFUWEft
+        V8sNwjAMzSbswI0bVxZgFibgQjdgA66oKRxQPxwQCeLQjtAROgDYJRFqZVAjmloCnvRUKX6xrcbOR/zR
+        RpScJ1GiljLTR5mqAljKVFfwvbmxngNzwQf4CmO12GWXsQlDA8TB04EnZnpjwjVBij3ShH0As6JEnhnU
+        wXFdCOMgxHoTWByUcQhisePvx2onBd4JsbH4sNVogX8WmAD2KmUcgiUk4LbJbOPTNDxcR7B+a8ruRl05
+        93/dOgZhqubgJKd0XflRAhYwvmrrurKXBCzgb+ypOe/YawIImegZNe8VvysBtiWAcZ4i7KkN+Tci7q2Y
+        +zDiPo7ZLyTsVzIE66XUghB4pQnbBBj4HiYWrE+zH4QQd0Z+Lq1ChBgqAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="but_Live.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="but_Live.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="but_Live.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 57</value>
+  </data>
+  <data name="but_Live.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="but_Live.Text" xml:space="preserve">
+    <value>实时</value>
+  </data>
+  <data name="but_Live.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;but_Live.Name" xml:space="preserve">
+    <value>but_Live</value>
+  </data>
+  <data name="&gt;&gt;but_Live.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_Live.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;but_Live.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>582, 57</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>panel_hWnd</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="hWndCtrl.LayoutBitmap" type="System.Resources.ResXNullRef, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value />
+  </metadata>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>136, 19</value>
+  </metadata>
+  <data name="关联相机.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 26</value>
+  </data>
+  <data name="关联相机.Text" xml:space="preserve">
+    <value>关联相机</value>
+  </data>
+  <data name="画质调节ToolStripMenuItem.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="画质调节ToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAABLFJREFUWEfNl9tTE1ccxzNOi+1/0Oe+dKad6cXWmXb6pqX40AdQ0dZW2mqrlCKh
+        IyAKjgJZw3SqIjD1AlIQI7ZinXpjlIq0nRZrpXKxCYYkZpMQcttsLiQgF7/9nVxgqwlJUKdm5jPnnE1m
+        v5/97cnZs7In4sO7POlGh6g0Or1cGDHCXN8UQvqdyOnsAtep1nLnB9Qpca5fo7wwoE6PxMtkLJx3emCy
+        OmEacYJ3iOCdIkwOB0xOF/U90DkEDDmcMNBxNmbo7W50qodxfkCTMkwiEk8CdGUs3K88hGBRNSy3TbA6
+        bmGCL4NnpBVmCttl6MQbg7VotwzC4vQ9tACrRCQ+IkBXHijfj4ncnbBoeIw6+jFplMNraQgJFOsu4vn+
+        arSZ+x6HgMixspuMVpgNI+DpxLxTgNlhpttgC4Wp7Q78bbNimG5F9BbobG5c/kdL5VTjHJ00Fc5KBQTR
+        ywmiD4LHH4b1Q7B+eOwmROqzNjp2CF703rHgDx2PnpQxzgncCwQ4BAJIlemxAKwkEa1IKrCqR+KfNIFg
+        MGlmAkGMun0wubxJM6/AjN+Pyz93ofF4G46qCNbGQ3USDcdUqK6th2JfTQIOoIraI3RO/Wh4XYkpMOXz
+        QbG/DlmbvsSHBVvxkbwoLuuJdflfYcWatXgna+W8LM/MwtsZGdhYIIfWYk8gUFOPzaXl6LvZB4N2GPrb
+        2rgMDWlxuleD439poJqHpl97kfnJRnyWnEAdtpRXwEvLMCbGgfEoE5J+mKngOP50T+GqMI3ueLhn0GHy
+        IntzXrIVqEN++W6INnt4stFEw5gb8OqodYXH9FvGXfoXXHPdxRXnJLqIqy6SIVg/ChtfNLpJ4IuFCNCV
+        +qkS1n2AcQMwwtHYMishFeimoJO8C6fMIn5xTT8qASq7eB0wvE+sDiNcoXA6LhFg4d8ZRvHiqWa88EMT
+        dvfdwiX7eOj4w1fAqwX4XECfRVX4FPDcpHA6HhG4Lkyh5Y4dL7U3Q3aIC7G48WtkdPyEo3orSUyjgxcX
+        KsBKPUZVuAHYjwHu32nsD4WHfk8iP/J2vHy6NRx+eM8cNH6utR55PT34fngUaxY+CVkYu+IocyumTrDi
+        rbMxwiUSi44o8cqJRizLycHnBYULFbifIExeKzIGGyBrrqSgGOESFtVV4NW1q7BJnoKAQM/+e0E/rfe+
+        /8BugYXC3xtqhKynBLIWRcxQKU/VV+K1ZAU4Wgk3lBXhgrGFZvAJdEnoJs7YVUjX1EB2g8J7tj0egZwd
+        cprBVThu30NwIVTU/9aqwFL1DgovhqyXBK6VRgSUD4TOQnMgZYH1pXIcHKhCk56b5eCwAst6y7D4t+IQ
+        z7C2qwRph3ch7UAF0mpj8zTx7N6dWJK9Msk5wJ6GuXnI2S7Hx2WFs6yjqrxbsgXpEpZvzcPSD7KxZFUm
+        Xl+dFR/6/s0VSTwNp2k/0NZ+BhV72fO77gEUEjii8psaFG4vQ37xtoTkFZVASXsHHW3/4wqEJKgKk15v
+        QqaICQ/tcGwu6GiTwTYaiTDY5nbUcQVS4VHuCZWxAhLBBEYk+7xUYK+DkXgS8PvTmQSrRCpM+QOc5b4X
+        1qRg76L0QhyJ/z8/Mtm/f5VtTDcUk0cAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="画质调节ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="画质调节ToolStripMenuItem.Text" xml:space="preserve">
+    <value>画质调节</value>
+  </data>
+  <data name="绘制.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="矩形1.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="矩形1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAFFJREFUWEft
+        ljsKACAMxXo0b6Y39wMKYkUdtDgkkOl1yFgB6AjGKqKxija4x24DXkMAAQQQQAABBBDwf8DsjbrpNsBK
+        ha/OXujiuK1uTwTIiCQJtq911vXOzQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="矩形1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="矩形1.Text" xml:space="preserve">
+    <value>矩形1</value>
+  </data>
+  <data name="矩形2带方向.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="矩形2带方向.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAWBJREFUWEft
+        lr1KA0EUhfcJxEaCvVWQpLAXK0NKi2V/iwVBq4BtuoBgY2cjttaSF7DIAwQCqRXsrXwDPXc5F2c3q8bd
+        zYgwH1w2c2bmnsP+DPEcTQmCoM+f9onj+DSKotcwDI8o2QPmtzB/l7IaAMYHMJ2rOWsK/RrXc1wPfd/f
+        4fL2gUnZ/Ku64pb2wS2/M80wfjLHRi3SNN3jtnaB6RkM3sQIX8KxaHw8FxWBRvmmtqHhI64DSjlZlm1D
+        vzECSMh9TtsDpkMjxAtlu8B4qiFwpy4pr5IkyRYWzXRxg5rJI2DbHGjPOq/vywpymOiipiW92DYH4xNj
+        fky5SCmA3Ik6VRkAWkfnUA+Ui5gByg3W4af90Jecr34ZNx0AL+C9zuNw2qX8yaYDQB/p/J8EEKBn+Nq6
+        HBaxEeBbXAAXwGzQtGoFwMZeuVHdkv8JbPs7kHyCBlVn/NolPdjO4fgPeN4H8CH8fVb6gPgAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
+  <data name="矩形2带方向.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="矩形2带方向.Text" xml:space="preserve">
+    <value>矩形2（带方向）</value>
+  </data>
+  <data name="圆.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="圆.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAd1JREFUWEfF
+        1r1NxEAQBWAXAKIDAohogQ4IKYAeSAjIaQFqAIRESkJCAbSARIrET0AEEsy3ujkdd4B/zvY96QnPemae
+        D+96XtUC68H94HnwPvgYfJ/QtTX35MjtDTvBs+Bz8Ksh5apRuxROgm9BTV+C18HD4G5wO7g2oWtr7smR
+        q0atHp1wF8xfdBHcCjaFXDVZr1crPAUVfgaPLHSEWj300rMRHoIKbkvUD/TSU+9/cRmU6N/XN/KV0PgV
+        NouEjxINA71pLGxMxyV3+56FgaA3DVo/jqgz68ZpiYYFDVo0CzaCr0FPtWlhYNCgRZN2dRD0RDeCkUCL
+        Ju3qahIcC0YCLZq0yxAR+JSOBVo0aZdJJvA9Hwu0aNIu41RgqIwFWjRpr/4BVv4KVr4J2SgBMzEWaNGk
+        XTycgJMZC7Ro0i4Gkodjo9q4nq6gQYvm1LzmMBrCB8wjfcF0GMHsOF7GgtVBbxoL4xjSkPBwQyH94Z9O
+        OZ1wn34wkb6w1iGnI+5zP+R7b+2MebhlLJra9IG1jnge6ZCRjWrjluSm9UK9OsFmydPhLyfDTPiU+p4b
+        KujamntyZmv+3HBN4bg4szxc/qI6ylWzcNSWAQPJw7FRhohJZpyia2vuySlmsx5V9Q2GdLmxPow2twAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="圆.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="圆.Text" xml:space="preserve">
+    <value>圆形</value>
+  </data>
+  <data name="任意形状.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAcVJREFUWEe9
+        lj8oBnEYx2+wMskkm5QyGIwGi2SUkkFJBovNYHiLLEyyGJRFWUgpZcGEJJT8WaVIITMj3+/jfnn9unvf
+        5/nd9fvUp+577z13z9093ftLIjMPn+Fjuh2VTfjtGbUJ3rXfAJ9GNF6g38AtjMY29BuYhVG5grwwX8c4
+        d9Sj7Kl1d94uqQ68oCtwFmliAvIcB5IUlD21Z5DnmJGkIKuBVxiKO0eXJAVZr+AedkIrY5D1F5IM8JGz
+        8AbOpdshTexC1lYkKWmGLDqR9MsSDGniDbKuR5ISDguLFiX9sQItTYxAHm+en2vIwkFJ/1mD2ibcscuS
+        lDRAFj3AJu7IYANqmriDPK5XkpJJyKJVSflswVpNDED+Tk3sQxaNSsqHT2oP5jWxAPnbjiQDX5CFrZJq
+        0wj5ec1q4ghy/5AkJcOQRYeSdLTAY1jdRDf8TPeZWIcsmpKkpw1eQtfEU7pt/vpx8llYa7Lz6IC8OOur
+        5WJERR9kwYekMN6h34D6I+Smlh+PUAr9jZ9CFvRLCiN4+c335wqKwgualnJcILpHZ57aokxDd+dO9dSW
+        wTn0Gyiy9DJT9uLTTNbaTzU4ZWKe2nJIkh+ndML1qEmI9QAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="任意形状.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 22</value>
+  </data>
+  <data name="任意形状.Text" xml:space="preserve">
+    <value>任意形状</value>
+  </data>
+  <data name="直线.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="直线.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAE1JREFUWEft
+        0MEJACAMxVA31821grk4QNtDAh/x5MMRrdh+Z0n3cVaC4AdEiCARJIJEkAhqiZix9ESQCGqJuPf0RJAI
+        EkEi6EeU9BBjHTJjep+QUAthAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="直线.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="直线.Text" xml:space="preserve">
+    <value>直线</value>
+  </data>
+  <data name="绘制.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAk9JREFUWEe9
+        lz9LHFEUxfcrhJAi2KQWixSBFC5hQdIINgEJWwiKoIR1/1ssIWBC2mDKNIEQkUA+gJ9AEkMaGxE7QbFJ
+        Y2MpmN993p19897OOG9mxwOHt3Pfue+ceTszu1Nx0Ww2H3U6nVpR9vv9aV3SgNp7eAN/aimOVqs13263
+        D1RUhEcp5obdbverTt0C4z1bUICeOSc2g+FbV4vnthFw8MqdzMmkMz8mwDNGgduzJWf/xS7KsbtQHrCW
+        ve2ncJa1162aoQgPhwfRthQEa8W+c+U/vo45xuVhDb9FEduiZV0jN1hjnPmQV71eb56xbsy1wRbUTDEn
+        6E8zjxiZC5zJ3AHozWQO69pyC2cyVwD6spovaYuBudgdQXAAejKZcyuuaIuBmFOvFQqAPqv5mrYYqPkR
+        zB8AbdZtf6MtBpa5zIUHGAwGD9BtOX1JbGpbBGpDc2F4AG6h1+iewtQQ6LraEoOjCw8gv2ToTjB4zpgU
+        YlPlHhxdeAA0Z6o9J8QLxti1QMCBSsfC1sKwADzLq47+khAvGU0IPr9TaSKsXmFYAM7uo6MXXlNfgB9U
+        lgqnNywA838t7QX8DpfgY5XcCe0d+XmFBDD3BO5DufBmtRwMeuN+XiEBzGU+yzR4fl6hZHh+XqFkeH5e
+        oWR4fl6hZHh+doEHyYbqSgEe8hviBfhjFXZVWwp4WK1aXjeNRuOhFD/ZRY5/qXDsO18esrOLjDsw8oG/
+        TSr9g2BP3Bc7JoCAz1n/YEyKP9R6BLZ9ionPMHpTmjDl9ewbO15VS1Cp/AduI5i/484pEwAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="绘制.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="绘制.Text" xml:space="preserve">
+    <value>绘制</value>
+  </data>
+  <data name="显示设置.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="默认设置.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAiBJREFUWEfN
+        ly1LREEUhhc0iz/BLBgEmyaL1aKI0WjyH2gS0WAyWGwWs2g0GUSbYvELm0VBrIK+z+4eOMydmbveOyy+
+        8MC9M+eemZ2Pc852GupAvPQeh68T8dNniYZhyg/O81D1bwYP+RKP4lJsiwUxJoppQsQGzvEq1kUxbQlz
+        ficuHLfiW/gJGGdiVBRROIlJYRoRU2JZbAo/CaC9iMJJsD0xrYg34ScxL4rIT6IuDpwLPwlWqlZ7fXLa
+        EIe9x1odCZvALg05rQozXqOhkB6E+c2eh1NhhjM0FNKsML9PYlxUNCfM6JiGjNj7G/Eh3sWVYFty8rdj
+        kYZQO8IMiGYp+UMYQl9Kfnv3aQhl4faz+xYXv9KcpEjdjGlhNoTtilhSOp+7b3Gx1OYkBX5iIiJaxCR3
+        VMR+0nndfYuL/faDxcBPSvcCGxJYRTTSSWxPqe0E8I1NdAIsC50sUypitdkCfGa3gINhTkgsMbU5hPg0
+        m+ghpJgwg1y0anoN8Wl2jFURd98MCBo5NQlEfuLROEMZRSVjRqTUUsKX+WWMZMlGGWWG5PNS8rVBbalG
+        GWXG5PO28jUBvmtFxLIPgHzeVL4WgIHrQ39igXxOSh1U2PoaAP5cF1LDeQfA7SCrkVj8r+GZNvpi17Rx
+        PUj0oowKHQJRjdgOqbKcbweqA+vE8lHJxAaJge2fl7xOlFFUMhQThFLiOUnF/zWjD5toyVVVp/ML2wkv
+        1jofS+4AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="默认设置.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="默认设置.Text" xml:space="preserve">
+    <value>默认设置</value>
+  </data>
+  <data name="线条.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ComboBox_LineWith.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ComboBox_LineWith.Items" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ComboBox_LineWith.Items1" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ComboBox_LineWith.Items2" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ComboBox_LineWith.Items3" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ComboBox_LineWith.Items4" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ComboBox_LineWith.Items5" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="ComboBox_LineWith.Items6" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="ComboBox_LineWith.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 25</value>
+  </data>
+  <data name="线条.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAGVJREFUWEdj
+        GAWjYBSgg4CYDIegmKwGWmCQ2VBrcAOoA/7TAhPlgFEwCkAJhZYYag1uAFKELQVTA486gCgHjIJRAEoo
+        tMRQa3ADkCJsKZgaeNQBQ8oBWJtUlGKiHDAKRsEIAwwMAI9PEF/gKsH5AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="线条.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="线条.Text" xml:space="preserve">
+    <value>线条粗细</value>
+  </data>
+  <data name="颜色.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="red.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="red.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAANdJREFUWEft
+        ljEOwjAMRbOkt2g4BFdi4D4chWuwt90zcAvIR47UwYBjR1hCedJfWvs7Suy0YTAYtHA7hrjO8byk6bqm
+        KRc9SPn1rLxDDIX3ZTvE05LifVeUFWIQS2l92OZ44Yp9EnIo3YameJV5EdhKzrhF6uNAM0nO/JvgoWpM
+        dDRnqFLxIls5NGq8YaPgRbZySuJ+zq3KZCuHMTGJbOVwJhaRrZyS5HsE/k3oPYbuFxFwvYorrh+jimYR
+        3YpXsJWSnkCMedvfgWZCR9OI/vaXbDD4U0J4ApOAiLuGXNuQAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="red.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 22</value>
+  </data>
+  <data name="red.Text" xml:space="preserve">
+    <value>红色</value>
+  </data>
+  <data name="green.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="green.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAN1JREFUWEft
+        ls0NwjAMhXNhiTBBcmWlHtino7AGY3DoCFAO8Gw5FaAgnB/JB/JJT4rS+Dlq7LRuMBgUcT7s9td49Ldw
+        8vdw8Wt4sGiMOXpGa2R1X5BogpYt6XfRmknC+uDXOH8kUSjOEt5GXfKkxk3AhF57xrhIlceBYkKw5sx/
+        aakqTK72vGGxuDtK4VbLmFUJXmKr563PWwUvsdWTNWqQ2OrJmbRIbPXYH4F1EZq3oflFRCDY8CoWTD9G
+        ibpNdEqegKndD8kGiom7g1r09Z6gMea42msLbjD4U5x7AuFq3TffectmAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="green.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 22</value>
+  </data>
+  <data name="green.Text" xml:space="preserve">
+    <value>绿色</value>
+  </data>
+  <data name="蓝色.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="蓝色.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAANZJREFUWEft
+        ljEOwjAMRTMQTsrAaVBQJ87BNTgDzcCQW0B/5aAOFnXsSB7Ik75Utcl31HynDYPBoInbI8bLfD6m5/2Q
+        8ium+Q3hGvfwDGNodF/iNZ+WYqUW/aGCsTStDzHliSm0ozzRdBu64lXGRdBrZ4wbpN4OBE6253sqqmAi
+        0YyZTuiOVta24swUghfZytn2uVXwIls5nJFFZCuHM7GIbOW4b4F7CN3b0P0gAr5HMeH6MaroFtGpeIW2
+        w+eH5AuCuSQabbU9J3C9ti3Srg3cYPCnhPAB5gAnyhb6rmcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="蓝色.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 22</value>
+  </data>
+  <data name="蓝色.Text" xml:space="preserve">
+    <value>蓝色</value>
+  </data>
+  <data name="黄色.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="黄色.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAANNJREFUWEft
+        lj0OwyAMhVl6GGDslTr0PjkK18gxMlA6lsxtLIyqSm5jfiRXEZ/0pEgxzyi2CWowGJQwz+fT42auMWgX
+        g11iMM8keNYO3kEMhvdlvdvLlsy/k36Vh1hc1oc1mIlI9FOwBpe3UZM8q3kT+NlJc66qywHNtBlwar4n
+        X9WYqdtJw2KBF9rySaNGG5ZLO7Tl8znnrbIL2vKhjeqFtnwokxahLZ8/KIFwE4qPofhBBIgexRnRn1Gm
+        ZhPdkmewHDIXkgw0U5oOgSvZYHBQlHoBQmPq8s3J/mwAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="黄色.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 22</value>
+  </data>
+  <data name="黄色.Text" xml:space="preserve">
+    <value>黄色</value>
+  </data>
+  <data name="颜色.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAA2xJREFUWEft
+        l0tPU0EUx/kAbkw0unDp2oVxZWLiV3ChRm3LK1Qpva1UQUro7QWRp6BRg2CNEd+KGg0GX9VqQXkZKwYQ
+        KdgSiEX6gpa2YGuOc65zsU1bveplQeIvmUzO3DnnP3NmOjPN+M+KQq42bpExhlI5Y7Dk6o46swrLIzm6
+        o/MHjlQP7S+uukPayxRqdvfe/JLV1EUaZGpue66u4klZ3dmx89fvT1he9UdGxycgOB+CQDAEI3YnPOvq
+        h4s328PljSY/GdCEXM3upO7/hoIxHlNojYtma58LRIKDUelrgip97Y19jHEDDfXnKBi2S1915hPOFPkW
+        dkHE0QaxoIO343HNeMHS/Q68/gBve3yzYLpyL0SWxqPQsDtoSPGQFNrvdlj4YAK+57uWStQ/RFsBHJMu
+        4E60LpV4ut+8h+yD5SGZhttKQ/8eIn6KO37OTWPw4MzjBxB4y9EvABfbHiUMADMRT1u7OZp3uPLjThW3
+        ikqkh+zybVla7quQdoFYYDxhAGIzIFBzptWnPFLdSGXSoyyqemp5/WaW+iWAopiJ6JydtvxkyuXmZz7j
+        8dOWRL64vZBdWPFVVshtpFLJyAq4zaU1TePUR3K4BpOfnBWaH2opILu+qOXyHSd2jnrd4Lt1ASZ1cr5G
+        WyyeSAQuj45C3ksrX6ON3H5gjmVqjN1ULhk84Z519vG95/usvLhQ0BbLq+lpXlwoaCMDw3bI0VW4qFwy
+        5KPz4xifAIgMvU0YANpiGfB4EwaANhKOLECmlotSuWTwbMejFYnN+cHTepoXxxptscwuLkLz8DAvjjXa
+        yJTrC5CDKX0G4gewHFh7bFCgr31I5ZKJX4LloL7p0meZmuWoXDLxm1BqOnttsL+oqotKpUbBcGrhZygl
+        T172gJxhIZvRr6VSqSHX7iYpD6IRspwnTdfcBaW1/Xu0peuozK/Bo7jXNuijMURhtvZCQ/PVBbau2S8U
+        nDHZ8Ta52qCkocWBlxG5PhdCYXFbIRqLQX5J9ZyOPZEvU5dtFwoN93ekuo7T8cHuwNePjbpKR6oHSTow
+        3Vkqbj11lQ58kmnK6mf8sz+eWeloaLkSIGtdTN2kRXiUPn7Rk/ZR+pRsQvLi6aAu0vOrZ/ngyDhuwpCC
+        MeTQ7stHqj8meYcqp+QatnGPkltDu/1nJZGR8R2YBODLJo7B3gAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="颜色.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="颜色.Text" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="显示轮廓.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAoBJREFUWEft
+        l9tRHDEQRTcEh0AIzsCEQAbszz7+IAMmAzsDk8GSAZsBzgAygAzse1S3ZWlG83B5TPHhW3Vr1eqnejQa
+        7ebD4Xg8Xuz3+6+73e5Rvz/Nzup/DyV7LRIHX6zeqLCt5JN+P3tqXZAskirJg347deXSavRRFIVeeboJ
+        ipQNxT4GJd9a/RsYQsbb7fZTjFtQgHsxF1HaSr6WfGMR+VzYBnM3E/zMU9vLlU5BSXgMEfBJvBKfYy6K
+        0vjWcz9Eijnji16kGx1GnZgclxYAZB/B+3xjUTZrQjY5Z9mmqjU8isPh8F3zrIwODTYesn1TYrHDz+pR
+        YBd+CKn9CvZgfUoe8332u6Qiv+E7t+oSilMVEMHzu65xudH6fLbZYtAp8YvFQQG0DqEsoLn64NRq3T3e
+        BjZZFccmxGfTMnfmLbjUoHp2Vo6SFdk0w4nvxNHibToPGbfe3+CbzTIoSPOTXYM2ryEF7bgr2+quNIOI
+        1Umm5JwJs8mhXSInPieEcK4+OJIxiv0BGbeS5wRztBuxp9+CErSXjljMmOlSk3b9swLGIHuO4Bx8Ce26
+        rABvrHQvgBqfohMajx3Dk0yBBY2rAuLzm5+vEt6EQYMncdGm69Ph4/GR9z59DfvPuHRakw4/j5bzGnT4
+        GlJ0fs7lxaIZ4G/p8MSvzoEwKL8FleNadPi06DwXAyat/18Ac+n+tjYdflAASoTJK/aaqM6BDwNVcy1y
+        ocjkkELHZcOnY9YhJ0cBu1Jn5o56xZW+fO0jQOyFTC6c6DVunv0ERq9g/IMa6NEBjVtHd94TCZrgz0Np
+        wPc/rYJqNY5vRvAlOqQxBZZ3B1huutYld/gX7f2x2fwCSKvHh0w00foAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="显示轮廓.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="显示轮廓.Text" xml:space="preserve">
+    <value>轮廓显示</value>
+  </data>
+  <data name="填充显示.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAASNJREFUWEft
+        k71qAkEUhfcB0oikshMR0qUSBDuLoAixCSntUogP4Rv4LFpaxkqwsLOz0y6dRX5Qc87sDIzD6u7MrrvN
+        fPBx564791wWDDweB1awHB6LoQTP0C/BBQpbgsFt2JXnXGEggxUNmNsSDOqHxwue4d2XYMBbeIzkCd5t
+        ibhwRRXy3QfRZUTScEUF8k5NdCmxDVfwr8m7LdE5wgET+O7oAHLGC7SGF7P0FSZmCqOGpNWKOYwaYuu3
+        rE58QnOgjXr4SFZrltAcnEQ9vAd5HovOgTXUh8dpfvYZZL8TnSMbqIdc80dWRR3qv39AZ7ZQH2b6K6vJ
+        Aqp3mnyQhj1Uw3T/ZI3iEQ5hR3QZ8AX18KOsuXKADD3JWgi3PrvHk5Ag+AfdL8DN0UQEnAAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="填充显示.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="填充显示.Text" xml:space="preserve">
+    <value>填充显示</value>
+  </data>
+  <data name="ComboBox_FontSize.Items" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ComboBox_FontSize.Items1" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ComboBox_FontSize.Items2" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ComboBox_FontSize.Items3" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="ComboBox_FontSize.Items4" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="ComboBox_FontSize.Items5" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="ComboBox_FontSize.Items6" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="ComboBox_FontSize.Items7" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="ComboBox_FontSize.Items8" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="ComboBox_FontSize.Items9" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="ComboBox_FontSize.Items10" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="ComboBox_FontSize.Items11" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="ComboBox_FontSize.Items12" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="ComboBox_FontSize.Items13" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="ComboBox_FontSize.Items14" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="ComboBox_FontSize.Items15" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="ComboBox_FontSize.Items16" xml:space="preserve">
+    <value>33</value>
+  </data>
+  <data name="ComboBox_FontSize.Items17" xml:space="preserve">
+    <value>35</value>
+  </data>
+  <data name="ComboBox_FontSize.Items18" xml:space="preserve">
+    <value>37</value>
+  </data>
+  <data name="ComboBox_FontSize.Items19" xml:space="preserve">
+    <value>39</value>
+  </data>
+  <data name="ComboBox_FontSize.Items20" xml:space="preserve">
+    <value>41</value>
+  </data>
+  <data name="ComboBox_FontSize.Items21" xml:space="preserve">
+    <value>42</value>
+  </data>
+  <data name="ComboBox_FontSize.Items22" xml:space="preserve">
+    <value>43</value>
+  </data>
+  <data name="ComboBox_FontSize.Items23" xml:space="preserve">
+    <value>45</value>
+  </data>
+  <data name="ComboBox_FontSize.Items24" xml:space="preserve">
+    <value>47</value>
+  </data>
+  <data name="ComboBox_FontSize.Items25" xml:space="preserve">
+    <value>49</value>
+  </data>
+  <data name="ComboBox_FontSize.Items26" xml:space="preserve">
+    <value>50</value>
+  </data>
+  <data name="ComboBox_FontSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 25</value>
+  </data>
+  <data name="字体大小.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAgCAYAAAB6kdqOAAAABGdBTUEAALGPC/xhBQAAAoJJREFUWEfF
+        mLGL1EAUxhcsRcVJdEGUyyRwIljYHNppZyUigqVgYWkhHMdmsoVgKVgc2Ngd2ChXWNrdtfoH+B+cXKGd
+        lQrn+ybf5JJLNmQvk+wHj539vTfz3ibZl0kmXXUpMreC2BzBMCZenYIke+0Kwph4dSqKoRGvRirK7pws
+        CIzu8aWS9A2KCHW2CbMFCaN7fLmjcmFtrmHuO93jKozSu7aAxOwTyQVu9sHgIxpPknzbFqTNC6IJxixy
+        m2g8SdIDezSubV0hmmDMgg6IxpGKzH0m/kJUCAw+xBANL5Vk7+3R0elzokJgtiCJIRpekvAXkp6/+koR
+        FQKDDzFEwyqIsoc2YWI+E9UEn42RWKLhJMl2bDJtnhLVBB+L3iEaSp/OSKLfQZz+m043zxLWBB9iEIs5
+        xP6ltHmCXx4m5iPRQiEGsZhD5F/LJFmq+DhdR2xusw3idi1/GrqdXkji3rmCwti8JW7XaS7ULn8ASGL+
+        uoJgxO06zV+5W4vIHuWFZB/kcxdjFWeP6W5Wn2aHOZjb1EShQKd78Mt+6gEKYZ5dupvV53bQepu5vnWO
+        Bfwgwg84BLuszZSoLjnk9obZy5puxNpk1qePHw5wUYOp2LwkqqrYUniw8lYFkoK+g19MzE0iOUKzDcZ/
+        I6pKJvXedGGuXaO8mYvS20z8lagQisl9DT1JFuu9LW3a7iqdX1sqnj8jKoTTZXOe7Ek+N+5uHaxpv2vz
+        07EWO7STnXw+2pQfmaSYvMl2sEpPKqCHh7/KQ6XOm2wYze7RXVOtJwVr8xtuAQs8yK1H+0O8UC7W9iTp
+        oHMLPL5AKL+Y6HITrfQkN9HnK5byq5vp+iwmXqjjnmSO/gPg7LTaizkrQAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="字体大小.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="字体大小.Text" xml:space="preserve">
+    <value>字体大小</value>
+  </data>
+  <data name="LoR.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="LoR.Text" xml:space="preserve">
+    <value>左右镜像</value>
+  </data>
+  <data name="UoD.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="UoD.Text" xml:space="preserve">
+    <value>上下镜像</value>
+  </data>
+  <data name="图像镜像.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAZVJREFUWEft
+        lL9Kw1AUxvsAuvgKbuIqzTnX3GS1byA4CDqIDk4idFGfwMHB1dHJ3UkcOnVycfcRxEEHoX5fcm5ISlti
+        GwtCfnDIPV/O/XLuH9JpaWn512xHUcqwdPl4jS4Zlv49XtV7lVH4qBc5CeM47m7k79Qzb5w0TVfwgVfE
+        MBZ5opaoHhcNQGOwhrXUGgWrvYP5Nz54ERrAMwl3oGjAyQtrqTVGvlIZxS46LDeQ63rOcWgA2hZr+Y76
+        wmA1SkOs7CbLx3aAYeOsAY4x5zSbg7nM58bOfYgYmFRpIHFRn8FxuQGCnbnn3IXuA1ZwC5OvVHXTpEoD
+        5f/AeAMisoa5b/Qw6XfgvI9gMIpV90zKqOyAyC6D4/EGiHfdXuYBL5PqYef+iee1SQXlBrxzvVkNEGhX
+        5lXvPti5DxDPJlWoewRl4PVIz1r3gYYo/giG04K1XD0ayv+KTh4m1YWA53uonYlzbjXWaJ/F0wI3f8fK
+        C1R1fVJtEU4OrLQ5EidnNLd0+WBrE+6YpcunfAlbWlpa5qPT+QFBDcpW0BTTGwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="图像镜像.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="图像镜像.Text" xml:space="preserve">
+    <value>图像镜像</value>
+  </data>
+  <data name="显示设置.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAzhJREFUWEft
+        VztoFFEUTWEhflDBL6gIooWVEsFPPrzZTRaJ2ZnZhHHebAwJ2GiwCChoYWGlaKGCKEoQIQREg0gEsRSx
+        kRRKRAhoIf4QhGBA0MIinjt7ZrKTfZud+AGFHDjscO+5n9yZ90ldBOV625WrlYmWW6ynbE6QOFO+Et3l
+        lEHo6Efg1GzMOl3bKE8F0ZvyxLT154wbBHXZgr+VRmnCSOUE95s8bxVzp4LoJc6Uj5zKOPomRo8RswHG
+        /nUkas438F83oJRaoGy9U3V0racpFX6rAavgd1hOcA2FRxHzg7HCd+AI7KdbO4tbKDdiZgOb8PAGSc/T
+        X4FcoXs11mx/xg2LSuA3cMxy9V3L9s8pxx+QZOAH+r/DdwPMMkUCaWrGgHAXOM7E4yh2UrV5a+mugLKD
+        fRknuEX9FPaCs3TNHVk7aGWiSYz2sFK9C+mqCZX3d1tucKcUHwzRnB7yLiU44/gvLPtAA80x4MNkgiH8
+        TuD3AYp10pXAdBN6gqbawBZZYNCIygcraY4B/3H6Sf8LXUZAc4G65zRVR8b1N0tCoZwTNMeQEy5ZnHt6
+        DUA3GGpt/yJNZmDk90So3OAYTQnAVxR/BW19HU1fQQGP0gQa9xdXQDdW0hfbaE4izZ4QfRuz8D2lFZDm
+        qKm+58iIRITlZlw+ZUnMxEdHaQKyW2JKn+TVyuWHZjPkY2Gyii9bed4S+D4mipZRJkRpAvhOnoV+1++n
+        qTqw/tfECV19iOYYSLY38pezWnH4XlIzSFNtQCw7YNXEcuVCc5fhf4jRnskWgj10xeC1jMV/YTNq6ji4
+        DsFPJQG21wFVCBrpmhXympTtH50u7vfRVYlcrnuxLLnwgmiA+DHy4VKicM0PY5ttb3b0BkpC1Ofzi5pt
+        vQPTOgXda+rfopEuSsxIs/QE8tdj1Fehm6ReiG1YJuRHBUu09RNsaEdaPG8ZwxNInIZpG4jQ0u5txInX
+        g4ldQoLHiPuKY/oVit5Wjj6BwjlKqyJRc64N/AnMN/DvNiDPJpqO5VposO2lplwR4wZEiAcsidBgJAJG
+        mTc1ENNrylXO+MjHcurjPWDmP5Ah01w4ZkLOfFOuiHLqKlern1zai+K9oOijAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="显示设置.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="显示设置.Text" xml:space="preserve">
+    <value>显示设置</value>
+  </data>
+  <data name="清除.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="清除.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAelJREFUWEfl
+        l78rRWEcxu9M2c0W2ZXFZsZCNkqUHwMWslAsFmUwKMJC+RtkkGxKYWLib1A2nufenuvpeO853+ueUD71
+        1Ps+5z3v93HO13uo/Bf6oK7asByGofbasJAZ6B16g3potMo9xA3Pq7N8xiGulXhvSyHOIN9wE2rEFKR1
+        65Du/XYIL35s41SIOUjXWVxoj1eom0YULz5CAyxC8jyE+16ccK5rvTQi6J1TKi6yIZZtnlecjRniGtJN
+        2zQSeAgpr/gEjQjZhqOyT0B4iA0axhqka9M0ImTfOeXzFAfQfm1Yx4vP04iQajgSCeEcQlq/RCNCo+Ii
+        GmIX0roVGkXwWL2FIptHQrBhtWaLRhELkG7IdvsA1FEb1omEWIW0ZodGHo2ewAnEeeq0i4Tgu9eaPRpF
+        eA9c2XgQShEJMQtpzRGNIjwENQRl8YMmEmIS0ppLGkU8QY02VUD+TSAiIbwxUz/UF1K/kvL4feikYeSF
+        4CvUtRcaUTyEvgt53/NUCC9+SqNZPMQzVPTHhIfgGaDxt4qLB0gb+eMdhVikrTr7xEO0XFxke2LM5v2Q
+        44/9jkZZeAiJX0HHi/MsKR0PcUHDaLnhojxCKlRatzeLP4nSur1Zsj3xo8XFDcTiPCN+DX5sov8r/iUq
+        lQ97XPeqrgIqhQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="清除.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="清除.Text" xml:space="preserve">
+    <value>清除显示图形</value>
+  </data>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 118</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
+    <value>contextMenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="hWndCtrl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="hWndCtrl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="hWndCtrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>582, 444</value>
+  </data>
+  <data name="hWndCtrl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;hWndCtrl.Name" xml:space="preserve">
+    <value>hWndCtrl</value>
+  </data>
+  <data name="&gt;&gt;hWndCtrl.Type" xml:space="preserve">
+    <value>HalconDotNet.HWindowControl, halcondotnet, Version=13.0.2.0, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8</value>
+  </data>
+  <data name="&gt;&gt;hWndCtrl.Parent" xml:space="preserve">
+    <value>panel_hWnd</value>
+  </data>
+  <data name="&gt;&gt;hWndCtrl.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>320, 22</value>
+  </metadata>
+  <data name="toolStrip2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="ts_Label_CamSer.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft YaHei UI, 9pt, style=Bold</value>
+  </data>
+  <data name="ts_Label_CamSer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 22</value>
+  </data>
+  <data name="ts_Label_CamSer.Text" xml:space="preserve">
+    <value>相机序号：</value>
+  </data>
+  <data name="ts_Label_state.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft YaHei UI, 9pt, style=Bold</value>
+  </data>
+  <data name="ts_Label_state.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 22</value>
+  </data>
+  <data name="ts_Label_state.Text" xml:space="preserve">
+    <value>当前状态：</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="toolStripLabel1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft YaHei UI, 9pt, style=Bold</value>
+  </data>
+  <data name="toolStripLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 22</value>
+  </data>
+  <data name="toolStripLabel1.Text" xml:space="preserve">
+    <value>坐标：</value>
+  </data>
+  <data name="toolStripLabel_pos.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft YaHei UI, 9pt, style=Bold</value>
+  </data>
+  <data name="toolStripLabel_pos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 22</value>
+  </data>
+  <data name="toolStripLabel_pos.Text" xml:space="preserve">
+    <value>*，*</value>
+  </data>
+  <data name="toolStripLabel2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft YaHei UI, 9pt, style=Bold</value>
+  </data>
+  <data name="toolStripLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="toolStripLabel2.Text" xml:space="preserve">
+    <value>灰度值：</value>
+  </data>
+  <data name="toolStripLabel_gray.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft YaHei UI, 9pt, style=Bold</value>
+  </data>
+  <data name="toolStripLabel_gray.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 22</value>
+  </data>
+  <data name="toolStripLabel_gray.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="toolStrip2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 444</value>
+  </data>
+  <data name="toolStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>582, 25</value>
+  </data>
+  <data name="toolStrip2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="toolStrip2.Text" xml:space="preserve">
+    <value>toolStrip2</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Name" xml:space="preserve">
+    <value>toolStrip2</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Parent" xml:space="preserve">
+    <value>panel_hWnd</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panel_hWnd.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel_hWnd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel_hWnd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>582, 469</value>
+  </data>
+  <data name="panel_hWnd.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel_hWnd.Name" xml:space="preserve">
+    <value>panel_hWnd</value>
+  </data>
+  <data name="&gt;&gt;panel_hWnd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_hWnd.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel_hWnd.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="saveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>430, 22</value>
+  </metadata>
+  <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>566, 22</value>
+  </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>707, 22</value>
+  </metadata>
+  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="listView_ImgList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="listView_ImgList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 34</value>
+  </data>
+  <data name="listView_ImgList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 356</value>
+  </data>
+  <data name="listView_ImgList.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;listView_ImgList.Name" xml:space="preserve">
+    <value>listView_ImgList</value>
+  </data>
+  <data name="&gt;&gt;listView_ImgList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listView_ImgList.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;listView_ImgList.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="but_PreImage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="but_PreImage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Popup</value>
+  </data>
+  <data name="but_PreImage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_PreImage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAJNJREFUOE9j
+        GHzAxcXFAYShXBTg4ODAA2XiBkDN/7EZ4OzsvMrV1XWbu7u7ClQIO8BmAEgzUOwe0AATqBBugG4AVPML
+        Nzc3O6gQfoBsAFTzJyDtAZYkBsAMgGr+A8RBUCniAMwAoH9DQWyQQVAp4gDMABCbLEOQDQABkg1BNwAE
+        SDIEqHA/ugEgADIEhKHc4QMYGAAXOEe+x7T6xgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="but_PreImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="but_PreImage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="but_PreImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 31</value>
+  </data>
+  <data name="but_PreImage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="but_PreImage.Text" xml:space="preserve">
+    <value>上一张</value>
+  </data>
+  <data name="but_PreImage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="but_PreImage.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;but_PreImage.Name" xml:space="preserve">
+    <value>but_PreImage</value>
+  </data>
+  <data name="&gt;&gt;but_PreImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_PreImage.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;but_PreImage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="but_NextImage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="but_NextImage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Popup</value>
+  </data>
+  <data name="but_NextImage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_NextImage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAJRJREFUOE9j
+        GHzAwcGBB8pEAS4uLg4gDOViB+7u7iqurq7bnJ2dV0GF4ACouQGI/0O5uAHQABOgwnvohhBtAAi4ubnZ
+        ARW/QDYEyK8n2gAQAGr2AGr4BDOEZANAAKghCIj/gAwhywCoxv/AcAkl2QBkzSA+SQagawYBIJ+4WMCm
+        GQSINgCkEV0zCEAN2A/lDh/AwAAA15BKOTFt0ZcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="but_NextImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 393</value>
+  </data>
+  <data name="but_NextImage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="but_NextImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 31</value>
+  </data>
+  <data name="but_NextImage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="but_NextImage.Text" xml:space="preserve">
+    <value>下一张</value>
+  </data>
+  <data name="but_NextImage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="but_NextImage.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;but_NextImage.Name" xml:space="preserve">
+    <value>but_NextImage</value>
+  </data>
+  <data name="&gt;&gt;but_NextImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_NextImage.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;but_NextImage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 42</value>
+  </data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 424</value>
+  </data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>groupBox_ImageList</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="listView_ImgList" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="but_PreImage" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="but_NextImage" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,31,Percent,100,Absolute,31" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <metadata name="toolStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>808, 22</value>
+  </metadata>
+  <data name="ts_But_ImageListClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADYSURBVFhH7ZahDsIwGISXYDAoDAaFIbwxFonAYGYICQIM
+        GML7wN3Cn1yaMdbSf5h+yZetTXZ3clWhUOhgC9dw1JzSWMEr3DSnSM7wCXdwzItIWP6AzOCIaDRgDyew
+        L/otnzwnoUE1nMJvZCs3NPAAZ/AT2csNDT7BOQxxKze04AIX0HAvN7ToBpfBnWu5oYV3eR+k3NARg5eT
+        vw7Qcj713X1EWM5z250LXUXuI/oUuI2ICc4+IiUw24hfgrKMsB+S1AAdkfRDcoQckbT+Db9lObMKhUIL
+        VfUCzqRq+8ZnKoQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ts_But_ImageListClose.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ts_But_ImageListClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="ts_But_ImageListClose.ToolTipText" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="tsBut_LoadOK.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALHSURBVGhD7Zkxi9RAFMcDXjJ7sKVWWgh+ABsrC7mPIIJw
+        KlrLgtzNzClYnd2BgpZiZaewFgcWKnYWgoWgVldaW4ii4mJmNnFe8jbmdl8uk80kXiA/+MPu5r03/7DJ
+        zLzE6+npcQfbmJwMhDof8HCTiekDJvVuIvMZfoNjEIPhhwNf6vVATB8yqfaM2dhOag9yIBfLtI8v9KVA
+        6re0QXtBDaiFZZvH59Fpxv+8oMzUkqkJtXGYZhjI8FwgJ19JAw4EtWEMHM4t5m++Qg3ahGAsHNYNgdBb
+        1EAN6zoOX48B19eI4q1oIMKzaGM5oACTv35SxVuR0B+80Zch2qlOI7NNZal7aKcaMDfTBf+H1BrassfF
+        IlUmmDZ9ru5Qx/IyK/YrtGWHz/VlqpBjjYfix1Ec0jsi1WciJpOZCS9iaDnBpnpMFXGoMQ6VEXD1iIj7
+        J67uY2gJNyLG5PffZBE3WjAPmN/fz8XtF9efMPRgAqkukAXciDQPlwcRu6DVW9EJTCmGyekOlexAtcyD
+        oJ/AtGLSvT1dIK/0mlVrTKi71PE51TYPgqYIU4thInxKJecFMwaGJ5QYcWI+kensML0YM+e+JJP3KXyC
+        4RkFhtyZT7WLJYqxOwEdr9yMzmBKxpwx1+ZB5SdgcwmlUh/ZVnQK0zLQYBPm7S4h25sYFHD9bpVHxzH1
+        QGqbN7K7iStOo+Yk3uS3BBQuzIPsptElFjJz37z2RjG5b3dlHmS1kC29lRD6ubcdr2CVBJfmrbcSwNKb
+        Oa6fweI2vB0dM99HC8fryHozZ2hpO11J8G+iPTvaaGhsVbmhATrfUgKdbuqBzj9WATr9YGuGmQG6+2hx
+        Rqcf7s7o9OP1GZ1+wZEH1olOvmKaZyD1VWNkzDa+TebNFSqNHUMuljkEbMcDs+SvQz+RNEWms4P2NGlR
+        zee0UZruQAzEYlZPT08tPO8v5scpBqdI8C4AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="tsBut_LoadOK.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tsBut_LoadOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tsBut_LoadOK.ToolTipText" xml:space="preserve">
+    <value>导入OK图</value>
+  </data>
+  <data name="tsBut_LoadNG.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASKSURBVGhD7VlNiBxFFB4hZLNVPbvBn6j4c4jgH0EhBy/m
+        kIuIQQQREVFQFEUMQnLRoMgKHkTRHBQ9aCDgMjtV1W5iVhNFhBUPIqIg6kFRSRAWdKe7qnezBg+646ud
+        N/vT9aanaqZnNqAffOyw895X35vuqn5VXfkfbcjlUSbS2yNpHuUyfYELfSRS+uNIahUJfZjH5mAUZ/dy
+        ke7CjM0HE/pmrvRTXJoPImWavmRT6c9Q2KtVqe8aP2q2o9zwUI0X7uTKzFDmeuCcvWJseulylB8cSjae
+        52ALYTJ5kxi0dMI4v9hbC4ctB5FMZ6nBBsvscRy+P2ydTObpAYbAOHsWbfQGWBJ/IIWHSF43e9FOGOyE
+        ogQ3g9X6wrVoyw/2/qOENo0wBy860qiivWJEIr2VFNlkcpW9jRaLAY/6E5TA+cHFPWiTRlWaR+jEQn5P
+        /M+PoYuE0AKtuohqcxePTukfycQOXJno9cUbYM58Q31fSJk9F8nFG0OLgIZxH1reCC71fiqhE615TK2M
+        HcuugfwvqTiSIn0aU2GpDiyi01WAjvJ9MoGknsC0VWxT+momzed0/BqhlzqAKasIKmIy+QviL8FUxMTs
+        lqim/yQTclz/y+fB1NJlcGt8SuW1mD2JoQ7CrkROh723sI8OpFlUxJjMLoTL/JGTJ9PHMMRB8G0EzwVM
+        bYGL5CUysIBFRdiHDhdmdTlmUj+EXzkINo+snFoeQQkQUWYyH+DDoiLsAExkMZfZ/fgfB72at7QLB8pY
+        oX7aZXdCr6LZvAA/OejHvOWGJs9uIqggfxYUQaBf85awbD+IciBolyYiKIx+RZRhvsXsEErCpkU1GnRQ
+        GAvnBKA88zBWnO1HWRBW5tt8QE+U+nmUJBHVGtdH9cZ3ZG4oZXI3yq4UcNIJCKVMn0G5QozXsp2RSr8m
+        NQI4JpNbUBKeA9BrU0G+hDbkIEp5YXQ6uZLX9ReUli9HZXIFytk+qPfto20CUcaBvefxowM+fXYHU+Yz
+        StOHKNMCE2Y3FdSV0nRtD4om9vhxsx3ajk9I7QLCpusoSqyBq8ZpKrgTWezfHhSuTjNNBm3Hh+u1u5HF
+        6R2YvQYWG++TN1jCgtuDwiJmm1vgVz2Wz6Fof2jM2gjoWe6jEhwWbOu6r/OdH3aRMPdE6sw/dN46SvM6
+        prjwvR+pe7C7+TbdIuw2ETY6S3T8OkLHYI/0Mc0Fl8ltZCJBJpK3MC3AfJtrRcDnPd6dgNCvYVpnwKV8
+        g0wmyIV+Jdx8m3qCx/om+Pyb+51LW+R47fedaLMzth0/dxVscH6lREj2ZL7FkFOQbn3WBnhP6OHxJFrz
+        ByyVLxNCQ6e9ddBSOM6HY8aqXLgO7fQGu9pQwsNgVTb6M98GtMpPUAMMivaAjJ84eykOXw5gyXwAxOfy
+        g5VNeFDFlZk5hsOWC/sKFFvv0guxr2/ta1wcarBoF8KU/oky4813zvw9VOMUbCsAO7IXudJfkSZzHHn3
+        jxT+TsFm5mE2PT/4t/NBOLU8snLUXjd77bmNPfqwB7H2xTUT87uh7cidKv/nUan8Cz4fwAAiAur/AAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <data name="tsBut_LoadNG.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tsBut_LoadNG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tsBut_LoadNG.ToolTipText" xml:space="preserve">
+    <value>导入NG图</value>
+  </data>
+  <data name="tsBut_LoadFile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVFhHYxgFtAKuHoGh7u6BklAu/YCTe6CRs1vgYheP
+        oP/+3iHHocK0B/YegTJAy9vdPHx+gSxfmFv0H0Q7u/s7QJXQBrh4BWi6eAR2ubsHvwdZODsr//+fCRP+
+        /5848f+5/MbvHSkZFi5ugYmgKIFqwQ+cPQKjnd0DG3BhJ+8QaahSoNqgGa5QH09Jz/3/tbf3//2Wtv+b
+        isv/tydl/o8NigKHAgy7uYUIQbViB8iK8WK3oOJ//f3uIHZvSvb/d13d/w9W1vxPDomFqwkIjPpfV9f6
+        f8Gi5f/3HTgMFnN1DTaHWoUJgL5JAyn6/24iXjxjch7YsAuz5vz/f+jQ//8XLvz///Dh/52btv6va+z4
+        v3b95v/Xrt/8/+Xr1//IoKt/6gV7d38FqHWYABS8xDgAhIuLkv8nJGf8X7h4BdF46rS5j4F2eEOtwwSk
+        OODx1Y7//V3Z8OAmBXsHBF6FWokKSHEAOfjXjcT/Z9YHgh3h5BGsB7UWAejpAKxlw6gDRh0w6oBRB4w6
+        YNQBNHfA1SgCDvAITgJJXtsdB3YtVfH1uP8/Lwb+n9kJaRM4eYRoQa1FADe3AGOQZHVR0P91MwLBrqUm
+        3jQ78H9ifOhvF4+AK1ArMQEoGtzcgl6DHEILDGx3ngHZAbUOO3B1deUGNs1NQfFETezoHqIOtWIUIAEG
+        BgDME3dIt7UGRgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="tsBut_LoadFile.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tsBut_LoadFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tsBut_LoadFile.Text" xml:space="preserve">
+    <value>toolStripButton3</value>
+  </data>
+  <data name="tsBut_LoadFile.ToolTipText" xml:space="preserve">
+    <value>导入其他路径</value>
+  </data>
+  <data name="toolStrip3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 17</value>
+  </data>
+  <data name="toolStrip3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 25</value>
+  </data>
+  <data name="toolStrip3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;toolStrip3.Name" xml:space="preserve">
+    <value>toolStrip3</value>
+  </data>
+  <data name="&gt;&gt;toolStrip3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip3.Parent" xml:space="preserve">
+    <value>groupBox_ImageList</value>
+  </data>
+  <data name="&gt;&gt;toolStrip3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox_ImageList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="groupBox_ImageList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>582, 0</value>
+  </data>
+  <data name="groupBox_ImageList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 469</value>
+  </data>
+  <data name="groupBox_ImageList.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="groupBox_ImageList.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;groupBox_ImageList.Name" xml:space="preserve">
+    <value>groupBox_ImageList</value>
+  </data>
+  <data name="&gt;&gt;groupBox_ImageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox_ImageList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox_ImageList.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>582, 469</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>918, 22</value>
+  </metadata>
+  <data name="imageList1.ImageSize" type="System.Drawing.Size, System.Drawing">
+    <value>64, 64</value>
+  </data>
+  <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 60</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>706, 469</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>FormCamShow</value>
+  </data>
+  <data name="&gt;&gt;关联相机.Name" xml:space="preserve">
+    <value>关联相机</value>
+  </data>
+  <data name="&gt;&gt;关联相机.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;画质调节ToolStripMenuItem.Name" xml:space="preserve">
+    <value>画质调节ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;画质调节ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;绘制.Name" xml:space="preserve">
+    <value>绘制</value>
+  </data>
+  <data name="&gt;&gt;绘制.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;矩形1.Name" xml:space="preserve">
+    <value>矩形1</value>
+  </data>
+  <data name="&gt;&gt;矩形1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;矩形2带方向.Name" xml:space="preserve">
+    <value>矩形2带方向</value>
+  </data>
+  <data name="&gt;&gt;矩形2带方向.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;圆.Name" xml:space="preserve">
+    <value>圆</value>
+  </data>
+  <data name="&gt;&gt;圆.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;任意形状.Name" xml:space="preserve">
+    <value>任意形状</value>
+  </data>
+  <data name="&gt;&gt;任意形状.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;直线.Name" xml:space="preserve">
+    <value>直线</value>
+  </data>
+  <data name="&gt;&gt;直线.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;显示设置.Name" xml:space="preserve">
+    <value>显示设置</value>
+  </data>
+  <data name="&gt;&gt;显示设置.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;默认设置.Name" xml:space="preserve">
+    <value>默认设置</value>
+  </data>
+  <data name="&gt;&gt;默认设置.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;线条.Name" xml:space="preserve">
+    <value>线条</value>
+  </data>
+  <data name="&gt;&gt;线条.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ComboBox_LineWith.Name" xml:space="preserve">
+    <value>ComboBox_LineWith</value>
+  </data>
+  <data name="&gt;&gt;ComboBox_LineWith.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;颜色.Name" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="&gt;&gt;颜色.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;red.Name" xml:space="preserve">
+    <value>red</value>
+  </data>
+  <data name="&gt;&gt;red.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;green.Name" xml:space="preserve">
+    <value>green</value>
+  </data>
+  <data name="&gt;&gt;green.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;蓝色.Name" xml:space="preserve">
+    <value>蓝色</value>
+  </data>
+  <data name="&gt;&gt;蓝色.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;黄色.Name" xml:space="preserve">
+    <value>黄色</value>
+  </data>
+  <data name="&gt;&gt;黄色.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;显示轮廓.Name" xml:space="preserve">
+    <value>显示轮廓</value>
+  </data>
+  <data name="&gt;&gt;显示轮廓.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;填充显示.Name" xml:space="preserve">
+    <value>填充显示</value>
+  </data>
+  <data name="&gt;&gt;填充显示.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;字体大小.Name" xml:space="preserve">
+    <value>字体大小</value>
+  </data>
+  <data name="&gt;&gt;字体大小.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ComboBox_FontSize.Name" xml:space="preserve">
+    <value>ComboBox_FontSize</value>
+  </data>
+  <data name="&gt;&gt;ComboBox_FontSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;图像镜像.Name" xml:space="preserve">
+    <value>图像镜像</value>
+  </data>
+  <data name="&gt;&gt;图像镜像.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LoR.Name" xml:space="preserve">
+    <value>LoR</value>
+  </data>
+  <data name="&gt;&gt;LoR.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UoD.Name" xml:space="preserve">
+    <value>UoD</value>
+  </data>
+  <data name="&gt;&gt;UoD.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;清除.Name" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="&gt;&gt;清除.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ts_Label_CamSer.Name" xml:space="preserve">
+    <value>ts_Label_CamSer</value>
+  </data>
+  <data name="&gt;&gt;ts_Label_CamSer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ts_Label_state.Name" xml:space="preserve">
+    <value>ts_Label_state</value>
+  </data>
+  <data name="&gt;&gt;ts_Label_state.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel1.Name" xml:space="preserve">
+    <value>toolStripLabel1</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel_pos.Name" xml:space="preserve">
+    <value>toolStripLabel_pos</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel_pos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel2.Name" xml:space="preserve">
+    <value>toolStripLabel2</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel_gray.Name" xml:space="preserve">
+    <value>toolStripLabel_gray</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel_gray.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveFileDialog.Name" xml:space="preserve">
+    <value>saveFileDialog</value>
+  </data>
+  <data name="&gt;&gt;saveFileDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;openFileDialog.Name" xml:space="preserve">
+    <value>openFileDialog</value>
+  </data>
+  <data name="&gt;&gt;openFileDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
+    <value>toolTip1</value>
+  </data>
+  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ts_But_ImageListClose.Name" xml:space="preserve">
+    <value>ts_But_ImageListClose</value>
+  </data>
+  <data name="&gt;&gt;ts_But_ImageListClose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsBut_LoadOK.Name" xml:space="preserve">
+    <value>tsBut_LoadOK</value>
+  </data>
+  <data name="&gt;&gt;tsBut_LoadOK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsBut_LoadNG.Name" xml:space="preserve">
+    <value>tsBut_LoadNG</value>
+  </data>
+  <data name="&gt;&gt;tsBut_LoadNG.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsBut_LoadFile.Name" xml:space="preserve">
+    <value>tsBut_LoadFile</value>
+  </data>
+  <data name="&gt;&gt;tsBut_LoadFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Name" xml:space="preserve">
+    <value>imageList1</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;folderBrowserDialog1.Name" xml:space="preserve">
+    <value>folderBrowserDialog1</value>
+  </data>
+  <data name="&gt;&gt;folderBrowserDialog1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormCamShow</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
