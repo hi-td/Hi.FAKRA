@@ -295,9 +295,9 @@ namespace StaticFun
 
     public class UIConfig
     {
-        public static void CreateFormTeachMaster(int n_cam, string b)
+        public static void CreateFormTeachMaster(int n_cam, string b,int j)
         {
-            FormTeachMaster teachmaster = new FormTeachMaster(n_cam, b);
+            FormTeachMaster teachmaster = new FormTeachMaster(n_cam, b,j);
             teachmaster.TopLevel = false;
             teachmaster.Visible = true;
             teachmaster.Dock = DockStyle.Fill;

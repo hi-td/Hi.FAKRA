@@ -64,7 +64,7 @@ namespace CamSDK
             }
         }
         //打开相机，讲相机和Function绑定
-        public static void OpenCam(string strCamSer, VisionPlatform.Camimage fun)
+        public static void OpenCam(string strCamSer, Camimage fun)
         {
             try
             {
@@ -88,14 +88,14 @@ namespace CamSDK
                         }
                         break;
                     case EnumData.CamBrand.HiKVision:
-                     // HikVisionCam.LiveThread(camID, fun);
+                        HikVisionCam.LiveThread(camID, fun);
                         if (TMData_Serializer._globalData.camParam.ContainsKey(strCamSer))
                         {
                             HikVisionCam.Exposure(camID, (int)TMData_Serializer._globalData.camParam[strCamSer].exposure);
                         }
                         break;
                     case EnumData.CamBrand.DaHua:
-                 //     DahuaCamera.OpenCam(camID, fun);
+                      //DahuaCamera.OpenCam(camID, fun);
                         break;
                     case EnumData.CamBrand.Other:
                         break;

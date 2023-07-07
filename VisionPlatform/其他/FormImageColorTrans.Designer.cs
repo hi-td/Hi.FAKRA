@@ -30,6 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormImageColorTrans));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.picBox_Image2 = new System.Windows.Forms.PictureBox();
+            this.picBox_Result2 = new System.Windows.Forms.PictureBox();
+            this.picBox_Result1 = new System.Windows.Forms.PictureBox();
+            this.picBox_Image3 = new System.Windows.Forms.PictureBox();
+            this.picBox_Image1 = new System.Windows.Forms.PictureBox();
+            this.picBox_Result3 = new System.Windows.Forms.PictureBox();
+            this.picBox_gray = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.checkBox_gray = new System.Windows.Forms.CheckBox();
             this.checkBox_image1 = new System.Windows.Forms.CheckBox();
@@ -50,15 +57,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox_result1 = new System.Windows.Forms.TextBox();
             this.panelWindow = new System.Windows.Forms.Panel();
-            this.picBox_Image2 = new System.Windows.Forms.PictureBox();
-            this.picBox_Result2 = new System.Windows.Forms.PictureBox();
-            this.picBox_Result1 = new System.Windows.Forms.PictureBox();
-            this.picBox_Image3 = new System.Windows.Forms.PictureBox();
-            this.picBox_Image1 = new System.Windows.Forms.PictureBox();
-            this.picBox_Result3 = new System.Windows.Forms.PictureBox();
-            this.picBox_gray = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Image2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Result2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Result1)).BeginInit();
@@ -66,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Image1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Result3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_gray)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -91,6 +91,55 @@
             this.tableLayoutPanel1.Controls.Add(this.textBox_result1, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.panelWindow, 1, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            // 
+            // picBox_Image2
+            // 
+            this.picBox_Image2.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.picBox_Image2, "picBox_Image2");
+            this.picBox_Image2.Name = "picBox_Image2";
+            this.picBox_Image2.TabStop = false;
+            // 
+            // picBox_Result2
+            // 
+            this.picBox_Result2.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.picBox_Result2, "picBox_Result2");
+            this.picBox_Result2.Name = "picBox_Result2";
+            this.picBox_Result2.TabStop = false;
+            // 
+            // picBox_Result1
+            // 
+            this.picBox_Result1.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.picBox_Result1, "picBox_Result1");
+            this.picBox_Result1.Name = "picBox_Result1";
+            this.picBox_Result1.TabStop = false;
+            // 
+            // picBox_Image3
+            // 
+            this.picBox_Image3.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.picBox_Image3, "picBox_Image3");
+            this.picBox_Image3.Name = "picBox_Image3";
+            this.picBox_Image3.TabStop = false;
+            // 
+            // picBox_Image1
+            // 
+            this.picBox_Image1.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.picBox_Image1, "picBox_Image1");
+            this.picBox_Image1.Name = "picBox_Image1";
+            this.picBox_Image1.TabStop = false;
+            // 
+            // picBox_Result3
+            // 
+            this.picBox_Result3.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.picBox_Result3, "picBox_Result3");
+            this.picBox_Result3.Name = "picBox_Result3";
+            this.picBox_Result3.TabStop = false;
+            // 
+            // picBox_gray
+            // 
+            this.picBox_gray.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.picBox_gray, "picBox_gray");
+            this.picBox_gray.Name = "picBox_gray";
+            this.picBox_gray.TabStop = false;
             // 
             // tableLayoutPanel2
             // 
@@ -224,55 +273,6 @@
             resources.ApplyResources(this.panelWindow, "panelWindow");
             this.panelWindow.Name = "panelWindow";
             // 
-            // picBox_Image2
-            // 
-            this.picBox_Image2.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.picBox_Image2, "picBox_Image2");
-            this.picBox_Image2.Name = "picBox_Image2";
-            this.picBox_Image2.TabStop = false;
-            // 
-            // picBox_Result2
-            // 
-            this.picBox_Result2.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.picBox_Result2, "picBox_Result2");
-            this.picBox_Result2.Name = "picBox_Result2";
-            this.picBox_Result2.TabStop = false;
-            // 
-            // picBox_Result1
-            // 
-            this.picBox_Result1.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.picBox_Result1, "picBox_Result1");
-            this.picBox_Result1.Name = "picBox_Result1";
-            this.picBox_Result1.TabStop = false;
-            // 
-            // picBox_Image3
-            // 
-            this.picBox_Image3.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.picBox_Image3, "picBox_Image3");
-            this.picBox_Image3.Name = "picBox_Image3";
-            this.picBox_Image3.TabStop = false;
-            // 
-            // picBox_Image1
-            // 
-            this.picBox_Image1.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.picBox_Image1, "picBox_Image1");
-            this.picBox_Image1.Name = "picBox_Image1";
-            this.picBox_Image1.TabStop = false;
-            // 
-            // picBox_Result3
-            // 
-            this.picBox_Result3.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.picBox_Result3, "picBox_Result3");
-            this.picBox_Result3.Name = "picBox_Result3";
-            this.picBox_Result3.TabStop = false;
-            // 
-            // picBox_gray
-            // 
-            this.picBox_gray.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.picBox_gray, "picBox_gray");
-            this.picBox_gray.Name = "picBox_gray";
-            this.picBox_gray.TabStop = false;
-            // 
             // FormImageColorTrans
             // 
             resources.ApplyResources(this, "$this");
@@ -285,8 +285,6 @@
             this.Load += new System.EventHandler(this.FormImageColorTrans_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Image2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Result2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Result1)).EndInit();
@@ -294,6 +292,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Image1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Result3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_gray)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

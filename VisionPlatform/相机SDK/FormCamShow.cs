@@ -506,50 +506,6 @@ namespace VisionPlatform
                 fun.FitImageToWindow(ref fun.dReslutRow0, ref fun.dReslutCol0, ref fun.dReslutRow1, ref fun.dReslutCol1);
             }
         }
-        bool f = false;
-        private void label1_Edit_Click(object sender, EventArgs e)
-        {
-            //if (!f)
-            //{
-            //    FormMainUI.m_Show4.panel1_f.Controls.Clear();
-            //    if (m_ncam == 1)
-            //    {
-            //        FormMainUI.m_Show4.panel1_f.Controls.Add(Show4.formCamShow1);
-            //    }
-            //    else if (m_ncam == 2)
-            //    {
-            //        FormMainUI.m_Show4.panel1_f.Controls.Add(Show4.formCamShow2);
-            //    }
-            //    else if (m_ncam == 3)
-            //    {
-            //        FormMainUI.m_Show4.panel1_f.Controls.Add(Show4.formCamShow3);
-            //    }
-            //    else if (m_ncam == 4)
-            //    {
-            //        FormMainUI.m_Show4.panel1_f.Controls.Add(Show4.formCamShow4);
-            //    }
-            //    f = true;
-            //}
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            //if (f)
-            //{
-            //    FormMainUI.m_Show4.panel1_f.Controls.Clear();
-            //    FormMainUI.m_Show4.panel1_f.Controls.Add(FormMainUI.m_Show4.tableLayoutPanel3);
-            //    FormMainUI.m_Show4.panel1.Controls.Clear();
-            //    FormMainUI.m_Show4.panel1.Controls.Add(Show4.formCamShow1);
-            //    FormMainUI.m_Show4.panel2.Controls.Clear();
-            //    FormMainUI.m_Show4.panel2.Controls.Add(Show4.formCamShow2);
-            //    FormMainUI.m_Show4.panel3.Controls.Clear();
-            //    FormMainUI.m_Show4.panel3.Controls.Add(Show4.formCamShow3);
-            //    FormMainUI.m_Show4.panel4.Controls.Clear();
-            //    FormMainUI.m_Show4.panel4.Controls.Add(Show4.formCamShow4);
-            //    f = false;
-            //}
-
-        }
 
         private void MirrorChange(EnumData.Mirror mirrorType, ToolStripMenuItem item)
         {

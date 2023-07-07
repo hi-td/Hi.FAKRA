@@ -23,13 +23,7 @@ namespace VisionPlatform
         public static List<bool> m_bDevOpen = new List<bool>();
         public static List<bool> m_bLive = new List<bool>();
         private static List<bool> m_TriggerMode = new List<bool>();                                    //相机的触发模式：软触发或外触发
-        //public struct CurCamData
-        //{
-        //    public float exposure;
-        //    public float gain;
-        //    public float frame;
-        //}
-        //public static CurCamData m_CurCamData = new CurCamData();
+
         public static bool DeviceListAcq()
         {
             CamCommon.m_listCamSer = new List<string>();
@@ -339,7 +333,7 @@ namespace VisionPlatform
             }
         }
 
-        public static bool LiveThread(int i, Function fun)
+        public static bool LiveThread(int i, Camimage fun)
         {
             try
             {
@@ -368,7 +362,7 @@ namespace VisionPlatform
                     return false;
                 }
                 Thread hReceiveImageThreadHandle = new Thread(ReceiveImageWorkThread);
-                Tuple<MyCamera, Function> tuple = new Tuple<MyCamera, Function>(myCamera, fun);
+                Tuple<MyCamera, Camimage> tuple = new Tuple<MyCamera, Camimage>(myCamera, fun);
                 hReceiveImageThreadHandle.Start(tuple);
                 m_bLive[i] = true;
                 return true;
@@ -546,13 +540,13 @@ namespace VisionPlatform
         {
            // bool m_bLive = true;
             int nRet = MyCamera.MV_OK;
-            if (!(obj is Tuple<MyCamera, Function>))
+            if (!(obj is Tuple<MyCamera, Camimage>))
             {
                 return;
             }
-            Tuple<MyCamera, Function> tuple = obj as Tuple<MyCamera, Function>;
+            Tuple<MyCamera, Camimage> tuple = obj as Tuple<MyCamera, Camimage>;
             MyCamera device = tuple.Item1;
-            Function fun = tuple.Item2;
+            Camimage fun = tuple.Item2;
 
             MyCamera.MV_FRAME_OUT stFrameOut = new MyCamera.MV_FRAME_OUT();
 

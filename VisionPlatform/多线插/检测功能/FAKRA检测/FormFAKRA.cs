@@ -17,6 +17,7 @@ using HalconDotNet;
 using Newtonsoft.Json;
 using StaticFun;
 using static BaseData.ColorSpace;
+using static CamSDK.CamCommon;
 using static VisionPlatform.TMData;
 using static VisionPlatform.TMData_Serializer;
 
@@ -45,10 +46,39 @@ namespace VisionPlatform
             m_ncam = ncam;
             bh = b;
             UIConfig.RefreshFun(ncam,b, ref Fun, ref TMFun, ref str_CamSer);
-            //InitUI();
+            InitUI();
             selectcombox();
         }
+        private void InitUI()
+        {
+            try
+            {
+                radioBut_ModelImage.Checked = true;      //默认使用模板图片
+                checkBox_SkinWeldVer.Checked = true;     //默认上下压脚
+                tabPage_SkinWeld.Parent = null;
+                tabPage_SkinPos.Parent = null;
+                tabPage_LineWeld.Parent = null;
+                tabPage_LinePos.Parent = null;
+                tabPage_LineSide.Parent = null;
+                tabPage_TMNose.Parent = null;
+                tabPage_TMhead.Parent = null;
+                tabPage_TMwing.Parent = null;
+                tabPage_LineColorf1.Parent = null;          //线序检测 
+                checkBox_bColorSpaceTrans.Checked = false;
+                tLPanel_ColorSpace.Visible = false;
 
+                radioBut_LinePos_methodLine.Checked = true;
+                tabPage_BackGround.Parent = null;
+                tabPage_LineLigth.Parent = tabControl1;
+                tabPage_LineColor.Parent = null;
+                tLPanel_LinePos_Rect2Del.Visible = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageFun.ShowMessage("InitUI()初始化异常：" + ex.ToString());
+            }
+        }
         /// <summary>
         /// 解决窗体加载慢、卡顿问题
         /// </summary>
@@ -60,6 +90,12 @@ namespace VisionPlatform
                 cp.ExStyle |= 0x02000000;              //用双缓冲绘制窗口的所有子控件
                 return cp;
             }
+        }
+        public void Refreshpage()
+        {
+            InitUI();
+            LoadParam();
+            tabCtrl_InspectItem.Refresh();
         }
         private void selectcombox()
         {
@@ -105,583 +141,129 @@ namespace VisionPlatform
                 MessageFun.ShowMessage("selectcombox()初始化异常：" + ex.ToString());
             }
         }
-            //private void InitUI()
-            //{
-            //    try
-            //    {
-            //        radioBut_ModelImage.Checked = true;      //默认使用模板图片
-            //        checkBox_SkinWeldVer.Checked = true;     //默认上下压脚
-
-            //            label_Area1.Text = "上";
-            //            label_Area2.Text = "下";
-            //        tabPage_SkinWeld.Parent = null;
-            //        tabPage_SkinPos.Parent = null;
-            //        tabPage_LineWeld.Parent = null;
-            //        tabPage_LinePos.Parent = null;
-            //        tabPage_LineSide.Parent = null;
-            //        tabPage_TMNose.Parent = null;
-            //        tabPage_TMhead.Parent = null;
-            //        tabPage_TMwing.Parent = null;
-            //        tabPage_LineColorf1.Parent = null;          //线序检测 
-            //        checkBox_bColorSpaceTrans.Checked = false;
-            //        tLPanel_ColorSpace.Visible = false;
-
-            //        radioBut_LinePos_methodLine.Checked = true;
-            //        tabPage_BackGround.Parent = null;
-            //        tabPage_LineLigth.Parent = tabControl1;
-            //        tabPage_LineColor.Parent = null;
-            //        tLPanel_LinePos_Rect2Del.Visible = true;
-
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageFun.ShowMessage("InitUI()初始化异常：" + ex.ToString());
-            //    }
-            //}
-            //private TMData.TMParam InitParam()
-            //{
-            //    TMData.TMParam param = new TMData.TMParam();
-            //    try
-            //    {
-            //        param.nModelID = model_ID;
-            //        param.dScore = (double)numUpD_Score.Value;
-            //        param.LineWeldROI = m_LineWeldROI;
-            //        param.model_center = m_LocateResult;
-            //        param.skinWeld = InitSkinWeldParam();
-            //        param.skinPos = InitSkinPosParam();
-            //        param.lineWeld = InitLineWeldParam();
-            //        param.lineOnWeld = InitLineOnWeldParam();
-            //        param.lineCorePos = InitLinePosParam();
-            //        param.lineCoreSide = InitLineSideParam();
-            //        param.tmNose = InitTMNoseParam();
-            //        param.tmhead = InitTMheadParam();
-            //        param.tmwing = InitTMwingParam();
-            //        param.lineColor = InitLineColorParam();
-            //    }
-
-            //    catch (SystemException error)
-            //    {
-            //        MessageFun.ShowMessage("压端子检测参数初始化异常：" + error.ToString(), "Error when initialize the insulatioin crimp data:" + error.ToString());
-            //    }
-            //    return param;
-            //}
-            //private void LoadParam()
-            //{
-            //    try
-            //    {
-            //        //如果相机实时，则停止实时
-            //        try
-            //        {
-            //            CamSDK.CamCommon.GrabImagestop(str_CamSer);
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            ex.ToString();
-            //        }
-            //        Fun.ClearObjShow();
-
-            //        #region 导入模板图像
-            //        string model_name = "camera" + m_ncam.ToString() + "_" + m_TMType.ToString();
-            //        string strPath = System.IO.Path.Combine(GlobalPath.SavePath.ModelImagePath, model_name) + ".bmp";
-            //        if (File.Exists(strPath))
-            //        {
-            //            Fun.LoadImageFromFile(strPath);
-            //            TMFun.m_ModelImage?.Dispose();
-            //            TMFun.m_ModelImage = Fun.m_hImage.Clone();
-            //        }
-            //        else
-            //        {
-            //            MessageFun.ShowMessage("无" + model_name + "的模板图像。", "No" + model_name + "'s model image.");
-            //        }
-            //        #endregion
-
-            //        #region 导入端子检测项列表
-            //        if (TMData_Serializer._globalData.dicCheckList.ContainsKey(m_ncam))
-            //        {
-
-            //            //comboBox_SelectModel.Text = m_TMType;
-            //            if (TMData_Serializer._globalData.dicCheckList[m_ncam].ContainsKey(m_TMType))
-            //            {
-            //                TMData.TMCheckList TMCheckList = TMData_Serializer._globalData.dicCheckList[m_ncam][m_TMType];
-            //                if (TMCheckList.bSkinWeld)
-            //                {
-            //                    tabPage_SkinWeld.Parent = tabCtrl_InspectItem;
-            //                }
-            //                else
-            //                {
-            //                    tabPage_SkinWeld.Parent = null;
-            //                }
-            //                if (TMCheckList.bSkinPos)
-            //                {
-            //                    tabPage_SkinPos.Parent = tabCtrl_InspectItem;
-            //                }
-            //                else
-            //                {
-            //                    tabPage_SkinPos.Parent = null;
-            //                }
-            //                if (TMCheckList.bLineWeld)
-            //                {
-            //                    tabPage_LineWeld.Parent = tabCtrl_InspectItem;
-            //                }
-            //                else
-            //                {
-            //                    tabPage_LineWeld.Parent = null;
-            //                }
-
-            //                if (TMCheckList.bLineOnWeld)   //露铜芯检测
-            //                {
-            //                    tLPanel_LineCopper.Visible = true;
-            //                }
-            //                else
-            //                {
-            //                    tLPanel_LineCopper.Visible = false;
-            //                }
-
-            //                if (TMCheckList.bLinePos)
-            //                {
-            //                    tabPage_LinePos.Parent = tabCtrl_InspectItem;
-            //                }
-            //                else
-            //                {
-            //                    tabPage_LinePos.Parent = null;
-            //                }
-            //                if (TMCheckList.bLineSide)
-            //                {
-            //                    tabPage_LineSide.Parent = tabCtrl_InspectItem;
-            //                }
-            //                else
-            //                {
-            //                    tabPage_LineSide.Parent = null;
-            //                }
-            //                if (TMCheckList.bTMNose)
-            //                {
-            //                    tabPage_TMNose.Parent = tabCtrl_InspectItem;
-            //                }
-            //                else
-            //                {
-            //                    tabPage_TMNose.Parent = null;
-            //                }
-            //                if (TMCheckList.bTMHead)
-            //                {
-            //                    tabPage_TMhead.Parent = tabCtrl_InspectItem;
-            //                }
-            //                else
-            //                {
-            //                    tabPage_TMhead.Parent = null;
-            //                }
-            //                if (TMCheckList.bTMWing)
-            //                {
-            //                    tabPage_TMwing.Parent = tabCtrl_InspectItem;
-            //                }
-            //                else
-            //                {
-            //                    tabPage_TMwing.Parent = null;
-            //                }
-            //                if (TMCheckList.bLineColor)
-            //                {
-            //                    tabPage_LineColorf1.Parent = tabCtrl_InspectItem;
-            //                }
-            //                else
-            //                {
-            //                    tabPage_LineColorf1.Parent = null;
-            //                }
-
-            //            }
-            //            #endregion
-
-            //            #region 导入检测参数
-            //            if (TMData_Serializer._globalData.dic_TMParam.ContainsKey(m_ncam))
-            //            {
-            //                if (TMData_Serializer._globalData.dic_TMParam[m_ncam].ContainsKey(m_TMType))
-            //                {
-            //                    m_TMParam = TMData_Serializer._globalData.dic_TMParam[m_ncam][m_TMType];
-            //                    model_ID = m_TMParam.nModelID;
-            //                    m_LineWeldROI = m_TMParam.LineWeldROI;
-            //                    m_LocateResult = m_TMParam.model_center;
-            //                    if (0 != m_TMParam.dScore)
-            //                    {
-            //                        numUpD_Score.Value = (decimal)m_TMParam.dScore;
-            //                    }
-            //                    else
-            //                    {
-            //                        numUpD_Score.Value = (decimal)0.5;
-            //                    }
-            //                    LoadSkinWeldParam(m_TMParam.skinWeld);
-            //                    LoadSkinPosParam(m_TMParam.skinPos);
-            //                    LoadLineWeldParam(m_TMParam.lineWeld);
-            //                    LoadLineOnWedlParam(m_TMParam.lineOnWeld);
-            //                    LoadLinePosParam(m_TMParam.lineCorePos);
-            //                    LoadLineCoreSideParam(m_TMParam.lineCoreSide);
-            //                    LoadTMNoseParam(m_TMParam.tmNose);
-            //                    LoadTMheadParam(m_TMParam.tmhead);
-            //                    LoadTMwingParam(m_TMParam.tmwing);
-            //                    LoadLineColorParam(m_TMParam.lineColor);
-            //                }
-            //                else
-            //                {
-            //                    numUpD_Score.Value = (decimal)0.6;
-            //                    m_TMParam = new TMParam();
-            //                }
-            //            }
-            //            else
-            //            {
-            //                numUpD_Score.Value = (decimal)0.6;
-            //                m_TMParam = new TMParam();
-            //            }
-            //            #endregion
-            //        }
-            //    }
-            //    catch (SystemException ex)
-            //    {
-            //        MessageFun.ShowMessage("导入端子模板数据出错：" + ex.ToString());
-            //    }
-            //    finally
-            //    {
-            //        TorF = true;
-            //    }
-            //}
-            //private TMData.ColorSpaceParam GetColorSpace(Label label_channel, Label label_colorSpace)
-            //{
-            //    TMData.ColorSpaceParam param = new TMData.ColorSpaceParam();
-            //    try
-            //    {
-            //        if (label_colorSpace.Text == "gray")
-            //        {
-            //            param.colorSpace = ColorSpace.gray;
-            //        }
-            //        else if (label_colorSpace.Text == "rgb")
-            //        {
-            //            param.colorSpace = ColorSpace.rgb;
-            //        }
-            //        else if (label_colorSpace.Text == "hsv")
-            //        {
-            //            param.colorSpace = ColorSpace.hsv;
-            //        }
-            //        else if (label_colorSpace.Text == "hsi")
-            //        {
-            //            param.colorSpace = ColorSpace.hsi;
-            //        }
-            //        else if (label_colorSpace.Text == "hls")
-            //        {
-            //            param.colorSpace = ColorSpace.hls;
-            //        }
-            //        else if (label_colorSpace.Text == "lms")
-            //        {
-            //            param.colorSpace = ColorSpace.lms;
-            //        }
-            //        else if (label_colorSpace.Text == "ihs")
-            //        {
-            //            param.colorSpace = ColorSpace.ihs;
-            //        }
-            //        if (label_channel.Text == "通道1" || label_channel.Text == "转换图1" ||
-            //            label_channel.Text == "Image channel1" || label_channel.Text == "Transformed image1")
-            //        {
-            //            param.nChannel = 1;
-            //        }
-            //        else if (label_channel.Text == "通道2" || label_channel.Text == "转换图2" ||
-            //                 label_channel.Text == "Image channel2" || label_channel.Text == "Transformed image2")
-            //        {
-            //            param.nChannel = 2;
-            //        }
-            //        else if (label_channel.Text == "通道3" || label_channel.Text == "转换图3" ||
-            //                 label_channel.Text == "Image channel3" || label_channel.Text == "Transformed image3")
-            //        {
-            //            param.nChannel = 3;
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        ex.ToString();
-            //    }
-            //    return param;
-            //}
-            //private void ShowColorSpace(Label label_channel, Label label_colorSpace, TMData.ColorSpaceParam param)
-            //{
-            //    try
-            //    {
-            //        if (param.colorSpace == ColorSpace.gray)
-            //        {
-            //            label_colorSpace.Text = "gray";
-            //            if (GlobalData.Config._language == EnumData.Language.english)
-            //            {
-            //                label_channel.Text = "Grayscale image";
-            //            }
-            //            else
-            //            {
-            //                label_channel.Text = "灰度图";
-            //            }
-            //            return;
-            //        }
-            //        else if (param.colorSpace == ColorSpace.rgb)
-            //        {
-            //            label_colorSpace.Text = "rgb";
-            //            switch (param.nChannel)
-            //            {
-            //                case 1:
-            //                    if (GlobalData.Config._language == EnumData.Language.english)
-            //                    {
-            //                        label_channel.Text = "Image channel1";
-            //                    }
-            //                    else
-            //                    {
-            //                        label_channel.Text = "通道1";
-            //                    }
-            //                    break;
-            //                case 2:
-            //                    if (GlobalData.Config._language == EnumData.Language.english)
-            //                    {
-            //                        label_channel.Text = "Image channel2";
-            //                    }
-            //                    else
-            //                    {
-            //                        label_channel.Text = "通道2";
-            //                    }
-            //                    break;
-            //                case 3:
-            //                    if (GlobalData.Config._language == EnumData.Language.english)
-            //                    {
-            //                        label_channel.Text = "Image channel3";
-            //                    }
-            //                    else
-            //                    {
-            //                        label_channel.Text = "通道3";
-            //                    }
-            //                    break;
-            //                default:
-            //                    break;
-            //            }
-            //            return;
-            //        }
-            //        else if (param.colorSpace == ColorSpace.hsv)
-            //        {
-            //            label_colorSpace.Text = "hsv";
-            //        }
-            //        else if (param.colorSpace == ColorSpace.hsi)
-            //        {
-            //            label_colorSpace.Text = "hsi";
-            //        }
-            //        else if (param.colorSpace == ColorSpace.hls)
-            //        {
-            //            label_colorSpace.Text = "hls";
-            //        }
-            //        else if (param.colorSpace == ColorSpace.lms)
-            //        {
-            //            label_colorSpace.Text = "lms";
-            //        }
-            //        else if (param.colorSpace == ColorSpace.ihs)
-            //        {
-            //            label_colorSpace.Text = "ihs";
-            //        }
-            //        switch (param.nChannel)
-            //        {
-            //            case 1:
-            //                if (GlobalData.Config._language == EnumData.Language.english)
-            //                {
-            //                    label_channel.Text = "Transformed image1";
-            //                }
-            //                else
-            //                {
-            //                    label_channel.Text = "转换图1";
-            //                }
-            //                break;
-            //            case 2:
-            //                if (GlobalData.Config._language == EnumData.Language.english)
-            //                {
-            //                    label_channel.Text = "Transformed image2";
-            //                }
-            //                else
-            //                {
-            //                    label_channel.Text = "转换图2";
-            //                }
-            //                break;
-            //            case 3:
-            //                if (GlobalData.Config._language == EnumData.Language.english)
-            //                {
-            //                    label_channel.Text = "Transformed image3";
-            //                }
-            //                else
-            //                {
-            //                    label_channel.Text = "转换图3";
-            //                }
-            //                break;
-            //            default:
-            //                break;
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        ex.ToString();
-            //    }
-            //}
-            //#region 绝缘皮压脚
-            //private SkinWeldParam InitSkinWeldParam()
-            //{
-            //    SkinWeldParam param = new SkinWeldParam();
-            //    param.dAreaRatio = new double[2];
-            //    try
-            //    {
-            //        param.skinWeldRectY = m_SkinWeldROIY;         //示教时检测出来的压脚区域（不是检测框）后续用来判断与运行时的差异
-            //        //检测框宽
-            //        param.nROIWidth = (int)numericUpDown_JypyjWidth.Value;
-            //        trackBar_JypyjWidth.Value = (int)numericUpDown_JypyjWidth.Value;
-            //        //检测框间距
-            //        param.nROIGap = (int)numericUpDown_JypyjGap.Value;
-            //        trackBar_JypyjGap.Value = (int)numericUpDown_JypyjGap.Value;
-            //        //检测框高
-            //        param.nROIHeight = (int)numericUpDown_JypyjHeight.Value;
-            //        trackBar_JypyjHeight.Value = (int)numericUpDown_JypyjHeight.Value;
-            //        //压脚类型
-            //        param.bSkinWeldHor = checkBox_SkinWeldHor.Checked;
-            //        //阈值分割方法
-            //        param.bSkinWeldThd = radioBut_SkinWeldThd.Checked;
-            //        param.bSkinWeldDynThd = radioBut_SkinWeldDynThd.Checked;
-            //        //阈值
-            //        param.nSkinWeldThd = (int)numUpD_SkinWeldThd.Value;
-            //        trackBar_SkinWeldThd.Value = (int)numUpD_SkinWeldThd.Value;
-            //        //宽度比值范围
-            //        param.dWidthRatioMin = (double)numUpD_SkinWeldHor_WMin.Value;
-            //        param.dWidthRatioMax = (double)numUpD_SkinWeldHor_WMax.Value;
-            //        if (label_skinWeld_width.Text != "--")
-            //        {
-            //            label_WMin.Text = (param.dWidthRatioMin * double.Parse(label_skinWeld_width.Text)).ToString();
-            //            label_WMax.Text = (param.dWidthRatioMax * double.Parse(label_skinWeld_width.Text)).ToString();
-            //        }
-            //        //高度比值范围
-            //        param.dHeightRatioMin = (double)numUpD_SkinWeldVer_HMin.Value;
-            //        param.dHeightRatioMax = (double)numUpD_SkinWeldVer_HMax.Value;
-            //        if (label_skinWeld_height.Text != "--")
-            //        {
-            //            label_HMin.Text = (param.dHeightRatioMin * double.Parse(label_skinWeld_height.Text)).ToString();
-            //            label_HMax.Text = (param.dHeightRatioMax * double.Parse(label_skinWeld_height.Text)).ToString();
-            //        }
-            //        //面积比值范围
-            //        param.dAreaRatioMin = (double)numUpD_skinWeld_AreaRatioMin.Value;
-            //        param.dAreaRatioMax = (double)numUpD_skinWeld_AreaRatioMax.Value;
-            //        //面积比
-            //        if (label_skinWeld_Area1.Text != "--")
-            //        {
-            //            param.dAreaRatio[0] = double.Parse(label_skinWeld_Area1.Text);
-            //        }
-            //        if (label_skinWeld_Area2.Text != "--")
-            //        {
-            //            param.dAreaRatio[1] = double.Parse(label_skinWeld_Area2.Text);
-            //        }
-            //        //中分
-            //        param.nRect2Gap = (int)numUpD_skinWeld_Rect2MidLen2.Value;
-            //        trackBar_skinWeld_Rect2MidLen2.Value = (int)numUpD_skinWeld_Rect2MidLen2.Value;
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        ex.ToString();
-            //    }
-            //    return param;
-            //}
-            //private void LoadSkinWeldParam(SkinWeldParam param)
-            //{
-            //    try
-            //    {
-            //        m_SkinWeldROIY = param.skinWeldRectY;
-            //        //检测框宽
-            //        if (param.nROIWidth == 0)
-            //        {
-            //            trackBar_JypyjWidth.Value = 50;
-            //        }
-            //        else
-            //        {
-            //            trackBar_JypyjWidth.Value = (int)param.nROIWidth;
-            //        }
-            //        numericUpDown_JypyjWidth.Value = trackBar_JypyjWidth.Value;
-            //        //检测框间距
-            //        if (param.nROIGap == 0)
-            //        {
-            //            trackBar_JypyjGap.Value = 5;
-            //        }
-            //        else
-            //        {
-            //            trackBar_JypyjGap.Value = param.nROIGap;
-            //        }
-            //        numericUpDown_JypyjGap.Value = trackBar_JypyjGap.Value;
-            //        //检测框高
-            //        if (param.nROIHeight == 0)
-            //        {
-            //            trackBar_JypyjHeight.Value = 0;
-            //        }
-            //        else
-            //        {
-            //            trackBar_JypyjHeight.Value = param.nROIHeight;
-            //        }
-            //        numericUpDown_JypyjHeight.Value = trackBar_JypyjHeight.Value;
-            //        //压脚类型
-            //        if (param.bSkinWeldHor)
-            //        {
-            //            checkBox_SkinWeldHor.Checked = true;
-            //            checkBox_SkinWeldVer.Checked = false;
-            //        }
-            //        else
-            //        {
-            //            checkBox_SkinWeldHor.Checked = false;
-            //            checkBox_SkinWeldVer.Checked = true;
-            //        }
-            //        //阈值分割方法
-            //        if (param.bSkinWeldThd)
-            //        {
-            //            radioBut_SkinWeldThd.Checked = true;
-            //        }
-            //        if (param.bSkinWeldDynThd)
-            //        {
-            //            radioBut_SkinWeldDynThd.Checked = true;
-            //        }
-            //        if (param.nSkinWeldThd == 0)
-            //        {
-            //            trackBar_SkinWeldThd.Value = 128;
-            //        }
-            //        else
-            //        {
-            //            trackBar_SkinWeldThd.Value = param.nSkinWeldThd;
-            //        }
-            //        numUpD_SkinWeldThd.Value = trackBar_SkinWeldThd.Value;
-            //        //压脚宽度、高度及比值范围
-            //        numUpD_SkinWeldHor_WMin.Value = (decimal)param.dWidthRatioMin;
-            //        numUpD_SkinWeldHor_WMax.Value = (decimal)param.dWidthRatioMax;
-            //        numUpD_SkinWeldVer_HMin.Value = (decimal)param.dHeightRatioMin;
-            //        numUpD_SkinWeldVer_HMax.Value = (decimal)param.dHeightRatioMax;
-            //        if (0 != m_SkinWeldROIY.dLength1 && 0 != m_SkinWeldROIY.dLength2)
-            //        {
-            //            label_skinWeld_width.Text = Math.Round(m_SkinWeldROIY.dLength1 * 2, 2).ToString();
-            //            label_skinWeld_height.Text = Math.Round(m_SkinWeldROIY.dLength2 * 2, 2).ToString();
-            //            label_WMin.Text = Math.Round(m_SkinWeldROIY.dLength1 * 2 * (double)numUpD_SkinWeldHor_WMin.Value, 2).ToString();
-            //            label_WMax.Text = Math.Round(m_SkinWeldROIY.dLength1 * 2 * (double)numUpD_SkinWeldHor_WMax.Value, 2).ToString();
-            //            label_HMin.Text = Math.Round(m_SkinWeldROIY.dLength2 * 2 * (double)numUpD_SkinWeldVer_HMin.Value, 2).ToString();
-            //            label_HMax.Text = Math.Round(m_SkinWeldROIY.dLength2 * 2 * (double)numUpD_SkinWeldVer_HMax.Value, 2).ToString();
-            //        }
-            //        //中分
-            //        if (0 == param.nRect2Gap)
-            //        {
-            //            trackBar_skinWeld_Rect2MidLen2.Value = 8;
-            //        }
-            //        else
-            //        {
-            //            trackBar_skinWeld_Rect2MidLen2.Value = param.nRect2Gap;
-            //        }
-            //        numUpD_skinWeld_Rect2MidLen2.Value = trackBar_skinWeld_Rect2MidLen2.Value;
-            //        //压脚面积及面积比值范围
-            //        numUpD_skinWeld_AreaRatioMin.Value = (decimal)param.dAreaRatioMin;
-            //        numUpD_skinWeld_AreaRatioMax.Value = (decimal)param.dAreaRatioMax;
-            //        if (null != param.dAreaRatio)
-            //        {
-            //            label_skinWeld_Area1.Text = Math.Round(param.dAreaRatio[0], 2).ToString();
-            //            label_skinWeld_Area2.Text = Math.Round(param.dAreaRatio[1], 2).ToString();
-            //        }
-
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        ex.ToString();
-            //    }
-            //}
-
-            private void SkinWeldInspect()
+        private void LoadParam()
         {
+            try
+            {
+                string a = m_ncam.ToString() + bh;
+                //如果相机实时，则停止实时
+                try
+                {
+                    CamSDK.CamCommon.GrabImagestop(str_CamSer);
+                }
+                catch (Exception ex)
+                {
+                    MessageFun.ShowMessage(ex.ToString());
+                }
+                Fun.ClearObjShow();
+
+                #region 导入模板图像
+                string model_name = "camera" + m_ncam.ToString() + "_"+ bh + "-" + m_TMType.ToString();
+                string strPath = System.IO.Path.Combine(GlobalPath.SavePath.ModelImagePath, model_name) + ".bmp";
+                if (File.Exists(strPath))
+                {
+                    Fun.LoadImageFromFile(strPath);
+                    //TMFun.m_ModelImage?.Dispose();
+                    //TMFun.m_ModelImage = Fun.m_hImage.Clone();
+                }
+                else
+                {
+                    MessageFun.ShowMessage("无" + model_name + "的模板图像。");
+                }
+                #endregion
+
+                #region 导入端子检测项列表
+                if (TMData_Serializer._globalData.dicTMCheckList.ContainsKey(a))
+                {
+
+                    //comboBox_SelectModel.Text = m_TMType;
+                    if (TMData_Serializer._globalData.dicTMCheckList[a].ContainsKey(m_TMType))
+                    {
+                        TMData.TMCheckItem TMCheckList = TMData_Serializer._globalData.dicTMCheckList[a][m_TMType];
+                        if (TMCheckList.SkinWeld)
+                        {
+                            tabPage_SkinWeld.Parent = tabCtrl_InspectItem;
+                        }
+                        else
+                        {
+                            tabPage_SkinWeld.Parent = null;
+                        }
+                        if (TMCheckList.SkinPos)
+                        {
+                            tabPage_SkinPos.Parent = tabCtrl_InspectItem;
+                        }
+                        else
+                        {
+                            tabPage_SkinPos.Parent = null;
+                        }
+                        if (TMCheckList.LineWeld)
+                        {
+                            tabPage_LineWeld.Parent = tabCtrl_InspectItem;
+                        }
+                        else
+                        {
+                            tabPage_LineWeld.Parent = null;
+                        }
+
+                        if (TMCheckList.LinePos)
+                        {
+                            tabPage_LinePos.Parent = tabCtrl_InspectItem;
+                        }
+                        else
+                        {
+                            tabPage_LinePos.Parent = null;
+                        }
+                        if (TMCheckList.LineSide)
+                        {
+                            tabPage_LineSide.Parent = tabCtrl_InspectItem;
+                        }
+                        else
+                        {
+                            tabPage_LineSide.Parent = null;
+                        }
+                        if (TMCheckList.LineColor)
+                        {
+                            tabPage_LineColorf1.Parent = tabCtrl_InspectItem;
+                        }
+                        else
+                        {
+                            tabPage_LineColorf1.Parent = null;
+                        }
+
+                    }
+                    #endregion
+
+                    #region 导入检测参数
+                    if (TMData_Serializer._globalData.fakraParam.ContainsKey(a))
+                    {
+                        if (TMData_Serializer._globalData.fakraParam[a].ContainsKey(m_TMType))
+                        {
+                            FakraParam m_TMParam = TMData_Serializer._globalData.fakraParam[a][m_TMType];
+
+                        }
+                        else
+                        {
+                            numUpD_Score.Value = (decimal)0.6;
+                        }
+                    }
+                    else
+                    {
+                        numUpD_Score.Value = (decimal)0.6;
+                    }
+                    #endregion
+                }
+            }
+            catch (SystemException ex)
+            {
+                MessageFun.ShowMessage("导入端子模板数据出错：" + ex.ToString());
+            }
+            finally
+            {
+                TorF = true;
+            }
+        }
+        private void SkinWeldInspect()
+           {
         //    try
         //    {
         //        if (null == TMFun || null == Fun.m_hImage)
@@ -2165,9 +1747,7 @@ namespace VisionPlatform
         //}
         private void FormTMTeach_Load(object sender, EventArgs e)
         {
-
-
-            //LoadParam();
+            LoadParam();
         }
         //实时检测
         private void button4_Click(object sender, EventArgs e)

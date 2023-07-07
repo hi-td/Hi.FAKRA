@@ -107,14 +107,12 @@ namespace VisionPlatform
             resources.ApplyResources(this.label_d, "label_d");
             this.label_d.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label_d.Name = "label_d";
-            this.label_d.Click += new System.EventHandler(this.label1_Edit_Click);
             // 
             // label_x
             // 
             resources.ApplyResources(this.label_x, "label_x");
             this.label_x.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label_x.Name = "label_x";
-            this.label_x.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel_hWnd
             // 

@@ -72,7 +72,7 @@ namespace VisionPlatform
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.82051F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.17949F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel2.Controls.Add(this.button1, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btn_openPort, 0, 1);
@@ -95,7 +95,7 @@ namespace VisionPlatform
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.Location = new System.Drawing.Point(3, 120);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 34);
+            this.button1.Size = new System.Drawing.Size(96, 34);
             this.button1.TabIndex = 45;
             this.button1.Text = "保存配置";
             this.button1.UseVisualStyleBackColor = true;
@@ -107,7 +107,7 @@ namespace VisionPlatform
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 39);
+            this.label6.Size = new System.Drawing.Size(96, 39);
             this.label6.TabIndex = 31;
             this.label6.Text = "当前串口状态：";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -119,7 +119,7 @@ namespace VisionPlatform
             this.btn_openPort.Location = new System.Drawing.Point(3, 43);
             this.btn_openPort.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_openPort.Name = "btn_openPort";
-            this.btn_openPort.Size = new System.Drawing.Size(97, 31);
+            this.btn_openPort.Size = new System.Drawing.Size(96, 31);
             this.btn_openPort.TabIndex = 29;
             this.btn_openPort.Text = "更新串口配置";
             this.btn_openPort.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@ namespace VisionPlatform
             this.btn_closePort.Location = new System.Drawing.Point(3, 82);
             this.btn_closePort.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_closePort.Name = "btn_closePort";
-            this.btn_closePort.Size = new System.Drawing.Size(97, 31);
+            this.btn_closePort.Size = new System.Drawing.Size(96, 31);
             this.btn_closePort.TabIndex = 30;
             this.btn_closePort.Text = "关闭串口";
             this.btn_closePort.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@ namespace VisionPlatform
             this.lbl_statu.AutoSize = true;
             this.lbl_statu.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbl_statu.ForeColor = System.Drawing.Color.Red;
-            this.lbl_statu.Location = new System.Drawing.Point(106, 0);
+            this.lbl_statu.Location = new System.Drawing.Point(105, 0);
             this.lbl_statu.Name = "lbl_statu";
             this.lbl_statu.Size = new System.Drawing.Size(41, 39);
             this.lbl_statu.TabIndex = 32;

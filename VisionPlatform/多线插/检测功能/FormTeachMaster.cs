@@ -16,6 +16,7 @@ namespace VisionPlatform
     {
         int m_cam;                                           //导入第几个相机
         string bh;                                           //相机界面编号
+        int m_j;                                           //导入第几个界面
         int nPreIO_in;                                       //输入/输出的IO点位
         private string m_SelNode_z = null;                   //关联相机时选中的根节点
         TMData.InspectItem m_item = new TMData.InspectItem();//当前选中的检测项目
@@ -29,11 +30,12 @@ namespace VisionPlatform
         public static Panel m_panelWindow;
         FormFAKRA formFakra;
 
-        public FormTeachMaster(int n_cam, string b)
+        public FormTeachMaster(int n_cam, string b,int j)
         {
             InitializeComponent();
             m_cam = n_cam;
             bh = b;
+            m_j = j;
             ts_Label_cam.Text = "编辑：相机" + n_cam.ToString() + "_" + bh;
             label_SelCam.Text = "相机" + n_cam.ToString() + "_" + bh;
             //InitUI();
@@ -203,6 +205,9 @@ namespace VisionPlatform
                 {
                     treeViewFun.Nodes[i].Nodes.Add("FAKRA检测");
                 }
+                treeViewFun.Nodes[m_j - 1].BackColor = Color.Green;
+                treeViewFun.Nodes[m_j - 1].FirstNode.BackColor = Color.Green;
+                treeViewFun.ExpandAll();
             }
             catch (Exception ex)
             {
@@ -446,38 +451,72 @@ namespace VisionPlatform
         private void treeViewFun_AfterSelect(object sender, TreeViewEventArgs e)
         {
             string strSel = treeViewFun.SelectedNode.Text;
+            int ncam;
+            string b;
             if (null != treeViewFun.SelectedNode.Parent)
             {
                 label_SelCam.Text = treeViewFun.SelectedNode.Parent.Text;
                 ts_Label_cam.Text = "编辑：" + treeViewFun.SelectedNode.Parent.Text;
-                int ncam = int.Parse(treeViewFun.SelectedNode.Parent.Text.Substring(2, 1));
-                string b = treeViewFun.SelectedNode.Parent.Text.Substring(4, 1);
+                ncam = int.Parse(treeViewFun.SelectedNode.Parent.Text.Substring(2, 1));
+                b = treeViewFun.SelectedNode.Parent.Text.Substring(4, 1);
                 Refresh(ncam, b);
                 m_cam = ncam;
                 bh = b;
-            }
-            else
-            {
+                e.Node.BackColor = Color.Green;
+                e.Node.Parent.BackColor = Color.Green;
+                foreach (TreeNode node0 in treeViewFun.Nodes)
+                {
+                    if (node0 != e.Node.Parent)
+                    {
+                        node0.BackColor = Color.LightSteelBlue;
+                        foreach (TreeNode node1 in node0.Nodes)
+                        {
+                            if (node1 != e.Node.Parent)
+                            {
+                                node1.BackColor = Color.LightSteelBlue;
+                            }
+                        }
+                    }
+                }
+                if (strSel == "FAKRA检测")
+                {
+                    formFakra = new FormFAKRA(ncam, b);
+                    formFakra.TopLevel = false;
+                    formFakra.Visible = true;
+                    formFakra.Dock = DockStyle.Fill;
+                    this.panel.Controls.Clear();
+                    this.panel.Controls.Add(formFakra);
+                }
+                else if (strSel == "线芯检测")
+                {
+                    //FormCoreNum formCoreNum = new FormCoreNum(m_cam);
+                    //formCoreNum.TopLevel = false;
+                    //formCoreNum.Visible = true;
+                    //formCoreNum.Dock = DockStyle.Fill;
+                    //this.panel.Controls.Clear();
+                    //this.panel.Controls.Add(formCoreNum);
+                }
 
             }
-            if (strSel == "剥皮检测")
-            {
-                //FormStripLength formStripLength = new FormStripLength(m_cam);
-                //formStripLength.TopLevel = false;
-                //formStripLength.Visible = true;
-                //formStripLength.Dock = DockStyle.Fill;
-                //this.panel.Controls.Clear();
-                //this.panel.Controls.Add(formStripLength);
-            }
-            else if (strSel == "线芯检测")
-            {
-                //FormCoreNum formCoreNum = new FormCoreNum(m_cam);
-                //formCoreNum.TopLevel = false;
-                //formCoreNum.Visible = true;
-                //formCoreNum.Dock = DockStyle.Fill;
-                //this.panel.Controls.Clear();
-                //this.panel.Controls.Add(formCoreNum);
-            }
+            //else
+            //{
+            //    label_SelCam.Text = treeViewFun.SelectedNode.Text;
+            //    ts_Label_cam.Text = "编辑：" + treeViewFun.SelectedNode.Text;
+            //    ncam = int.Parse(treeViewFun.SelectedNode.Text.Substring(2, 1));
+            //    b = treeViewFun.SelectedNode.Text.Substring(4, 1);
+            //    Refresh(ncam, b);
+            //    m_cam = ncam;
+            //    bh = b;
+            //    strSel = treeViewFun.SelectedNode.Nodes[0].Text;
+            //    e.Node.BackColor = Color.Green;
+            //    foreach (TreeNode node0 in treeViewFun.Nodes)
+            //    {
+            //        if (node0 != e.Node)
+            //        {
+            //            node0.BackColor = Color.LightSteelBlue;
+            //        }
+            //    }
+            //}
         }
         private void treeViewFun_MouseDown(object sender, MouseEventArgs e)
         {
@@ -489,9 +528,9 @@ namespace VisionPlatform
                     CurrentNode = treeViewFun.GetNodeAt(ClickPoint);
                     if (CurrentNode != null && CurrentNode.Parent == null)//判断点的是不是一个节点
                     {
-                        CurrentNode.ContextMenuStrip = contextMenuStrip1;
-                        treeViewFun.SelectedNode = CurrentNode;
-                        m_SelNode_z = CurrentNode.Text;
+                        //CurrentNode.ContextMenuStrip = contextMenuStrip1;
+                        //treeViewFun.SelectedNode = CurrentNode;
+                        //m_SelNode_z = CurrentNode.Text;
                     }
                     else if (CurrentNode != null && CurrentNode.Parent != null)
                     {
@@ -603,6 +642,8 @@ namespace VisionPlatform
                 FormTMCheckItem formTMCheckItem = new FormTMCheckItem(ncam, b,c);
                 formTMCheckItem.Location = new Point(Control.MousePosition.X, Control.MousePosition.Y);
                 formTMCheckItem.ShowDialog();
+                //添加界面刷新
+                formFakra.Refreshpage();
             }
             else if ("显示设置" == strItem)
             {

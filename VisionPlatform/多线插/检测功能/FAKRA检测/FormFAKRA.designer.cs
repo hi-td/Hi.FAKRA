@@ -4657,7 +4657,6 @@ namespace VisionPlatform
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button but_SetModel;
         private System.Windows.Forms.Button but_TestModel;
-        private System.Windows.Forms.TabControl tabCtrl_InspectItem;
         private System.Windows.Forms.TabPage tabPage_SkinWeld;
         private System.Windows.Forms.TabPage tabPage_SkinPos;
         private System.Windows.Forms.TabPage tabPage_LineWeld;
@@ -4978,5 +4977,6 @@ namespace VisionPlatform
         private System.Windows.Forms.Button button_delModel;
         private System.Windows.Forms.ComboBox comboBox_SelectModel;
         public System.Windows.Forms.ComboBox comboBox_Model;
+        public System.Windows.Forms.TabControl tabCtrl_InspectItem;
     }
 }

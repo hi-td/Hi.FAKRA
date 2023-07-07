@@ -40,6 +40,7 @@ namespace VisionPlatform
             this.checkBox_1Cam = new System.Windows.Forms.CheckBox();
             this.checkBox_2Cam = new System.Windows.Forms.CheckBox();
             this.checkBox_3Cam = new System.Windows.Forms.CheckBox();
+            this.checkBox_7Cam = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -76,7 +77,6 @@ namespace VisionPlatform
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.But_Save = new System.Windows.Forms.Button();
-            this.checkBox_7Cam = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -234,6 +234,20 @@ namespace VisionPlatform
             this.checkBox_3Cam.Text = "3";
             this.checkBox_3Cam.UseVisualStyleBackColor = true;
             this.checkBox_3Cam.CheckedChanged += new System.EventHandler(this.checkBox_3Cam_CheckedChanged);
+            // 
+            // checkBox_7Cam
+            // 
+            this.checkBox_7Cam.AutoSize = true;
+            this.checkBox_7Cam.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_7Cam.Location = new System.Drawing.Point(219, 3);
+            this.checkBox_7Cam.Name = "checkBox_7Cam";
+            this.checkBox_7Cam.Size = new System.Drawing.Size(30, 18);
+            this.checkBox_7Cam.TabIndex = 7;
+            this.checkBox_7Cam.Tag = "";
+            this.checkBox_7Cam.Text = "A";
+            this.toolTip1.SetToolTip(this.checkBox_7Cam, "3相机6界面(1相机4界面)");
+            this.checkBox_7Cam.UseVisualStyleBackColor = true;
+            this.checkBox_7Cam.CheckedChanged += new System.EventHandler(this.checkBox_7Cam_CheckedChanged);
             // 
             // label1
             // 
@@ -724,20 +738,6 @@ namespace VisionPlatform
             this.But_Save.Text = "确定";
             this.But_Save.UseVisualStyleBackColor = true;
             this.But_Save.Click += new System.EventHandler(this.But_Save_Click);
-            // 
-            // checkBox_7Cam
-            // 
-            this.checkBox_7Cam.AutoSize = true;
-            this.checkBox_7Cam.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_7Cam.Location = new System.Drawing.Point(219, 3);
-            this.checkBox_7Cam.Name = "checkBox_7Cam";
-            this.checkBox_7Cam.Size = new System.Drawing.Size(30, 18);
-            this.checkBox_7Cam.TabIndex = 7;
-            this.checkBox_7Cam.Tag = "";
-            this.checkBox_7Cam.Text = "A";
-            this.toolTip1.SetToolTip(this.checkBox_7Cam, "3相机6界面(1相机4界面)");
-            this.checkBox_7Cam.UseVisualStyleBackColor = true;
-            this.checkBox_7Cam.CheckedChanged += new System.EventHandler(this.checkBox_7Cam_CheckedChanged);
             // 
             // FormUIConfig
             // 

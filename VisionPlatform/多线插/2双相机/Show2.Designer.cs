@@ -200,7 +200,7 @@ namespace VisionPlatform
             this.tableLayoutPanel7.ColumnCount = 3;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
             this.tableLayoutPanel7.Controls.Add(this.but_Run, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.splitContainer1, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -246,8 +246,8 @@ namespace VisionPlatform
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.splitContainer1.Size = new System.Drawing.Size(617, 164);
-            this.splitContainer1.SplitterDistance = 318;
+            this.splitContainer1.Size = new System.Drawing.Size(615, 164);
+            this.splitContainer1.SplitterDistance = 316;
             this.splitContainer1.TabIndex = 2;
             // 
             // tLPanel
@@ -261,7 +261,7 @@ namespace VisionPlatform
             this.tLPanel.Name = "tLPanel";
             this.tLPanel.RowCount = 1;
             this.tLPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tLPanel.Size = new System.Drawing.Size(316, 162);
+            this.tLPanel.Size = new System.Drawing.Size(314, 162);
             this.tLPanel.TabIndex = 7;
             // 
             // tableLayoutPanel9

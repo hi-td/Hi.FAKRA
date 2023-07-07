@@ -137,7 +137,7 @@ namespace VisionPlatform
         {
             if (!FormMainUI.bRun)
             {
-                StaticFun.UIConfig.CreateFormTeachMaster(1,"1");
+                StaticFun.UIConfig.CreateFormTeachMaster(1,"1",1);
             }
             else
             {
@@ -150,7 +150,7 @@ namespace VisionPlatform
         {
             if (!FormMainUI.bRun)
             {
-                StaticFun.UIConfig.CreateFormTeachMaster(1, "2");
+                StaticFun.UIConfig.CreateFormTeachMaster(1, "2",2);
             }
             else
             {
@@ -163,7 +163,7 @@ namespace VisionPlatform
         {
             if (!FormMainUI.bRun)
             {
-                StaticFun.UIConfig.CreateFormTeachMaster(1, "3");
+                StaticFun.UIConfig.CreateFormTeachMaster(1, "3",3);
             }
             else
             {
@@ -176,7 +176,7 @@ namespace VisionPlatform
         {
             if (!FormMainUI.bRun)
             {
-                StaticFun.UIConfig.CreateFormTeachMaster(1,"4");
+                StaticFun.UIConfig.CreateFormTeachMaster(1,"4",4);
             }
             else
             {
@@ -189,7 +189,7 @@ namespace VisionPlatform
         {
             if (!FormMainUI.bRun)
             {
-                StaticFun.UIConfig.CreateFormTeachMaster(2, "1");
+                StaticFun.UIConfig.CreateFormTeachMaster(2, "1",5);
             }
             else
             {
@@ -202,7 +202,7 @@ namespace VisionPlatform
         {
             if (!FormMainUI.bRun)
             {
-                StaticFun.UIConfig.CreateFormTeachMaster(3, "1");
+                StaticFun.UIConfig.CreateFormTeachMaster(3, "1",6);
             }
             else
             {
