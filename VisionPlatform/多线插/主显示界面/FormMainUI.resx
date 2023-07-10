@@ -419,18 +419,18 @@
   <data name="tSDropDownBut_help.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJpSURBVFhH1ZexixNBFMbzB1gJItZioYWtiMVekezsboiN
-        CILNgY39nf01FtoIgmKXziKlINgFgnZa+BdcIYKN1VVW8fuGb87d2TeTjXcS/OBXZN/33tuZndmdjP47
-        VVV1CTTOuX3wROzzGmOynb/YpC7L93VVrbPAQ6/Szi4UvIfCq16jzayYqzJ/J0zpM6PwVrCGym0nJH62
-        CrY4AcsWlsfDWio7TEg6jou0WNSQrKeaTqfX8OyPDH/gWNa8YJxHiW0WsiVVO/fYyAvMZbOlBWclruvJ
-        5KtsXtx+uL5Ezis2xTTfVIg38bKXH8gtTBiSqx0NDmWjbxHHwU94GsabyeSWEQ+sfJFYSH5omD17RfFr
-        Nptdpg8j37M8YklPURQXjNgp7EVfR7j41jJ7xuNvsnH0z3vxgHOv6UGtq2ZcsJcvFlSW5UXL2OKLrFwn
-        ybchCj+iB7N024q3YU9fkEJiY5nayDqqnPthxcEHWXgDue3oYU/Z9Z43TBHfhRVbc22o1hX8TvoC7Omb
-        U/jBLWUaB1HXd1Rq0OgJeyrlbDeAqSxVhnVyO6RDfANDHkEPNH+qElxHDyxPCvZU6rBFGMN3QzMeX2c+
-        it21PDk6i3DANuzj3Dul8wY+mp4MnW1I4Y7SLyID+N8olS8n05OCvZT6R7iYfBVbYNRHyrthxXOwl28a
-        C8Htjl7OvUCxT2Ysjf0xorKf4/Ni0zkRptyBpANGfx+PYvDeB/kDSRCMuSNZwH96Ka4HIx4z7EgWhNFt
-        OpSSOab0wLjegbVUdjshcXfH8iAtzN38MWkLz3k3f81iYUp38+f032g0+g3elmMMNXKnmQAAAABJRU5E
-        rkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJoSURBVFhH1ZexixNBFMbzB1wliFwtFl5hK4dFLJKd3Q2x
+        OQTB5sDGXu2vsdBGEE7s0lmkPBDsAkG7s/AvuEIEGysrq/h9wzfn7uybycY7CX7wK7Lve+/tzM7sTgb/
+        ncqyvApq59wheCYOeY0x2S5fbFIVxfuqLFdZ4KFXaRcXCh6g8LLTaD1L5qrM3wlT+sIovBGsoXKbCYmn
+        VsEGP8GigeXxsJbK9hOSzuIiDeYVJOu5JpPJDTz7I8MfOJM1LxhnUWKTuWxJVc49NvICM9lsacFZiatq
+        PP4imxe3H64vkHPMppjmWwrxJl538gO5hQlDcrWjwVPZ6JvHcfADnprxejy+bcQDS18kFpIfGmbPcDj8
+        NZ1Or9GHkd+1PGJBD/w7Ruwc9qKvJVx8Z5k9o9FX2Tj6l514wLk39KDWdTMu2MsXCyqK4oplbPBZVq6T
+        5NsQhR/Rg1nat+JN2NMXpJBYW6Ymsg5K575bcfBBFt5Abjt62FN2vecNU8Q3YcVWXBuqtYvfSV+APX1z
+        Cj+4pUxjL6rqjkr1Gj1hT6Vc7AYwlYXKsE5uh7SIb6DPI+iA5s9VguvogeVJwZ5K7bcIY/huqEejm8xH
+        sXuWJ0drEfbYhl2cO1E6b+Cj6cnQ2oYU7ij9IjKA/61S+XIyPSnYS6l/hIvJV7EFRn2kvD0rnoO9fNNY
+        CG529HLuFYp9MmNp7I8Rlf0cXxbrzokw5Q4kLTD6+3gUvfc+yB9IgmDMHckC/tNLcT0Y8Zh+R7IgjG7d
+        oZTMMKVPjOstWEtlNxMSt3csD9LC3M4fk6bwnLfz1ywWpnQ7f07/jQaD38zQYwo7IKNOAAAAAElFTkSu
+        QmCC
 </value>
   </data>
   <data name="tSDropDownBut_help.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">

@@ -99,18 +99,6 @@ namespace VisionPlatform
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.trackBar_SkinWeldThd = new System.Windows.Forms.TrackBar();
-            this.numUpD_SkinWeldThd = new System.Windows.Forms.NumericUpDown();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
-            this.radioBut_SkinWeldThd = new System.Windows.Forms.RadioButton();
-            this.radioBut_SkinWeldDynThd = new System.Windows.Forms.RadioButton();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numUpD_skinWeld_AreaRatioMin = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -118,8 +106,6 @@ namespace VisionPlatform
             this.but_TestModel = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label99 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
             this.trackBar_skinpos_dynThd = new System.Windows.Forms.TrackBar();
             this.trackBar_lineColor_Thd = new System.Windows.Forms.TrackBar();
             this.trackBar_head_Thd = new System.Windows.Forms.TrackBar();
@@ -130,42 +116,6 @@ namespace VisionPlatform
             this.trackBar_wing_Area = new System.Windows.Forms.TrackBar();
             this.tabCtrl_InspectItem = new System.Windows.Forms.TabControl();
             this.tabPage_SkinWeld = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.tLPanel_SkinWeldVer = new System.Windows.Forms.TableLayoutPanel();
-            this.numUpD_SkinWeldVer_HMax = new System.Windows.Forms.NumericUpDown();
-            this.numUpD_SkinWeldVer_HMin = new System.Windows.Forms.NumericUpDown();
-            this.label91 = new System.Windows.Forms.Label();
-            this.label_HMin = new System.Windows.Forms.Label();
-            this.label_HMax = new System.Windows.Forms.Label();
-            this.tLPanel_SkinWeldHor = new System.Windows.Forms.TableLayoutPanel();
-            this.numUpD_SkinWeldHor_WMin = new System.Windows.Forms.NumericUpDown();
-            this.label87 = new System.Windows.Forms.Label();
-            this.numUpD_SkinWeldHor_WMax = new System.Windows.Forms.NumericUpDown();
-            this.label_WMin = new System.Windows.Forms.Label();
-            this.label_WMax = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.label_skinWeld_width = new System.Windows.Forms.Label();
-            this.label_skinWeld_height = new System.Windows.Forms.Label();
-            this.tableLayoutPanel38 = new System.Windows.Forms.TableLayoutPanel();
-            this.label_skinWeld_Area1 = new System.Windows.Forms.Label();
-            this.label_skinWeld_Area2 = new System.Windows.Forms.Label();
-            this.label_Area1 = new System.Windows.Forms.Label();
-            this.label_Area2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel27 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.numUpD_skinWeld_AreaRatioMax = new System.Windows.Forms.NumericUpDown();
-            this.label82 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel39 = new System.Windows.Forms.TableLayoutPanel();
-            this.trackBar_skinWeld_Rect2MidLen2 = new System.Windows.Forms.TrackBar();
-            this.label84 = new System.Windows.Forms.Label();
-            this.numUpD_skinWeld_Rect2MidLen2 = new System.Windows.Forms.NumericUpDown();
-            this.label96 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkBox_SkinWeldHor = new System.Windows.Forms.CheckBox();
-            this.checkBox_SkinWeldVer = new System.Windows.Forms.CheckBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabPage_SkinPos = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -471,12 +421,6 @@ namespace VisionPlatform
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_JypyjHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_JypyjWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_JypyjGap)).BeginInit();
-            this.tableLayoutPanel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_SkinWeldThd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_SkinWeldThd)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.tableLayoutPanel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_skinWeld_AreaRatioMin)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_skinpos_dynThd)).BeginInit();
@@ -489,22 +433,6 @@ namespace VisionPlatform
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_wing_Area)).BeginInit();
             this.tabCtrl_InspectItem.SuspendLayout();
             this.tabPage_SkinWeld.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.tableLayoutPanel20.SuspendLayout();
-            this.tLPanel_SkinWeldVer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_SkinWeldVer_HMax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_SkinWeldVer_HMin)).BeginInit();
-            this.tLPanel_SkinWeldHor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_SkinWeldHor_WMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_SkinWeldHor_WMax)).BeginInit();
-            this.tableLayoutPanel38.SuspendLayout();
-            this.tableLayoutPanel27.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_skinWeld_AreaRatioMax)).BeginInit();
-            this.tableLayoutPanel39.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_skinWeld_Rect2MidLen2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_skinWeld_Rect2MidLen2)).BeginInit();
-            this.tableLayoutPanel8.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage_SkinPos.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1312,120 +1240,6 @@ namespace VisionPlatform
             resources.ApplyResources(this.label8, "label8");
             this.label8.Name = "label8";
             // 
-            // tableLayoutPanel18
-            // 
-            resources.ApplyResources(this.tableLayoutPanel18, "tableLayoutPanel18");
-            this.tableLayoutPanel18.Controls.Add(this.trackBar_SkinWeldThd, 1, 1);
-            this.tableLayoutPanel18.Controls.Add(this.numUpD_SkinWeldThd, 0, 1);
-            this.tableLayoutPanel18.Controls.Add(this.panel1, 1, 0);
-            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
-            // 
-            // trackBar_SkinWeldThd
-            // 
-            resources.ApplyResources(this.trackBar_SkinWeldThd, "trackBar_SkinWeldThd");
-            this.trackBar_SkinWeldThd.Maximum = 255;
-            this.trackBar_SkinWeldThd.Minimum = 1;
-            this.trackBar_SkinWeldThd.Name = "trackBar_SkinWeldThd";
-            this.trackBar_SkinWeldThd.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBar_SkinWeldThd.Value = 1;
-            this.trackBar_SkinWeldThd.Scroll += new System.EventHandler(this.trackBar_SkinWeldThd_Scroll);
-            // 
-            // numUpD_SkinWeldThd
-            // 
-            resources.ApplyResources(this.numUpD_SkinWeldThd, "numUpD_SkinWeldThd");
-            this.numUpD_SkinWeldThd.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numUpD_SkinWeldThd.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpD_SkinWeldThd.Name = "numUpD_SkinWeldThd";
-            this.numUpD_SkinWeldThd.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpD_SkinWeldThd.ValueChanged += new System.EventHandler(this.numUpD_SkinWeldThd_ValueChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.label20);
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
-            // 
-            // label21
-            // 
-            resources.ApplyResources(this.label21, "label21");
-            this.label21.Name = "label21";
-            // 
-            // label20
-            // 
-            resources.ApplyResources(this.label20, "label20");
-            this.label20.Name = "label20";
-            // 
-            // tableLayoutPanel14
-            // 
-            resources.ApplyResources(this.tableLayoutPanel14, "tableLayoutPanel14");
-            this.tableLayoutPanel14.Controls.Add(this.radioBut_SkinWeldThd, 0, 0);
-            this.tableLayoutPanel14.Controls.Add(this.radioBut_SkinWeldDynThd, 0, 1);
-            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
-            // 
-            // radioBut_SkinWeldThd
-            // 
-            this.radioBut_SkinWeldThd.AutoCheck = false;
-            resources.ApplyResources(this.radioBut_SkinWeldThd, "radioBut_SkinWeldThd");
-            this.radioBut_SkinWeldThd.Name = "radioBut_SkinWeldThd";
-            this.radioBut_SkinWeldThd.TabStop = true;
-            this.radioBut_SkinWeldThd.UseVisualStyleBackColor = true;
-            this.radioBut_SkinWeldThd.Click += new System.EventHandler(this.radioBut_SkinWeldThd_Click);
-            // 
-            // radioBut_SkinWeldDynThd
-            // 
-            this.radioBut_SkinWeldDynThd.AutoCheck = false;
-            resources.ApplyResources(this.radioBut_SkinWeldDynThd, "radioBut_SkinWeldDynThd");
-            this.radioBut_SkinWeldDynThd.Name = "radioBut_SkinWeldDynThd";
-            this.radioBut_SkinWeldDynThd.TabStop = true;
-            this.radioBut_SkinWeldDynThd.UseVisualStyleBackColor = true;
-            this.radioBut_SkinWeldDynThd.Click += new System.EventHandler(this.radioBut_SkinWeldDynThd_Click);
-            // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            this.toolTip1.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
-            // 
-            // numUpD_skinWeld_AreaRatioMin
-            // 
-            this.numUpD_skinWeld_AreaRatioMin.DecimalPlaces = 2;
-            resources.ApplyResources(this.numUpD_skinWeld_AreaRatioMin, "numUpD_skinWeld_AreaRatioMin");
-            this.numUpD_skinWeld_AreaRatioMin.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numUpD_skinWeld_AreaRatioMin.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpD_skinWeld_AreaRatioMin.Name = "numUpD_skinWeld_AreaRatioMin";
-            this.numUpD_skinWeld_AreaRatioMin.Value = new decimal(new int[] {
-            4,
-            0,
-            0,
-            65536});
-            this.numUpD_skinWeld_AreaRatioMin.ValueChanged += new System.EventHandler(this.numericUpDown_AreaRatio_ValueChanged);
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.BackColor = System.Drawing.SystemColors.Control;
@@ -1472,18 +1286,6 @@ namespace VisionPlatform
             resources.ApplyResources(this.label99, "label99");
             this.label99.Name = "label99";
             this.toolTip1.SetToolTip(this.label99, resources.GetString("label99.ToolTip"));
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            this.toolTip1.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
-            // 
-            // label74
-            // 
-            resources.ApplyResources(this.label74, "label74");
-            this.label74.Name = "label74";
-            this.toolTip1.SetToolTip(this.label74, resources.GetString("label74.ToolTip"));
             // 
             // trackBar_skinpos_dynThd
             // 
@@ -1596,348 +1398,8 @@ namespace VisionPlatform
             // 
             resources.ApplyResources(this.tabPage_SkinWeld, "tabPage_SkinWeld");
             this.tabPage_SkinWeld.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.tabPage_SkinWeld.Controls.Add(this.groupBox2);
             this.tabPage_SkinWeld.Controls.Add(this.groupBox1);
             this.tabPage_SkinWeld.Name = "tabPage_SkinWeld";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.tableLayoutPanel20);
-            this.groupBox2.Controls.Add(this.tableLayoutPanel8);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.TabStop = false;
-            // 
-            // tableLayoutPanel20
-            // 
-            this.tableLayoutPanel20.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.tableLayoutPanel20, "tableLayoutPanel20");
-            this.tableLayoutPanel20.Controls.Add(this.tLPanel_SkinWeldVer, 2, 3);
-            this.tableLayoutPanel20.Controls.Add(this.label1, 0, 4);
-            this.tableLayoutPanel20.Controls.Add(this.tableLayoutPanel18, 2, 1);
-            this.tableLayoutPanel20.Controls.Add(this.tLPanel_SkinWeldHor, 2, 2);
-            this.tableLayoutPanel20.Controls.Add(this.tableLayoutPanel14, 1, 1);
-            this.tableLayoutPanel20.Controls.Add(this.label15, 0, 1);
-            this.tableLayoutPanel20.Controls.Add(this.label4, 0, 2);
-            this.tableLayoutPanel20.Controls.Add(this.label74, 0, 3);
-            this.tableLayoutPanel20.Controls.Add(this.label83, 1, 0);
-            this.tableLayoutPanel20.Controls.Add(this.label77, 2, 0);
-            this.tableLayoutPanel20.Controls.Add(this.label_skinWeld_width, 1, 2);
-            this.tableLayoutPanel20.Controls.Add(this.label_skinWeld_height, 1, 3);
-            this.tableLayoutPanel20.Controls.Add(this.tableLayoutPanel38, 1, 4);
-            this.tableLayoutPanel20.Controls.Add(this.tableLayoutPanel27, 2, 4);
-            this.tableLayoutPanel20.Controls.Add(this.label96, 0, 0);
-            this.tableLayoutPanel20.Name = "tableLayoutPanel20";
-            // 
-            // tLPanel_SkinWeldVer
-            // 
-            resources.ApplyResources(this.tLPanel_SkinWeldVer, "tLPanel_SkinWeldVer");
-            this.tLPanel_SkinWeldVer.Controls.Add(this.numUpD_SkinWeldVer_HMax, 3, 0);
-            this.tLPanel_SkinWeldVer.Controls.Add(this.numUpD_SkinWeldVer_HMin, 1, 0);
-            this.tLPanel_SkinWeldVer.Controls.Add(this.label91, 2, 0);
-            this.tLPanel_SkinWeldVer.Controls.Add(this.label_HMin, 0, 0);
-            this.tLPanel_SkinWeldVer.Controls.Add(this.label_HMax, 4, 0);
-            this.tLPanel_SkinWeldVer.Name = "tLPanel_SkinWeldVer";
-            // 
-            // numUpD_SkinWeldVer_HMax
-            // 
-            this.numUpD_SkinWeldVer_HMax.DecimalPlaces = 2;
-            resources.ApplyResources(this.numUpD_SkinWeldVer_HMax, "numUpD_SkinWeldVer_HMax");
-            this.numUpD_SkinWeldVer_HMax.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numUpD_SkinWeldVer_HMax.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            65536});
-            this.numUpD_SkinWeldVer_HMax.Name = "numUpD_SkinWeldVer_HMax";
-            this.numUpD_SkinWeldVer_HMax.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpD_SkinWeldVer_HMax.ValueChanged += new System.EventHandler(this.numUpD_SkinWeldVer_HMax_ValueChanged);
-            // 
-            // numUpD_SkinWeldVer_HMin
-            // 
-            this.numUpD_SkinWeldVer_HMin.DecimalPlaces = 2;
-            resources.ApplyResources(this.numUpD_SkinWeldVer_HMin, "numUpD_SkinWeldVer_HMin");
-            this.numUpD_SkinWeldVer_HMin.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numUpD_SkinWeldVer_HMin.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpD_SkinWeldVer_HMin.Name = "numUpD_SkinWeldVer_HMin";
-            this.numUpD_SkinWeldVer_HMin.Value = new decimal(new int[] {
-            75,
-            0,
-            0,
-            131072});
-            this.numUpD_SkinWeldVer_HMin.ValueChanged += new System.EventHandler(this.numUpD_SkinWeldVer_HMin_ValueChanged);
-            // 
-            // label91
-            // 
-            resources.ApplyResources(this.label91, "label91");
-            this.label91.Name = "label91";
-            // 
-            // label_HMin
-            // 
-            resources.ApplyResources(this.label_HMin, "label_HMin");
-            this.label_HMin.Name = "label_HMin";
-            // 
-            // label_HMax
-            // 
-            resources.ApplyResources(this.label_HMax, "label_HMax");
-            this.label_HMax.Name = "label_HMax";
-            // 
-            // tLPanel_SkinWeldHor
-            // 
-            resources.ApplyResources(this.tLPanel_SkinWeldHor, "tLPanel_SkinWeldHor");
-            this.tLPanel_SkinWeldHor.Controls.Add(this.numUpD_SkinWeldHor_WMin, 1, 0);
-            this.tLPanel_SkinWeldHor.Controls.Add(this.label87, 2, 0);
-            this.tLPanel_SkinWeldHor.Controls.Add(this.numUpD_SkinWeldHor_WMax, 3, 0);
-            this.tLPanel_SkinWeldHor.Controls.Add(this.label_WMin, 0, 0);
-            this.tLPanel_SkinWeldHor.Controls.Add(this.label_WMax, 4, 0);
-            this.tLPanel_SkinWeldHor.Name = "tLPanel_SkinWeldHor";
-            // 
-            // numUpD_SkinWeldHor_WMin
-            // 
-            this.numUpD_SkinWeldHor_WMin.DecimalPlaces = 2;
-            resources.ApplyResources(this.numUpD_SkinWeldHor_WMin, "numUpD_SkinWeldHor_WMin");
-            this.numUpD_SkinWeldHor_WMin.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numUpD_SkinWeldHor_WMin.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpD_SkinWeldHor_WMin.Name = "numUpD_SkinWeldHor_WMin";
-            this.numUpD_SkinWeldHor_WMin.Value = new decimal(new int[] {
-            75,
-            0,
-            0,
-            131072});
-            this.numUpD_SkinWeldHor_WMin.ValueChanged += new System.EventHandler(this.numUpD_SkinWeldHor_WMin_ValueChanged);
-            // 
-            // label87
-            // 
-            resources.ApplyResources(this.label87, "label87");
-            this.label87.Name = "label87";
-            // 
-            // numUpD_SkinWeldHor_WMax
-            // 
-            this.numUpD_SkinWeldHor_WMax.DecimalPlaces = 2;
-            resources.ApplyResources(this.numUpD_SkinWeldHor_WMax, "numUpD_SkinWeldHor_WMax");
-            this.numUpD_SkinWeldHor_WMax.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numUpD_SkinWeldHor_WMax.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            65536});
-            this.numUpD_SkinWeldHor_WMax.Name = "numUpD_SkinWeldHor_WMax";
-            this.numUpD_SkinWeldHor_WMax.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpD_SkinWeldHor_WMax.ValueChanged += new System.EventHandler(this.numUpD_SkinWeldHor_WMax_ValueChanged);
-            // 
-            // label_WMin
-            // 
-            resources.ApplyResources(this.label_WMin, "label_WMin");
-            this.label_WMin.Name = "label_WMin";
-            // 
-            // label_WMax
-            // 
-            resources.ApplyResources(this.label_WMax, "label_WMax");
-            this.label_WMax.Name = "label_WMax";
-            // 
-            // label83
-            // 
-            resources.ApplyResources(this.label83, "label83");
-            this.label83.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label83.Name = "label83";
-            // 
-            // label77
-            // 
-            resources.ApplyResources(this.label77, "label77");
-            this.label77.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label77.Name = "label77";
-            // 
-            // label_skinWeld_width
-            // 
-            resources.ApplyResources(this.label_skinWeld_width, "label_skinWeld_width");
-            this.label_skinWeld_width.Name = "label_skinWeld_width";
-            // 
-            // label_skinWeld_height
-            // 
-            resources.ApplyResources(this.label_skinWeld_height, "label_skinWeld_height");
-            this.label_skinWeld_height.Name = "label_skinWeld_height";
-            // 
-            // tableLayoutPanel38
-            // 
-            resources.ApplyResources(this.tableLayoutPanel38, "tableLayoutPanel38");
-            this.tableLayoutPanel38.Controls.Add(this.label_skinWeld_Area1, 1, 0);
-            this.tableLayoutPanel38.Controls.Add(this.label_skinWeld_Area2, 1, 1);
-            this.tableLayoutPanel38.Controls.Add(this.label_Area1, 0, 0);
-            this.tableLayoutPanel38.Controls.Add(this.label_Area2, 0, 1);
-            this.tableLayoutPanel38.Name = "tableLayoutPanel38";
-            // 
-            // label_skinWeld_Area1
-            // 
-            resources.ApplyResources(this.label_skinWeld_Area1, "label_skinWeld_Area1");
-            this.label_skinWeld_Area1.Name = "label_skinWeld_Area1";
-            // 
-            // label_skinWeld_Area2
-            // 
-            resources.ApplyResources(this.label_skinWeld_Area2, "label_skinWeld_Area2");
-            this.label_skinWeld_Area2.Name = "label_skinWeld_Area2";
-            // 
-            // label_Area1
-            // 
-            resources.ApplyResources(this.label_Area1, "label_Area1");
-            this.label_Area1.Name = "label_Area1";
-            // 
-            // label_Area2
-            // 
-            resources.ApplyResources(this.label_Area2, "label_Area2");
-            this.label_Area2.Name = "label_Area2";
-            // 
-            // tableLayoutPanel27
-            // 
-            resources.ApplyResources(this.tableLayoutPanel27, "tableLayoutPanel27");
-            this.tableLayoutPanel27.Controls.Add(this.tableLayoutPanel9, 0, 0);
-            this.tableLayoutPanel27.Controls.Add(this.tableLayoutPanel39, 0, 1);
-            this.tableLayoutPanel27.Name = "tableLayoutPanel27";
-            // 
-            // tableLayoutPanel9
-            // 
-            resources.ApplyResources(this.tableLayoutPanel9, "tableLayoutPanel9");
-            this.tableLayoutPanel9.Controls.Add(this.numUpD_skinWeld_AreaRatioMax, 2, 0);
-            this.tableLayoutPanel9.Controls.Add(this.numUpD_skinWeld_AreaRatioMin, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.label82, 1, 0);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            // 
-            // numUpD_skinWeld_AreaRatioMax
-            // 
-            this.numUpD_skinWeld_AreaRatioMax.DecimalPlaces = 2;
-            resources.ApplyResources(this.numUpD_skinWeld_AreaRatioMax, "numUpD_skinWeld_AreaRatioMax");
-            this.numUpD_skinWeld_AreaRatioMax.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numUpD_skinWeld_AreaRatioMax.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            65536});
-            this.numUpD_skinWeld_AreaRatioMax.Name = "numUpD_skinWeld_AreaRatioMax";
-            this.numUpD_skinWeld_AreaRatioMax.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpD_skinWeld_AreaRatioMax.ValueChanged += new System.EventHandler(this.numUpD_skinWeld_AreaRatioMax_ValueChanged);
-            // 
-            // label82
-            // 
-            resources.ApplyResources(this.label82, "label82");
-            this.label82.Name = "label82";
-            // 
-            // tableLayoutPanel39
-            // 
-            resources.ApplyResources(this.tableLayoutPanel39, "tableLayoutPanel39");
-            this.tableLayoutPanel39.Controls.Add(this.trackBar_skinWeld_Rect2MidLen2, 2, 0);
-            this.tableLayoutPanel39.Controls.Add(this.label84, 0, 0);
-            this.tableLayoutPanel39.Controls.Add(this.numUpD_skinWeld_Rect2MidLen2, 1, 0);
-            this.tableLayoutPanel39.Name = "tableLayoutPanel39";
-            // 
-            // trackBar_skinWeld_Rect2MidLen2
-            // 
-            resources.ApplyResources(this.trackBar_skinWeld_Rect2MidLen2, "trackBar_skinWeld_Rect2MidLen2");
-            this.trackBar_skinWeld_Rect2MidLen2.Maximum = 50;
-            this.trackBar_skinWeld_Rect2MidLen2.Minimum = 1;
-            this.trackBar_skinWeld_Rect2MidLen2.Name = "trackBar_skinWeld_Rect2MidLen2";
-            this.trackBar_skinWeld_Rect2MidLen2.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBar_skinWeld_Rect2MidLen2.Value = 1;
-            this.trackBar_skinWeld_Rect2MidLen2.Scroll += new System.EventHandler(this.trackBar_skinWeld_Rect2Gap_Scroll);
-            // 
-            // label84
-            // 
-            resources.ApplyResources(this.label84, "label84");
-            this.label84.Name = "label84";
-            // 
-            // numUpD_skinWeld_Rect2MidLen2
-            // 
-            resources.ApplyResources(this.numUpD_skinWeld_Rect2MidLen2, "numUpD_skinWeld_Rect2MidLen2");
-            this.numUpD_skinWeld_Rect2MidLen2.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.numUpD_skinWeld_Rect2MidLen2.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpD_skinWeld_Rect2MidLen2.Name = "numUpD_skinWeld_Rect2MidLen2";
-            this.numUpD_skinWeld_Rect2MidLen2.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpD_skinWeld_Rect2MidLen2.ValueChanged += new System.EventHandler(this.numUpD_skinWeld_Rect2Gap_ValueChanged);
-            // 
-            // label96
-            // 
-            resources.ApplyResources(this.label96, "label96");
-            this.label96.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label96.Name = "label96";
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.tableLayoutPanel8, "tableLayoutPanel8");
-            this.tableLayoutPanel8.Controls.Add(this.checkBox_SkinWeldHor, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.checkBox_SkinWeldVer, 2, 0);
-            this.tableLayoutPanel8.Controls.Add(this.label19, 0, 0);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            // 
-            // checkBox_SkinWeldHor
-            // 
-            resources.ApplyResources(this.checkBox_SkinWeldHor, "checkBox_SkinWeldHor");
-            this.checkBox_SkinWeldHor.Name = "checkBox_SkinWeldHor";
-            this.checkBox_SkinWeldHor.UseVisualStyleBackColor = true;
-            this.checkBox_SkinWeldHor.CheckedChanged += new System.EventHandler(this.checkBox_SkinWeldHor_CheckedChanged);
-            // 
-            // checkBox_SkinWeldVer
-            // 
-            resources.ApplyResources(this.checkBox_SkinWeldVer, "checkBox_SkinWeldVer");
-            this.checkBox_SkinWeldVer.Name = "checkBox_SkinWeldVer";
-            this.checkBox_SkinWeldVer.UseVisualStyleBackColor = true;
-            this.checkBox_SkinWeldVer.CheckedChanged += new System.EventHandler(this.checkBox_SkinWeldVer_CheckedChanged);
-            // 
-            // label19
-            // 
-            resources.ApplyResources(this.label19, "label19");
-            this.label19.Name = "label19";
             // 
             // groupBox1
             // 
@@ -4367,15 +3829,6 @@ namespace VisionPlatform
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_JypyjHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_JypyjWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_JypyjGap)).EndInit();
-            this.tableLayoutPanel18.ResumeLayout(false);
-            this.tableLayoutPanel18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_SkinWeldThd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_SkinWeldThd)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.tableLayoutPanel14.ResumeLayout(false);
-            this.tableLayoutPanel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_skinWeld_AreaRatioMin)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -4390,29 +3843,6 @@ namespace VisionPlatform
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_wing_Area)).EndInit();
             this.tabCtrl_InspectItem.ResumeLayout(false);
             this.tabPage_SkinWeld.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.tableLayoutPanel20.ResumeLayout(false);
-            this.tableLayoutPanel20.PerformLayout();
-            this.tLPanel_SkinWeldVer.ResumeLayout(false);
-            this.tLPanel_SkinWeldVer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_SkinWeldVer_HMax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_SkinWeldVer_HMin)).EndInit();
-            this.tLPanel_SkinWeldHor.ResumeLayout(false);
-            this.tLPanel_SkinWeldHor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_SkinWeldHor_WMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_SkinWeldHor_WMax)).EndInit();
-            this.tableLayoutPanel38.ResumeLayout(false);
-            this.tableLayoutPanel38.PerformLayout();
-            this.tableLayoutPanel27.ResumeLayout(false);
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.tableLayoutPanel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_skinWeld_AreaRatioMax)).EndInit();
-            this.tableLayoutPanel39.ResumeLayout(false);
-            this.tableLayoutPanel39.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_skinWeld_Rect2MidLen2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpD_skinWeld_Rect2MidLen2)).EndInit();
-            this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel8.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.tabPage_SkinPos.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -4595,8 +4025,6 @@ namespace VisionPlatform
         private System.Windows.Forms.NumericUpDown numericUpDown_SkinPosGap;
         private System.Windows.Forms.TrackBar trackBar_SkinPosGap;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.NumericUpDown numUpD_skinWeld_AreaRatioMin;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericUpDown_SkinPosHeight;
         private System.Windows.Forms.TrackBar trackBar_SkinPosHeight;
@@ -4629,14 +4057,7 @@ namespace VisionPlatform
         private System.Windows.Forms.NumericUpDown numUpD_SkinPos_AreaRatioMin;
         private System.Windows.Forms.NumericUpDown numUpD_SkinPos_LineThd;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
-        private System.Windows.Forms.TrackBar trackBar_SkinWeldThd;
-        private System.Windows.Forms.RadioButton radioBut_SkinWeldThd;
-        private System.Windows.Forms.RadioButton radioBut_SkinWeldDynThd;
-        private System.Windows.Forms.NumericUpDown numUpD_SkinWeldThd;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
         private System.Windows.Forms.TrackBar trackBar_SkinPos_LineThd;
         private System.Windows.Forms.NumericUpDown numUpD_minThd;
         private System.Windows.Forms.NumericUpDown numUpD_minArea;
@@ -4662,11 +4083,6 @@ namespace VisionPlatform
         private System.Windows.Forms.TabPage tabPage_LineWeld;
         private System.Windows.Forms.TabPage tabPage_LinePos;
         private System.Windows.Forms.TabPage tabPage_LineSide;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
         private System.Windows.Forms.Label label36;
@@ -4729,45 +4145,11 @@ namespace VisionPlatform
         private System.Windows.Forms.NumericUpDown numUpD_skinpos_dynThd;
         private System.Windows.Forms.Label label76;
         private System.Windows.Forms.TrackBar trackBar_skinpos_dynThd;
-        private System.Windows.Forms.NumericUpDown numUpD_SkinWeldHor_WMin;
-        private System.Windows.Forms.NumericUpDown numUpD_SkinWeldVer_HMin;
-        private System.Windows.Forms.NumericUpDown numUpD_SkinWeldHor_WMax;
-        private System.Windows.Forms.NumericUpDown numUpD_SkinWeldVer_HMax;
-        private System.Windows.Forms.Label label87;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
-        private System.Windows.Forms.TableLayoutPanel tLPanel_SkinWeldVer;
-        private System.Windows.Forms.Label label91;
-        private System.Windows.Forms.TableLayoutPanel tLPanel_SkinWeldHor;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Label label88;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label92;
-        private System.Windows.Forms.CheckBox checkBox_SkinWeldVer;
-        private System.Windows.Forms.CheckBox checkBox_SkinWeldHor;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label74;
-        private System.Windows.Forms.Label label83;
-        private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.Label label_skinWeld_width;
-        private System.Windows.Forms.Label label_skinWeld_height;
-        private System.Windows.Forms.Label label_HMin;
-        private System.Windows.Forms.Label label_HMax;
-        private System.Windows.Forms.Label label_WMin;
-        private System.Windows.Forms.Label label_WMax;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.NumericUpDown numUpD_skinWeld_AreaRatioMax;
-        private System.Windows.Forms.Label label82;
-        private System.Windows.Forms.Label label_skinWeld_Area1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel38;
-        private System.Windows.Forms.Label label_skinWeld_Area2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel27;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel39;
-        private System.Windows.Forms.Label label84;
-        private System.Windows.Forms.NumericUpDown numUpD_skinWeld_Rect2MidLen2;
-        private System.Windows.Forms.TrackBar trackBar_skinWeld_Rect2MidLen2;
-        private System.Windows.Forms.Label label_Area1;
-        private System.Windows.Forms.Label label_Area2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel42;
         private System.Windows.Forms.Label label99;
         private System.Windows.Forms.Label label105;
@@ -4813,7 +4195,6 @@ namespace VisionPlatform
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.Label label96;
         private System.Windows.Forms.Button but_SkinPos_Show;
         private System.Windows.Forms.Label label97;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel29;
@@ -4892,7 +4273,6 @@ namespace VisionPlatform
         private System.Windows.Forms.Label label151;
         private System.Windows.Forms.NumericUpDown numericUpDown_head_Thd;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel43;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;

@@ -54,7 +54,6 @@ namespace VisionPlatform
             try
             {
                 radioBut_ModelImage.Checked = true;      //默认使用模板图片
-                checkBox_SkinWeldVer.Checked = true;     //默认上下压脚
                 tabPage_SkinWeld.Parent = null;
                 tabPage_SkinPos.Parent = null;
                 tabPage_LineWeld.Parent = null;
@@ -163,8 +162,8 @@ namespace VisionPlatform
                 if (File.Exists(strPath))
                 {
                     Fun.LoadImageFromFile(strPath);
-                    //TMFun.m_ModelImage?.Dispose();
-                    //TMFun.m_ModelImage = Fun.m_hImage.Clone();
+                    TMFun.m_ModelImage?.Dispose();
+                    TMFun.m_ModelImage = Fun.m_hImage.Clone();
                 }
                 else
                 {
@@ -348,109 +347,6 @@ namespace VisionPlatform
             }
 
         }
-        private void trackBar_SkinWeldThd_Scroll(object sender, EventArgs e)
-        {
-            numUpD_SkinWeldThd.Value = trackBar_SkinWeldThd.Value;
-        }
-        private void numUpD_SkinWeldThd_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinWeldInspect();
-            }
-        }
-        private void checkBox_SkinWeldHor_CheckedChanged(object sender, EventArgs e)
-        {
-            //if (checkBox_SkinWeldHor.Checked)
-            //{
-            //    checkBox_SkinWeldVer.Checked = false;
-            //    if (GlobalData.Config._language == EnumData.Language.english)
-            //    {
-            //        label_Area1.Text = "Left";
-            //        label_Area2.Text = "Right";
-            //    }
-            //    else
-            //    {
-            //        label_Area1.Text = "左";
-            //        label_Area2.Text = "右";
-            //    }
-
-            //}
-        }
-        private void checkBox_SkinWeldVer_CheckedChanged(object sender, EventArgs e)
-        {
-            //if (checkBox_SkinWeldVer.Checked)
-            //{
-            //    checkBox_SkinWeldHor.Checked = false;
-            //    if (GlobalData.Config._language == EnumData.Language.english)
-            //    {
-            //        label_Area1.Text = "Up";
-            //        label_Area2.Text = "Down";
-            //    }
-            //    else
-            //    {
-            //        label_Area1.Text = "上";
-            //        label_Area2.Text = "下";
-            //    }
-
-            //}
-        }
-        private void numUpD_SkinWeldHor_WMin_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinWeldInspect();
-            }
-        }
-        private void numUpD_SkinWeldHor_WMax_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinWeldInspect();
-            }
-        }
-        private void numUpD_SkinWeldVer_HMin_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinWeldInspect();
-            }
-        }
-        private void numUpD_SkinWeldVer_HMax_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinWeldInspect();
-            }
-        }
-        private void numericUpDown_AreaRatio_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinWeldInspect();
-            }
-        }
-        private void numUpD_skinWeld_AreaRatioMax_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinWeldInspect();
-            }
-        }
-        private void trackBar_skinWeld_Rect2Gap_Scroll(object sender, EventArgs e)
-        {
-            numUpD_skinWeld_Rect2MidLen2.Value = trackBar_skinWeld_Rect2MidLen2.Value;
-
-        }
-
-        private void numUpD_skinWeld_Rect2Gap_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-               // SkinWeldInspect();
-            }
-        }
-        //#endregion
 
         #region 绝缘皮位置
         //private SkinPosParam InitSkinPosParam()
@@ -668,30 +564,6 @@ namespace VisionPlatform
             //    formImageColorTrans.TopMost = true;
             //}
             //formImageColorTrans.Show();
-        }
-        private void radioBut_SkinWeldThd_Click(object sender, EventArgs e)
-        {
-            if (radioBut_SkinWeldThd.Checked)
-            {
-                radioBut_SkinWeldThd.Checked = false;
-            }
-            else
-            {
-                radioBut_SkinWeldThd.Checked = true;
-                radioBut_SkinWeldDynThd.Checked = false;
-            }
-        }
-        private void radioBut_SkinWeldDynThd_Click(object sender, EventArgs e)
-        {
-            if (radioBut_SkinWeldDynThd.Checked)
-            {
-                radioBut_SkinWeldDynThd.Checked = false;
-            }
-            else
-            {
-                radioBut_SkinWeldDynThd.Checked = true;
-                radioBut_SkinWeldThd.Checked = false;
-            }
         }
         private void checkBox_bColorSpaceTrans_CheckedChanged(object sender, EventArgs e)
         {
@@ -2243,37 +2115,46 @@ namespace VisionPlatform
 
         private void button_newModel_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (comboBox_Model.Text=="" || comboBox_Model.Text == "teach")
-            //    {
-            //        return;
-            //    }
-            //    if (TMData_Serializer._globalData.dicCheckList.ContainsKey(m_ncam))
-            //    {
-            //        string a = comboBox_Model.Text;
-            //        if (TMData_Serializer._globalData.dicCheckList[m_ncam].ContainsKey(a))
-            //        {
-            //            MessageBox.Show("当前模板已存在！");
-            //            return;
-            //        }
-            //        else
-            //        {
-            //            TMData_Serializer._globalData.dicCheckList[m_ncam].Add(a, InitTMCheckList());
-            //            comboBox_Model.Items.Add(a);
-            //            comboBox_SelectModel.Items.Add(a);
-            //        }
-            //        m_TMType = a;
-            //        TorF = false;
-            //        InitUI();
-            //        LoadParam();
-            //        tabCtrl_InspectItem.Refresh();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageFun.ShowMessage("添加端子模板出错：" + ex.ToString());
-            //}
+            try
+            {
+                if (comboBox_Model.Text == "" || comboBox_Model.Text == "teach")
+                {
+                    return;
+                }
+                string a = m_ncam.ToString() + bh;
+                string c = comboBox_Model.Text;
+                if (TMData_Serializer._globalData.dicTMCheckList.ContainsKey(a))
+                {
+                    if (TMData_Serializer._globalData.dicTMCheckList[a].ContainsKey(c))
+                    {
+                        MessageBox.Show("当前模板已存在！");
+                        return;
+                    }
+                    else
+                    {
+                        TMCheckItem tmCheckItem = new();
+                        TMData_Serializer._globalData.dicTMCheckList[a].Add(c, tmCheckItem);
+                        comboBox_Model.Items.Add(a);
+                        comboBox_SelectModel.Items.Add(a);
+                    }
+                    m_TMType = c;
+                    TorF = false;
+                    InitUI();
+                    LoadParam();
+                    tabCtrl_InspectItem.Refresh();
+                }
+                else
+                {
+                    TMCheckItem tmCheckItem = new();
+                    Dictionary<string, TMCheckItem > tm= new();
+                    tm.Add(c, tmCheckItem);
+                    TMData_Serializer._globalData.dicTMCheckList.Add(a,tm);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageFun.ShowMessage("添加端子模板出错：" + ex.ToString());
+            }
 
         }
         //public TMData.TMCheckList InitTMCheckList()
@@ -2301,44 +2182,45 @@ namespace VisionPlatform
 
         private void button_delModel_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (comboBox_Model.Text == ""|| comboBox_Model.Text == "teach")
-            //    {
-            //        return;
-            //    }
-            //    if (TMData_Serializer._globalData.dicCheckList.ContainsKey(m_ncam))
-            //    {
-            //        string a = comboBox_Model.Text;
-            //        string b = comboBox_SelectModel.Text;
-            //        if (TMData_Serializer._globalData.dicCheckList[m_ncam].ContainsKey(a))
-            //        {
-            //            TMData_Serializer._globalData.dicCheckList[m_ncam].Remove(a);
+            try
+            {
+                if (comboBox_Model.Text == "" || comboBox_Model.Text == "teach")
+                {
+                    return;
+                }
+                string c = m_ncam.ToString() + bh;
+                if (TMData_Serializer._globalData.dicTMCheckList.ContainsKey(c))
+                {
+                    string a = comboBox_Model.Text;
+                    string b = comboBox_SelectModel.Text;
+                    if (TMData_Serializer._globalData.dicTMCheckList[c].ContainsKey(a))
+                    {
+                        TMData_Serializer._globalData.dicTMCheckList[c].Remove(a);
 
-            //            comboBox_Model.Items.Remove(a);
-            //            comboBox_SelectModel.Items.Remove(a);
-            //            if (b==a)
-            //            {
-            //                comboBox_SelectModel.Text = "teach";
-            //            }
-            //            comboBox_Model.Text = "teach";
-            //            TorF = false;
-            //            InitUI();
-            //            LoadParam();
-            //            tabCtrl_InspectItem.Refresh();
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("无当前选择模板！");
-            //            return;
-            //        }
+                        comboBox_Model.Items.Remove(a);
+                        comboBox_SelectModel.Items.Remove(a);
+                        if (b == a)
+                        {
+                            comboBox_SelectModel.Text = "teach";
+                        }
+                        comboBox_Model.Text = "teach";
+                        TorF = false;
+                        InitUI();
+                        LoadParam();
+                        tabCtrl_InspectItem.Refresh();
+                    }
+                    else
+                    {
+                        MessageBox.Show("无当前选择模板！");
+                        return;
+                    }
 
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageFun.ShowMessage("删除端子模板出错：" + ex.ToString());
-            //}
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageFun.ShowMessage("删除端子模板出错：" + ex.ToString());
+            }
         }
 
         private void comboBox_SelectModel_SelectedIndexChanged(object sender, EventArgs e)

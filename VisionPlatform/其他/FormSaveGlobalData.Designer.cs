@@ -51,7 +51,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.but_SaveGlobalData, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
@@ -69,10 +69,10 @@
             // 
             this.but_SaveGlobalData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.but_SaveGlobalData.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold);
-            this.but_SaveGlobalData.Location = new System.Drawing.Point(349, 1);
+            this.but_SaveGlobalData.Location = new System.Drawing.Point(347, 1);
             this.but_SaveGlobalData.Margin = new System.Windows.Forms.Padding(0);
             this.but_SaveGlobalData.Name = "but_SaveGlobalData";
-            this.but_SaveGlobalData.Size = new System.Drawing.Size(94, 27);
+            this.but_SaveGlobalData.Size = new System.Drawing.Size(96, 27);
             this.but_SaveGlobalData.TabIndex = 4;
             this.but_SaveGlobalData.Text = "确定";
             this.but_SaveGlobalData.UseVisualStyleBackColor = true;
@@ -98,7 +98,7 @@
             this.textBox_SerialDataName.Location = new System.Drawing.Point(98, 1);
             this.textBox_SerialDataName.Margin = new System.Windows.Forms.Padding(0);
             this.textBox_SerialDataName.Name = "textBox_SerialDataName";
-            this.textBox_SerialDataName.Size = new System.Drawing.Size(250, 26);
+            this.textBox_SerialDataName.Size = new System.Drawing.Size(248, 26);
             this.textBox_SerialDataName.TabIndex = 5;
             // 
             // listView1
