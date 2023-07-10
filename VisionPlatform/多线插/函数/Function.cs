@@ -1582,7 +1582,7 @@ namespace VisionPlatform
             }
         }
         //拟合圆
-        public bool FitCircle(CircleParam param, out Circle circleOut)
+        public bool FitCircle(CircleParam param, bool bShow, out Circle circleOut)
         {
             circleOut.dRow = 0;
             circleOut.dCol = 0;
@@ -1602,8 +1602,6 @@ namespace VisionPlatform
             HOperatorSet.GenEmptyObj(out ho_Cross);
             try
             {
-                m_hWnd.DispObj(m_hImage);
-
                 int nMeasureNum = (int)((Math.PI * 2 * param.circleIn.dRadius) / (2 * param.EPMeasure.dMeasureLen2));
                 HOperatorSet.GetImageSize(m_hImage, out hv_Width, out hv_Height);
 
@@ -1615,14 +1613,13 @@ namespace VisionPlatform
                 HOperatorSet.SetMetrologyObjectParam(hv_MetrologyHandle, hv_Index, "num_measures", nMeasureNum);
                 HOperatorSet.SetMetrologyObjectParam(hv_MetrologyHandle, hv_Index, "measure_transition", param.EPMeasure.strTransition);
                 HOperatorSet.SetMetrologyObjectParam(hv_MetrologyHandle, hv_Index, "measure_select", param.EPMeasure.strSelect);
-
                 HOperatorSet.ApplyMetrologyModel(m_hImage, hv_MetrologyHandle);
                 HOperatorSet.GetMetrologyObjectMeasures(out ho_ContRect, hv_MetrologyHandle, "all", "all", out hv_Rows, out hv_Cols);
                 if (0 == hv_Rows.TupleLength())
                     return false;
-                HOperatorSet.GenCrossContourXld(out ho_Cross, hv_Rows, hv_Cols, 6, 0);
-
+                HOperatorSet.GenCrossContourXld(out ho_Cross, hv_Rows, hv_Cols, 25, 0);
                 HOperatorSet.GetMetrologyObjectResultContour(out ho_Contours, hv_MetrologyHandle, "all", "all", 1.5);
+                DispRegion(ho_Contours, "blue");
                 HOperatorSet.GetMetrologyObjectResult(hv_MetrologyHandle, hv_Index, "all", "result_type", "row", out hv_CircleRow);
                 HOperatorSet.GetMetrologyObjectResult(hv_MetrologyHandle, hv_Index, "all", "result_type", "column", out hv_CircleCol);
                 HOperatorSet.GetMetrologyObjectResult(hv_MetrologyHandle, hv_Index, "all", "result_type", "radius", out hv_Radius);
@@ -1643,14 +1640,15 @@ namespace VisionPlatform
                 circleOut.dRadius = hv_Radius.D;
 
                 //显示
-                m_hWnd.SetColor("green");
-                m_hWnd.DispObj(ho_Cross);
-                m_hWnd.SetColor("red");
-                m_hWnd.DispObj(ho_ContRect);
-                //SetShow(m_showParam);
-                ShowRegion(ho_Circle);
-                //m_hWnd.DispObj(ho_Circle);
-                m_hWnd.DispCross(hv_CircleRow, hv_CircleCol, hv_Radius / 3, 0);
+                m_hWnd.DispObj(m_hImage);
+                
+                DispRegion(ho_Cross,"blue");
+                //DispRegion(ho_Contours, "green");
+                DispRegion(ho_ContRect, "green");
+                m_hWnd.SetLineWidth(3);
+                DispRegion(ho_Circle, "red");
+                m_hWnd.DispCross(hv_CircleRow, hv_CircleCol, hv_Radius / 5, 0);
+                m_hWnd.SetLineWidth(1);
                 return true;
             }
             catch (HalconException error)

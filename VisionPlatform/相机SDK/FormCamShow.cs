@@ -43,7 +43,7 @@ namespace VisionPlatform
         Camimage camimage;
         public static Dictionary<int, Camimage> camimages = new Dictionary<int, Camimage>();
 
-        public FormCamShow(string strCamSer, int ncam,string a) //输入相机的序列号
+        public FormCamShow(string strCamSer, int ncam, string a) //输入相机的序列号
         {
             InitializeComponent();
             panel2.BackColor = Color.FromArgb(255, 0, green: 0, 0);

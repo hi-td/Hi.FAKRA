@@ -45,13 +45,21 @@ namespace VisionPlatform
             string str = "";
             try
             {
-                if (item == InspectItem.FAKRA)
+                if (item == InspectItem.StripLen)
                 {
-                    str = "FAKRA检测";
+                    str = "剥皮检测";
                 }
-                else if (item == InspectItem.CoreNum)
+                else if (item == InspectItem.TM)
                 {
-                    str = "线芯检测";
+                    str = "端子检测";
+                }
+                else if (item == InspectItem.Conductor)
+                {
+                    str = "导体检测";
+                }
+                else if (item == InspectItem.Concentricity)
+                {
+                    str = "同心度检测";
                 }
             }
             catch (SystemException error)
@@ -146,13 +154,21 @@ namespace VisionPlatform
             TMData.InspectItem item = new InspectItem();
             try
             {
-                if (str == "FAKRA检测")
+                if (str == "剥皮检测")
                 {
-                    item = InspectItem.FAKRA;
+                    item = InspectItem.StripLen;
                 }
-                else if (str == "线芯检测")
+                else if (str == "端子检测")
                 {
-                    item = InspectItem.CoreNum;
+                    item = InspectItem.TM;
+                }
+                else if (str == "导体检测")
+                {
+                    item = InspectItem.Conductor;
+                }
+                else if (str == "同心度检测")
+                {
+                    item = InspectItem.Concentricity;
                 }
             }
             catch (SystemException error)
@@ -410,10 +426,10 @@ namespace VisionPlatform
                     //    //光源控制
                     //    GetLightCH(camItem1_LineColor, out dicCH_open_LineColor, out dicCH_close_LineColor);
                     //}
-                    if (item == TMData.InspectItem.CoreNum)
+                    if (item == TMData.InspectItem.Concentricity)
                     {
                         bCheckList[4] = true;
-                        camItem1_CoreNum.item = TMData.InspectItem.CoreNum;
+                        camItem1_CoreNum.item = TMData.InspectItem.Concentricity;
                         GetIOPoint(camItem1_CoreNum, out readIO[4], out sendIO[4]);
                         //光源控制
                         GetLightCH(camItem1_CoreNum, out dicCH_open_CoreNum, out dicCH_close_CoreNum);
@@ -535,7 +551,7 @@ namespace VisionPlatform
                 camItem1_TM.cam = cam;
                 camItem1_LineColor.cam = cam;
                 camItem1_CoreNum.cam = cam;
-                if (!TMData_Serializer._globalData.dicInspectList.ContainsKey(cam.ToString()))
+                if (!TMData_Serializer._globalData.dicInspectList.ContainsKey(cam))
                 {
                     StaticFun.MessageFun.ShowMessage("未给相机" + cam.ToString() + "配置检测项！");
                     return;
@@ -572,10 +588,10 @@ namespace VisionPlatform
                     //    //光源控制
                     //    GetLightCH(camItem1_LineColor, out dicCH_open_LineColor, out dicCH_close_LineColor);
                     //}
-                    if (item == TMData.InspectItem.CoreNum)
+                    if (item == TMData.InspectItem.Concentricity)
                     {
                         bCheckList[4] = true;
-                        camItem1_CoreNum.item = TMData.InspectItem.CoreNum;
+                        camItem1_CoreNum.item = TMData.InspectItem.Concentricity;
                         //光源控制
                         GetLightCH(camItem1_CoreNum, out dicCH_open_CoreNum, out dicCH_close_CoreNum);
                     }
@@ -598,7 +614,7 @@ namespace VisionPlatform
                                 DetectionItem.cam = cam;
                                 //DetectionItem.item = TMData.InspectItem.StripLen;
                                 Modbus_RTU.Write_Register("06", TMData_Serializer._PlcRTU.PlcRTU.slaveAddress, 1880, registerBuffer);
-                                    
+
                             }
                             //插壳检测
                             else if (Res[0] == 2)
@@ -608,7 +624,7 @@ namespace VisionPlatform
                                 //DetectionItem.item = TMData.InspectItem.Rubber;
                                 Modbus_RTU.Write_Register("06", TMData_Serializer._PlcRTU.PlcRTU.slaveAddress, 1880, registerBuffer);
                             }
-                            if(Res[6] == 1)
+                            if (Res[6] == 1)
                             {
                                 if (DetectionItem.item == camItem1_stripLen.item && DetectionItem.cam == camItem1_stripLen.cam)
                                 {
@@ -645,7 +661,7 @@ namespace VisionPlatform
                             LEDOff(dicCH_open_Rubber);
                             LEDOff(dicCH_open_TM);
                             Modbus_RTU.Write_Register("06", TMData_Serializer._PlcRTU.PlcRTU.slaveAddress, 1880, registerBuffer);
-                            
+
                         }
                     }
                     Thread.Sleep(2);
@@ -682,7 +698,7 @@ namespace VisionPlatform
                         ts1 = new TimeSpan(DateTime.Now.Ticks);
                         result.GrabTime = Math.Round((ts1.Subtract(ts).Duration().TotalSeconds) * 1000, 0);   //拍照时间
                         #region 剥皮检测
-                        if (camItem.item == InspectItem.FAKRA)
+                        if (camItem.item == InspectItem.StripLen)
                         {
                             ////Fun.LoadImageFromFile("D:\\image\\1.bmp");
                             //if (!StrippingInspect(TMData_Serializer._globalData.stripLenParam[camItem.cam - 1], false, out slResult, out bResult, out NumOK))
@@ -700,7 +716,7 @@ namespace VisionPlatform
                         #endregion
 
                         #region 插壳检测
-                        else if (camItem.item == InspectItem.FAKRA)
+                        else if (camItem.item == InspectItem.TM)
                         {
                             ////Fun.LoadImageFromFile("D:\\image\\2.bmp");
                             //TMData.RubberParam rubberParam = TMData_Serializer._globalData.rubberParam[camItem.cam - 1];
@@ -721,7 +737,7 @@ namespace VisionPlatform
                         #endregion
 
                         #region 线芯检测
-                        else if (camItem.item == InspectItem.CoreNum)
+                        else if (camItem.item == InspectItem.Concentricity)
                         {
                             //if (1 == TMData_Serializer._globalData.dic_CoreNumParam[camItem.cam].method)
                             //{
@@ -848,25 +864,25 @@ namespace VisionPlatform
                         ts1 = new TimeSpan(DateTime.Now.Ticks);
                         result.GrabTime = Math.Round((ts1.Subtract(ts).Duration().TotalSeconds) * 1000, 0);   //拍照时间
                         #region 剥皮检测
-                        if (camItem.item == InspectItem.FAKRA)
+                        if (camItem.item == InspectItem.StripLen)
                         {
-                        //    ////Fun.LoadImageFromFile("D:\\image\\1.bmp");
-                        //    //if (!StrippingInspect(TMData_Serializer._globalData.stripLenParam[camItem.cam - 1], false, out slResult, out bResult, out NumOK))
-                        //    //{
-                        //    //    NumOK = 0;
-                        //    //    bResult = false;
-                        //    //    MessageFun.ShowMessage("剥皮检测失败。");
-                        //    //}
-                        //    ts2 = new TimeSpan(DateTime.Now.Ticks);
-                        //    result.InspectTime = Math.Round((ts2.Subtract(ts1).Duration().TotalSeconds) * 1000, 1);   //检测时间
-                        //    NumNG = (int)TMData_Serializer._globalData.stripLenParam[camItem.cam - 1].nLineNum - NumOK;
-                        //    strInspectItem = "剥皮检测";
-                        //    break;
+                            //    ////Fun.LoadImageFromFile("D:\\image\\1.bmp");
+                            //    //if (!StrippingInspect(TMData_Serializer._globalData.stripLenParam[camItem.cam - 1], false, out slResult, out bResult, out NumOK))
+                            //    //{
+                            //    //    NumOK = 0;
+                            //    //    bResult = false;
+                            //    //    MessageFun.ShowMessage("剥皮检测失败。");
+                            //    //}
+                            //    ts2 = new TimeSpan(DateTime.Now.Ticks);
+                            //    result.InspectTime = Math.Round((ts2.Subtract(ts1).Duration().TotalSeconds) * 1000, 1);   //检测时间
+                            //    NumNG = (int)TMData_Serializer._globalData.stripLenParam[camItem.cam - 1].nLineNum - NumOK;
+                            //    strInspectItem = "剥皮检测";
+                            //    break;
                         }
                         #endregion
 
                         #region 线芯检测
-                        else if (camItem.item == InspectItem.CoreNum)
+                        else if (camItem.item == InspectItem.Concentricity)
                         {
                             //if (1 == TMData_Serializer._globalData.dic_CoreNumParam[camItem.cam].method)
                             //{
@@ -945,8 +961,6 @@ namespace VisionPlatform
                 return;
             }
         }
-
-
 
         #region 线芯检测 
         public bool GetSingleCoreRadius(int nThd, ref Circle circle)
@@ -1890,6 +1904,223 @@ namespace VisionPlatform
 
         }
 
+        #endregion
+
+        #region 同心度检测
+
+        public bool Concentricity(TMData.ConcentricityParam param, bool bShow, out ConcentricityResult result)
+        {
+            bool bResult = true;
+            result = new ConcentricityResult()
+            {
+                outerCircle = new Circle(),
+                innerCircle = new Circle(),
+                insulationCircle = new Circle(),
+            };
+
+            HTuple hv_Row = new HTuple(), hv_Column = new HTuple(), hv_Radius = new HTuple();
+
+            HOperatorSet.GenEmptyObj(out HObject ho_Region);
+            HOperatorSet.GenEmptyObj(out HObject ho_RegionClosing);
+            HOperatorSet.GenEmptyObj(out HObject ho_ConnectedRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_SelectedRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_ROI);
+            HOperatorSet.GenEmptyObj(out HObject ho_ImageReduced);
+            HOperatorSet.GenEmptyObj(out HObject ho_RegionOpening);
+            HOperatorSet.GenEmptyObj(out HObject ho_OuterCircle);
+            HOperatorSet.GenEmptyObj(out HObject ho_InsulationCircle);
+            HOperatorSet.GenEmptyObj(out HObject ho_InnerCircle);
+
+            try
+            {
+                ho_Region.Dispose();
+                HOperatorSet.Threshold(Fun.m_GrayImage, out ho_Region, 220, 255);
+                ho_RegionClosing.Dispose();
+                HOperatorSet.ClosingCircle(ho_Region, out ho_RegionClosing, 3.5);
+                ho_ConnectedRegions.Dispose();
+                HOperatorSet.Connection(ho_RegionClosing, out ho_ConnectedRegions);
+                ho_SelectedRegions.Dispose();
+                HOperatorSet.SelectShapeStd(ho_ConnectedRegions, out ho_SelectedRegions, "max_area", 70);
+                HOperatorSet.SmallestCircle(ho_SelectedRegions, out hv_Row, out hv_Column, out hv_Radius);
+                if (0 == hv_Row.TupleLength())
+                {
+                    bResult = false;
+                    return bResult;
+                }
+                //外导体圆
+                CircleParam outerCircleParam = new CircleParam()
+                {
+                    circleIn = new Circle()
+                    {
+                        dRow = hv_Row.D,
+                        dCol = hv_Column.D,
+                        dRadius = param.outerCircle.nRadius,
+                    },
+                    EPMeasure = param.outerCircle.EPMeasure,
+                };
+                Fun.FitCircle(outerCircleParam, bShow, out result.outerCircle);
+                //绝缘体圆
+                if (param.bInsultationCircle)
+                {
+                    CircleParam InsulationParam = new CircleParam()
+                    {
+                        circleIn = new Circle()
+                        {
+                            dRow = hv_Row.D,
+                            dCol = hv_Column.D,
+                            dRadius = param.insulationCircle.nRadius,
+                        },
+                        EPMeasure = param.insulationCircle.EPMeasure,
+                    };
+                    Fun.FitCircle(InsulationParam, bShow, out result.insulationCircle);
+                }
+                //内导体圆
+                if(param.type == ConcentricityType.female)
+                {
+                    result.innerCircle = FemaleCircle(param.femaleCircle, result.outerCircle, bShow);
+                }
+                else
+                {
+                    result.innerCircle = MaleCircle(param.maleCircle, result.outerCircle, bShow);
+                }
+                ho_OuterCircle.Dispose();
+                HOperatorSet.GenCircle(out ho_OuterCircle, result.outerCircle.dRow, result.outerCircle.dCol, result.outerCircle.dRadius);
+                ho_InsulationCircle.Dispose();
+                HOperatorSet.GenCircle(out ho_InsulationCircle, result.insulationCircle.dRow, result.insulationCircle.dCol, result.insulationCircle.dRadius);
+                ho_InnerCircle.Dispose();
+                HOperatorSet.GenCircle(out ho_InnerCircle, result.innerCircle.dRow, result.innerCircle.dCol, result.innerCircle.dRadius);
+                //Fun.m_hWnd.DispObj(Fun.m_hImage);
+                Fun.DispRegion(ho_ROI, "blue");
+                Fun.m_hWnd.SetLineWidth(3);
+                Fun.DispRegion(ho_OuterCircle, "green");
+                Fun.m_hWnd.SetColor("green");
+                Fun.m_hWnd.DispCross(result.outerCircle.dRow, result.outerCircle.dCol, 40, 0);
+                Fun.DispRegion(ho_InsulationCircle, "red");
+                Fun.m_hWnd.SetColor("red");
+                Fun.m_hWnd.DispCross(result.insulationCircle.dRow, result.insulationCircle.dCol, 30, 0);
+                Fun.DispRegion(ho_InnerCircle, "blue");
+                Fun.m_hWnd.SetColor("blue");
+                Fun.m_hWnd.DispCross(result.innerCircle.dRow, result.innerCircle.dCol, 20, 0);
+                Fun.m_hWnd.SetLineWidth(1);
+            }
+            catch (HalconException ex)
+            {
+                StaticFun.MessageFun.ShowMessage("同心度计算错误：" + ex.ToString());
+                bResult = false;
+            }
+            finally
+            {
+                ho_Region?.Dispose();
+                ho_RegionClosing?.Dispose();
+                ho_ConnectedRegions?.Dispose();
+                ho_SelectedRegions?.Dispose();
+                ho_ROI?.Dispose();
+                ho_ImageReduced?.Dispose();
+                ho_RegionOpening?.Dispose();
+                ho_OuterCircle?.Dispose();
+                ho_InsulationCircle?.Dispose();
+                ho_InnerCircle?.Dispose();
+            }
+            return bResult;
+        }
+
+        public Circle FemaleCircle(FemaleCircle param, Circle outerCircle,bool bShow)
+        {
+            Circle circle = new Circle();
+            HOperatorSet.GenEmptyObj(out HObject ho_ROI);
+            HOperatorSet.GenEmptyObj(out HObject ho_ImageReduced);
+            HOperatorSet.GenEmptyObj(out HObject ho_Region);
+            HOperatorSet.GenEmptyObj(out HObject ho_RegionOpening);
+            HOperatorSet.GenEmptyObj(out HObject ho_ConnectedRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_SelectedRegions);
+            try
+            {
+                //内导体圆
+                ho_ROI.Dispose();
+                HOperatorSet.GenCircle(out ho_ROI, outerCircle.dRow, outerCircle.dCol, param.nRadiusROI);
+                ho_ImageReduced.Dispose();
+                HOperatorSet.ReduceDomain(Fun.m_GrayImage, ho_ROI, out ho_ImageReduced);
+                ho_Region.Dispose();
+                HOperatorSet.Threshold(ho_ImageReduced, out ho_Region, 0, param.nThd);
+                ho_RegionOpening.Dispose();
+                HOperatorSet.OpeningCircle(ho_Region, out ho_RegionOpening, 5);
+                ho_ConnectedRegions.Dispose();
+                HOperatorSet.Connection(ho_RegionOpening, out ho_ConnectedRegions);
+                ho_SelectedRegions.Dispose();
+                HOperatorSet.SelectShapeStd(ho_ConnectedRegions, out ho_SelectedRegions, "max_area", 70);
+                HOperatorSet.InnerCircle(ho_SelectedRegions, out HTuple hv_row, out HTuple hv_col, out HTuple hv_radius);
+                circle = new Circle()
+                {
+                    dRow = hv_row.D,
+                    dCol = hv_col.D,
+                    dRadius = hv_radius.D,
+                };
+            }
+            catch(HalconException ex)
+            {
+                ex.ToString();
+            }
+            finally
+            {
+                ho_ROI?.Dispose();
+                ho_ImageReduced?.Dispose();
+                ho_Region?.Dispose();
+                ho_RegionOpening?.Dispose();
+                ho_ConnectedRegions?.Dispose();
+                ho_SelectedRegions?.Dispose();
+
+            }
+            return circle;
+        }
+
+        public Circle MaleCircle(MaleCircle param, Circle outerCircle, bool bShow)
+        {
+            Circle circle = new Circle();
+            HOperatorSet.GenEmptyObj(out HObject ho_ROI);
+            HOperatorSet.GenEmptyObj(out HObject ho_ImageReduced);
+            HOperatorSet.GenEmptyObj(out HObject ho_Region);
+            HOperatorSet.GenEmptyObj(out HObject ho_RegionOpening);
+            HOperatorSet.GenEmptyObj(out HObject ho_ConnectedRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_SelectedRegions);
+            try
+            {
+                //内导体圆
+                ho_ROI.Dispose();
+                HOperatorSet.GenCircle(out ho_ROI, outerCircle.dRow, outerCircle.dCol, param.nRadiusROI);
+                ho_ImageReduced.Dispose();
+                HOperatorSet.ReduceDomain(Fun.m_GrayImage, ho_ROI, out ho_ImageReduced);
+                ho_Region.Dispose();
+                HOperatorSet.Threshold(ho_ImageReduced, out ho_Region, 0, param.nThd);
+                ho_RegionOpening.Dispose();
+                HOperatorSet.OpeningCircle(ho_Region, out ho_RegionOpening, 5);
+                ho_ConnectedRegions.Dispose();
+                HOperatorSet.Connection(ho_RegionOpening, out ho_ConnectedRegions);
+                ho_SelectedRegions.Dispose();
+                HOperatorSet.SelectShapeStd(ho_ConnectedRegions, out ho_SelectedRegions, "max_area", 70);
+                HOperatorSet.InnerCircle(ho_SelectedRegions, out HTuple hv_row, out HTuple hv_col, out HTuple hv_radius);
+                circle = new Circle()
+                {
+                    dRow = hv_row.D,
+                    dCol = hv_col.D,
+                    dRadius = hv_radius.D,
+                };
+            }
+            catch (HalconException ex)
+            {
+                ex.ToString();
+            }
+            finally
+            {
+                ho_ROI?.Dispose();
+                ho_ImageReduced?.Dispose();
+                ho_Region?.Dispose();
+                ho_RegionOpening?.Dispose();
+                ho_ConnectedRegions?.Dispose();
+                ho_SelectedRegions?.Dispose();
+
+            }
+            return circle;
+        }
         #endregion
     }
 

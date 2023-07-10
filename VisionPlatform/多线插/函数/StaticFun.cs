@@ -295,7 +295,7 @@ namespace StaticFun
 
     public class UIConfig
     {
-        public static void CreateFormTeachMaster(int n_cam, string b,int j)
+        public static void CreateFormTeachMaster(int n_cam, string b, int j)
         {
             FormTeachMaster teachmaster = new FormTeachMaster(n_cam, b,j);
             teachmaster.TopLevel = false;
@@ -423,13 +423,13 @@ namespace StaticFun
                             tLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, (float)width));
                             int cam = list_camItem[n].cam;
                             InspectItem item = list_camItem[n].item;
-                            if (list_camItem[n].item == InspectItem.FAKRA)
+                            if (list_camItem[n].item == InspectItem.StripLen)
                             {
                                 form = new FormSTATS(list_camItem[n].cam, "剥皮");
                             }
-                            if (list_camItem[n].item == InspectItem.CoreNum)
+                            if (list_camItem[n].item == InspectItem.TM)
                             {
-                                form = new FormSTATS(list_camItem[n].cam, "线序");
+                                form = new FormSTATS(list_camItem[n].cam, "端子");
                             }
                             form.TopLevel = false;
                             form.Visible = true;

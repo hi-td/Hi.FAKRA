@@ -14,9 +14,12 @@ namespace VisionPlatform
         [Serializable]
         public class GlobalData
         {
-            ////相机对应的检测功能列表
-            public Dictionary<string,InspectItem> dicInspectList = new Dictionary<string,InspectItem>();
-
+            //相机对应的检测功能列表
+            public Dictionary<int, List<TMData.InspectItem>> dicInspectList = new Dictionary<int, List<TMData.InspectItem>>();
+            //同心度检测:ConcentricityParam[] = new ConcentricityParam[2]；
+            //公头：ConcentricityParam[0]
+            //母头：ConcentricityParam[1]
+            public Dictionary<int, ConcentricityParam[]> dicConcentricity = new Dictionary<int, ConcentricityParam[]>();
             //端子检测项
             public Dictionary<string, Dictionary<string, TMCheckItem>>  dicTMCheckList = new Dictionary<string, Dictionary<string, TMCheckItem>>();//string由相机与界面几组成
             //显示数据

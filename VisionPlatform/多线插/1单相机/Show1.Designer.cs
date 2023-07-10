@@ -141,11 +141,11 @@ namespace VisionPlatform
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(157, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(149, 0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 126F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(123, 125);
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 127F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(131, 125);
             this.tableLayoutPanel7.TabIndex = 8;
             // 
             // but_Run
@@ -156,7 +156,7 @@ namespace VisionPlatform
             this.but_Run.Image = ((System.Drawing.Image)(resources.GetObject("but_Run.Image")));
             this.but_Run.Location = new System.Drawing.Point(0, 0);
             this.but_Run.Name = "but_Run";
-            this.but_Run.Size = new System.Drawing.Size(157, 125);
+            this.but_Run.Size = new System.Drawing.Size(149, 125);
             this.but_Run.TabIndex = 0;
             this.but_Run.TabStop = false;
             this.but_Run.Text = "运行";

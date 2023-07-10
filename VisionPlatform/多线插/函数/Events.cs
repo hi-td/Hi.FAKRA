@@ -10,7 +10,7 @@ namespace VisionPlatform
     public delegate void ControlChangedEventHandler(int count);
     //public delegate void PanelChangedEventHandler(int id, InspectType type);
     public delegate void ValueChangedEventHandler();
-    public delegate void TrackBarValueChangedEventHandler(object sender, EventArgs e);
+    public delegate void FitCircleValueChangedEventHandler(object sender, EventArgs e);
     public static class MyEvents
     {
         public static event ControlChangedEventHandler RubberCountChanged;
@@ -23,8 +23,8 @@ namespace VisionPlatform
         public static event ValueChangedEventHandler ValueChanged;
         public static void ValueChange() => ValueChanged?.Invoke();
         //插壳检测
-        public static event TrackBarValueChangedEventHandler RubberTrackBarValueChanged;
-        public static void RubberValueChanged(this object sender, EventArgs e) => RubberTrackBarValueChanged?.Invoke(sender, e);
+        //public static event FitCircleValueChangedEventHandler FitCircleValueChanged;
+        //public static void FitCircleValueChange(this object sender, EventArgs e) => FitCircleValueChanged?.Invoke(sender, e);
        
     }
 }
