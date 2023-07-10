@@ -28,40 +28,40 @@ namespace VisionPlatform
         {
             InitializeComponent();
             _InitFun();
-            UIConfig.RefreshSTATS(tLPanel, out TMFunction.m_ListFormSTATS);
-            tableLayoutPanel7.Controls.Add(FormMainUI.formImageSave, 1, 0);
+            //UIConfig.RefreshSTATS(tLPanel, out TMFunction.m_ListFormSTATS);
+            //tableLayoutPanel7.Controls.Add(FormMainUI.formImageSave, 1, 0);
         }
 
         //初始化Function
         private void _InitFun()
         {
-            //#region 相机窗口1初始化
-            //if (GlobalData.Config._CamConfig.camConfig.Keys.Contains(1))
-            //{
-            //    formCamShow1 = new FormCamShow(GlobalData.Config._CamConfig.camConfig[1], 1);
-            //}
-            //else
-            //{
-            //    formCamShow1 = new FormCamShow("", 1);
-            //}
-            //formCamShow1.TopLevel = false;
-            //formCamShow1.Visible = true;
-            //formCamShow1.Dock = DockStyle.Fill;
-            //this.panel1.Controls.Clear();
-            //this.panel1.Controls.Add(formCamShow1);
-            //formCamShow1.label_x.Visible = false;
-            //formCamShow1.label_d.Visible = false;
-            //m_listFun.Add(formCamShow1.fun);
-            //m_listTMFun.Add(formCamShow1.TM_fun);
-            //m_listCamSer.Add(formCamShow1.m_strCamSer);
-            //#endregion
+            #region 相机窗口1初始化
+            if (GlobalData.Config._CamConfig.camConfig.Keys.Contains(1))
+            {
+                formCamShow1 = new FormCamShow(GlobalData.Config._CamConfig.camConfig[1], 1,"1");
+            }
+            else
+            {
+                formCamShow1 = new FormCamShow("", 1, "1");
+            }
+            formCamShow1.TopLevel = false;
+            formCamShow1.Visible = true;
+            formCamShow1.Dock = DockStyle.Fill;
+            this.panel1.Controls.Clear();
+            this.panel1.Controls.Add(formCamShow1);
+            formCamShow1.label_x.Visible = false;
+            formCamShow1.label_d.Visible = false;
+            m_listFun.Add(formCamShow1.fun);
+            m_listTMFun.Add(formCamShow1.TM_fun);
+            m_listCamSer.Add(formCamShow1.m_strCamSer);
+            #endregion
 
             //加载消息显示
-            //FormMainUI.formShowResult.TopLevel = false;
-            //FormMainUI.formShowResult.Visible = true;
-            //FormMainUI.formShowResult.Dock = DockStyle.Fill;
-            //this.splitContainer1.Panel2.Controls.Clear();
-            //this.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
+            FormMainUI.formShowResult.TopLevel = false;
+            FormMainUI.formShowResult.Visible = true;
+            FormMainUI.formShowResult.Dock = DockStyle.Fill;
+            this.splitContainer1.Panel2.Controls.Clear();
+            this.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
         }
 
         private void Show1_Load(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace VisionPlatform
             if (!FormMainUI.bRun)
             {
                 
-                //StaticFun.UIConfig.CreateFormTeachMaster(1);
+                StaticFun.UIConfig.CreateFormTeachMaster(1, "",1);
             }
             else
             {

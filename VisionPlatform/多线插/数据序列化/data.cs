@@ -16,9 +16,19 @@ namespace VisionPlatform
         public enum InspectItem
         {
             Defult,
-            FAKRA,     //FAKRA检测
-            CoreNum
+            StripLen,     //剥皮检测
+            TM,           //端子检测
+            Conductor,    //导体检测
+            Concentricity //同心度检测
         }
+        [Serializable]
+        public enum ConcentricityType
+        {
+            Defult,
+            male,      //公头
+            female,    //母头
+        }
+
         [Serializable]
         public struct CamInspectItem
         {
@@ -190,6 +200,48 @@ namespace VisionPlatform
             public bool bTrans;
             public ColorSpace colorSpace;
             public int nChannel;
+        }
+
+        [Serializable]
+        public struct ConcentricityParam
+        {
+            public TMData.ConcentricityType type;    //同心圆类型
+            public FitCircleParam outerCircle;       //外导体圆
+            public bool bInsultationCircle;          //是否检测绝缘体圆
+            public FitCircleParam insulationCircle;  //绝缘体圆
+            public FemaleCircle femaleCircle;        //母头圆
+            public MaleCircle maleCircle;            //公头圆
+        }
+
+        [Serializable]
+        public struct FemaleCircle
+        {
+            public int nRadiusROI;        //内导体圆检测范围
+            public int nThd;              //内导体圆阈值
+            public double dRadius;        //内导体圆半径
+            public double dRadiusLow;     //内导体圆半径下限
+            public double dRadiusHigh;    //内导体圆半径上限
+        }
+
+        [Serializable]
+        public struct MaleCircle
+        {
+            public int nRadiusROI;        //内导体圆检测范围
+            public int nThd;              //内导体圆阈值
+        }
+
+        [Serializable]
+        public struct FitCircleParam
+        {
+            public EdgePointMeasure EPMeasure;   //圆拟合参数
+            public int nRadius;                  //半径
+        }
+
+        public struct ConcentricityResult
+        {
+            public Circle outerCircle;
+            public Circle innerCircle;
+            public Circle insulationCircle;
         }
     }
 }

@@ -36,7 +36,15 @@ namespace VisionPlatform
             m_cam = n_cam;
             bh = b;
             m_j = j;
-            ts_Label_cam.Text = "编辑：相机" + n_cam.ToString() + "_" + bh;
+            if(""== b)
+            {
+                ts_Label_cam.Text = "编辑：相机" + n_cam.ToString();
+            }
+            else
+            {
+                ts_Label_cam.Text = "编辑：相机" + n_cam.ToString() + "-" + bh;
+            }
+            
             label_SelCam.Text = "相机" + n_cam.ToString() + "_" + bh;
             //InitUI();
             LoadUI(n_cam, bh);
@@ -67,35 +75,53 @@ namespace VisionPlatform
             FormMainUI.formShowResult.tabPage1.Parent = null;
             //加载左边检测列表
             InitTreeView();
-            formFakra = new FormFAKRA(n_cam, b);
-            formFakra.TopLevel = false;
-            formFakra.Visible = true;
-            formFakra.Dock = DockStyle.Fill;
-            this.panel.Controls.Clear();
-            this.panel.Controls.Add(formFakra);
-            string a = n_cam.ToString() + b;
-            if (TMData_Serializer._globalData.dicInspectList.ContainsKey(a))
+            // string a = n_cam.ToString() + b;
+            if (TMData_Serializer._globalData.dicInspectList.ContainsKey(n_cam))
             {
-                InspectItem strCheck = TMData_Serializer._globalData.dicInspectList[a];
-                if (strCheck == InspectItem.FAKRA)
+                List<InspectItem> strCheck = TMData_Serializer._globalData.dicInspectList[n_cam];
+                foreach (InspectItem strSel in strCheck)
                 {
-                    //FormFAKRA formFakra = new FormFAKRA(n_cam, b);
-                    //formFakra.TopLevel = false;
-                    //formFakra.Visible = true;
-                    //formFakra.Dock = DockStyle.Fill;
-                    //this.panel.Controls.Clear();
-                    //this.panel.Controls.Add(formFakra);
-                }
-                else if (strCheck == InspectItem.CoreNum)
-                {
-                    //FormCoreNum formCoreNum = new FormCoreNum(n_cam);
-                    //formCoreNum.TopLevel = false;
-                    //formCoreNum.Visible = true;
-                    //formCoreNum.Dock = DockStyle.Fill;
-                    //this.panel.Controls.Clear();
-                    //this.panel.Controls.Add(formCoreNum);
+                    if (strSel == InspectItem.StripLen)
+                    {
+                        //FormStripLength formStripLength = new FormStripLength(n_cam);
+                        //formStripLength.TopLevel = false;
+                        //formStripLength.Visible = true;
+                        //formStripLength.Dock = DockStyle.Fill;
+                        //this.panel.Controls.Clear();
+                        //this.panel.Controls.Add(formStripLength);
+                    }
+                    else if (strSel == InspectItem.TM)
+                    {
+                        FormFAKRA formFakra = new FormFAKRA(n_cam, b);
+                        formFakra.TopLevel = false;
+                        formFakra.Visible = true;
+                        formFakra.Dock = DockStyle.Fill;
+                        this.panel.Controls.Clear();
+                        this.panel.Controls.Add(formFakra);
+                    }
+                    else if (strSel == InspectItem.Conductor)
+                    {
+                        //FormMultiTM formMultiTM = new FormMultiTM(n_cam);
+                        //formMultiTM.TopLevel = false;
+                        //formMultiTM.Visible = true;
+                        //formMultiTM.Dock = DockStyle.Fill;
+                        //this.panel.Controls.Clear();
+                        //this.panel.Controls.Add(formMultiTM);
+                    }
+                   
+                    else if (strSel == InspectItem.Concentricity)
+                    {
+                        Concentricity formConcentricity = new Concentricity(n_cam, ConcentricityType.male)
+                        {
+                            Visible = true,
+                            Dock = DockStyle.Fill
+                        };
+                        this.panel.Controls.Clear();
+                        this.panel.Controls.Add(formConcentricity);
+                    }
                 }
             }
+           
         }
         private void Refresh(int cam, string b)
         {
@@ -199,19 +225,74 @@ namespace VisionPlatform
                     treeViewFun.Nodes.Add("相机3_1");
 
                 }
-                TreeNode node = new TreeNode();
-                node.Text = "FAKRA检测";
-                for (int i = 0; i < treeViewFun.Nodes.Count; i++)
+                if (TMData_Serializer._globalData.dicInspectList.Count != 0)
                 {
-                    treeViewFun.Nodes[i].Nodes.Add("FAKRA检测");
+                    foreach (int cam in TMData_Serializer._globalData.dicInspectList.Keys)
+                    {
+                        List<InspectItem> strCheck = TMData_Serializer._globalData.dicInspectList[cam];
+                        switch (cam)
+                        {
+                            case 1:
+                                foreach (InspectItem str in strCheck)
+                                {
+                                    TreeNode node = new TreeNode();
+                                    node.Text = TMFunction.GetStrCheckItem(str);
+                                    treeViewFun.Nodes[0].Nodes.Add(node);
+                                    ConcentricityAdd(node);
+                                }
+                                break;
+                            case 2:
+                                foreach (InspectItem str in strCheck)
+                                {
+                                    TreeNode node = new TreeNode();
+                                    node.Text = TMFunction.GetStrCheckItem(str);
+                                    treeViewFun.Nodes[1].Nodes.Add(node);
+                                    ConcentricityAdd(node);
+                                }
+                                break;
+                            case 3:
+                                foreach (InspectItem str in strCheck)
+                                {
+                                    TreeNode node = new TreeNode();
+                                    node.Text = TMFunction.GetStrCheckItem(str);
+                                    treeViewFun.Nodes[2].Nodes.Add(node);
+                                    ConcentricityAdd(node);
+                                }
+                                break;
+                            case 4:
+                                foreach (InspectItem str in strCheck)
+                                {
+                                    TreeNode node = new TreeNode();
+                                    node.Text = TMFunction.GetStrCheckItem(str);
+                                    treeViewFun.Nodes[3].Nodes.Add(node);
+                                    ConcentricityAdd(node);
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                 }
-                treeViewFun.Nodes[m_j - 1].BackColor = Color.Green;
-                treeViewFun.Nodes[m_j - 1].FirstNode.BackColor = Color.Green;
+                //treeViewFun.Nodes[ - 1].BackColor = Color.Green;
+                //treeViewFun.Nodes[m_j - 1].FirstNode.BackColor = Color.Green;
                 treeViewFun.ExpandAll();
             }
             catch (Exception ex)
             {
                 MessageFun.ShowMessage(ex.ToString());
+            }
+        }
+
+        private void ConcentricityAdd(TreeNode node)
+        {
+            if (node.Text == "同心度检测")
+            {
+                TreeNode node1 = new TreeNode();
+                node1.Text = "公头";
+                node.Nodes.Add(node1);
+                TreeNode node2 = new TreeNode();
+                node2.Text = "母头";
+                node.Nodes.Add(node2);
             }
         }
 
@@ -234,8 +315,9 @@ namespace VisionPlatform
                         FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show1);
                         FormMainUI.m_Show1.panel1.Controls.Clear();
                         FormMainUI.m_Show1.panel1.Controls.Add(Show1.formCamShow1);
-                        //FormMainUI.m_Show1.splitContainer1.Panel2.Controls.Clear();
-                        //FormMainUI.m_Show1.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
+                        FormMainUI.m_Show1.splitContainer1.Panel2.Controls.Clear();
+                        FormMainUI.m_Show1.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
+                        FormMainUI.formShowResult.tabPage1.Parent = FormMainUI.formShowResult.tabControl1;
                         UIConfig.RefreshSTATS(FormMainUI.m_Show1.tLPanel, out TMFunction.m_ListFormSTATS);
                         break;
                     case 2:
@@ -246,7 +328,7 @@ namespace VisionPlatform
                         FormMainUI.m_Show2.panel2.Controls.Add(Show2.formCamShow2);
                         //FormMainUI.m_Show2.splitContainer1.Panel2.Controls.Clear();
                         //FormMainUI.m_Show2.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
-                        UIConfig.RefreshSTATS(FormMainUI.m_Show2.tLPanel, out TMFunction.m_ListFormSTATS);
+                        //UIConfig.RefreshSTATS(FormMainUI.m_Show2.tLPanel, out TMFunction.m_ListFormSTATS);
                         break;
                     case 3:
                         //FormMainUI.m_Show3.Run();
@@ -308,7 +390,7 @@ namespace VisionPlatform
                 if (m_SelNode_z != null)
                 {
                     string strCam = m_SelNode_z;
-                    if (strCam == "相机1" || strCam == "相机2" || strCam == "相机1(前端)" || strCam == "相机2(前端)" || strCam == "相机3(后端)" || strCam == "相机4(后端)")
+                    if (strCam == "相机1" || strCam == "相机2" || strCam == "相机3" || strCam == "相机4")
                     {
                         bool bContain = false;  //是否已经存在该检测项目
                         foreach (TreeNode node in treeViewFun.SelectedNode.Nodes)
@@ -335,87 +417,87 @@ namespace VisionPlatform
 
         private void RefreshCheckList()
         {
-            //try
-            //{
-            //    foreach (TreeNode node0 in treeViewFun.Nodes)
-            //    {
-            //        List<InspectItem> strCheckList = new List<InspectItem>();
-            //        foreach (TreeNode node1 in node0.Nodes)
-            //        {
-            //            strCheckList.Add(TMFunction.GetEnumCheckItem(node1.Text));
-            //        }
-            //        if (node0.Text == "相机1" || node0.Text == "相机1(前端)")
-            //        {
-            //            if (TMData_Serializer._globalData.dicInspectList.ContainsKey(1))
-            //            {
-            //                TMData_Serializer._globalData.dicInspectList[1] = strCheckList;
-            //            }
-            //            else
-            //            {
-            //                TMData_Serializer._globalData.dicInspectList.Add(1, strCheckList);
-            //            }
+            try
+            {
+                foreach (TreeNode node0 in treeViewFun.Nodes)
+                {
+                    List<InspectItem> strCheckList = new List<InspectItem>();
+                    foreach (TreeNode node1 in node0.Nodes)
+                    {
+                        strCheckList.Add(TMFunction.GetEnumCheckItem(node1.Text));
+                    }
+                    if (node0.Text == "相机1")
+                    {
+                        if (TMData_Serializer._globalData.dicInspectList.ContainsKey(1))
+                        {
+                            TMData_Serializer._globalData.dicInspectList[1] = strCheckList;
+                        }
+                        else
+                        {
+                            TMData_Serializer._globalData.dicInspectList.Add(1, strCheckList);
+                        }
 
-            //        }
-            //        else if (node0.Text == "相机2" || node0.Text == "相机2(前端)")
-            //        {
-            //            if (TMData_Serializer._globalData.dicInspectList.ContainsKey(2))
-            //            {
-            //                TMData_Serializer._globalData.dicInspectList[2] = strCheckList;
-            //            }
-            //            else
-            //            {
-            //                TMData_Serializer._globalData.dicInspectList.Add(2, strCheckList);
-            //            }
-            //        }
-            //        else if (node0.Text == "相机3(后端)")
-            //        {
-            //            if (TMData_Serializer._globalData.dicInspectList.ContainsKey(3))
-            //            {
-            //                TMData_Serializer._globalData.dicInspectList[3] = strCheckList;
-            //            }
-            //            else
-            //            {
-            //                TMData_Serializer._globalData.dicInspectList.Add(3, strCheckList);
-            //            }
-            //        }
-            //        else if (node0.Text == "相机4(后端)")
-            //        {
-            //            if (TMData_Serializer._globalData.dicInspectList.ContainsKey(4))
-            //            {
-            //                TMData_Serializer._globalData.dicInspectList[4] = strCheckList;
-            //            }
-            //            else
-            //            {
-            //                TMData_Serializer._globalData.dicInspectList.Add(4, strCheckList);
-            //            }
-            //        }
-            //    }
-            //}
-            //catch (SystemException ex)
-            //{
-            //    ex.ToString();
-            //}
+                    }
+                    else if (node0.Text == "相机2")
+                    {
+                        if (TMData_Serializer._globalData.dicInspectList.ContainsKey(2))
+                        {
+                            TMData_Serializer._globalData.dicInspectList[2] = strCheckList;
+                        }
+                        else
+                        {
+                            TMData_Serializer._globalData.dicInspectList.Add(2, strCheckList);
+                        }
+                    }
+                    else if (node0.Text == "相机3")
+                    {
+                        if (TMData_Serializer._globalData.dicInspectList.ContainsKey(3))
+                        {
+                            TMData_Serializer._globalData.dicInspectList[3] = strCheckList;
+                        }
+                        else
+                        {
+                            TMData_Serializer._globalData.dicInspectList.Add(3, strCheckList);
+                        }
+                    }
+                    else if (node0.Text == "相机4")
+                    {
+                        if (TMData_Serializer._globalData.dicInspectList.ContainsKey(4))
+                        {
+                            TMData_Serializer._globalData.dicInspectList[4] = strCheckList;
+                        }
+                        else
+                        {
+                            TMData_Serializer._globalData.dicInspectList.Add(4, strCheckList);
+                        }
+                    }
+                }
+            }
+            catch (SystemException ex)
+            {
+                ex.ToString();
+            }
         }
 
         private void 剥皮检测_Click(object sender, EventArgs e)
         {
             AddCheckItem("剥皮检测");
         }
-        private void 插壳检测_Click(object sender, EventArgs e)
+        private void 导体检测_Click(object sender, EventArgs e)
         {
-            AddCheckItem("插壳检测");
+            AddCheckItem("导体检测");
         }
-        private void 打端检测_Click(object sender, EventArgs e)
+        private void 端子检测_Click(object sender, EventArgs e)
         {
             AddCheckItem("端子检测");
         }
-        private void 线序检测_Click(object sender, EventArgs e)
+        private void 同心度检测_Click(object sender, EventArgs e)
         {
-            AddCheckItem("线序检测");
-        }
-        private void 线芯检测_Click(object sender, EventArgs e)
-        {
-            AddCheckItem("线芯检测");
+            if(sender.ToString() == "公头")
+            {
+
+            }
+            AddCheckItem("同心度检测");
         }
         private void toolStripMenuItem_Delete_Click(object sender, EventArgs e)
         {
@@ -455,10 +537,19 @@ namespace VisionPlatform
             string b;
             if (null != treeViewFun.SelectedNode.Parent)
             {
-                label_SelCam.Text = treeViewFun.SelectedNode.Parent.Text;
-                ts_Label_cam.Text = "编辑：" + treeViewFun.SelectedNode.Parent.Text;
-                ncam = int.Parse(treeViewFun.SelectedNode.Parent.Text.Substring(2, 1));
-                b = treeViewFun.SelectedNode.Parent.Text.Substring(4, 1);
+                TreeNode selNode = treeViewFun.SelectedNode;
+                while (null != selNode.Parent)
+                {
+                    if(selNode.Parent!=null)
+                    {
+                        selNode = selNode.Parent;
+                    }
+                }
+
+                label_SelCam.Text = selNode.Text;
+                ts_Label_cam.Text = "编辑：" + selNode.Text;
+                ncam = int.Parse(selNode.Text.Substring(2, 1));
+                b = selNode.Text.Substring(2, 1);
                 Refresh(ncam, b);
                 m_cam = ncam;
                 bh = b;
@@ -487,14 +578,20 @@ namespace VisionPlatform
                     this.panel.Controls.Clear();
                     this.panel.Controls.Add(formFakra);
                 }
-                else if (strSel == "线芯检测")
+                else if (strSel == "公头" || strSel == "母头")
                 {
-                    //FormCoreNum formCoreNum = new FormCoreNum(m_cam);
-                    //formCoreNum.TopLevel = false;
-                    //formCoreNum.Visible = true;
-                    //formCoreNum.Dock = DockStyle.Fill;
-                    //this.panel.Controls.Clear();
-                    //this.panel.Controls.Add(formCoreNum);
+                    TMData.ConcentricityType type = ConcentricityType.male;
+                    if(strSel == "母头")
+                    {
+                        type = ConcentricityType.female;
+                    }
+                    Concentricity formConcentricity = new Concentricity(m_cam, type)
+                    {
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
+                    this.panel.Controls.Clear();
+                    this.panel.Controls.Add(formConcentricity);
                 }
 
             }
@@ -528,9 +625,9 @@ namespace VisionPlatform
                     CurrentNode = treeViewFun.GetNodeAt(ClickPoint);
                     if (CurrentNode != null && CurrentNode.Parent == null)//判断点的是不是一个节点
                     {
-                        //CurrentNode.ContextMenuStrip = contextMenuStrip1;
-                        //treeViewFun.SelectedNode = CurrentNode;
-                        //m_SelNode_z = CurrentNode.Text;
+                        CurrentNode.ContextMenuStrip = contextMenuStrip1;
+                        treeViewFun.SelectedNode = CurrentNode;
+                        m_SelNode_z = CurrentNode.Text;
                     }
                     else if (CurrentNode != null && CurrentNode.Parent != null)
                     {

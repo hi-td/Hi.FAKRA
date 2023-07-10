@@ -154,6 +154,18 @@
     <Compile Include="Auxiliary\Invoke.cs" />
     <Compile Include="Auxiliary\Logging.cs" />
     <Compile Include="Auxiliary\Variable.cs" />
+    <Compile Include="多线插\检测功能\同心度检测\FitCircle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="多线插\检测功能\同心度检测\FitCircle.Designer.cs">
+      <DependentUpon>FitCircle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\检测功能\同心度检测\Concentricity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="多线插\检测功能\同心度检测\Concentricity.Designer.cs">
+      <DependentUpon>Concentricity.cs</DependentUpon>
+    </Compile>
     <Compile Include="VlcVideo.cs" />
     <Compile Include="其他\FormImageColorTrans.cs">
       <SubType>Form</SubType>
@@ -163,10 +175,10 @@
     </Compile>
     <Compile Include="多线插\函数\Camimage.cs" />
     <Compile Include="多线插\数据序列化\ConfigDate.cs" />
-    <Compile Include="多线插\检测功能\FAKRA检测\FormFAKRA.cs">
+    <Compile Include="多线插\检测功能\端子检测\FormFAKRA.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="多线插\检测功能\FAKRA检测\FormFAKRA.designer.cs">
+    <Compile Include="多线插\检测功能\端子检测\FormFAKRA.designer.cs">
       <DependentUpon>FormFAKRA.cs</DependentUpon>
     </Compile>
     <Compile Include="多线插\检测功能\坐标标定\XYCalib.cs">
@@ -407,16 +419,22 @@
     <Compile Include="多线插\函数\Function.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="多线插\检测功能\同心度检测\FitCircle.resx">
+      <DependentUpon>FitCircle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\检测功能\同心度检测\Concentricity.resx">
+      <DependentUpon>Concentricity.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="其他\FormImageColorTrans.en-US.resx">
       <DependentUpon>FormImageColorTrans.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="其他\FormImageColorTrans.resx">
       <DependentUpon>FormImageColorTrans.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="多线插\检测功能\FAKRA检测\FormFAKRA.en-US.resx">
+    <EmbeddedResource Include="多线插\检测功能\端子检测\FormFAKRA.en-US.resx">
       <DependentUpon>FormFAKRA.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="多线插\检测功能\FAKRA检测\FormFAKRA.resx">
+    <EmbeddedResource Include="多线插\检测功能\端子检测\FormFAKRA.resx">
       <DependentUpon>FormFAKRA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="多线插\检测功能\坐标标定\XYCalib.resx">
@@ -589,6 +607,7 @@
     <Content Include="20210125022420555_easyicon_net_96.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="多线插\检测功能\导体检测\" />
     <Folder Include="序列化\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
