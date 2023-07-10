@@ -239,6 +239,8 @@ namespace VisionPlatform
                                     node.Text = TMFunction.GetStrCheckItem(str);
                                     treeViewFun.Nodes[0].Nodes.Add(node);
                                     ConcentricityAdd(node);
+                                    ConductorAdd(node);
+                                    TMAdd(node);
                                 }
                                 break;
                             case 2:
@@ -248,6 +250,8 @@ namespace VisionPlatform
                                     node.Text = TMFunction.GetStrCheckItem(str);
                                     treeViewFun.Nodes[1].Nodes.Add(node);
                                     ConcentricityAdd(node);
+                                    ConductorAdd(node);
+                                    TMAdd(node);
                                 }
                                 break;
                             case 3:
@@ -257,6 +261,8 @@ namespace VisionPlatform
                                     node.Text = TMFunction.GetStrCheckItem(str);
                                     treeViewFun.Nodes[2].Nodes.Add(node);
                                     ConcentricityAdd(node);
+                                    ConductorAdd(node);
+                                    TMAdd(node);
                                 }
                                 break;
                             case 4:
@@ -266,6 +272,8 @@ namespace VisionPlatform
                                     node.Text = TMFunction.GetStrCheckItem(str);
                                     treeViewFun.Nodes[3].Nodes.Add(node);
                                     ConcentricityAdd(node);
+                                    ConductorAdd(node);
+                                    TMAdd(node);
                                 }
                                 break;
                             default:
@@ -292,6 +300,31 @@ namespace VisionPlatform
                 node.Nodes.Add(node1);
                 TreeNode node2 = new TreeNode();
                 node2.Text = "母头";
+                node.Nodes.Add(node2);
+            }
+        }
+        private void ConductorAdd(TreeNode node)
+        {
+            if (node.Text == "导体检测")
+            {
+                TreeNode node1 = new TreeNode();
+                node1.Text = "正面";
+                node.Nodes.Add(node1);
+                TreeNode node2 = new TreeNode();
+                node2.Text = "侧面";
+                node.Nodes.Add(node2);
+            }
+        }
+
+        private void TMAdd(TreeNode node)
+        {
+            if (node.Text == "端子检测")
+            {
+                TreeNode node1 = new TreeNode();
+                node1.Text = "正面";
+                node.Nodes.Add(node1);
+                TreeNode node2 = new TreeNode();
+                node2.Text = "侧面";
                 node.Nodes.Add(node2);
             }
         }
