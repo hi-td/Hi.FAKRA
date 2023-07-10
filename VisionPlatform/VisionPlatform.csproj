@@ -94,6 +94,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Chustange.dll</HintPath>
     </Reference>
+    <Reference Include="CircularButton, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\CircularButton.dll</HintPath>
+    </Reference>
     <Reference Include="GxIAPINET, Version=1.0.7684.26772, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\GxIAPINET.dll</HintPath>
@@ -583,7 +587,6 @@
   <ItemGroup>
     <Content Include="1~1.ico" />
     <Content Include="20210125022420555_easyicon_net_96.ico" />
-    <Content Include="yixing.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="序列化\" />

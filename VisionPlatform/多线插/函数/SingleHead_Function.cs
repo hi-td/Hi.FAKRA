@@ -31,6 +31,7 @@ namespace VisionPlatform
         ushort[] registerBuffer = new ushort[1] { 0 };
         public static Dictionary<TMData.CamInspectItem, FormSTATS> m_ListFormSTATS = new Dictionary<TMData.CamInspectItem, FormSTATS>(); //计数用form窗体个数
         Dictionary<string, HTuple> dic_PicWnd = new Dictionary<string, HTuple>();
+        public HObject m_ModelImage = new HObject();          //端子检测时，用于临时保存模板图像
         public TMFunction(Function fun)
         {
             if (fun != null)
