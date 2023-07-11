@@ -48,6 +48,7 @@ namespace VisionPlatform
             InitializeComponent();
             panel2.BackColor = Color.FromArgb(255, 0, green: 0, 0);
             InitCamSer();
+            label_Cam.Text = "相机" + ncam.ToString();
             ts_Label_state.Dock = DockStyle.Right;
             //设置线条粗细
             ComboBox_LineWith.SelectedIndex = 0;
@@ -963,6 +964,20 @@ namespace VisionPlatform
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void label_Edit_Click(object sender, EventArgs e)
+        {
+            if (!FormMainUI.bRun)
+            {
+
+                StaticFun.UIConfig.CreateFormTeachMaster(m_ncam, "", 1);
+            }
+            else
+            {
+                MessageBox.Show("当前程序正在运行中，请停止检测按钮<运行中>后，再进行其它操作，谢谢配合。", "操作提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
         }
     }
 }

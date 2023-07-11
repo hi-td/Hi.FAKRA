@@ -45,13 +45,13 @@ namespace VisionPlatform
             this.插壳检测 = new System.Windows.Forms.ToolStripMenuItem();
             this.打端检测 = new System.Windows.Forms.ToolStripMenuItem();
             this.线序检测 = new System.Windows.Forms.ToolStripMenuItem();
+            this.公头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.母头 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.ts_But_close = new System.Windows.Forms.ToolStripButton();
             this.ts_Label_cam = new System.Windows.Forms.ToolStripLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.公头 = new System.Windows.Forms.ToolStripMenuItem();
-            this.母头 = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -138,9 +138,9 @@ namespace VisionPlatform
             // 
             this.panel.BackColor = System.Drawing.SystemColors.Control;
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel.Location = new System.Drawing.Point(0, 19);
+            this.panel.Location = new System.Drawing.Point(0, 21);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(383, 454);
+            this.panel.Size = new System.Drawing.Size(383, 452);
             this.panel.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -155,20 +155,21 @@ namespace VisionPlatform
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(383, 19);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(383, 21);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label_SelCam
             // 
             this.label_SelCam.AutoSize = true;
             this.label_SelCam.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label_SelCam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label_SelCam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_SelCam.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_SelCam.ForeColor = System.Drawing.Color.MidnightBlue;
             this.label_SelCam.Location = new System.Drawing.Point(0, 0);
             this.label_SelCam.Margin = new System.Windows.Forms.Padding(0);
             this.label_SelCam.Name = "label_SelCam";
-            this.label_SelCam.Size = new System.Drawing.Size(383, 19);
+            this.label_SelCam.Size = new System.Drawing.Size(383, 21);
             this.label_SelCam.TabIndex = 3;
             this.label_SelCam.Text = "相机";
             this.label_SelCam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -179,7 +180,7 @@ namespace VisionPlatform
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem_Add});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
             // 
             // toolStripMenuItem_Add
             // 
@@ -189,27 +190,27 @@ namespace VisionPlatform
             this.打端检测,
             this.线序检测});
             this.toolStripMenuItem_Add.Name = "toolStripMenuItem_Add";
-            this.toolStripMenuItem_Add.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Add.Size = new System.Drawing.Size(100, 22);
             this.toolStripMenuItem_Add.Text = "添加";
             // 
             // 剥皮检测
             // 
             this.剥皮检测.Name = "剥皮检测";
-            this.剥皮检测.Size = new System.Drawing.Size(180, 22);
+            this.剥皮检测.Size = new System.Drawing.Size(136, 22);
             this.剥皮检测.Text = "剥皮检测";
             this.剥皮检测.Click += new System.EventHandler(this.剥皮检测_Click);
             // 
             // 插壳检测
             // 
             this.插壳检测.Name = "插壳检测";
-            this.插壳检测.Size = new System.Drawing.Size(180, 22);
+            this.插壳检测.Size = new System.Drawing.Size(136, 22);
             this.插壳检测.Text = "端子检测";
             this.插壳检测.Click += new System.EventHandler(this.端子检测_Click);
             // 
             // 打端检测
             // 
             this.打端检测.Name = "打端检测";
-            this.打端检测.Size = new System.Drawing.Size(180, 22);
+            this.打端检测.Size = new System.Drawing.Size(136, 22);
             this.打端检测.Text = "导体检测";
             this.打端检测.Click += new System.EventHandler(this.导体检测_Click);
             // 
@@ -219,8 +220,22 @@ namespace VisionPlatform
             this.公头,
             this.母头});
             this.线序检测.Name = "线序检测";
-            this.线序检测.Size = new System.Drawing.Size(180, 22);
+            this.线序检测.Size = new System.Drawing.Size(136, 22);
             this.线序检测.Text = "同心度检测";
+            // 
+            // 公头
+            // 
+            this.公头.Name = "公头";
+            this.公头.Size = new System.Drawing.Size(100, 22);
+            this.公头.Text = "公头";
+            this.公头.Click += new System.EventHandler(this.同心度检测_Click);
+            // 
+            // 母头
+            // 
+            this.母头.Name = "母头";
+            this.母头.Size = new System.Drawing.Size(100, 22);
+            this.母头.Text = "母头";
+            this.母头.Click += new System.EventHandler(this.同心度检测_Click);
             // 
             // toolStrip1
             // 
@@ -278,20 +293,6 @@ namespace VisionPlatform
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip2_ItemClicked);
-            // 
-            // 公头
-            // 
-            this.公头.Name = "公头";
-            this.公头.Size = new System.Drawing.Size(180, 22);
-            this.公头.Text = "公头";
-            this.公头.Click += new System.EventHandler(this.同心度检测_Click);
-            // 
-            // 母头
-            // 
-            this.母头.Name = "母头";
-            this.母头.Size = new System.Drawing.Size(180, 22);
-            this.母头.Text = "母头";
-            this.母头.Click += new System.EventHandler(this.同心度检测_Click);
             // 
             // FormTeachMaster
             // 

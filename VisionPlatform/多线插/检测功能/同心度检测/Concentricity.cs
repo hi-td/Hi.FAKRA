@@ -33,6 +33,7 @@ namespace VisionPlatform
         public Concentricity(int ncam, TMData.ConcentricityType type)
         {
             InitializeComponent();
+            this.type = type;
             if (type == TMData.ConcentricityType.male)
             {
                 tabPage_male.Parent = tabControl1;
@@ -66,7 +67,7 @@ namespace VisionPlatform
                     Dock = DockStyle.Fill,
                 };
                 tLPanel_InsulationCircle.Controls.Add(InsulationCircle, 1, 1);
-                
+
             }
             catch (Exception ex)
             {
@@ -79,6 +80,7 @@ namespace VisionPlatform
             TMData.ConcentricityParam param = new TMData.ConcentricityParam();
             try
             {
+                param.type = this.type;
                 //外导体圆
                 param.outerCircle.nRadius = (int)numUpD_OuterRadius.Value;
                 trackBar_OuterRadius.Value = (int)numUpD_OuterRadius.Value;
@@ -88,16 +90,29 @@ namespace VisionPlatform
                 param.insulationCircle.nRadius = (int)numUpD_InsulationRadius.Value;
                 trackBar_InsulationRadius.Value = (int)numUpD_InsulationRadius.Value;
                 param.insulationCircle.EPMeasure = InsulationCircle.InitParam();
-                //内导体圆
+                //内导体圆:母头
                 param.femaleCircle.nRadiusROI = (int)numUpD_InnerRadius.Value;
-                trackBar_InnerRadius.Value = (int)numUpD_InnerRadius.Value;
+                // trackBar_InnerRadius.Value = (int)numUpD_InnerRadius.Value;
                 param.femaleCircle.nThd = (int)numUpD_InnerThd.Value;
                 trackBar_InnerThd.Value = (int)numUpD_InnerThd.Value;
                 param.femaleCircle.dRadius = (double)numUpD_PreInnerRadius.Value;
                 param.femaleCircle.dRadiusLow = (double)numUpD_PreInnerRadiusLow.Value;
                 param.femaleCircle.dRadiusHigh = (double)numUpD_PreInnerRadiusHigh.Value;
-                label_PreInnerRadiusHigh.Text = Math.Round((numUpD_PreInnerRadius.Value * numUpD_PreInnerRadiusHigh.Value),2).ToString();
-                label_PreInnerRadiusLow.Text = Math.Round((numUpD_PreInnerRadius.Value * numUpD_PreInnerRadiusLow.Value),2).ToString();
+                label_PreInnerRadiusHigh.Text = Math.Round((numUpD_PreInnerRadius.Value * numUpD_PreInnerRadiusHigh.Value), 2).ToString();
+                label_PreInnerRadiusLow.Text = Math.Round((numUpD_PreInnerRadius.Value * numUpD_PreInnerRadiusLow.Value), 2).ToString();
+                //内导体圆:公头
+                param.maleCircle.nRadiusROI = (int)numUpD_InnerRadius.Value;
+                param.maleCircle.nThd = (int)numUpD_maleThd.Value;
+                trackBar_maleThd.Value = (int)numUpD_maleThd.Value;
+
+                trackBar_InnerRadius.Value = (int)numUpD_InnerRadius.Value;
+                //同心度参数
+                param.dOuterInner = (double)numUpD_OuterInner.Value;
+                param.dOuterInnerHigh = (double)numUpD_OuterInnerHigh.Value;
+                param.dOuterInsulation = (double)numUpD_OuterInsulation.Value;
+                param.dOuterInsulationHigh = (double)numUpD_OuterInsulationHigh.Value;
+                label_OuterInnerHigh.Text = Math.Round((numUpD_OuterInner.Value * numUpD_OuterInnerHigh.Value), 2).ToString();
+                label_OuterInsulationHigh.Text = Math.Round((numUpD_OuterInsulation.Value * numUpD_OuterInsulationHigh.Value), 2).ToString();
             }
             catch (Exception ex)
             {
@@ -115,10 +130,14 @@ namespace VisionPlatform
                 if (type == ConcentricityType.male)
                 {
                     param = TMData_Serializer._globalData.dicConcentricity[m_ncam][0];
+                    numUpD_InnerRadius.Value = (decimal)(param.maleCircle.nRadiusROI);
+                    trackBar_InnerRadius.Value = param.maleCircle.nRadiusROI;
                 }
                 else
                 {
                     param = TMData_Serializer._globalData.dicConcentricity[m_ncam][1];
+                    numUpD_InnerRadius.Value = (decimal)(param.femaleCircle.nRadiusROI);
+                    trackBar_InnerRadius.Value = param.femaleCircle.nRadiusROI;
                 }
                 //外导体圆
                 numUpD_OuterRadius.Value = (decimal)param.outerCircle.nRadius;
@@ -130,15 +149,20 @@ namespace VisionPlatform
                 numUpD_InsulationRadius.Value = (decimal)param.insulationCircle.nRadius;
                 trackBar_InsulationRadius.Value = param.insulationCircle.nRadius;
                 InsulationCircle.LoadParam(param.insulationCircle.EPMeasure);
-                //内导体圆
-                //母头
-                numUpD_InnerRadius.Value = (decimal)(param.femaleCircle.nRadiusROI);
-                trackBar_InnerRadius.Value = param.femaleCircle.nRadiusROI;
+                //内导体圆：母头
                 numUpD_InnerThd.Value = (decimal)param.femaleCircle.nThd;
                 trackBar_InnerThd.Value = param.femaleCircle.nThd;
                 numUpD_PreInnerRadius.Value = (decimal)param.femaleCircle.dRadius;
                 numUpD_PreInnerRadiusLow.Value = (decimal)param.femaleCircle.dRadiusLow;
                 numUpD_PreInnerRadiusHigh.Value = (decimal)param.femaleCircle.dRadiusHigh;
+                //内导体圆:公头
+                numUpD_maleThd.Value = (decimal)param.maleCircle.nThd;
+                trackBar_maleThd.Value = param.maleCircle.nThd;
+                //同心度参数
+                numUpD_OuterInner.Value = (decimal)param.dOuterInner;
+                numUpD_OuterInnerHigh.Value = (decimal)param.dOuterInnerHigh;
+                numUpD_OuterInsulation.Value = (decimal)param.dOuterInsulation;
+                numUpD_OuterInsulationHigh.Value = (decimal)param.dOuterInsulationHigh;
             }
             catch (Exception ex)
             {
@@ -151,10 +175,34 @@ namespace VisionPlatform
         {
             try
             {
-                if(bLoad) { return; }
+                if (bLoad) { return; }
                 TMData.ConcentricityParam param = InitParam();
-                TMFun.Concentricity(param, true, out ConcentricityResult result);
+                label_PreInnerRadius.Text = "";
+                label_OuterInner.Text = "";
+                label_OuterInsulation.Text = "";
+                Fun.m_hWnd.ClearWindow();
+                Fun.m_hWnd.DispObj(Fun.m_hImage);
+                TimeSpan time_start = new TimeSpan(DateTime.Now.Ticks);
+                bool bResult = TMFun.Concentricity(param, true, out ConcentricityResult result);
+                TimeSpan time_end = new TimeSpan(DateTime.Now.Ticks);
+                string totalSeconds = ((time_end.Subtract(time_start).Duration().TotalSeconds) * 1000).ToString("F0");
+                StaticFun.MessageFun.ShowMessage("同心度检测用时：" + totalSeconds);
+                //显示结果
                 label_PreInnerRadius.Text = result.innerCircle.dRadius.ToString();
+                label_OuterInner.Text = result.dDist1.ToString();
+                if (param.bInsultationCircle)
+                {
+                    label_OuterInsulation.Text = result.dDist2.ToString();
+                }
+                if(bResult)
+                {
+                    Fun.WriteStringtoImage(50, 100, Function.imageWidth / 2 - 80, "OK", "green");
+                }
+                else
+                {
+                    Fun.WriteStringtoImage(50, 100, Function.imageWidth / 2 - 80, "NG", "red");
+                }
+
             }
             catch (Exception ex)
             {
@@ -221,6 +269,9 @@ namespace VisionPlatform
             }
         }
 
-       
+        private void trackBar_maleThd_Scroll(object sender, EventArgs e)
+        {
+            numUpD_maleThd.Value = trackBar_maleThd.Value;
+        }
     }
 }

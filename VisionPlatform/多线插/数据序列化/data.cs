@@ -211,6 +211,10 @@ namespace VisionPlatform
             public FitCircleParam insulationCircle;  //绝缘体圆
             public FemaleCircle femaleCircle;        //母头圆
             public MaleCircle maleCircle;            //公头圆
+            public double dOuterInner;               //外导体-内导体同心度
+            public double dOuterInnerHigh;           //外导体-内导体同心度上限
+            public double dOuterInsulation;          //外导体-绝缘体同心度
+            public double dOuterInsulationHigh;      //外导体-绝缘体同心度上限
         }
 
         [Serializable]
@@ -242,6 +246,8 @@ namespace VisionPlatform
             public Circle outerCircle;
             public Circle innerCircle;
             public Circle insulationCircle;
+            public double dDist1;           //外导体-内导体同心度
+            public double dDist2;           //外导体-绝缘体同心度
         }
     }
 }

@@ -92,6 +92,9 @@ namespace VisionPlatform
             this.panel1 = new System.Windows.Forms.Panel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label_Edit = new System.Windows.Forms.Label();
+            this.label_Cam = new System.Windows.Forms.Label();
             this.panel_hWnd.SuspendLayout();
             this.panel2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -100,6 +103,7 @@ namespace VisionPlatform
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label_d
@@ -116,8 +120,8 @@ namespace VisionPlatform
             // 
             // panel_hWnd
             // 
-            this.panel_hWnd.Controls.Add(this.panel2);
             this.panel_hWnd.Controls.Add(this.hWndCtrl);
+            this.panel_hWnd.Controls.Add(this.panel2);
             this.panel_hWnd.Controls.Add(this.toolStrip2);
             resources.ApplyResources(this.panel_hWnd, "panel_hWnd");
             this.panel_hWnd.Name = "panel_hWnd";
@@ -210,7 +214,7 @@ namespace VisionPlatform
             resources.ApplyResources(this.hWndCtrl, "hWndCtrl");
             this.hWndCtrl.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
             this.hWndCtrl.Name = "hWndCtrl";
-            this.hWndCtrl.WindowSize = new System.Drawing.Size(582, 444);
+            this.hWndCtrl.WindowSize = new System.Drawing.Size(582, 369);
             this.hWndCtrl.HMouseMove += new HalconDotNet.HMouseEventHandler(this.hWndCtrl_HMouseMove);
             this.hWndCtrl.HMouseDown += new HalconDotNet.HMouseEventHandler(this.hWndCtrl_HMouseDown);
             this.hWndCtrl.HMouseWheel += new HalconDotNet.HMouseEventHandler(this.hWndCtrl_HMouseWheel);
@@ -589,6 +593,7 @@ namespace VisionPlatform
             // panel1
             // 
             this.panel1.Controls.Add(this.panel_hWnd);
+            this.panel1.Controls.Add(this.groupBox_ImageList);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
@@ -598,12 +603,33 @@ namespace VisionPlatform
             resources.ApplyResources(this.imageList1, "imageList1");
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.panel4, "panel4");
+            this.panel4.Controls.Add(this.label_Edit);
+            this.panel4.Controls.Add(this.label_Cam);
+            this.panel4.Name = "panel4";
+            // 
+            // label_Edit
+            // 
+            resources.ApplyResources(this.label_Edit, "label_Edit");
+            this.label_Edit.BackColor = System.Drawing.Color.Transparent;
+            this.label_Edit.Name = "label_Edit";
+            this.label_Edit.Click += new System.EventHandler(this.label_Edit_Click);
+            // 
+            // label_Cam
+            // 
+            resources.ApplyResources(this.label_Cam, "label_Cam");
+            this.label_Cam.BackColor = System.Drawing.Color.Transparent;
+            this.label_Cam.Name = "label_Cam";
+            // 
             // FormCamShow
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox_ImageList);
+            this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCamShow";
             this.Load += new System.EventHandler(this.FormCamShow_Load);
@@ -620,6 +646,8 @@ namespace VisionPlatform
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -686,5 +714,8 @@ namespace VisionPlatform
         private System.Windows.Forms.ToolStripLabel toolStripLabel_pos;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel_gray;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label_Edit;
+        private System.Windows.Forms.Label label_Cam;
     }
 }
