@@ -39,7 +39,7 @@ namespace VisionPlatform
         public static Show1 m_Show1;
         public static Show2 m_Show2;
         public static Show3 m_Show3;
-        public static Show7 m_Show7;
+        public static Show6 m_Show6;
         public static FormShowResult formShowResult = new FormShowResult(); //显示检测结果
         public static FormImageSave formImageSave = new FormImageSave();    //运行状态图像保存
        
@@ -94,7 +94,23 @@ namespace VisionPlatform
             try
             {
                 LoadData();
-                if (GlobalData.Config._InitConfig.initConfig.CamNum == 1)
+                int nCamNum = 0;
+                if (null == GlobalData.Config._InitConfig.initConfig.dic_SubCam)
+                {
+                    GlobalData.Config._InitConfig.initConfig.dic_SubCam = new Dictionary<int, int>();
+                    GlobalData.Config._InitConfig.initConfig.dic_SubCam.Add(1, 0);
+                }
+                foreach(int cam in GlobalData.Config._InitConfig.initConfig.dic_SubCam.Keys)
+                {
+                    nCamNum++;
+                    int sub = GlobalData.Config._InitConfig.initConfig.dic_SubCam[cam];
+                    if(0!=sub)
+                    {
+                        nCamNum = nCamNum + sub;
+                    }
+                }
+
+                if (nCamNum == 1)
                 {
                     m_Show1 = new Show1();
                     m_Show1.TopLevel = false;
@@ -104,7 +120,7 @@ namespace VisionPlatform
                     this.panel_MainUI.Controls.Add(m_Show1);
                     formshow = true;
                 }
-                else if (GlobalData.Config._InitConfig.initConfig.CamNum == 2)
+                else if (nCamNum == 2)
                 {
                     m_Show2 = new Show2();
                     m_Show2.TopLevel = false;
@@ -114,7 +130,7 @@ namespace VisionPlatform
                     this.panel_MainUI.Controls.Add(m_Show2);
                     formshow = true;
                 }
-                else if (GlobalData.Config._InitConfig.initConfig.CamNum == 3)
+                else if (nCamNum == 3)
                 {
                     m_Show3 = new Show3();
                     m_Show3.TopLevel = false;
@@ -124,14 +140,24 @@ namespace VisionPlatform
                     this.panel_MainUI.Controls.Add(m_Show3);
                     formshow = true;
                 }
-                else if (GlobalData.Config._InitConfig.initConfig.CamNum == 7)
+                else if (nCamNum == 6)
                 {
-                    m_Show7 = new Show7();
-                    m_Show7.TopLevel = false;
-                    m_Show7.Visible = true;
-                    m_Show7.Dock = DockStyle.Fill;
+                    m_Show6 = new Show6();
+                    m_Show6.TopLevel = false;
+                    m_Show6.Visible = true;
+                    m_Show6.Dock = DockStyle.Fill;
                     this.panel_MainUI.Controls.Clear();
-                    this.panel_MainUI.Controls.Add(m_Show7);
+                    this.panel_MainUI.Controls.Add(m_Show6);
+                    formshow = true;
+                }
+                else if (nCamNum == 7)
+                {
+                    //m_Show7 = new Show6();
+                    //m_Show7.TopLevel = false;
+                    //m_Show7.Visible = true;
+                    //m_Show7.Dock = DockStyle.Fill;
+                    //this.panel_MainUI.Controls.Clear();
+                    //this.panel_MainUI.Controls.Add(m_Show7);
                     formshow = true;
                 }
                 else
@@ -370,10 +396,10 @@ namespace VisionPlatform
                         this.panel_MainUI.Controls.Clear();
                         this.panel_MainUI.Controls.Add(m_Show2);
                         m_PanelShow.Controls.Add(FormMainUI.m_Show2);
-                        m_Show2.panel1.Controls.Clear();
-                        m_Show2.panel1.Controls.Add(Show2.formCamShow1);
-                        m_Show2.panel2.Controls.Clear();
-                        m_Show2.panel2.Controls.Add(Show2.formCamShow2);
+                        //m_Show2.panel1.Controls.Clear();
+                        //m_Show2.panel1.Controls.Add(Show2.formCamShow1);
+                        //m_Show2.panel2.Controls.Clear();
+                        //m_Show2.panel2.Controls.Add(Show2.formCamShow2);
                         //m_Show2.splitContainer1.Panel2.Controls.Clear();
                         //m_Show2.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
                         StaticFun.Run.Zoom(Show2.m_listFun);

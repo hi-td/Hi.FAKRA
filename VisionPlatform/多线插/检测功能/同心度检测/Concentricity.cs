@@ -46,7 +46,7 @@ namespace VisionPlatform
             }
             m_ncam = ncam;
             InitUI();
-            UIConfig.RefreshFun(ncam, "", ref Fun, ref TMFun, ref str_CamSer);
+            UIConfig.RefreshFun(ncam, 0, ref Fun, ref TMFun, ref str_CamSer);
             LoadParam(type);
             FitCircleValueChanged += Inspect;
         }

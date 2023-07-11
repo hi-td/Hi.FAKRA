@@ -4,6 +4,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using BaseData;
 using HalconDotNet;
 using static VisionPlatform.TMData;
@@ -28,6 +29,12 @@ namespace VisionPlatform
             male,      //公头
             female,    //母头
         }
+        public struct ShowItems
+        {
+            public FormCamShow form;     //相机显示窗体
+            public Panel panel;          //该窗体对应的panel
+        }
+
 
         [Serializable]
         public struct CamInspectItem

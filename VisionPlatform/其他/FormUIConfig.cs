@@ -24,12 +24,11 @@ namespace VisionPlatform
     public partial class FormUIConfig : Form
     {
         GlobalData.Config.InitConfig initConfig = new GlobalData.Config.InitConfig();
+        Dictionary<int, int> dic_SubCam = new Dictionary<int, int>();
         public FormUIConfig()
         {
             InitializeComponent();
             initConfig.initConfig.comMode = new BaseData.ComMode();
-            //initConfig.initConfig.bDigitLight = true;
-            //initConfig.initConfig.nLightCH = 4;
         }
 
         private BaseData.ConfigData InitParam()
@@ -95,6 +94,7 @@ namespace VisionPlatform
                 {
                     MessageBox.Show("请先选择相机的数量。");
                 }
+                param.dic_SubCam = dic_SubCam;
                 #endregion
 
                 #region 通讯方式
@@ -353,6 +353,7 @@ namespace VisionPlatform
                 checkBox_5Cam.Checked = false;
                 checkBox_6Cam.Checked = false;
                 checkBox_7Cam.Checked = false;
+                RefreshSubCam(1);
             }
         }
 
@@ -367,6 +368,7 @@ namespace VisionPlatform
                 checkBox_5Cam.Checked = false;
                 checkBox_6Cam.Checked = false;
                 checkBox_7Cam.Checked = false;
+                RefreshSubCam(2);
             }
         }
 
@@ -381,6 +383,7 @@ namespace VisionPlatform
                 checkBox_5Cam.Checked = false;
                 checkBox_6Cam.Checked = false;
                 checkBox_7Cam.Checked = false;
+                RefreshSubCam(3);
             }
         }
 
@@ -395,6 +398,7 @@ namespace VisionPlatform
                 checkBox_5Cam.Checked = false;
                 checkBox_6Cam.Checked = false;
                 checkBox_7Cam.Checked = false;
+                RefreshSubCam(4);
             }
         }
 
@@ -409,6 +413,7 @@ namespace VisionPlatform
                 checkBox_4Cam.Checked = false;
                 checkBox_6Cam.Checked = false;
                 checkBox_7Cam.Checked = false;
+                RefreshSubCam(5);
             }
         }
 
@@ -424,8 +429,29 @@ namespace VisionPlatform
                 checkBox_4Cam.Checked = false;
                 checkBox_5Cam.Checked = false;
                 checkBox_7Cam.Checked = false;
+                RefreshSubCam(6);
             }
         }
+
+        private void RefreshSubCam(int nCamNum)
+        {
+            try
+            {
+                comboBox_Cam.Items.Clear();
+                dic_SubCam.Clear();
+                for (int i=0;i<nCamNum; i++)
+                {
+                    comboBox_Cam.Items.Add(i + 1);
+                    dic_SubCam.Add(i + 1, 0);
+                }
+            }
+            catch(Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+
         #endregion
 
         private void FormUIConfig_FormClosed(object sender, FormClosedEventArgs e)
@@ -633,11 +659,12 @@ namespace VisionPlatform
                         default:
                             break;
                     }
-                    //checkBox_SkinWeld.Checked = tmCheckList.checkItem.SkinWeld;
-                    //checkBox_SkinPos.Checked = tmCheckList.checkItem.SkinPos;
-                    //checkBox_LineWeld.Checked = tmCheckList.checkItem.LineWeld;
-                    //checkBox_LinePos.Checked = tmCheckList.checkItem.LinePos;
-                    //checkBox_LineSide.Checked = tmCheckList.checkItem.LineSide;
+                    comboBox_Cam.Items.Clear();
+                    for(int n =0;n<ncam;n++)
+                    {
+                        comboBox_Cam.Items.Add(n+1);
+                    }
+                    dic_SubCam = GlobalData.Config._InitConfig.initConfig.dic_SubCam;
                     //加载通讯方式
                     if (comMode.TYPE == EnumData.COMType.NET)
                     {
@@ -816,6 +843,32 @@ namespace VisionPlatform
                 checkBox_4Cam.Checked = false;
                 checkBox_5Cam.Checked = false;
                 checkBox_6Cam.Checked = false;
+            }
+        }
+
+        private void comboBox_Cam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int nSel = comboBox_Cam.SelectedIndex + 1;
+            if(null != dic_SubCam && dic_SubCam.ContainsKey(nSel))
+            {
+                numUpD_SubCam.Value = dic_SubCam[nSel];
+            }
+            else
+            {
+                numUpD_SubCam.Value = 0;
+            }
+        }
+
+        private void numUpD_SubCam_ValueChanged(object sender, EventArgs e)
+        {
+            int nSel = comboBox_Cam.SelectedIndex + 1;
+            if(null != dic_SubCam && dic_SubCam.ContainsKey(nSel))
+            {
+                dic_SubCam[nSel] = (int)numUpD_SubCam.Value;
+            }
+            else
+            {
+                dic_SubCam.Add(nSel, (int)numUpD_SubCam.Value);
             }
         }
     }

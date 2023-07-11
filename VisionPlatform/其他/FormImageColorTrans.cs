@@ -63,24 +63,24 @@ namespace VisionPlatform
                     this.panelWindow.Controls.Add(Show1.formCamShow1);
                     break;
                 case 2:
-                    if (cam == 1)
-                    {
-                        formCamShow = Show2.formCamShow1;
-                        Show2.formCamShow1.TopLevel = false;
-                        Show2.formCamShow1.Visible = true;
-                        Show2.formCamShow1.Dock = DockStyle.Fill;
-                        this.panelWindow.Controls.Add(Show2.formCamShow1);
-                        break;
-                    }
-                    if (cam == 2)
-                    {
-                        formCamShow = Show2.formCamShow2;
-                        Show2.formCamShow2.TopLevel = false;
-                        Show2.formCamShow2.Visible = true;
-                        Show2.formCamShow2.Dock = DockStyle.Fill;
-                        this.panelWindow.Controls.Add(Show2.formCamShow2);
+                    //if (cam == 1)
+                    //{
+                    //    formCamShow = Show2.formCamShow1;
+                    //    Show2.formCamShow1.TopLevel = false;
+                    //    Show2.formCamShow1.Visible = true;
+                    //    Show2.formCamShow1.Dock = DockStyle.Fill;
+                    //    this.panelWindow.Controls.Add(Show2.formCamShow1);
+                    //    break;
+                    //}
+                    //if (cam == 2)
+                    //{
+                    //    formCamShow = Show2.formCamShow2;
+                    //    Show2.formCamShow2.TopLevel = false;
+                    //    Show2.formCamShow2.Visible = true;
+                    //    Show2.formCamShow2.Dock = DockStyle.Fill;
+                    //    this.panelWindow.Controls.Add(Show2.formCamShow2);
 
-                    }
+                    //}
                     break;
                 case 3:
                     if (cam == 1)
@@ -113,12 +113,12 @@ namespace VisionPlatform
                     break;
 
                 case 7:
-                    Show7.formCamShows[a].TopLevel = false;
-                    Show7.formCamShows[a].Visible = true;
-                    Show7.formCamShows[a].Dock = DockStyle.Fill;
-                    this.panelWindow.Controls.Add(Show7.formCamShows[a]);
-                    Show7.formCamShows[a].label_x.Visible = false;
-                    Show7.formCamShows[a].label_d.Visible = false;
+                    //Show6.formCamShows[a].TopLevel = false;
+                    //Show6.formCamShows[a].Visible = true;
+                    //Show6.formCamShows[a].Dock = DockStyle.Fill;
+                    //this.panelWindow.Controls.Add(Show6.formCamShows[a]);
+                    //Show6.formCamShows[a].label_x.Visible = false;
+                    //Show6.formCamShows[a].label_d.Visible = false;
                     break;
                 default:
                     break;

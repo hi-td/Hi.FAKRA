@@ -29,14 +29,13 @@ namespace GxIAPINET.Sample.Common
         const uint SRCCOPY = 0x00CC0020;
         CWin32Bitmaps.BITMAPINFO m_objBitmapInfo = new CWin32Bitmaps.BITMAPINFO();
         IntPtr m_pBitmapInfo = IntPtr.Zero;
-
-                Camimage m_myFun = null;                ///<图片显示
+        Function m_myFun = null;                ///<图片显示
         /// <summary>
         /// 构造函数用于初始化设备对象与PictureBox控件对象
         /// </summary>
         /// <param name="objIGXDevice">设备对象</param>
         /// <param name="objPictureBox">图像显示控件</param>
-        public GxBitmap(IGXDevice objIGXDevice,Camimage fun)
+        public GxBitmap(IGXDevice objIGXDevice, Function fun)
         {
             m_objIGXDevice = objIGXDevice;
             m_myFun = fun;

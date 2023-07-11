@@ -29,7 +29,7 @@ namespace VisionPlatform
         private Function Fun;                                         //当前底层函数
         string str_CamSer;                                            //当前相机序列号
         int m_ncam;                                                   //当前相机
-        string bh;                                                    //当前相机几号界面
+        int sub_cam;                                                    //当前相机几号界面
         string  m_TMType= "teach";                                    //生产的线的类型：标准线or大小线
         //TMParam m_TMParam;
         Rect2 m_SkinWeldROIY = new Rect2();                           //示教时计算得到的绝缘皮压脚区域的大小
@@ -40,12 +40,12 @@ namespace VisionPlatform
         FormImageColorTrans formImageColorTrans;                      //图像颜色空间转换
 
         private bool TorF = false;
-        public FormFAKRA(int ncam,string b)
+        public FormFAKRA(int ncam, int sub_cam)
         {
             InitializeComponent();
             m_ncam = ncam;
-            bh = b;
-            UIConfig.RefreshFun(ncam,b, ref Fun, ref TMFun, ref str_CamSer);
+            this.sub_cam = sub_cam;
+            UIConfig.RefreshFun(ncam, sub_cam, ref Fun, ref TMFun, ref str_CamSer);
             InitUI();
             selectcombox();
         }
@@ -100,7 +100,7 @@ namespace VisionPlatform
         {
             try
             {
-                string a = m_ncam.ToString() + bh;
+                string a = m_ncam.ToString() + sub_cam.ToString();
                 comboBox_SelectModel.Items.Add("自动");
                 comboBox_Model.Items.Add("teach");
                 if (TMData_Serializer._globalData.dicTMCheckList != null && TMData_Serializer._globalData.dicTMCheckList.ContainsKey(a))
@@ -144,7 +144,7 @@ namespace VisionPlatform
         {
             try
             {
-                string a = m_ncam.ToString() + bh;
+                string a = m_ncam.ToString() + sub_cam.ToString();
                 //如果相机实时，则停止实时
                 try
                 {
@@ -157,7 +157,7 @@ namespace VisionPlatform
                 Fun.ClearObjShow();
 
                 #region 导入模板图像
-                string model_name = "camera" + m_ncam.ToString() + "_"+ bh + "-" + m_TMType.ToString();
+                string model_name = "camera" + m_ncam.ToString() + "_"+ sub_cam.ToString() + "-" + m_TMType.ToString();
                 string strPath = System.IO.Path.Combine(GlobalPath.SavePath.ModelImagePath, model_name) + ".bmp";
                 if (File.Exists(strPath))
                 {
@@ -2121,7 +2121,7 @@ namespace VisionPlatform
                 {
                     return;
                 }
-                string a = m_ncam.ToString() + bh;
+                string a = m_ncam.ToString() + sub_cam.ToString();
                 string c = comboBox_Model.Text;
                 if (TMData_Serializer._globalData.dicTMCheckList.ContainsKey(a))
                 {
@@ -2188,7 +2188,7 @@ namespace VisionPlatform
                 {
                     return;
                 }
-                string c = m_ncam.ToString() + bh;
+                string c = m_ncam.ToString() + sub_cam.ToString();
                 if (TMData_Serializer._globalData.dicTMCheckList.ContainsKey(c))
                 {
                     string a = comboBox_Model.Text;

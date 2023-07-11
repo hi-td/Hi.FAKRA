@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BaseData;
 using CamSDK;
@@ -15,10 +9,6 @@ using Chustange.Functional;
 using EnumData;
 using HalconDotNet;
 using Newtonsoft.Json;
-using StaticFun;
-using static VisionPlatform.TMData;
-using WENYU_IO;
-using GxIAPINET.Sample.Common;
 
 namespace VisionPlatform
 {
@@ -26,6 +16,7 @@ namespace VisionPlatform
     {
         FormCamParamSet formCamParamSet;
         public int m_ncam;                      //打开的第几个相机
+        public int sub_cam;                     //相机的第x个子画面
         public Function fun;
         public TMFunction TM_fun;
         public string m_strCamSer = "";         //相机的序列号
@@ -33,55 +24,48 @@ namespace VisionPlatform
         private bool m_bMoving = false;         //是否处于移动状态，初始值为关闭
         private bool bDrawing = false;          //是否处于绘制状态
 
-        public bool bSaveOrgImage = false;      //是否保存原始图像，定义为public可供自动运行时使用
-        public bool bSaveResultImage = false;   //是否保存结果图像
-
-        public static Dictionary<int, Dictionary<string, Function>> funs = new Dictionary<int, Dictionary<string, Function>>();
-
-        //public static Dictionary<int, TMFunction> TM_funs = new Dictionary<int, TMFunction>();
-        public string ad; //第几个界面
-        Camimage camimage;
-        public static Dictionary<int, Camimage> camimages = new Dictionary<int, Camimage>();
-
-        public FormCamShow(string strCamSer, int ncam, string a) //输入相机的序列号
+        /// <summary>
+        /// 函数定义
+        /// </summary>
+        /// <param name="strCamSer"></param> 相机序列号
+        /// <param name="ncam"></param>      相机
+        /// <param name="sub_cam"></param>   第sub_cam个子相机画面
+        public FormCamShow(string strCamSer, int ncam, int sub_cam) //输入相机的序列号
         {
             InitializeComponent();
             panel2.BackColor = Color.FromArgb(255, 0, green: 0, 0);
             InitCamSer();
-            label_Cam.Text = "相机" + ncam.ToString();
+            m_strCamSer = strCamSer;
+            m_ncam = ncam;
+            this.sub_cam = sub_cam;
             ts_Label_state.Dock = DockStyle.Right;
-            //设置线条粗细
-            ComboBox_LineWith.SelectedIndex = 0;
-
-            if (a=="1")
+            fun = new Function(hWndCtrl);
+            TM_fun = new TMFunction(fun);
+            if (sub_cam == 0)
             {
-                camimage = new Camimage();
-                camimages.Add(ncam, camimage);
-                fun = new Function(hWndCtrl);
-                TM_fun = new TMFunction(fun);
+                //camimage = new Camimage();
+                //camimages.Add(ncam, camimage);
+                label_Cam.Text = "相机" + ncam.ToString();
                 Init(strCamSer, ncam);
             }
             else
             {
-                camimage = camimages[ncam];
-                fun = new Function(hWndCtrl);
-                TM_fun = new TMFunction(fun);
+                label_Cam.Text = "相机" + ncam.ToString()+"-"+sub_cam.ToString();
+                //camimage = camimages[ncam];
             }
-            m_strCamSer = strCamSer;
-            camimage.a = ncam;
-            m_ncam = ncam;
-            ad = a;
-            if (funs.ContainsKey(ncam))
-            {
-                funs[ncam].Add(a, fun);
-            }
-            else
-            {
-                Dictionary<string, Function> fun_a = new Dictionary<string, Function>();
-                fun_a.Add(a, fun);
-                funs.Add(ncam, fun_a);
-            }
-
+            //camimage.a = ncam;
+            //if (funs.ContainsKey(ncam))
+            //{
+            //    funs[ncam].Add(a, fun);
+            //}
+            //else
+            //{
+            //    Dictionary<string, Function> fun_a = new Dictionary<string, Function>();
+            //    fun_a.Add(a, fun);
+            //    funs.Add(ncam, fun_a);
+            //}
+            //设置线条粗细
+            ComboBox_LineWith.SelectedIndex = 0;
         }
         private void InitCamSer()
         {
@@ -130,7 +114,7 @@ namespace VisionPlatform
 
                 if ("" != strCamSer&& "空" != strCamSer)
                 {
-                    CamCommon.OpenCam(strCamSer, camimage);
+                    CamCommon.OpenCam(strCamSer, fun);
                     CamCommon.Live(strCamSer);
                     CamCommon.GrabImage(strCamSer);
                     ts_Label_state.Text = "当前状态：拍照";
@@ -868,8 +852,8 @@ namespace VisionPlatform
 
         private void but_Live_Click(object sender, EventArgs e)
         {
-            camimage.a = m_ncam;
-            camimage.b = ad;
+            //camimage.a = m_ncam;
+            //camimage.b = ad;
             fun.ClearObjShow();
             CamCommon.Live(m_strCamSer);
             ts_Label_state.Text = "当前状态：实时显示中";
@@ -877,8 +861,8 @@ namespace VisionPlatform
 
         private void but_GrabImage_Click(object sender, EventArgs e)
         {
-            camimage.a = m_ncam;
-            camimage.b = ad;
+            //camimage.a = m_ncam;
+            //camimage.b = ad;
             fun.ClearObjShow();
             CamCommon.GrabImage(m_strCamSer);
             ts_Label_state.Text = "当前状态：拍照";
@@ -971,7 +955,7 @@ namespace VisionPlatform
             if (!FormMainUI.bRun)
             {
 
-                StaticFun.UIConfig.CreateFormTeachMaster(m_ncam, "", 1);
+                StaticFun.UIConfig.CreateFormTeachMaster(m_ncam, this.sub_cam, 1);
             }
             else
             {

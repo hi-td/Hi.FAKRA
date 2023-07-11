@@ -35,19 +35,19 @@ namespace VisionPlatform
                     str_CamSer = Show1.formCamShow1.m_strCamSer;
                     break;
                 case 2:
-                    if (m_cam == 1)
-                    {
-                        TMFun = Show2.formCamShow1.TM_fun;
-                        Fun = Show2.formCamShow1.fun;
-                        str_CamSer = Show2.formCamShow1.m_strCamSer;
-                        break;
-                    }
-                    if (m_cam == 2)
-                    {
-                        TMFun = Show2.formCamShow2.TM_fun;
-                        Fun = Show2.formCamShow2.fun;
-                        str_CamSer = Show2.formCamShow2.m_strCamSer;
-                    }
+                    //if (m_cam == 1)
+                    //{
+                    //    TMFun = Show2.formCamShow1.TM_fun;
+                    //    Fun = Show2.formCamShow1.fun;
+                    //    str_CamSer = Show2.formCamShow1.m_strCamSer;
+                    //    break;
+                    //}
+                    //if (m_cam == 2)
+                    //{
+                    //    TMFun = Show2.formCamShow2.TM_fun;
+                    //    Fun = Show2.formCamShow2.fun;
+                    //    str_CamSer = Show2.formCamShow2.m_strCamSer;
+                    //}
                     break;
                 case 7:
                     //if (m_cam == 1)

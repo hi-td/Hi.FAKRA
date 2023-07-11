@@ -42,17 +42,17 @@ namespace VisionPlatform
                     Fun = Show1.formCamShow1.fun;
                     break;
                 case 2:
-                    if (m_cam == 1)
-                    {
-                        TMFun = Show2.formCamShow1.TM_fun;
-                        Fun = Show2.formCamShow1.fun;
-                        break;
-                    }
-                    if (m_cam == 2)
-                    {
-                        TMFun = Show2.formCamShow2.TM_fun;
-                        Fun = Show2.formCamShow2.fun;
-                    }
+                    //if (m_cam == 1)
+                    //{
+                    //    TMFun = Show2.formCamShow1.TM_fun;
+                    //    Fun = Show2.formCamShow1.fun;
+                    //    break;
+                    //}
+                    //if (m_cam == 2)
+                    //{
+                    //    TMFun = Show2.formCamShow2.TM_fun;
+                    //    Fun = Show2.formCamShow2.fun;
+                    //}
                     break;
                 //case 3:
                 //    if (m_cam == 1)
@@ -77,8 +77,8 @@ namespace VisionPlatform
                 //    }
                 //    break;
                 case 7:
-                        TMFun = Show7.formCamShows[a].TM_fun;
-                        Fun = Show7.formCamShows[a].fun;
+                        //TMFun = Show6.formCamShows[a].TM_fun;
+                        //Fun = Show6.formCamShows[a].fun;
                         break;
                 default:
                     break;

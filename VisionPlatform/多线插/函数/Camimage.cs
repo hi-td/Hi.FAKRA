@@ -28,9 +28,9 @@ namespace VisionPlatform
     {
         public int a = 1;
         public string b = "1";
-        public void GetImageFromCam(EnumData.CamColor channel, IntPtr pImageBuf, int nWidth, int nHeight)
-        {
-            FormCamShow.funs[a][b].GetImageFromCam(channel, pImageBuf, nWidth, nHeight);
-        }
+        //public void GetImageFromCam(EnumData.CamColor channel, IntPtr pImageBuf, int nWidth, int nHeight)
+        //{
+        //    FormCamShow.funs[a][b].GetImageFromCam(channel, pImageBuf, nWidth, nHeight);
+        //}
     }
 }

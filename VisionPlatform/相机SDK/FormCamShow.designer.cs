@@ -34,13 +34,6 @@ namespace VisionPlatform
             this.label_d = new System.Windows.Forms.Label();
             this.label_x = new System.Windows.Forms.Label();
             this.panel_hWnd = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.but_ImageList = new System.Windows.Forms.Button();
-            this.but_LoadImage = new System.Windows.Forms.Button();
-            this.but_RecoverImg = new System.Windows.Forms.Button();
-            this.but_SaveImg = new System.Windows.Forms.Button();
-            this.but_GrabImage = new System.Windows.Forms.Button();
-            this.but_Live = new System.Windows.Forms.Button();
             this.hWndCtrl = new HalconDotNet.HWindowControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.关联相机 = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,6 +61,13 @@ namespace VisionPlatform
             this.LoR = new System.Windows.Forms.ToolStripMenuItem();
             this.UoD = new System.Windows.Forms.ToolStripMenuItem();
             this.清除 = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.but_ImageList = new System.Windows.Forms.Button();
+            this.but_LoadImage = new System.Windows.Forms.Button();
+            this.but_RecoverImg = new System.Windows.Forms.Button();
+            this.but_SaveImg = new System.Windows.Forms.Button();
+            this.but_GrabImage = new System.Windows.Forms.Button();
+            this.but_Live = new System.Windows.Forms.Button();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.ts_Label_CamSer = new System.Windows.Forms.ToolStripLabel();
             this.ts_Label_state = new System.Windows.Forms.ToolStripLabel();
@@ -96,8 +96,8 @@ namespace VisionPlatform
             this.label_Edit = new System.Windows.Forms.Label();
             this.label_Cam = new System.Windows.Forms.Label();
             this.panel_hWnd.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.groupBox_ImageList.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -125,86 +125,6 @@ namespace VisionPlatform
             this.panel_hWnd.Controls.Add(this.toolStrip2);
             resources.ApplyResources(this.panel_hWnd, "panel_hWnd");
             this.panel_hWnd.Name = "panel_hWnd";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Controls.Add(this.but_ImageList);
-            this.panel2.Controls.Add(this.but_LoadImage);
-            this.panel2.Controls.Add(this.but_RecoverImg);
-            this.panel2.Controls.Add(this.but_SaveImg);
-            this.panel2.Controls.Add(this.but_GrabImage);
-            this.panel2.Controls.Add(this.but_Live);
-            this.panel2.Controls.Add(this.label_x);
-            this.panel2.Controls.Add(this.label_d);
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Name = "panel2";
-            // 
-            // but_ImageList
-            // 
-            this.but_ImageList.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.but_ImageList, "but_ImageList");
-            this.but_ImageList.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.but_ImageList.FlatAppearance.BorderSize = 0;
-            this.but_ImageList.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.but_ImageList.Name = "but_ImageList";
-            this.but_ImageList.UseVisualStyleBackColor = false;
-            this.but_ImageList.Click += new System.EventHandler(this.but_ImageList_Click);
-            // 
-            // but_LoadImage
-            // 
-            this.but_LoadImage.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.but_LoadImage, "but_LoadImage");
-            this.but_LoadImage.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.but_LoadImage.FlatAppearance.BorderSize = 0;
-            this.but_LoadImage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.but_LoadImage.Name = "but_LoadImage";
-            this.but_LoadImage.UseVisualStyleBackColor = false;
-            this.but_LoadImage.Click += new System.EventHandler(this.but_LoadImage_Click);
-            // 
-            // but_RecoverImg
-            // 
-            this.but_RecoverImg.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.but_RecoverImg, "but_RecoverImg");
-            this.but_RecoverImg.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.but_RecoverImg.FlatAppearance.BorderSize = 0;
-            this.but_RecoverImg.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.but_RecoverImg.Name = "but_RecoverImg";
-            this.but_RecoverImg.UseVisualStyleBackColor = false;
-            this.but_RecoverImg.Click += new System.EventHandler(this.but_RecoverImg_Click);
-            // 
-            // but_SaveImg
-            // 
-            this.but_SaveImg.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.but_SaveImg, "but_SaveImg");
-            this.but_SaveImg.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.but_SaveImg.FlatAppearance.BorderSize = 0;
-            this.but_SaveImg.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.but_SaveImg.Name = "but_SaveImg";
-            this.but_SaveImg.UseVisualStyleBackColor = false;
-            this.but_SaveImg.Click += new System.EventHandler(this.but_SaveImg_Click);
-            // 
-            // but_GrabImage
-            // 
-            this.but_GrabImage.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.but_GrabImage, "but_GrabImage");
-            this.but_GrabImage.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.but_GrabImage.FlatAppearance.BorderSize = 0;
-            this.but_GrabImage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.but_GrabImage.Name = "but_GrabImage";
-            this.but_GrabImage.UseVisualStyleBackColor = false;
-            this.but_GrabImage.Click += new System.EventHandler(this.but_GrabImage_Click);
-            // 
-            // but_Live
-            // 
-            this.but_Live.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.but_Live, "but_Live");
-            this.but_Live.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.but_Live.FlatAppearance.BorderSize = 0;
-            this.but_Live.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.but_Live.Name = "but_Live";
-            this.but_Live.UseVisualStyleBackColor = false;
-            this.but_Live.Click += new System.EventHandler(this.but_Live_Click);
             // 
             // hWndCtrl
             // 
@@ -441,6 +361,86 @@ namespace VisionPlatform
             this.清除.Name = "清除";
             this.清除.Click += new System.EventHandler(this.清除_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Controls.Add(this.but_ImageList);
+            this.panel2.Controls.Add(this.but_LoadImage);
+            this.panel2.Controls.Add(this.but_RecoverImg);
+            this.panel2.Controls.Add(this.but_SaveImg);
+            this.panel2.Controls.Add(this.but_GrabImage);
+            this.panel2.Controls.Add(this.but_Live);
+            this.panel2.Controls.Add(this.label_x);
+            this.panel2.Controls.Add(this.label_d);
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Name = "panel2";
+            // 
+            // but_ImageList
+            // 
+            this.but_ImageList.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.but_ImageList, "but_ImageList");
+            this.but_ImageList.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.but_ImageList.FlatAppearance.BorderSize = 0;
+            this.but_ImageList.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.but_ImageList.Name = "but_ImageList";
+            this.but_ImageList.UseVisualStyleBackColor = false;
+            this.but_ImageList.Click += new System.EventHandler(this.but_ImageList_Click);
+            // 
+            // but_LoadImage
+            // 
+            this.but_LoadImage.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.but_LoadImage, "but_LoadImage");
+            this.but_LoadImage.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.but_LoadImage.FlatAppearance.BorderSize = 0;
+            this.but_LoadImage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.but_LoadImage.Name = "but_LoadImage";
+            this.but_LoadImage.UseVisualStyleBackColor = false;
+            this.but_LoadImage.Click += new System.EventHandler(this.but_LoadImage_Click);
+            // 
+            // but_RecoverImg
+            // 
+            this.but_RecoverImg.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.but_RecoverImg, "but_RecoverImg");
+            this.but_RecoverImg.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.but_RecoverImg.FlatAppearance.BorderSize = 0;
+            this.but_RecoverImg.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.but_RecoverImg.Name = "but_RecoverImg";
+            this.but_RecoverImg.UseVisualStyleBackColor = false;
+            this.but_RecoverImg.Click += new System.EventHandler(this.but_RecoverImg_Click);
+            // 
+            // but_SaveImg
+            // 
+            this.but_SaveImg.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.but_SaveImg, "but_SaveImg");
+            this.but_SaveImg.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.but_SaveImg.FlatAppearance.BorderSize = 0;
+            this.but_SaveImg.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.but_SaveImg.Name = "but_SaveImg";
+            this.but_SaveImg.UseVisualStyleBackColor = false;
+            this.but_SaveImg.Click += new System.EventHandler(this.but_SaveImg_Click);
+            // 
+            // but_GrabImage
+            // 
+            this.but_GrabImage.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.but_GrabImage, "but_GrabImage");
+            this.but_GrabImage.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.but_GrabImage.FlatAppearance.BorderSize = 0;
+            this.but_GrabImage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.but_GrabImage.Name = "but_GrabImage";
+            this.but_GrabImage.UseVisualStyleBackColor = false;
+            this.but_GrabImage.Click += new System.EventHandler(this.but_GrabImage_Click);
+            // 
+            // but_Live
+            // 
+            this.but_Live.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.but_Live, "but_Live");
+            this.but_Live.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.but_Live.FlatAppearance.BorderSize = 0;
+            this.but_Live.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.but_Live.Name = "but_Live";
+            this.but_Live.UseVisualStyleBackColor = false;
+            this.but_Live.Click += new System.EventHandler(this.but_Live_Click);
+            // 
             // toolStrip2
             // 
             this.toolStrip2.BackColor = System.Drawing.Color.Black;
@@ -635,9 +635,9 @@ namespace VisionPlatform
             this.Load += new System.EventHandler(this.FormCamShow_Load);
             this.panel_hWnd.ResumeLayout(false);
             this.panel_hWnd.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.groupBox_ImageList.ResumeLayout(false);
