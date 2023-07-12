@@ -64,7 +64,7 @@ namespace CamSDK
             }
         }
         //打开相机，讲相机和Function绑定
-        public static void OpenCam(string strCamSer, Camimage fun)
+        public static void OpenCam(string strCamSer, Function fun)
         {
             try
             {

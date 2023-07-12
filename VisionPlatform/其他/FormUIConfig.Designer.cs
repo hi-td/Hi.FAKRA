@@ -33,14 +33,6 @@ namespace VisionPlatform
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUIConfig));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.check_USB = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkBox_4Cam = new System.Windows.Forms.CheckBox();
-            this.checkBox_5Cam = new System.Windows.Forms.CheckBox();
-            this.checkBox_6Cam = new System.Windows.Forms.CheckBox();
-            this.checkBox_1Cam = new System.Windows.Forms.CheckBox();
-            this.checkBox_2Cam = new System.Windows.Forms.CheckBox();
-            this.checkBox_3Cam = new System.Windows.Forms.CheckBox();
-            this.checkBox_7Cam = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -76,10 +68,23 @@ namespace VisionPlatform
             this.checkBox_CH2 = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBox_Cam = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.numUpD_SubCam = new System.Windows.Forms.NumericUpDown();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox_4Cam = new System.Windows.Forms.CheckBox();
+            this.checkBox_5Cam = new System.Windows.Forms.CheckBox();
+            this.checkBox_6Cam = new System.Windows.Forms.CheckBox();
+            this.checkBox_1Cam = new System.Windows.Forms.CheckBox();
+            this.checkBox_2Cam = new System.Windows.Forms.CheckBox();
+            this.checkBox_3Cam = new System.Windows.Forms.CheckBox();
+            this.checkBox_7Cam = new System.Windows.Forms.CheckBox();
             this.But_Save = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -87,6 +92,10 @@ namespace VisionPlatform
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tLPanel_CH.SuspendLayout();
+            this.tableLayoutPanel10.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpD_SubCam)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -96,7 +105,6 @@ namespace VisionPlatform
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.03206F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.96794F));
             this.tableLayoutPanel1.Controls.Add(this.check_USB, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
@@ -109,32 +117,600 @@ namespace VisionPlatform
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel9, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel10, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 78F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(447, 317);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(447, 366);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // check_USB
             // 
             this.check_USB.AutoSize = true;
             this.check_USB.Dock = System.Windows.Forms.DockStyle.Left;
-            this.check_USB.Location = new System.Drawing.Point(76, 66);
+            this.check_USB.Location = new System.Drawing.Point(76, 91);
             this.check_USB.Name = "check_USB";
-            this.check_USB.Size = new System.Drawing.Size(90, 22);
+            this.check_USB.Size = new System.Drawing.Size(90, 21);
             this.check_USB.TabIndex = 0;
             this.check_USB.Text = "是否USB相机";
             this.check_USB.UseVisualStyleBackColor = true;
             this.check_USB.CheckedChanged += new System.EventHandler(this.check_USB_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Navy;
+            this.label1.Location = new System.Drawing.Point(4, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "相机品牌";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(4, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 55);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "相机数量";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 6;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.Controls.Add(this.checkBox_OtherCam, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.checkBox_DaHua, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.checkBox_HikiVision, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.checkBox_DaHeng, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(76, 4);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(367, 24);
+            this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // checkBox_OtherCam
+            // 
+            this.checkBox_OtherCam.AutoSize = true;
+            this.checkBox_OtherCam.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_OtherCam.Location = new System.Drawing.Point(186, 3);
+            this.checkBox_OtherCam.Name = "checkBox_OtherCam";
+            this.checkBox_OtherCam.Size = new System.Drawing.Size(48, 18);
+            this.checkBox_OtherCam.TabIndex = 3;
+            this.checkBox_OtherCam.Text = "其他";
+            this.checkBox_OtherCam.UseVisualStyleBackColor = true;
+            this.checkBox_OtherCam.CheckedChanged += new System.EventHandler(this.checkBox_OtherCam_CheckedChanged);
+            // 
+            // checkBox_DaHua
+            // 
+            this.checkBox_DaHua.AutoSize = true;
+            this.checkBox_DaHua.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_DaHua.Location = new System.Drawing.Point(125, 3);
+            this.checkBox_DaHua.Name = "checkBox_DaHua";
+            this.checkBox_DaHua.Size = new System.Drawing.Size(48, 18);
+            this.checkBox_DaHua.TabIndex = 2;
+            this.checkBox_DaHua.Text = "大华";
+            this.checkBox_DaHua.UseVisualStyleBackColor = true;
+            this.checkBox_DaHua.CheckedChanged += new System.EventHandler(this.checkBox_DaHua_CheckedChanged);
+            // 
+            // checkBox_HikiVision
+            // 
+            this.checkBox_HikiVision.AutoSize = true;
+            this.checkBox_HikiVision.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_HikiVision.Location = new System.Drawing.Point(64, 3);
+            this.checkBox_HikiVision.Name = "checkBox_HikiVision";
+            this.checkBox_HikiVision.Size = new System.Drawing.Size(55, 18);
+            this.checkBox_HikiVision.TabIndex = 1;
+            this.checkBox_HikiVision.Text = "海康威视";
+            this.checkBox_HikiVision.UseVisualStyleBackColor = true;
+            this.checkBox_HikiVision.CheckedChanged += new System.EventHandler(this.checkBox_HikiVision_CheckedChanged);
+            // 
+            // checkBox_DaHeng
+            // 
+            this.checkBox_DaHeng.AutoSize = true;
+            this.checkBox_DaHeng.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_DaHeng.Location = new System.Drawing.Point(3, 3);
+            this.checkBox_DaHeng.Name = "checkBox_DaHeng";
+            this.checkBox_DaHeng.Size = new System.Drawing.Size(48, 18);
+            this.checkBox_DaHeng.TabIndex = 0;
+            this.checkBox_DaHeng.Text = "大恒";
+            this.checkBox_DaHeng.UseVisualStyleBackColor = true;
+            this.checkBox_DaHeng.CheckedChanged += new System.EventHandler(this.checkBox_DaHeng_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.Location = new System.Drawing.Point(4, 116);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 31);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "通讯方式";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 5;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.23301F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.84466F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.66019F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
+            this.tableLayoutPanel4.Controls.Add(this.checkBox_IP, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.comboBox_Brand, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label4, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label5, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.comboBox_model, 4, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(76, 119);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(367, 25);
+            this.tableLayoutPanel4.TabIndex = 6;
+            // 
+            // checkBox_IP
+            // 
+            this.checkBox_IP.AutoSize = true;
+            this.checkBox_IP.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_IP.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox_IP.Location = new System.Drawing.Point(3, 3);
+            this.checkBox_IP.Name = "checkBox_IP";
+            this.checkBox_IP.Size = new System.Drawing.Size(50, 19);
+            this.checkBox_IP.TabIndex = 0;
+            this.checkBox_IP.Text = "网口";
+            this.checkBox_IP.UseVisualStyleBackColor = true;
+            this.checkBox_IP.CheckedChanged += new System.EventHandler(this.checkBox_IP_CheckedChanged);
+            // 
+            // comboBox_Brand
+            // 
+            this.comboBox_Brand.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_Brand.Enabled = false;
+            this.comboBox_Brand.FormattingEnabled = true;
+            this.comboBox_Brand.Items.AddRange(new object[] {
+            "三菱，",
+            "西门子，",
+            "欧姆龙"});
+            this.comboBox_Brand.Location = new System.Drawing.Point(146, 3);
+            this.comboBox_Brand.Name = "comboBox_Brand";
+            this.comboBox_Brand.Size = new System.Drawing.Size(66, 20);
+            this.comboBox_Brand.TabIndex = 1;
+            this.comboBox_Brand.SelectedIndexChanged += new System.EventHandler(this.comboBox_Brand_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label4.Location = new System.Drawing.Point(75, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 25);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "电机品牌：";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(218, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 25);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "型号：";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBox_model
+            // 
+            this.comboBox_model.Enabled = false;
+            this.comboBox_model.FormattingEnabled = true;
+            this.comboBox_model.Location = new System.Drawing.Point(273, 3);
+            this.comboBox_model.Name = "comboBox_model";
+            this.comboBox_model.Size = new System.Drawing.Size(91, 20);
+            this.comboBox_model.TabIndex = 4;
+            this.comboBox_model.SelectedIndexChanged += new System.EventHandler(this.comboBox_model_SelectedIndexChanged);
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 5;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.99029F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.79292F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.07357F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.53133F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel5.Controls.Add(this.checkBox_Modbus_RTU, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.checkBox_COM, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(76, 151);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(367, 27);
+            this.tableLayoutPanel5.TabIndex = 7;
+            // 
+            // checkBox_Modbus_RTU
+            // 
+            this.checkBox_Modbus_RTU.AutoSize = true;
+            this.checkBox_Modbus_RTU.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_Modbus_RTU.Enabled = false;
+            this.checkBox_Modbus_RTU.Location = new System.Drawing.Point(65, 3);
+            this.checkBox_Modbus_RTU.Name = "checkBox_Modbus_RTU";
+            this.checkBox_Modbus_RTU.Size = new System.Drawing.Size(84, 21);
+            this.checkBox_Modbus_RTU.TabIndex = 5;
+            this.checkBox_Modbus_RTU.Text = "Modbus-RTU";
+            this.checkBox_Modbus_RTU.UseVisualStyleBackColor = true;
+            this.checkBox_Modbus_RTU.CheckedChanged += new System.EventHandler(this.checkBox_RS232_CheckedChanged);
+            // 
+            // checkBox_COM
+            // 
+            this.checkBox_COM.AutoSize = true;
+            this.checkBox_COM.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_COM.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox_COM.Location = new System.Drawing.Point(3, 3);
+            this.checkBox_COM.Name = "checkBox_COM";
+            this.checkBox_COM.Size = new System.Drawing.Size(50, 21);
+            this.checkBox_COM.TabIndex = 1;
+            this.checkBox_COM.Text = "串口";
+            this.checkBox_COM.UseVisualStyleBackColor = true;
+            this.checkBox_COM.CheckedChanged += new System.EventHandler(this.checkBox_COM_CheckedChanged);
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 5;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.07357F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.52861F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.61853F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.52588F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.70845F));
+            this.tableLayoutPanel6.Controls.Add(this.checkBox_WENYU16, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.checkBox_IO, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.checkBox_WENYU8, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.checkBox_WENYU232, 3, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(76, 185);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(367, 28);
+            this.tableLayoutPanel6.TabIndex = 8;
+            // 
+            // checkBox_WENYU16
+            // 
+            this.checkBox_WENYU16.AutoSize = true;
+            this.checkBox_WENYU16.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_WENYU16.Enabled = false;
+            this.checkBox_WENYU16.Location = new System.Drawing.Point(141, 3);
+            this.checkBox_WENYU16.Name = "checkBox_WENYU16";
+            this.checkBox_WENYU16.Size = new System.Drawing.Size(66, 22);
+            this.checkBox_WENYU16.TabIndex = 2;
+            this.checkBox_WENYU16.Text = "WENYU16";
+            this.checkBox_WENYU16.UseVisualStyleBackColor = true;
+            this.checkBox_WENYU16.CheckedChanged += new System.EventHandler(this.checkBox_WENYU16_CheckedChanged);
+            // 
+            // checkBox_IO
+            // 
+            this.checkBox_IO.AutoSize = true;
+            this.checkBox_IO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_IO.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox_IO.Location = new System.Drawing.Point(3, 3);
+            this.checkBox_IO.Name = "checkBox_IO";
+            this.checkBox_IO.Size = new System.Drawing.Size(64, 22);
+            this.checkBox_IO.TabIndex = 0;
+            this.checkBox_IO.Text = "IO板卡";
+            this.checkBox_IO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox_IO.UseVisualStyleBackColor = true;
+            this.checkBox_IO.CheckedChanged += new System.EventHandler(this.checkBox_IO_CheckedChanged);
+            // 
+            // checkBox_WENYU8
+            // 
+            this.checkBox_WENYU8.AutoSize = true;
+            this.checkBox_WENYU8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_WENYU8.Enabled = false;
+            this.checkBox_WENYU8.Location = new System.Drawing.Point(73, 3);
+            this.checkBox_WENYU8.Name = "checkBox_WENYU8";
+            this.checkBox_WENYU8.Size = new System.Drawing.Size(60, 22);
+            this.checkBox_WENYU8.TabIndex = 1;
+            this.checkBox_WENYU8.Text = "WENYU8";
+            this.checkBox_WENYU8.UseVisualStyleBackColor = true;
+            this.checkBox_WENYU8.CheckedChanged += new System.EventHandler(this.checkBox_WENYU_CheckedChanged);
+            // 
+            // checkBox_WENYU232
+            // 
+            this.checkBox_WENYU232.AutoSize = true;
+            this.checkBox_WENYU232.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBox_WENYU232.Location = new System.Drawing.Point(213, 3);
+            this.checkBox_WENYU232.Name = "checkBox_WENYU232";
+            this.checkBox_WENYU232.Size = new System.Drawing.Size(73, 22);
+            this.checkBox_WENYU232.TabIndex = 3;
+            this.checkBox_WENYU232.Text = "WENYU232";
+            this.checkBox_WENYU232.UseVisualStyleBackColor = true;
+            this.checkBox_WENYU232.CheckedChanged += new System.EventHandler(this.checkBox_WENYU232_CheckedChanged);
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.97636F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.02364F));
+            this.tableLayoutPanel8.Controls.Add(this.but_saveName, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.textBox1, 0, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(76, 306);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(367, 56);
+            this.tableLayoutPanel8.TabIndex = 15;
+            // 
+            // but_saveName
+            // 
+            this.but_saveName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.but_saveName.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.but_saveName.Location = new System.Drawing.Point(259, 3);
+            this.but_saveName.Name = "but_saveName";
+            this.but_saveName.Size = new System.Drawing.Size(105, 50);
+            this.but_saveName.TabIndex = 15;
+            this.but_saveName.Text = "修改并保存";
+            this.but_saveName.UseVisualStyleBackColor = true;
+            this.but_saveName.Click += new System.EventHandler(this.but_saveName_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Location = new System.Drawing.Point(3, 3);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(250, 50);
+            this.textBox1.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.ForeColor = System.Drawing.Color.Navy;
+            this.label7.Location = new System.Drawing.Point(4, 303);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 62);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "公司名称";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 4;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.88828F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.703F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel9.Controls.Add(this.checkBox_Digit, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.checkBox_Analog, 2, 0);
+            this.tableLayoutPanel9.Controls.Add(this.tLPanel_CH, 1, 0);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(76, 220);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 1;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(367, 79);
+            this.tableLayoutPanel9.TabIndex = 18;
+            // 
+            // checkBox_Digit
+            // 
+            this.checkBox_Digit.AutoSize = true;
+            this.checkBox_Digit.Checked = true;
+            this.checkBox_Digit.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_Digit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_Digit.Location = new System.Drawing.Point(8, 3);
+            this.checkBox_Digit.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
+            this.checkBox_Digit.Name = "checkBox_Digit";
+            this.checkBox_Digit.Size = new System.Drawing.Size(60, 73);
+            this.checkBox_Digit.TabIndex = 2;
+            this.checkBox_Digit.Text = "数字型";
+            this.checkBox_Digit.UseVisualStyleBackColor = true;
+            this.checkBox_Digit.CheckedChanged += new System.EventHandler(this.checkBox_Digit_CheckedChanged);
+            // 
+            // checkBox_Analog
+            // 
+            this.checkBox_Analog.AutoSize = true;
+            this.checkBox_Analog.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_Analog.Location = new System.Drawing.Point(190, 3);
+            this.checkBox_Analog.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
+            this.checkBox_Analog.Name = "checkBox_Analog";
+            this.checkBox_Analog.Size = new System.Drawing.Size(60, 73);
+            this.checkBox_Analog.TabIndex = 1;
+            this.checkBox_Analog.Text = "模拟型";
+            this.checkBox_Analog.UseVisualStyleBackColor = true;
+            this.checkBox_Analog.CheckedChanged += new System.EventHandler(this.checkBox_Analog_CheckedChanged);
+            // 
+            // tLPanel_CH
+            // 
+            this.tLPanel_CH.ColumnCount = 1;
+            this.tLPanel_CH.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tLPanel_CH.Controls.Add(this.checkBox_CH4, 0, 1);
+            this.tLPanel_CH.Controls.Add(this.checkBox_CH6, 0, 2);
+            this.tLPanel_CH.Controls.Add(this.checkBox_CH2, 0, 0);
+            this.tLPanel_CH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tLPanel_CH.Location = new System.Drawing.Point(84, 0);
+            this.tLPanel_CH.Margin = new System.Windows.Forms.Padding(0);
+            this.tLPanel_CH.Name = "tLPanel_CH";
+            this.tLPanel_CH.RowCount = 3;
+            this.tLPanel_CH.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tLPanel_CH.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tLPanel_CH.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tLPanel_CH.Size = new System.Drawing.Size(98, 79);
+            this.tLPanel_CH.TabIndex = 3;
+            // 
+            // checkBox_CH4
+            // 
+            this.checkBox_CH4.AutoSize = true;
+            this.checkBox_CH4.Checked = true;
+            this.checkBox_CH4.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_CH4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_CH4.Location = new System.Drawing.Point(3, 29);
+            this.checkBox_CH4.Name = "checkBox_CH4";
+            this.checkBox_CH4.Size = new System.Drawing.Size(54, 20);
+            this.checkBox_CH4.TabIndex = 0;
+            this.checkBox_CH4.Text = "4通道";
+            this.checkBox_CH4.UseVisualStyleBackColor = true;
+            this.checkBox_CH4.CheckedChanged += new System.EventHandler(this.checkBox_CH4_CheckedChanged);
+            // 
+            // checkBox_CH6
+            // 
+            this.checkBox_CH6.AutoSize = true;
+            this.checkBox_CH6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_CH6.Location = new System.Drawing.Point(3, 55);
+            this.checkBox_CH6.Name = "checkBox_CH6";
+            this.checkBox_CH6.Size = new System.Drawing.Size(54, 21);
+            this.checkBox_CH6.TabIndex = 1;
+            this.checkBox_CH6.Text = "6通道";
+            this.checkBox_CH6.UseVisualStyleBackColor = true;
+            this.checkBox_CH6.CheckedChanged += new System.EventHandler(this.checkBox_CH6_CheckedChanged);
+            // 
+            // checkBox_CH2
+            // 
+            this.checkBox_CH2.AutoSize = true;
+            this.checkBox_CH2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_CH2.Location = new System.Drawing.Point(3, 3);
+            this.checkBox_CH2.Name = "checkBox_CH2";
+            this.checkBox_CH2.Size = new System.Drawing.Size(54, 20);
+            this.checkBox_CH2.TabIndex = 2;
+            this.checkBox_CH2.Text = "2通道";
+            this.checkBox_CH2.UseVisualStyleBackColor = true;
+            this.checkBox_CH2.CheckedChanged += new System.EventHandler(this.checkBox_CH2_CheckedChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.ForeColor = System.Drawing.Color.Navy;
+            this.label8.Location = new System.Drawing.Point(4, 88);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(65, 27);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "相机类型";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.ForeColor = System.Drawing.Color.Navy;
+            this.label6.Location = new System.Drawing.Point(4, 217);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 85);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "光源控制";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 1;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel7, 0, 1);
+            this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel3, 0, 0);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(76, 35);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 2;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(367, 49);
+            this.tableLayoutPanel10.TabIndex = 20;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tableLayoutPanel7.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel7.ColumnCount = 5;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel7.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.comboBox_Cam, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.label10, 2, 0);
+            this.tableLayoutPanel7.Controls.Add(this.numUpD_SubCam, 3, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 24);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(367, 25);
+            this.tableLayoutPanel7.TabIndex = 4;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Location = new System.Drawing.Point(4, 1);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(66, 23);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "相机";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBox_Cam
+            // 
+            this.comboBox_Cam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_Cam.FormattingEnabled = true;
+            this.comboBox_Cam.Location = new System.Drawing.Point(75, 2);
+            this.comboBox_Cam.Margin = new System.Windows.Forms.Padding(1);
+            this.comboBox_Cam.Name = "comboBox_Cam";
+            this.comboBox_Cam.Size = new System.Drawing.Size(70, 20);
+            this.comboBox_Cam.TabIndex = 2;
+            this.comboBox_Cam.SelectedIndexChanged += new System.EventHandler(this.comboBox_Cam_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.Location = new System.Drawing.Point(150, 1);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 23);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "子画面数";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // numUpD_SubCam
+            // 
+            this.numUpD_SubCam.Location = new System.Drawing.Point(221, 2);
+            this.numUpD_SubCam.Margin = new System.Windows.Forms.Padding(1);
+            this.numUpD_SubCam.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numUpD_SubCam.Name = "numUpD_SubCam";
+            this.numUpD_SubCam.Size = new System.Drawing.Size(70, 21);
+            this.numUpD_SubCam.TabIndex = 3;
+            this.numUpD_SubCam.ValueChanged += new System.EventHandler(this.numUpD_SubCam_ValueChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -156,7 +732,8 @@ namespace VisionPlatform
             this.tableLayoutPanel3.Controls.Add(this.checkBox_3Cam, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.checkBox_7Cam, 6, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(76, 35);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -249,489 +826,11 @@ namespace VisionPlatform
             this.checkBox_7Cam.UseVisualStyleBackColor = true;
             this.checkBox_7Cam.CheckedChanged += new System.EventHandler(this.checkBox_7Cam_CheckedChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(4, 1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "相机品牌";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(4, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 30);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "相机数量";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 6;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.Controls.Add(this.checkBox_OtherCam, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.checkBox_DaHua, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.checkBox_HikiVision, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.checkBox_DaHeng, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(76, 4);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(367, 24);
-            this.tableLayoutPanel2.TabIndex = 2;
-            // 
-            // checkBox_OtherCam
-            // 
-            this.checkBox_OtherCam.AutoSize = true;
-            this.checkBox_OtherCam.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_OtherCam.Location = new System.Drawing.Point(186, 3);
-            this.checkBox_OtherCam.Name = "checkBox_OtherCam";
-            this.checkBox_OtherCam.Size = new System.Drawing.Size(48, 18);
-            this.checkBox_OtherCam.TabIndex = 3;
-            this.checkBox_OtherCam.Text = "其他";
-            this.checkBox_OtherCam.UseVisualStyleBackColor = true;
-            this.checkBox_OtherCam.CheckedChanged += new System.EventHandler(this.checkBox_OtherCam_CheckedChanged);
-            // 
-            // checkBox_DaHua
-            // 
-            this.checkBox_DaHua.AutoSize = true;
-            this.checkBox_DaHua.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_DaHua.Location = new System.Drawing.Point(125, 3);
-            this.checkBox_DaHua.Name = "checkBox_DaHua";
-            this.checkBox_DaHua.Size = new System.Drawing.Size(48, 18);
-            this.checkBox_DaHua.TabIndex = 2;
-            this.checkBox_DaHua.Text = "大华";
-            this.checkBox_DaHua.UseVisualStyleBackColor = true;
-            this.checkBox_DaHua.CheckedChanged += new System.EventHandler(this.checkBox_DaHua_CheckedChanged);
-            // 
-            // checkBox_HikiVision
-            // 
-            this.checkBox_HikiVision.AutoSize = true;
-            this.checkBox_HikiVision.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_HikiVision.Location = new System.Drawing.Point(64, 3);
-            this.checkBox_HikiVision.Name = "checkBox_HikiVision";
-            this.checkBox_HikiVision.Size = new System.Drawing.Size(55, 18);
-            this.checkBox_HikiVision.TabIndex = 1;
-            this.checkBox_HikiVision.Text = "海康威视";
-            this.checkBox_HikiVision.UseVisualStyleBackColor = true;
-            this.checkBox_HikiVision.CheckedChanged += new System.EventHandler(this.checkBox_HikiVision_CheckedChanged);
-            // 
-            // checkBox_DaHeng
-            // 
-            this.checkBox_DaHeng.AutoSize = true;
-            this.checkBox_DaHeng.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_DaHeng.Location = new System.Drawing.Point(3, 3);
-            this.checkBox_DaHeng.Name = "checkBox_DaHeng";
-            this.checkBox_DaHeng.Size = new System.Drawing.Size(48, 18);
-            this.checkBox_DaHeng.TabIndex = 0;
-            this.checkBox_DaHeng.Text = "大恒";
-            this.checkBox_DaHeng.UseVisualStyleBackColor = true;
-            this.checkBox_DaHeng.CheckedChanged += new System.EventHandler(this.checkBox_DaHeng_CheckedChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(4, 92);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 30);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "通讯方式";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 5;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.23301F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.84466F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.66019F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
-            this.tableLayoutPanel4.Controls.Add(this.checkBox_IP, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.comboBox_Brand, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label4, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label5, 3, 0);
-            this.tableLayoutPanel4.Controls.Add(this.comboBox_model, 4, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(76, 95);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(367, 24);
-            this.tableLayoutPanel4.TabIndex = 6;
-            // 
-            // checkBox_IP
-            // 
-            this.checkBox_IP.AutoSize = true;
-            this.checkBox_IP.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_IP.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBox_IP.Location = new System.Drawing.Point(3, 3);
-            this.checkBox_IP.Name = "checkBox_IP";
-            this.checkBox_IP.Size = new System.Drawing.Size(50, 18);
-            this.checkBox_IP.TabIndex = 0;
-            this.checkBox_IP.Text = "网口";
-            this.checkBox_IP.UseVisualStyleBackColor = true;
-            this.checkBox_IP.CheckedChanged += new System.EventHandler(this.checkBox_IP_CheckedChanged);
-            // 
-            // comboBox_Brand
-            // 
-            this.comboBox_Brand.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox_Brand.Enabled = false;
-            this.comboBox_Brand.FormattingEnabled = true;
-            this.comboBox_Brand.Items.AddRange(new object[] {
-            "三菱，",
-            "西门子，",
-            "欧姆龙"});
-            this.comboBox_Brand.Location = new System.Drawing.Point(146, 3);
-            this.comboBox_Brand.Name = "comboBox_Brand";
-            this.comboBox_Brand.Size = new System.Drawing.Size(66, 20);
-            this.comboBox_Brand.TabIndex = 1;
-            this.comboBox_Brand.SelectedIndexChanged += new System.EventHandler(this.comboBox_Brand_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(75, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 24);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "电机品牌：";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(218, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 24);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "型号：";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // comboBox_model
-            // 
-            this.comboBox_model.Enabled = false;
-            this.comboBox_model.FormattingEnabled = true;
-            this.comboBox_model.Location = new System.Drawing.Point(273, 3);
-            this.comboBox_model.Name = "comboBox_model";
-            this.comboBox_model.Size = new System.Drawing.Size(91, 20);
-            this.comboBox_model.TabIndex = 4;
-            this.comboBox_model.SelectedIndexChanged += new System.EventHandler(this.comboBox_model_SelectedIndexChanged);
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 5;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.99029F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.79292F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.07357F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.53133F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.Controls.Add(this.checkBox_Modbus_RTU, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.checkBox_COM, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(76, 126);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(367, 24);
-            this.tableLayoutPanel5.TabIndex = 7;
-            // 
-            // checkBox_Modbus_RTU
-            // 
-            this.checkBox_Modbus_RTU.AutoSize = true;
-            this.checkBox_Modbus_RTU.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_Modbus_RTU.Enabled = false;
-            this.checkBox_Modbus_RTU.Location = new System.Drawing.Point(65, 3);
-            this.checkBox_Modbus_RTU.Name = "checkBox_Modbus_RTU";
-            this.checkBox_Modbus_RTU.Size = new System.Drawing.Size(84, 18);
-            this.checkBox_Modbus_RTU.TabIndex = 5;
-            this.checkBox_Modbus_RTU.Text = "Modbus-RTU";
-            this.checkBox_Modbus_RTU.UseVisualStyleBackColor = true;
-            this.checkBox_Modbus_RTU.CheckedChanged += new System.EventHandler(this.checkBox_RS232_CheckedChanged);
-            // 
-            // checkBox_COM
-            // 
-            this.checkBox_COM.AutoSize = true;
-            this.checkBox_COM.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_COM.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBox_COM.Location = new System.Drawing.Point(3, 3);
-            this.checkBox_COM.Name = "checkBox_COM";
-            this.checkBox_COM.Size = new System.Drawing.Size(50, 18);
-            this.checkBox_COM.TabIndex = 1;
-            this.checkBox_COM.Text = "串口";
-            this.checkBox_COM.UseVisualStyleBackColor = true;
-            this.checkBox_COM.CheckedChanged += new System.EventHandler(this.checkBox_COM_CheckedChanged);
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 5;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.07357F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.52861F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.61853F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.52588F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.70845F));
-            this.tableLayoutPanel6.Controls.Add(this.checkBox_WENYU16, 2, 0);
-            this.tableLayoutPanel6.Controls.Add(this.checkBox_IO, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.checkBox_WENYU8, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.checkBox_WENYU232, 3, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(76, 157);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(367, 32);
-            this.tableLayoutPanel6.TabIndex = 8;
-            // 
-            // checkBox_WENYU16
-            // 
-            this.checkBox_WENYU16.AutoSize = true;
-            this.checkBox_WENYU16.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_WENYU16.Enabled = false;
-            this.checkBox_WENYU16.Location = new System.Drawing.Point(141, 3);
-            this.checkBox_WENYU16.Name = "checkBox_WENYU16";
-            this.checkBox_WENYU16.Size = new System.Drawing.Size(66, 26);
-            this.checkBox_WENYU16.TabIndex = 2;
-            this.checkBox_WENYU16.Text = "WENYU16";
-            this.checkBox_WENYU16.UseVisualStyleBackColor = true;
-            this.checkBox_WENYU16.CheckedChanged += new System.EventHandler(this.checkBox_WENYU16_CheckedChanged);
-            // 
-            // checkBox_IO
-            // 
-            this.checkBox_IO.AutoSize = true;
-            this.checkBox_IO.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_IO.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBox_IO.Location = new System.Drawing.Point(3, 3);
-            this.checkBox_IO.Name = "checkBox_IO";
-            this.checkBox_IO.Size = new System.Drawing.Size(64, 26);
-            this.checkBox_IO.TabIndex = 0;
-            this.checkBox_IO.Text = "IO板卡";
-            this.checkBox_IO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox_IO.UseVisualStyleBackColor = true;
-            this.checkBox_IO.CheckedChanged += new System.EventHandler(this.checkBox_IO_CheckedChanged);
-            // 
-            // checkBox_WENYU8
-            // 
-            this.checkBox_WENYU8.AutoSize = true;
-            this.checkBox_WENYU8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_WENYU8.Enabled = false;
-            this.checkBox_WENYU8.Location = new System.Drawing.Point(73, 3);
-            this.checkBox_WENYU8.Name = "checkBox_WENYU8";
-            this.checkBox_WENYU8.Size = new System.Drawing.Size(60, 26);
-            this.checkBox_WENYU8.TabIndex = 1;
-            this.checkBox_WENYU8.Text = "WENYU8";
-            this.checkBox_WENYU8.UseVisualStyleBackColor = true;
-            this.checkBox_WENYU8.CheckedChanged += new System.EventHandler(this.checkBox_WENYU_CheckedChanged);
-            // 
-            // checkBox_WENYU232
-            // 
-            this.checkBox_WENYU232.AutoSize = true;
-            this.checkBox_WENYU232.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox_WENYU232.Location = new System.Drawing.Point(213, 3);
-            this.checkBox_WENYU232.Name = "checkBox_WENYU232";
-            this.checkBox_WENYU232.Size = new System.Drawing.Size(73, 26);
-            this.checkBox_WENYU232.TabIndex = 3;
-            this.checkBox_WENYU232.Text = "WENYU232";
-            this.checkBox_WENYU232.UseVisualStyleBackColor = true;
-            this.checkBox_WENYU232.CheckedChanged += new System.EventHandler(this.checkBox_WENYU232_CheckedChanged);
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.ColumnCount = 2;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.97636F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.02364F));
-            this.tableLayoutPanel8.Controls.Add(this.but_saveName, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.textBox1, 0, 0);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(76, 275);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 1;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(367, 40);
-            this.tableLayoutPanel8.TabIndex = 15;
-            // 
-            // but_saveName
-            // 
-            this.but_saveName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.but_saveName.Location = new System.Drawing.Point(259, 3);
-            this.but_saveName.Name = "but_saveName";
-            this.but_saveName.Size = new System.Drawing.Size(105, 34);
-            this.but_saveName.TabIndex = 15;
-            this.but_saveName.Text = "修改并保存";
-            this.but_saveName.UseVisualStyleBackColor = true;
-            this.but_saveName.Click += new System.EventHandler(this.but_saveName_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(3, 3);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 34);
-            this.textBox1.TabIndex = 14;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.ForeColor = System.Drawing.Color.Navy;
-            this.label7.Location = new System.Drawing.Point(4, 272);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 46);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "公司名称";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 4;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.88828F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.703F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel9.Controls.Add(this.checkBox_Digit, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.checkBox_Analog, 2, 0);
-            this.tableLayoutPanel9.Controls.Add(this.tLPanel_CH, 1, 0);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(76, 196);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 1;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(367, 72);
-            this.tableLayoutPanel9.TabIndex = 18;
-            // 
-            // checkBox_Digit
-            // 
-            this.checkBox_Digit.AutoSize = true;
-            this.checkBox_Digit.Checked = true;
-            this.checkBox_Digit.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_Digit.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_Digit.Location = new System.Drawing.Point(3, 3);
-            this.checkBox_Digit.Name = "checkBox_Digit";
-            this.checkBox_Digit.Size = new System.Drawing.Size(60, 66);
-            this.checkBox_Digit.TabIndex = 2;
-            this.checkBox_Digit.Text = "数字型";
-            this.checkBox_Digit.UseVisualStyleBackColor = true;
-            this.checkBox_Digit.CheckedChanged += new System.EventHandler(this.checkBox_Digit_CheckedChanged);
-            // 
-            // checkBox_Analog
-            // 
-            this.checkBox_Analog.AutoSize = true;
-            this.checkBox_Analog.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_Analog.Location = new System.Drawing.Point(185, 3);
-            this.checkBox_Analog.Name = "checkBox_Analog";
-            this.checkBox_Analog.Size = new System.Drawing.Size(60, 66);
-            this.checkBox_Analog.TabIndex = 1;
-            this.checkBox_Analog.Text = "模拟型";
-            this.checkBox_Analog.UseVisualStyleBackColor = true;
-            this.checkBox_Analog.CheckedChanged += new System.EventHandler(this.checkBox_Analog_CheckedChanged);
-            // 
-            // tLPanel_CH
-            // 
-            this.tLPanel_CH.ColumnCount = 1;
-            this.tLPanel_CH.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tLPanel_CH.Controls.Add(this.checkBox_CH4, 0, 1);
-            this.tLPanel_CH.Controls.Add(this.checkBox_CH6, 0, 2);
-            this.tLPanel_CH.Controls.Add(this.checkBox_CH2, 0, 0);
-            this.tLPanel_CH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tLPanel_CH.Location = new System.Drawing.Point(87, 3);
-            this.tLPanel_CH.Name = "tLPanel_CH";
-            this.tLPanel_CH.RowCount = 3;
-            this.tLPanel_CH.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tLPanel_CH.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tLPanel_CH.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tLPanel_CH.Size = new System.Drawing.Size(92, 66);
-            this.tLPanel_CH.TabIndex = 3;
-            // 
-            // checkBox_CH4
-            // 
-            this.checkBox_CH4.AutoSize = true;
-            this.checkBox_CH4.Checked = true;
-            this.checkBox_CH4.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_CH4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_CH4.Location = new System.Drawing.Point(3, 25);
-            this.checkBox_CH4.Name = "checkBox_CH4";
-            this.checkBox_CH4.Size = new System.Drawing.Size(54, 16);
-            this.checkBox_CH4.TabIndex = 0;
-            this.checkBox_CH4.Text = "4通道";
-            this.checkBox_CH4.UseVisualStyleBackColor = true;
-            this.checkBox_CH4.CheckedChanged += new System.EventHandler(this.checkBox_CH4_CheckedChanged);
-            // 
-            // checkBox_CH6
-            // 
-            this.checkBox_CH6.AutoSize = true;
-            this.checkBox_CH6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_CH6.Location = new System.Drawing.Point(3, 47);
-            this.checkBox_CH6.Name = "checkBox_CH6";
-            this.checkBox_CH6.Size = new System.Drawing.Size(54, 16);
-            this.checkBox_CH6.TabIndex = 1;
-            this.checkBox_CH6.Text = "6通道";
-            this.checkBox_CH6.UseVisualStyleBackColor = true;
-            this.checkBox_CH6.CheckedChanged += new System.EventHandler(this.checkBox_CH6_CheckedChanged);
-            // 
-            // checkBox_CH2
-            // 
-            this.checkBox_CH2.AutoSize = true;
-            this.checkBox_CH2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_CH2.Location = new System.Drawing.Point(3, 3);
-            this.checkBox_CH2.Name = "checkBox_CH2";
-            this.checkBox_CH2.Size = new System.Drawing.Size(54, 16);
-            this.checkBox_CH2.TabIndex = 2;
-            this.checkBox_CH2.Text = "2通道";
-            this.checkBox_CH2.UseVisualStyleBackColor = true;
-            this.checkBox_CH2.CheckedChanged += new System.EventHandler(this.checkBox_CH2_CheckedChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.ForeColor = System.Drawing.Color.Navy;
-            this.label8.Location = new System.Drawing.Point(4, 63);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 28);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "相机类型";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.ForeColor = System.Drawing.Color.Navy;
-            this.label6.Location = new System.Drawing.Point(4, 193);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 78);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "光源控制";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // But_Save
             // 
             this.But_Save.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.But_Save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.But_Save.Location = new System.Drawing.Point(0, 354);
+            this.But_Save.Location = new System.Drawing.Point(0, 409);
             this.But_Save.Name = "But_Save";
             this.But_Save.Size = new System.Drawing.Size(447, 40);
             this.But_Save.TabIndex = 4;
@@ -743,7 +842,7 @@ namespace VisionPlatform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 394);
+            this.ClientSize = new System.Drawing.Size(447, 449);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.But_Save);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -754,8 +853,6 @@ namespace VisionPlatform
             this.Load += new System.EventHandler(this.FormUIConfig_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -770,6 +867,12 @@ namespace VisionPlatform
             this.tableLayoutPanel9.PerformLayout();
             this.tLPanel_CH.ResumeLayout(false);
             this.tLPanel_CH.PerformLayout();
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpD_SubCam)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -823,5 +926,11 @@ namespace VisionPlatform
         private System.Windows.Forms.CheckBox checkBox_CH2;
         private System.Windows.Forms.CheckBox checkBox_7Cam;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBox_Cam;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.NumericUpDown numUpD_SubCam;
     }
 }

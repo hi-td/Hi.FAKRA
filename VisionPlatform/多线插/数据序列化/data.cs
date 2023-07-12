@@ -4,6 +4,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using BaseData;
 using HalconDotNet;
 using static VisionPlatform.TMData;
@@ -27,6 +28,11 @@ namespace VisionPlatform
             Defult,
             male,      //公头
             female,    //母头
+        }
+        public struct ShowItems
+        {
+            public FormCamShow form;     //相机显示窗体
+            public Panel panel;          //该窗体对应的panel
         }
 
         [Serializable]
@@ -206,6 +212,15 @@ namespace VisionPlatform
             public int nChannel;
         }
 
+        public struct CamShowParam
+        {
+            public int cam;
+            public int sub_cam;
+            public int nPanel;
+        }
+
+
+        #region 同心度参数
         [Serializable]
         public struct ConcentricityParam
         {
@@ -215,6 +230,10 @@ namespace VisionPlatform
             public FitCircleParam insulationCircle;  //绝缘体圆
             public FemaleCircle femaleCircle;        //母头圆
             public MaleCircle maleCircle;            //公头圆
+            public double dOuterInner;               //外导体-内导体同心度
+            public double dOuterInnerHigh;           //外导体-内导体同心度上限
+            public double dOuterInsulation;          //外导体-绝缘体同心度
+            public double dOuterInsulationHigh;      //外导体-绝缘体同心度上限
         }
 
         [Serializable]
@@ -246,6 +265,9 @@ namespace VisionPlatform
             public Circle outerCircle;
             public Circle innerCircle;
             public Circle insulationCircle;
+            public double dDist1;           //外导体-内导体同心度
+            public double dDist2;           //外导体-绝缘体同心度
         }
+        #endregion
     }
 }

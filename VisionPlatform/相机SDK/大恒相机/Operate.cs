@@ -36,8 +36,8 @@ namespace GxMultiCam
         Function m_myFun = null;
         GxBitmap m_objGxBitmap = null;                ///<图像显示类对象              
         bool m_bIsTrigValid = true;                 // 触发是否有效标志:当一次触发正在执行时，将该标志置为false    
-        Camimage myfun;
-        public Operate(IGXDevice objIGXDevice,Camimage fun)
+        Function myfun;
+        public Operate(IGXDevice objIGXDevice, Function fun)
         {
             m_objIGXDevice = objIGXDevice;
             myfun = fun;

@@ -327,7 +327,7 @@ namespace VisionPlatform
             return true;
         }
 
-        public static void OpenDevice(int nCamID,Camimage fun)
+        public static void OpenDevice(int nCamID, Function fun)
         {
             string strSN = ""; //打开设备用的序列号
             try

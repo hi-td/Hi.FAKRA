@@ -28,8 +28,8 @@ namespace VisionPlatform
         {
             InitializeComponent();
             _InitFun();
-            //UIConfig.RefreshSTATS(tLPanel, out TMFunction.m_ListFormSTATS);
-            //tableLayoutPanel7.Controls.Add(FormMainUI.formImageSave, 1, 0);
+            UIConfig.RefreshSTATS(tLPanel, out TMFunction.m_ListFormSTATS);
+            tableLayoutPanel7.Controls.Add(FormMainUI.formImageSave, 1, 0);
         }
 
         //初始化Function
@@ -38,11 +38,11 @@ namespace VisionPlatform
             #region 相机窗口1初始化
             if (GlobalData.Config._CamConfig.camConfig.Keys.Contains(1))
             {
-                formCamShow1 = new FormCamShow(GlobalData.Config._CamConfig.camConfig[1], 1,"1");
+                formCamShow1 = new FormCamShow(GlobalData.Config._CamConfig.camConfig[1], 1,0);
             }
             else
             {
-                formCamShow1 = new FormCamShow("", 1, "1");
+                formCamShow1 = new FormCamShow("", 1, 0);
             }
             formCamShow1.TopLevel = false;
             formCamShow1.Visible = true;
@@ -93,18 +93,5 @@ namespace VisionPlatform
             StaticFun.Run.Zoom(m_listFun);
         }
 
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-            if (!FormMainUI.bRun)
-            {
-                
-                StaticFun.UIConfig.CreateFormTeachMaster(1, "",1);
-            }
-            else
-            {
-                MessageBox.Show("当前程序正在运行中，请停止检测按钮<运行中>后，再进行其它操作，谢谢配合。", "操作提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-        }
     }
 }

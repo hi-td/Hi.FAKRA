@@ -21,20 +21,20 @@ namespace VisionPlatform
         Function Fun;
         TMFunction TMFun;
         int m_cam;
-        string bh;
-        public FormShowSet(int ncam, string b)
+        int sub_cam;
+        public FormShowSet(int ncam, int sub_cam)
         {
             InitializeComponent();
             m_cam = ncam;
-            bh = b;
-            RefreshFun();
+            this.sub_cam = sub_cam;
+            //RefreshFun();
             checkBox_LeftUp.Checked = true;
         }
 
         private void RefreshFun()
         {
             int camNum = GlobalData.Config._InitConfig.initConfig.CamNum;
-            string a = m_cam.ToString()+bh;
+            //string a = m_cam.ToString()+ bh;
             switch (camNum)
             {
                 case 1:
@@ -42,17 +42,17 @@ namespace VisionPlatform
                     Fun = Show1.formCamShow1.fun;
                     break;
                 case 2:
-                    if (m_cam == 1)
-                    {
-                        TMFun = Show2.formCamShow1.TM_fun;
-                        Fun = Show2.formCamShow1.fun;
-                        break;
-                    }
-                    if (m_cam == 2)
-                    {
-                        TMFun = Show2.formCamShow2.TM_fun;
-                        Fun = Show2.formCamShow2.fun;
-                    }
+                    //if (m_cam == 1)
+                    //{
+                    //    TMFun = Show2.formCamShow1.TM_fun;
+                    //    Fun = Show2.formCamShow1.fun;
+                    //    break;
+                    //}
+                    //if (m_cam == 2)
+                    //{
+                    //    TMFun = Show2.formCamShow2.TM_fun;
+                    //    Fun = Show2.formCamShow2.fun;
+                    //}
                     break;
                 //case 3:
                 //    if (m_cam == 1)
@@ -77,8 +77,8 @@ namespace VisionPlatform
                 //    }
                 //    break;
                 case 7:
-                        TMFun = Show7.formCamShows[a].TM_fun;
-                        Fun = Show7.formCamShows[a].fun;
+                        //TMFun = Show6.formCamShows[a].TM_fun;
+                        //Fun = Show6.formCamShows[a].fun;
                         break;
                 default:
                     break;

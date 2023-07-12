@@ -295,19 +295,122 @@ namespace StaticFun
 
     public class UIConfig
     {
-        public static void CreateFormTeachMaster(int n_cam, string b, int j)
+        public static void CreateFormTeachMaster(int n_cam, int sub_cam)
         {
-            FormTeachMaster teachmaster = new FormTeachMaster(n_cam, b,j);
+            FormTeachMaster teachmaster = new FormTeachMaster(n_cam, sub_cam);
             teachmaster.TopLevel = false;
             teachmaster.Visible = true;
             teachmaster.Dock = DockStyle.Fill;
             FormMainUI.m_PanelShow.Controls.Clear();
             FormMainUI.m_PanelShow.Controls.Add(teachmaster);
         }
-        public static void RefreshFun(int m_ncam, string b, ref Function Fun, ref TMFunction TMFun, ref string str_CamSer)
+
+        public static Dictionary<int, TMData.ShowItems[]> InitShowUI(ContextMenuStrip contextMenuStrip,TableLayoutPanel tableLayoutPanel)
         {
-            int camNum = GlobalData.Config._InitConfig.initConfig.CamNum;
-            string a = m_ncam.ToString() + b;
+            Dictionary<int, TMData.ShowItems[]> dic_formCamShows = new Dictionary<int, ShowItems[]>();
+            try
+            {
+                FormCamShow formCamShow;
+                TMData.ShowItems[] showItems;
+                foreach (int cam in GlobalData.Config._CamConfig.camConfig.Keys)
+                {
+                    string strCamSer = GlobalData.Config._CamConfig.camConfig[cam];
+                    int num = GlobalData.Config._InitConfig.initConfig.dic_SubCam[cam];
+                    formCamShow = new FormCamShow(strCamSer, cam, 0);
+                    formCamShow.TopLevel = false;
+                    formCamShow.Visible = true;
+                    formCamShow.Dock = DockStyle.Fill;
+                    if (0 != num)
+                    {
+                        showItems = new TMData.ShowItems[num + 1];
+                        showItems[0].form = formCamShow;
+                        for (int i = 0; i < num; i++)
+                        {
+                            formCamShow = new FormCamShow(strCamSer, cam, i + 1);
+                            formCamShow.TopLevel = false;
+                            formCamShow.Visible = true;
+                            formCamShow.Dock = DockStyle.Fill;
+                            showItems[i + 1].form = formCamShow;
+                        }
+                        dic_formCamShows.Add(cam, showItems);
+                    }
+                    else
+                    {
+                        dic_formCamShows.Add(cam, new TMData.ShowItems[1] { new TMData.ShowItems() { form = formCamShow } });
+                    }
+                }
+                contextMenuStrip.Items.Clear();
+                foreach (int cam in GlobalData.Config._CamConfig.camConfig.Keys)
+                {
+                    string strCam = "相机" + cam.ToString();
+                    contextMenuStrip.Items.Add(strCam);
+                    int num = GlobalData.Config._InitConfig.initConfig.dic_SubCam[cam];
+                    for (int i = 0; i < num; i++)
+                    {
+                        strCam = "相机" + cam.ToString() + "-" + (i + 1).ToString();
+                        contextMenuStrip.Items.Add(strCam);
+                    }
+                }
+                //若已经配置，则加载已配置好的相机画面
+                RefeshCamShow(tableLayoutPanel, dic_formCamShows);
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            return dic_formCamShows;
+        }
+
+        public static void RefeshCamShow(TableLayoutPanel tableLayoutPanel, Dictionary<int, TMData.ShowItems[]> dic_formCamShows)
+        {
+            //若已经配置，则加载已配置好的相机画面
+            for (int i = 0; i < TMData_Serializer._globalData.listCamShowParam.Count; i++)
+            {
+                CamShowParam camshow = TMData_Serializer._globalData.listCamShowParam[i];
+                foreach (Control panel in tableLayoutPanel.Controls)
+                {
+                    if (panel.Name == "panel" + camshow.nPanel.ToString())
+                    {
+                        panel.Controls.Clear();
+                        panel.Controls.Add(dic_formCamShows[camshow.cam][camshow.sub_cam].form);
+                    }
+                }
+            }
+        }
+        public static CamShowParam ConfigShowItems(object sender, ToolStripItemClickedEventArgs e, ref Dictionary<int, TMData.ShowItems[]> dic_formCamShows)
+        {
+            CamShowParam camshow = new CamShowParam();
+            string strItem = e.ClickedItem.Text;
+            int ncam = int.Parse(strItem.Substring(2, 1));
+            int sub_cam = 0;
+            if (strItem.Length > 3)
+            {
+                sub_cam = int.Parse(strItem.Substring(4, 1));
+            }
+            if (sender is ContextMenuStrip cms)
+            {
+                var panel = (Panel)cms.SourceControl;
+                dic_formCamShows[ncam][sub_cam].panel = panel;
+                panel.Controls.Clear();
+                panel.Controls.Add(dic_formCamShows[ncam][sub_cam].form);
+                camshow.cam = ncam;
+                camshow.sub_cam = sub_cam;
+                camshow.nPanel = int.Parse(panel.Name.Substring(5, 1));
+                TMData_Serializer._globalData.listCamShowParam.Add(camshow);
+            }
+            return camshow;
+        }
+        public static void RefreshFun(int m_ncam, int sub_cam, ref Function Fun, ref TMFunction TMFun, ref string str_CamSer)
+        {
+            int camNum = 0;
+            for (int i = 0; i < GlobalData.Config._InitConfig.initConfig.CamNum; i++)
+            {
+                camNum++;
+                if (GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1] != 0)
+                {
+                    camNum = camNum + GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1];
+                }
+            }
             switch (camNum)
             {
                 case 1:
@@ -316,19 +419,9 @@ namespace StaticFun
                     str_CamSer = Show1.formCamShow1.m_strCamSer;
                     break;
                 case 2:
-                    if (m_ncam == 1)
-                    {
-                        TMFun = Show2.formCamShow1.TM_fun;
-                        Fun = Show2.formCamShow1.fun;
-                        str_CamSer = Show2.formCamShow1.m_strCamSer;
-                        break;
-                    }
-                    if (m_ncam == 2)
-                    {
-                        TMFun = Show2.formCamShow2.TM_fun;
-                        Fun = Show2.formCamShow2.fun;
-                        str_CamSer = Show2.formCamShow2.m_strCamSer;
-                    }
+                    TMFun = Show2.dic_formCamShow[m_ncam][sub_cam].form.TM_fun;
+                    Fun = Show2.dic_formCamShow[m_ncam][sub_cam].form.fun;
+                    str_CamSer = Show2.dic_formCamShow[m_ncam][sub_cam].form.m_strCamSer;
                     break;
                 case 3:
                     if (m_ncam == 1)
@@ -353,9 +446,9 @@ namespace StaticFun
                     }
                     break;
                 case 7:
-                    TMFun = Show7.formCamShows[a].TM_fun;
-                    Fun = Show7.formCamShows[a].fun;
-                    str_CamSer = Show7.formCamShows[a].m_strCamSer;
+                    //TMFun = Show7.formCamShows[a].TM_fun;
+                    //Fun = Show7.formCamShows[a].fun;
+                    //str_CamSer = Show7.formCamShows[a].m_strCamSer;
                     break;
                 default:
                     break;
@@ -455,79 +548,99 @@ namespace StaticFun
             }
         }
 
-        //public static void RefreshRunUI()
-        //{
-        //    try
-        //    {
-        //        int camNum = GlobalData.Config._InitConfig.initConfig.CamNum;
-        //        switch (camNum)
-        //        {
-        //            case 1:
-        //                if (null == FormMainUI.m_Show1) return;
-        //                FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show1);
-        //                FormMainUI.m_Show1.panel1.Controls.Clear();
-        //                FormMainUI.m_Show1.panel1.Controls.Add(Show1.formCamShow1);
-        //                FormMainUI.m_Show1.panel_message.Controls.Clear();
-        //                FormMainUI.m_Show1.panel_message.Controls.Add(FormMainUI.formMessage);
-        //                FormMainUI.m_Show1.Run();
-        //                break;
-        //            case 2:
-        //                if (null == FormMainUI.m_Show2) return;
-        //                FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show2);
-        //                FormMainUI.m_Show2.panel1.Controls.Clear();
-        //                FormMainUI.m_Show2.panel1.Controls.Add(Show2.formCamShow1);
-        //                FormMainUI.m_Show2.panel2.Controls.Clear();
-        //                FormMainUI.m_Show2.panel2.Controls.Add(Show2.formCamShow2);
-        //                FormMainUI.m_Show2.panel_Message.Controls.Clear();
-        //                FormMainUI.m_Show2.panel_Message.Controls.Add(FormMainUI.formMessage);
-        //                FormMainUI.m_Show2.Run();
-        //                break;
-        //            case 3:
-        //                if (null == FormMainUI.m_Show3) return;
-        //                FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show3);
-        //                FormMainUI.m_Show3.panel1.Controls.Clear();
-        //                FormMainUI.m_Show3.panel1.Controls.Add(Show3.formCamShow1);
-        //                FormMainUI.m_Show3.panel2.Controls.Clear();
-        //                FormMainUI.m_Show3.panel2.Controls.Add(Show3.formCamShow2);
-        //                FormMainUI.m_Show3.panel3.Controls.Clear();
-        //                FormMainUI.m_Show3.panel3.Controls.Add(Show3.formCamShow3);
-        //                FormMainUI.m_Show3.panel_Message.Controls.Clear();
-        //                FormMainUI.m_Show3.panel_Message.Controls.Add(FormMainUI.formMessage);
-        //                FormMainUI.m_Show3.Run();
-        //                break;
-        //            case 4:
-        //                if (null == FormMainUI.m_Show4) return;
-        //                FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show4);
-        //                FormMainUI.m_Show4.panel2.Controls.Clear();
-        //                FormMainUI.m_Show4.panel2.Controls.Add(Show4.formCamShow1);
-        //                FormMainUI.m_Show4.panel3.Controls.Clear();
-        //                FormMainUI.m_Show4.panel3.Controls.Add(Show4.formCamShow2);
-        //                FormMainUI.m_Show4.panel5.Controls.Clear();
-        //                FormMainUI.m_Show4.panel5.Controls.Add(Show4.formCamShow3);
-        //                FormMainUI.m_Show4.panel4.Controls.Clear();
-        //                FormMainUI.m_Show4.panel4.Controls.Add(Show4.formCamShow4);
-        //                FormMainUI.m_Show4.panel_message.Controls.Clear();
-        //                FormMainUI.m_Show4.panel_message.Controls.Add(FormMainUI.formMessage);
-        //                Show4.formCamShow1.label_x.Visible = true;
-        //                Show4.formCamShow1.label_d.Visible = true;
-        //                Show4.formCamShow2.label_x.Visible = true;
-        //                Show4.formCamShow2.label_d.Visible = true;
-        //                Show4.formCamShow3.label_x.Visible = true;
-        //                Show4.formCamShow3.label_d.Visible = true;
-        //                Show4.formCamShow4.label_x.Visible = true;
-        //                Show4.formCamShow4.label_d.Visible = true;
-        //                FormMainUI.m_Show4.start();
-        //                break;
-        //            default:
-        //                break;
-        //        }
-        //        //GC.Collect();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ex.ToString();
-        //    }
-        //}
+        public static void RefreshRunUI()
+        {
+            try
+            {
+                //FormMainUI.formShowResult.tabPage1.Parent = FormMainUI.formShowResult.tabControl1;
+                //FormMainUI.formShowResult.tabControl1.SelectedTab = FormMainUI.formShowResult.tabPage1;
+                int camNum = 0;
+                for (int i = 0; i < GlobalData.Config._InitConfig.initConfig.CamNum; i++)
+                {
+                    camNum++;
+                    if (GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1] != 0)
+                    {
+                        camNum = camNum + GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1];
+                    }
+                }
+                switch (camNum)
+                {
+                    case 1:
+                        //FormMainUI.m_Show1.Run();
+                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show1);
+                        FormMainUI.m_Show1.panel1.Controls.Clear();
+                        FormMainUI.m_Show1.panel1.Controls.Add(Show1.formCamShow1);
+                        FormMainUI.m_Show1.splitContainer1.Panel2.Controls.Clear();
+                        FormMainUI.m_Show1.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
+                        FormMainUI.formShowResult.tabPage1.Parent = FormMainUI.formShowResult.tabControl1;
+                        UIConfig.RefreshSTATS(FormMainUI.m_Show1.tLPanel, out TMFunction.m_ListFormSTATS);
+                        break;
+                    case 2:
+                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show2);
+                        foreach (int cam in Show2.dic_formCamShow.Keys)
+                        {
+                            for (int n = 0; n < Show2.dic_formCamShow[cam].Length; n++)
+                            {
+                                TMData.ShowItems showItems = Show2.dic_formCamShow[cam][n];
+                                showItems.panel.Controls.Clear();
+                                showItems.panel.Controls.Add(showItems.form);
+                            }
+                        }
+                        FormMainUI.m_Show2.splitContainer1.Panel2.Controls.Clear();
+                        FormMainUI.m_Show2.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
+                        //UIConfig.RefreshSTATS(FormMainUI.m_Show2.tLPanel, out TMFunction.m_ListFormSTATS);
+                        break;
+                    case 3:
+                        //FormMainUI.m_Show3.Run();
+                        //FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show3);
+                        //FormMainUI.m_Show3.panel1.Controls.Clear();
+                        //FormMainUI.m_Show3.panel1.Controls.Add(Show3.formCamShow1);
+                        //FormMainUI.m_Show3.panel2.Controls.Clear();
+                        //FormMainUI.m_Show3.panel2.Controls.Add(Show3.formCamShow2);
+                        //FormMainUI.m_Show3.panel3.Controls.Clear();
+                        //FormMainUI.m_Show3.panel3.Controls.Add(Show3.formCamShow3);
+                        //FormMainUI.m_Show3.panel_Message.Controls.Clear();
+                        //FormMainUI.m_Show3.panel_Message.Controls.Add(FormMainUI.formMessage);
+                        break;
+                    case 7:
+                        //FormMainUI.m_Show7.Run();
+                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show6);
+                        //FormMainUI.m_Show7.panel1.Controls.Clear();
+                        //FormMainUI.m_Show7.panel1.Controls.Add(Show6.formCamShows["11"]);
+                        //FormMainUI.m_Show7.panel2.Controls.Clear();
+                        //FormMainUI.m_Show7.panel2.Controls.Add(Show6.formCamShows["12"]);
+                        //FormMainUI.m_Show7.panel3.Controls.Clear();
+                        //FormMainUI.m_Show7.panel3.Controls.Add(Show6.formCamShows["13"]);
+                        //FormMainUI.m_Show7.panel4.Controls.Clear();
+                        //FormMainUI.m_Show7.panel4.Controls.Add(Show6.formCamShows["14"]);
+                        //FormMainUI.m_Show7.panel5.Controls.Clear();
+                        //FormMainUI.m_Show7.panel5.Controls.Add(Show6.formCamShows["21"]);
+                        //FormMainUI.m_Show7.panel6.Controls.Clear();
+                        //FormMainUI.m_Show7.panel6.Controls.Add(Show6.formCamShows["31"]);
+                        FormMainUI.m_Show6.panel13.Controls.Clear();
+                        FormMainUI.m_Show6.panel13.Controls.Add(FormMainUI.formShowResult);
+                        //UIConfig.RefreshSTATS(FormMainUI.m_Show7.tLPanel2, out TMFunction.m_ListFormSTATS, 2);
+                        //Show7.formCamShow1.label_x.Visible = true;
+                        //Show7.formCamShow1.label_d.Visible = true;
+                        //Show7.formCamShow2.label_x.Visible = true;
+                        //Show7.formCamShow2.label_d.Visible = true;
+                        //Show7.formCamShow3.label_x.Visible = true;
+                        //Show7.formCamShow3.label_d.Visible = true;
+                        //Show7.formCamShow4.label_x.Visible = true;
+                        //Show7.formCamShow4.label_d.Visible = true;
+
+                        break;
+                    default:
+                        break;
+                }
+                //GC.Collect();
+                //
+            }
+            catch (Exception ex)
+            {
+                MessageFun.ShowMessage(ex.ToString());
+            }
+        }
 
         //public static void RefreshFun(int ncam, out Function fun, out TMFunction tmFun, out string strCamSer)
         //{
