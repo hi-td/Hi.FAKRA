@@ -30,24 +30,24 @@ namespace VisionPlatform
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormImageSave));
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tLPanel = new System.Windows.Forms.TableLayoutPanel();
             this.checkBox_SaveResultImgOK = new System.Windows.Forms.CheckBox();
             this.checkBox_SaveOrgImageOK = new System.Windows.Forms.CheckBox();
             this.checkBox_SaveResultImgNG = new System.Windows.Forms.CheckBox();
             this.checkBox_SaveOrgImageNG = new System.Windows.Forms.CheckBox();
             this.checkBox_ShowData = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.tLPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel3
+            // tLPanel
             // 
-            resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
-            this.tableLayoutPanel3.Controls.Add(this.checkBox_SaveResultImgOK, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.checkBox_SaveOrgImageOK, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.checkBox_SaveResultImgNG, 0, 4);
-            this.tableLayoutPanel3.Controls.Add(this.checkBox_SaveOrgImageNG, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.checkBox_ShowData, 0, 0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            resources.ApplyResources(this.tLPanel, "tLPanel");
+            this.tLPanel.Controls.Add(this.checkBox_SaveResultImgOK, 0, 2);
+            this.tLPanel.Controls.Add(this.checkBox_SaveOrgImageOK, 0, 1);
+            this.tLPanel.Controls.Add(this.checkBox_SaveResultImgNG, 0, 4);
+            this.tLPanel.Controls.Add(this.checkBox_SaveOrgImageNG, 0, 3);
+            this.tLPanel.Controls.Add(this.checkBox_ShowData, 0, 0);
+            this.tLPanel.Name = "tLPanel";
             // 
             // checkBox_SaveResultImgOK
             // 
@@ -88,19 +88,19 @@ namespace VisionPlatform
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel3);
+            this.Controls.Add(this.tLPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormImageSave";
             this.Load += new System.EventHandler(this.FormImageSave_Load);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
+            this.tLPanel.ResumeLayout(false);
+            this.tLPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tLPanel;
         private System.Windows.Forms.CheckBox checkBox_SaveResultImgOK;
         private System.Windows.Forms.CheckBox checkBox_SaveOrgImageOK;
         private System.Windows.Forms.CheckBox checkBox_SaveResultImgNG;

@@ -29,7 +29,7 @@ namespace VisionPlatform
     {
         //private FormPLCCommQ formPLCCommQ = new FormPLCCommQ();
         //IO板卡测试界面
-        
+
         private FormPLCRTU formPLCRTU = new FormPLCRTU();
         public static Login login;
         FormSaveGlobalData formSaveGlobalData;
@@ -39,6 +39,8 @@ namespace VisionPlatform
         public static Show1 m_Show1;
         public static Show2 m_Show2;
         public static Show3 m_Show3;
+        public static Show4 m_Show4;
+        public static Show5 m_Show5;
         public static Show6 m_Show6;
         public static FormShowResult formShowResult = new FormShowResult(); //显示检测结果
         public static FormImageSave formImageSave = new FormImageSave();    //运行状态图像保存
@@ -102,11 +104,11 @@ namespace VisionPlatform
                     GlobalData.Config._InitConfig.initConfig.dic_SubCam = new Dictionary<int, int>();
                     GlobalData.Config._InitConfig.initConfig.dic_SubCam.Add(1, 0);
                 }
-                foreach(int cam in GlobalData.Config._InitConfig.initConfig.dic_SubCam.Keys)
+                foreach (int cam in GlobalData.Config._InitConfig.initConfig.dic_SubCam.Keys)
                 {
                     nCamNum++;
                     int sub = GlobalData.Config._InitConfig.initConfig.dic_SubCam[cam];
-                    if(0!=sub)
+                    if (0 != sub)
                     {
                         nCamNum = nCamNum + sub;
                     }
@@ -140,6 +142,27 @@ namespace VisionPlatform
                     m_Show3.Dock = DockStyle.Fill;
                     this.panel_MainUI.Controls.Clear();
                     this.panel_MainUI.Controls.Add(m_Show3);
+                    formshow = true;
+                }
+                else if (nCamNum == 4)
+                {
+                    m_Show4 = new Show4()
+                    {
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
+                    this.panel_MainUI.Controls.Clear();
+                    this.panel_MainUI.Controls.Add(m_Show4);
+                    formshow = true;
+                }
+                else if (nCamNum == 5)
+                {
+                    m_Show5 = new Show5();
+                    m_Show5.TopLevel = false;
+                    m_Show5.Visible = true;
+                    m_Show5.Dock = DockStyle.Fill;
+                    this.panel_MainUI.Controls.Clear();
+                    this.panel_MainUI.Controls.Add(m_Show5);
                     formshow = true;
                 }
                 else if (nCamNum == 6)
@@ -177,7 +200,7 @@ namespace VisionPlatform
                 formImageSave.Dock = DockStyle.Fill;
                 formImageSave.Visible = true;
                 //是否数字型光源控制器
-                if(GlobalData.Config._InitConfig.initConfig.bDigitLight)
+                if (GlobalData.Config._InitConfig.initConfig.bDigitLight)
                 {
                     toolStripBut_LightControl.Visible = true;
                 }
@@ -258,8 +281,8 @@ namespace VisionPlatform
                 if (GlobalData.Config._InitConfig.initConfig.bDigitLight)
                 {
                     LEDSet.OpenLedcom(TMData_Serializer._COMConfig.Led);
-                    Thread.Sleep(10);       
-                   
+                    Thread.Sleep(10);
+
                     if (!LEDSet.isOpen)
                     {
                         MessageBox.Show("光源控制器链接异常，请检查光源控制器。");
@@ -613,9 +636,9 @@ namespace VisionPlatform
                                 FormSetCom formSetCom = new FormSetCom();
                                 formSetCom.ShowDialog();
                             }
-                            
+
                         }
-                        
+
                     }
                     else if (GlobalData.Config._InitConfig.initConfig.comMode.TYPE == EnumData.COMType.NET)
                     {
@@ -836,13 +859,13 @@ namespace VisionPlatform
         {
             try
             {
-                if(null == formContactUs || !formContactUs.Created || formContactUs.IsDisposed)
+                if (null == formContactUs || !formContactUs.Created || formContactUs.IsDisposed)
                 {
                     formContactUs = new FormContactUs();
                 }
                 formContactUs.Show();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ex.ToString();
             }
@@ -858,7 +881,7 @@ namespace VisionPlatform
                 }
                 formOperateInstruct.Show();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ex.ToString();
             }
