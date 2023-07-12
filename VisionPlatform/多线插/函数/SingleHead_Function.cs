@@ -2123,6 +2123,75 @@ namespace VisionPlatform
             return circle;
         }
         #endregion
+        #region 端子检测
+        //shap_xld创建模板
+        public bool CreateModel(out int model_ID, out LocateOutParams outParam)
+        {
+            model_ID = -1;
+            outParam = new LocateOutParams();
+
+            try
+            {
+                if (null == Fun.m_hWnd || null == Fun.m_hImage) return false;
+                LocateInParams inData = new LocateInParams();
+                inData.modelType = ModelType.contour;
+                inData.dAngleStart = -45;
+                inData.dAngleEnd = 90;
+                inData.bScale = false;
+                if (!Fun.CreateXldModel(inData, out model_ID, out LocateOutParams listOutData))
+                {
+                    return false;
+                }
+                outParam = listOutData;
+                HOperatorSet.GenCrossContourXld(out HObject ho_Cross, outParam.dModelRow, outParam.dModelCol, 40, outParam.dModelAngle);
+                Fun.DispRegion(ho_Cross, "red");
+                ho_Cross?.Dispose();
+                return true;
+
+            }
+            catch (HalconException ex)
+            {
+                MessageBox.Show("模板创建失败！" + ex.ToString(), "Failed to create the model." + ex.ToString());
+                Fun.ClearObjShow();
+                return false;
+            }
+
+        }
+        public void GetTMregion(TMLocateParam param)
+        {
+            HObject ho_RegionROI = null, ho_ImageReduced = null, ho_Region = null, ho_SelRegion = null;
+            HOperatorSet.GenEmptyObj(out ho_RegionROI);
+            HOperatorSet.GenEmptyObj(out ho_ImageReduced);
+            HOperatorSet.GenEmptyObj(out ho_Region);
+            HOperatorSet.GenEmptyObj(out ho_SelRegion);
+            try
+            {
+
+                HOperatorSet.Threshold(Fun.m_GrayImage, out ho_Region, 0, param.nThd);
+                ho_SelRegion.Dispose();
+                HOperatorSet.FillUp(ho_Region, out ho_SelRegion);
+                ho_RegionROI.Dispose();
+                HOperatorSet.Connection(ho_SelRegion, out ho_RegionROI);
+                ho_ImageReduced.Dispose();
+                HOperatorSet.SelectShape(ho_RegionROI, out ho_ImageReduced, "area",
+       "and", param.nminArea, 1000000);
+                Fun.m_hWnd.SetDraw("fill");
+                Fun.m_hWnd.DispObj(ho_ImageReduced);
+            }
+            catch (Exception ex)
+            {
+                MessageFun.ShowMessage("GetTMregion()" + ex.ToString());
+            }
+            finally
+            {
+                ho_RegionROI?.Dispose();
+                ho_ImageReduced.Dispose();
+                ho_Region?.Dispose();
+                ho_SelRegion?.Dispose();
+            }
+
+        }
+        #endregion
     }
 
 }

@@ -204,13 +204,17 @@ namespace VisionPlatform
                             }
                             if (GlobalData.Config._InitConfig.initConfig.bDigitLight)
                             {
-                                //将所有光源通道亮度值设置为0
-                                for(int ch= 1;ch <= GlobalData.Config._InitConfig.initConfig.nLightCH; ch++)
+                                if (LEDSet.isOpen)
                                 {
-                                    LEDSet.SetBrightness(ch, 0);
+                                    //将所有光源通道亮度值设置为0
+                                    for (int ch = 1; ch <= GlobalData.Config._InitConfig.initConfig.nLightCH; ch++)
+                                    {
+                                        LEDSet.SetBrightness(ch, 0);
+                                    }
+                                    //关闭光源控制器串口
+                                    LEDSet.CloseLED();
                                 }
-                                //关闭光源控制器串口
-                                LEDSet.CloseLED();
+
                             }
                             CamCommon.CloseAllCam();
                             Process.GetCurrentProcess().Kill();

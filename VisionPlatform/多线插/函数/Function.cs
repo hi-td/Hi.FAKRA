@@ -392,7 +392,7 @@ namespace VisionPlatform
                     //m_nLastDraw = -1;
                     m_lastDraw = ObjDraw.empty;
                     HOperatorSet.ClearWindow(m_hWnd);
-                    if(null != m_hImage)
+                    if (null != m_hImage)
                         m_hWnd.DispObj(m_hImage);
                 });
                 task.Wait();
@@ -1641,8 +1641,8 @@ namespace VisionPlatform
 
                 //显示
                 m_hWnd.DispObj(m_hImage);
-                
-                DispRegion(ho_Cross,"blue");
+
+                DispRegion(ho_Cross, "blue");
                 //DispRegion(ho_Contours, "green");
                 DispRegion(ho_ContRect, "green");
                 m_hWnd.SetLineWidth(3);
@@ -4087,6 +4087,80 @@ namespace VisionPlatform
                 if (null != ho_cross) ho_cross.Dispose();
             }
         }
+        public bool CreateXldModel(LocateInParams inParam, out int nModelID, out LocateOutParams listOutData)
+        {
+            listOutData = new LocateOutParams();
+            nModelID = -1;
+            HTuple hv_ModelID = new HTuple();
+            HTuple hv_Row = new HTuple(), hv_Column = new HTuple(), hv_Angle = new HTuple(), hv_Score = new HTuple();
+
+            HObject ho_RegionROI = null, ho_ImageReduced = null, ho_Region = null, ho_SelRegion = null;
+            HObject ho_RegionSelect1 = null, ho_RegionSelect = null, ho_ModelCont = null;
+
+            HOperatorSet.GenEmptyObj(out ho_RegionROI);
+            HOperatorSet.GenEmptyObj(out ho_ImageReduced);
+            HOperatorSet.GenEmptyObj(out ho_Region);
+            HOperatorSet.GenEmptyObj(out ho_SelRegion);
+            HOperatorSet.GenEmptyObj(out ho_RegionSelect1);
+            HOperatorSet.GenEmptyObj(out ho_RegionSelect);
+            HOperatorSet.GenEmptyObj(out ho_ModelCont);
+            try
+            {
+                ho_RegionROI.Dispose();
+                ho_RegionROI = GetLastDrawObj(m_lastDraw);
+                ho_Region.Dispose();
+                HOperatorSet.Threshold(m_GrayImage, out ho_Region, 0, 200);
+                ho_SelRegion.Dispose();
+                HOperatorSet.FillUp(ho_Region,out ho_SelRegion);
+                ho_RegionSelect.Dispose();
+                HOperatorSet.Connection(ho_SelRegion,out ho_RegionSelect);
+                ho_RegionSelect1.Dispose();
+                HOperatorSet.SelectShape(ho_RegionSelect, out ho_RegionSelect1, "area",
+       "and", 100, 50000);
+                ho_ImageReduced.Dispose();
+                HOperatorSet.ReduceDomain(ho_RegionSelect1, ho_RegionROI, out ho_ImageReduced);
+                ho_ModelCont.Dispose();
+                HOperatorSet.GenContourRegionXld(ho_ImageReduced, out ho_ModelCont, "border");
+
+
+                HOperatorSet.CreateShapeModelXld(ho_ModelCont, 5, inParam.dAngleStart, inParam.dAngleEnd, "auto", "auto", "ignore_local_polarity", 5, out hv_ModelID);
+                HOperatorSet.FindShapeModel(m_hImage, hv_ModelID, new HTuple(inParam.dAngleStart).TupleRad(), new HTuple(inParam.dAngleEnd).TupleRad(), 0.5, 1, 0.5,
+                                            "least_squares", 0, 0.9, out hv_Row, out hv_Column, out hv_Angle, out hv_Score);
+                if (0 == hv_Row.TupleLength())
+                {
+                    MessageBox.Show("轮廓模板创建失败！");
+                    return false;
+                }
+                else
+                {
+
+                    m_hWnd.DispObj(ho_ModelCont);
+                    HOperatorSet.DispCross(m_hWnd, hv_Row, hv_Column, 20, hv_Angle);
+                    listOutData.dModelRow = hv_Row.D;
+                    listOutData.dModelCol = hv_Column.D;
+                    listOutData.dModelAngle = hv_Angle.TupleDeg();
+                    listOutData.dScore = hv_Score.D;
+                    nModelID = hv_ModelID.I;
+                    return true;
+                }
+            }
+            catch (HalconException ex)
+            {
+                MessageBox.Show("轮廓模板创建失败。" + ex.ToString());
+                return false;
+            }
+            finally
+            {
+                ho_RegionROI?.Dispose();
+                ho_ImageReduced.Dispose();
+                ho_Region?.Dispose();
+                ho_SelRegion?.Dispose();
+                ho_RegionSelect1?.Dispose();
+                ho_RegionSelect?.Dispose();
+                ho_ModelCont?.Dispose();
+            }
+
+        }
         //模板匹配
         public bool FindModel(int nModelID, LocateInParams inParam, out List<LocateOutParams> listOutData)
         {
@@ -4104,25 +4178,15 @@ namespace VisionPlatform
 
             try
             {
-                double dScore = 0.95;
-                while (dScore >= inParam.dScore)
+                if (inParam.modelType == ModelType.contour || inParam.modelType == ModelType.region)
                 {
-                    if (inParam.modelType == ModelType.contour || inParam.modelType == ModelType.region)
-                    {
-                        HOperatorSet.FindShapeModel(m_hImage, nModelID, new HTuple(inParam.dAngleStart).TupleRad(), new HTuple(inParam.dAngleEnd).TupleRad(), dScore, 1, 0.5,
-                                                   "least_squares", 0, 0.9, out hv_Row, out hv_Column, out hv_Angle, out hv_Score);
-                    }
-                    else
-                    {
-                        HOperatorSet.FindNccModel(m_hImage, nModelID, new HTuple(inParam.dAngleStart).TupleRad(), new HTuple(inParam.dAngleEnd).TupleRad(), dScore, 0, 0.5, "true", 0,
-                                                  out hv_Row, out hv_Column, out hv_Angle, out hv_Score);
-                    }
-
-                    if (0 != hv_Row.TupleLength())
-                    {
-                        break;
-                    }
-                    dScore = dScore - 0.05;
+                    HOperatorSet.FindShapeModel(m_hImage, nModelID, new HTuple(inParam.dAngleStart).TupleRad(), new HTuple(inParam.dAngleEnd).TupleRad(), 0.5, 1, 0.5,
+                                               "least_squares", 0, 0.9, out hv_Row, out hv_Column, out hv_Angle, out hv_Score);
+                }
+                else
+                {
+                    HOperatorSet.FindNccModel(m_hImage, nModelID, new HTuple(inParam.dAngleStart).TupleRad(), new HTuple(inParam.dAngleEnd).TupleRad(), 0.5, 0, 0.5, "true", 0,
+                                              out hv_Row, out hv_Column, out hv_Angle, out hv_Score);
                 }
                 if (0 == hv_Row.TupleLength())
                 {
@@ -4156,13 +4220,6 @@ namespace VisionPlatform
                     m_hWnd.DispObj(ho_cross);
                     listOutData.Add(outData);
                 }
-
-                ////显示
-                //m_hWnd.DispCross(hv_Row.D, hv_Column.D, 60, hv_Angle.D);
-                //outParam.dModelRow = hv_Row.D;
-                //outParam.dModelCol = hv_Column.D;
-                //outParam.dModelAngle = hv_Angle.D;
-                //outParam.dScore = hv_Score.D;
                 return true;
             }
             catch (HalconException ex)

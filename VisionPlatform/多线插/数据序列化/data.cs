@@ -92,13 +92,17 @@ namespace VisionPlatform
         [Serializable]
         public struct FakraParam
         {
-            public int nTMNum;                      //单个胶壳内端子数量
-            public ROIParam roi;                    //胶壳检测框
-            public int nMethod;                     //检测方法
+            public TMLocateParam tMLocateParam;
 
         }
-
-
+        #region 端子匹配参数
+        public struct TMLocateParam
+        {
+            public double nminscore;              //最小分数
+            public int nThd;               //端子亮度：静态阈值
+            public int nminArea;           //端子筛选最小面积
+        }
+        #endregion
         public struct RubberResult
         {
 
@@ -111,8 +115,8 @@ namespace VisionPlatform
             public List<Rect2> listRubberRect2;     //定位框
         }
 
-        #endregion
 
+        #endregion
         [Serializable]
         public struct ROIParam
         {
