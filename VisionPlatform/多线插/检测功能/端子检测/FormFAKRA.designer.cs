@@ -271,9 +271,9 @@ namespace VisionPlatform
             this.tabPage_SkinWeld = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.trackBar_Locatethd = new System.Windows.Forms.TrackBar();
             this.trackBar_LocateminArea = new System.Windows.Forms.TrackBar();
             this.numericUpDown_LocateminArea = new System.Windows.Forms.NumericUpDown();
-            this.trackBar_Locatethd = new System.Windows.Forms.TrackBar();
             this.numericUpDown_Locatethd = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -400,9 +400,9 @@ namespace VisionPlatform
             this.tabPage_SkinWeld.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Locatethd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_LocateminArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_LocateminArea)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Locatethd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Locatethd)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_LocateScore)).BeginInit();
@@ -2587,6 +2587,14 @@ namespace VisionPlatform
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
+            // trackBar_Locatethd
+            // 
+            resources.ApplyResources(this.trackBar_Locatethd, "trackBar_Locatethd");
+            this.trackBar_Locatethd.Maximum = 255;
+            this.trackBar_Locatethd.Name = "trackBar_Locatethd";
+            this.trackBar_Locatethd.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar_Locatethd.Scroll += new System.EventHandler(this.trackBar_Locatethd_Scroll);
+            // 
             // trackBar_LocateminArea
             // 
             resources.ApplyResources(this.trackBar_LocateminArea, "trackBar_LocateminArea");
@@ -2605,14 +2613,6 @@ namespace VisionPlatform
             0});
             this.numericUpDown_LocateminArea.Name = "numericUpDown_LocateminArea";
             this.numericUpDown_LocateminArea.ValueChanged += new System.EventHandler(this.numericUpDown_LocateminArea_ValueChanged);
-            // 
-            // trackBar_Locatethd
-            // 
-            resources.ApplyResources(this.trackBar_Locatethd, "trackBar_Locatethd");
-            this.trackBar_Locatethd.Maximum = 255;
-            this.trackBar_Locatethd.Name = "trackBar_Locatethd";
-            this.trackBar_Locatethd.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBar_Locatethd.Scroll += new System.EventHandler(this.trackBar_Locatethd_Scroll);
             // 
             // numericUpDown_Locatethd
             // 
@@ -2859,9 +2859,9 @@ namespace VisionPlatform
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Locatethd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_LocateminArea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_LocateminArea)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Locatethd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Locatethd)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();

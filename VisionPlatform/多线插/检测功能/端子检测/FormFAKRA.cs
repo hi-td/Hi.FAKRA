@@ -1790,14 +1790,6 @@ namespace VisionPlatform
                 //最低匹配分数
                 param.nminscore = (int)numericUpDown_LocateScore.Value;
                 //亮度取值
-                if (checkBox_Locatethd0.Checked)
-                {
-                    param.Thd0_255 = true;
-                }
-                else
-                {
-                    param.Thd0_255 = false;
-                }
             }
             catch (Exception ex)
             {
