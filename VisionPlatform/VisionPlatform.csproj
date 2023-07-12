@@ -154,10 +154,16 @@
     <Compile Include="Auxiliary\Invoke.cs" />
     <Compile Include="Auxiliary\Logging.cs" />
     <Compile Include="Auxiliary\Variable.cs" />
-    <Compile Include="Show5.cs">
+    <Compile Include="多线插\4图像窗口\Show4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="多线插\4图像窗口\Show4.Designer.cs">
+      <DependentUpon>Show4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\5图像窗口\Show5.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Show5.Designer.cs">
+    <Compile Include="多线插\5图像窗口\Show5.Designer.cs">
       <DependentUpon>Show5.cs</DependentUpon>
     </Compile>
     <Compile Include="多线插\检测功能\同心度检测\FitCircle.cs">
@@ -218,10 +224,10 @@
       <DependentUpon>FormContactUs.cs</DependentUpon>
     </Compile>
     <Compile Include="Security\Md5.cs" />
-    <Compile Include="多线插\3三图像画面\Show3.cs">
+    <Compile Include="多线插\3图像窗口\Show3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="多线插\3三图像画面\Show3.designer.cs">
+    <Compile Include="多线插\3图像窗口\Show3.designer.cs">
       <DependentUpon>Show3.cs</DependentUpon>
     </Compile>
     <Compile Include="多线插\函数\Events.cs" />
@@ -425,7 +431,10 @@
     <Compile Include="多线插\函数\Function.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Show5.resx">
+    <EmbeddedResource Include="多线插\4图像窗口\Show4.resx">
+      <DependentUpon>Show4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\5图像窗口\Show5.resx">
       <DependentUpon>Show5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="多线插\检测功能\同心度检测\FitCircle.resx">
@@ -461,10 +470,10 @@
     <EmbeddedResource Include="其他\联系我们\FormContactUs.resx">
       <DependentUpon>FormContactUs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="多线插\3三图像画面\Show3.en-US.resx">
+    <EmbeddedResource Include="多线插\3图像窗口\Show3.en-US.resx">
       <DependentUpon>Show3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="多线插\3三图像画面\Show3.resx">
+    <EmbeddedResource Include="多线插\3图像窗口\Show3.resx">
       <DependentUpon>Show3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="多线插\通讯\光源控制器\FormLightCH.resx">

@@ -27,6 +27,56 @@ namespace VisionPlatform
             InitializeComponent();
             this.TopLevel = false;
         }
+        /// <summary>
+        /// 设置显示的方式
+        /// </summary>
+        /// <param name="i"></param> 1：5行1列  2：3行2列
+        public void RefeshUI(int i=1)
+        {
+            try
+            {
+                double height, width;
+                tLPanel.RowCount = 5;
+                tLPanel.ColumnCount = 1;
+                height = 20;
+                width = 100.0;
+                if (i == 2)
+                {
+                    tLPanel.RowCount = 3;
+                    tLPanel.ColumnCount = 2;
+                    height = 33.33;
+                    width = 50.0;
+                }
+                for (int row = 0; row < tLPanel.RowCount; row++)
+                {
+                    tLPanel.RowStyles.Add(new RowStyle(SizeType.Percent, (float)height));
+                    for (int col = 0; col < tLPanel.ColumnCount; col++)
+                    {
+                        tLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, (float)width));
+                    }
+                }
+                if (i == 1)
+                {
+                    tLPanel.Controls.Add(checkBox_ShowData, 0, 0);
+                    tLPanel.Controls.Add(checkBox_SaveOrgImageOK, 0, 1);
+                    tLPanel.Controls.Add(checkBox_SaveResultImgOK, 0, 2);
+                    tLPanel.Controls.Add(checkBox_SaveOrgImageNG, 0, 3);
+                    tLPanel.Controls.Add(checkBox_SaveResultImgNG, 0, 4);
+                }
+                else if (i == 2)
+                {
+                    tLPanel.Controls.Add(checkBox_SaveOrgImageOK, 0, 0);
+                    tLPanel.Controls.Add(checkBox_SaveResultImgOK, 0, 1);
+                    tLPanel.Controls.Add(checkBox_SaveOrgImageNG, 1, 0);
+                    tLPanel.Controls.Add(checkBox_SaveResultImgNG, 1, 1);
+                    tLPanel.Controls.Add(checkBox_ShowData, 0, 2);
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
 
         private void FormImageSave_Load(object sender, EventArgs e)
         {

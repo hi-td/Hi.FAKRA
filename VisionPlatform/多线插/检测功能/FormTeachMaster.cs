@@ -73,7 +73,6 @@ namespace VisionPlatform
             FormMainUI.formShowResult.tabPage1.Parent = null;
             //加载左边检测列表
             InitTreeView();
-            // string a = n_cam.ToString() + b;
             if (TMData_Serializer._globalData.dicInspectList.ContainsKey(n_cam))
             {
                 List<InspectItem> strCheck = TMData_Serializer._globalData.dicInspectList[n_cam];
@@ -125,7 +124,6 @@ namespace VisionPlatform
         {
             try
             {
-                
                 int camNum = 0;
                 for (int i = 0; i < GlobalData.Config._InitConfig.initConfig.CamNum; i++)
                 {
@@ -169,7 +167,7 @@ namespace VisionPlatform
         {
             try
             {
-                foreach (int cam in GlobalData.Config._CamConfig.camConfig.Keys)
+                foreach (int cam in GlobalData.Config._InitConfig.initConfig.dic_SubCam.Keys)
                 {
                     string strCam = "相机" + cam.ToString();
                     treeViewFun.Nodes.Add(strCam);
@@ -284,6 +282,7 @@ namespace VisionPlatform
                         camNum = camNum + GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1];
                     }
                 }
+                FormMainUI.m_PanelShow.Controls.Clear();
                 switch (camNum)
                 {
                     case 1:
@@ -296,7 +295,7 @@ namespace VisionPlatform
                         UIConfig.RefreshSTATS(FormMainUI.m_Show1.tLPanel, out TMFunction.m_ListFormSTATS);
                         break;
                     case 2:
-                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show2);
+                        
                         foreach(int cam in Show2.dic_formCamShow.Keys)
                         {
                             for(int n=0;n< Show2.dic_formCamShow[cam].Length;n++)
@@ -308,26 +307,33 @@ namespace VisionPlatform
                         }
                         FormMainUI.m_Show2.splitContainer1.Panel2.Controls.Clear();
                         FormMainUI.m_Show2.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
+                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show2);
                         //UIConfig.RefreshSTATS(FormMainUI.m_Show2.tLPanel, out TMFunction.m_ListFormSTATS);
                         break;
                     case 3:
-                        //FormMainUI.m_Show3.Run();
-                        //FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show3);
-                        //FormMainUI.m_Show3.panel1.Controls.Clear();
-                        //FormMainUI.m_Show3.panel1.Controls.Add(Show3.formCamShow1);
-                        //FormMainUI.m_Show3.panel2.Controls.Clear();
-                        //FormMainUI.m_Show3.panel2.Controls.Add(Show3.formCamShow2);
-                        //FormMainUI.m_Show3.panel3.Controls.Clear();
-                        //FormMainUI.m_Show3.panel3.Controls.Add(Show3.formCamShow3);
-                        //FormMainUI.m_Show3.panel_Message.Controls.Clear();
-                        //FormMainUI.m_Show3.panel_Message.Controls.Add(FormMainUI.formMessage);
+                        StaticFun.UIConfig.RefeshCamShow(FormMainUI.m_Show3.tLPanel_CamShow, FormMainUI.m_dicFormCamShows);
+                        FormMainUI.m_Show3.panel_Message.Controls.Clear();
+                        FormMainUI.m_Show3.panel_Message.Controls.Add(FormMainUI.formShowResult);
+                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show3);
+                        break;
+                    case 4:
+                        
+                        StaticFun.UIConfig.RefeshCamShow(FormMainUI.m_Show4.tLPanel_CamShow, FormMainUI.m_dicFormCamShows);
+                        FormMainUI.m_Show4.tableLayoutPanel1.Controls.Add(FormMainUI.formShowResult,0,2);
+                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show4);
+                        //UIConfig.RefreshSTATS(FormMainUI.m_Show7.tLPanel2, out TMFunction.m_ListFormSTATS, 2);
+                        break;
+                    case 5:
+                        StaticFun.UIConfig.RefeshCamShow(FormMainUI.m_Show5.tLPanel_CamShow, FormMainUI.m_dicFormCamShows);
+                        FormMainUI.m_Show5.tableLayoutPanel2.Controls.Add(FormMainUI.formShowResult, 0, 1);
+                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show5);
+                        //UIConfig.RefreshSTATS(FormMainUI.m_Show7.tLPanel2, out TMFunction.m_ListFormSTATS, 2);
                         break;
                     case 6:
-                        //FormMainUI.m_Show7.Run();
-                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show6);
                         StaticFun.UIConfig.RefeshCamShow(FormMainUI.m_Show6.tableLayoutPanel3, FormMainUI.m_dicFormCamShows);
                         FormMainUI.m_Show6.panel13.Controls.Clear();
                         FormMainUI.m_Show6.panel13.Controls.Add(FormMainUI.formShowResult);
+                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show6);
                         //UIConfig.RefreshSTATS(FormMainUI.m_Show7.tLPanel2, out TMFunction.m_ListFormSTATS, 2);
                         break;
                     default:

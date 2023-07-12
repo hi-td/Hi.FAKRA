@@ -216,7 +216,6 @@ namespace VisionPlatform
         {
             public int cam;
             public int sub_cam;
-            public int nPanel;
         }
 
 
