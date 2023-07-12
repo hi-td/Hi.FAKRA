@@ -125,52 +125,38 @@ namespace VisionPlatform
         {
             try
             {
-                this.panelWindow.Controls.Clear();
-                FormMainUI.m_dicFormCamShows[cam][sub_cam].form.TopLevel = false;
-                FormMainUI.m_dicFormCamShows[cam][sub_cam].form.Visible = true;
-                FormMainUI.m_dicFormCamShows[cam][sub_cam].form.Dock = DockStyle.Fill;
-                this.panelWindow.Controls.Add(FormMainUI.m_dicFormCamShows[cam][sub_cam].form);
-                //int camNum = 0;
-                //for (int i = 0; i < GlobalData.Config._InitConfig.initConfig.CamNum; i++)
-                //{
-                //    camNum++;
-                //    if (GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1] != 0)
-                //    {
-                //        camNum = camNum + GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1];
-                //    }
-                //}
-
-                //switch (camNum)
-                //{
-                //    case 1:
-                //        Show1.formCamShow1.TopLevel = false;
-                //        Show1.formCamShow1.Visible = true;
-                //        Show1.formCamShow1.Dock = DockStyle.Fill;
-                //        this.panelWindow.Controls.Add(Show1.formCamShow1);
-                //        break;
-                //    case 2:
-                //        Show2.dic_formCamShow[cam][sub_cam].form.TopLevel = false;
-                //        Show2.dic_formCamShow[cam][sub_cam].form.Visible = true;
-                //        Show2.dic_formCamShow[cam][sub_cam].form.Dock = DockStyle.Fill;
-                //        this.panelWindow.Controls.Add(Show2.dic_formCamShow[cam][sub_cam].form);
-                //        break;
-                //    case 3:
-                //        break;
-                //    case 6:
-
-                //        break;
-
-                //    case 7:
-                //        //Show7.formCamShows[a].TopLevel = false;
-                //        //Show7.formCamShows[a].Visible = true;
-                //        //Show7.formCamShows[a].Dock = DockStyle.Fill;
-                //        //this.panelWindow.Controls.Add(Show7.formCamShows[a]);
-                //        //Show7.formCamShows[a].label_x.Visible = false;
-                //        //Show7.formCamShows[a].label_d.Visible = false;
-                //        break;
-                //    default:
-                //        break;
-                //}
+                
+                int camNum = 0;
+                for (int i = 0; i < GlobalData.Config._InitConfig.initConfig.CamNum; i++)
+                {
+                    camNum++;
+                    if (GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1] != 0)
+                    {
+                        camNum = camNum + GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1];
+                    }
+                }
+                switch (camNum)
+                {
+                    case 1:
+                        Show1.formCamShow1.TopLevel = false;
+                        Show1.formCamShow1.Visible = true;
+                        Show1.formCamShow1.Dock = DockStyle.Fill;
+                        this.panelWindow.Controls.Add(Show1.formCamShow1);
+                        break;
+                    case 2:
+                        Show2.dic_formCamShow[cam][sub_cam].form.TopLevel = false;
+                        Show2.dic_formCamShow[cam][sub_cam].form.Visible = true;
+                        Show2.dic_formCamShow[cam][sub_cam].form.Dock = DockStyle.Fill;
+                        this.panelWindow.Controls.Add(Show2.dic_formCamShow[cam][sub_cam].form);
+                        break;
+                    default:
+                        this.panelWindow.Controls.Clear();
+                        FormMainUI.m_dicFormCamShows[cam][sub_cam].form.TopLevel = false;
+                        FormMainUI.m_dicFormCamShows[cam][sub_cam].form.Visible = true;
+                        FormMainUI.m_dicFormCamShows[cam][sub_cam].form.Dock = DockStyle.Fill;
+                        this.panelWindow.Controls.Add(FormMainUI.m_dicFormCamShows[cam][sub_cam].form);
+                        break;
+                }
             }
             catch(Exception ex)
             {
