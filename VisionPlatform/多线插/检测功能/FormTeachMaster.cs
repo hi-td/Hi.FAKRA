@@ -260,12 +260,7 @@ namespace VisionPlatform
             }
             else if (node.Text == "端子检测")
             {
-                TreeNode node1 = new TreeNode();
-                node1.Text = "正面";
-                node.Nodes.Add(node1);
-                TreeNode node2 = new TreeNode();
-                node2.Text = "侧面";
-                node.Nodes.Add(node2);
+
             }
         }
 
@@ -540,14 +535,14 @@ namespace VisionPlatform
                         }
                     }
                 }
-                if (strSel == "FAKRA检测")
+                if (strSel == "端子检测")
                 {
-                    //formFakra = new FormFAKRA(ncam, b);
-                    //formFakra.TopLevel = false;
-                    //formFakra.Visible = true;
-                    //formFakra.Dock = DockStyle.Fill;
-                    //this.panel.Controls.Clear();
-                    //this.panel.Controls.Add(formFakra);
+                    formFakra = new FormFAKRA(ncam, sub_cam);
+                    formFakra.TopLevel = false;
+                    formFakra.Visible = true;
+                    formFakra.Dock = DockStyle.Fill;
+                    this.panel.Controls.Clear();
+                    this.panel.Controls.Add(formFakra);
                 }
                 else if (strSel == "公头" || strSel == "母头")
                 {
@@ -703,6 +698,7 @@ namespace VisionPlatform
         {
             string strItem = e.ClickedItem.Text;
             string strNode = CurrentNode.Parent.Text;
+            string c = formFakra.comboBox_Model.Text;
             int ncam = int.Parse(strNode.Substring(2, 1));
             int sub_cam = 0;
             if (strNode.Length>3)
@@ -711,9 +707,9 @@ namespace VisionPlatform
             }
             if ("检测项目" == strItem)
             {
-                //FormTMCheckItem formTMCheckItem = new FormTMCheckItem(ncam, b,c);
-                //formTMCheckItem.Location = new Point(Control.MousePosition.X, Control.MousePosition.Y);
-                //formTMCheckItem.ShowDialog();
+                FormTMCheckItem formTMCheckItem = new FormTMCheckItem(ncam, sub_cam.ToString(), c);
+                formTMCheckItem.Location = new Point(Control.MousePosition.X, Control.MousePosition.Y);
+                formTMCheckItem.ShowDialog();
                 //添加界面刷新
                 formFakra.Refreshpage();
             }
