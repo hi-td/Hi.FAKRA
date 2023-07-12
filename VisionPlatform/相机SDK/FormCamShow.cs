@@ -954,8 +954,7 @@ namespace VisionPlatform
         {
             if (!FormMainUI.bRun)
             {
-
-                StaticFun.UIConfig.CreateFormTeachMaster(m_ncam, this.sub_cam, 1);
+                StaticFun.UIConfig.CreateFormTeachMaster(m_ncam, this.sub_cam);
             }
             else
             {

@@ -218,10 +218,10 @@
       <DependentUpon>FormContactUs.cs</DependentUpon>
     </Compile>
     <Compile Include="Security\Md5.cs" />
-    <Compile Include="多线插\4三相机\Show3.cs">
+    <Compile Include="多线插\3三图像画面\Show3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="多线插\4三相机\Show3.designer.cs">
+    <Compile Include="多线插\3三图像画面\Show3.designer.cs">
       <DependentUpon>Show3.cs</DependentUpon>
     </Compile>
     <Compile Include="多线插\函数\Events.cs" />
@@ -461,10 +461,10 @@
     <EmbeddedResource Include="其他\联系我们\FormContactUs.resx">
       <DependentUpon>FormContactUs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="多线插\4三相机\Show3.en-US.resx">
+    <EmbeddedResource Include="多线插\3三图像画面\Show3.en-US.resx">
       <DependentUpon>Show3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="多线插\4三相机\Show3.resx">
+    <EmbeddedResource Include="多线插\3三图像画面\Show3.resx">
       <DependentUpon>Show3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="多线插\通讯\光源控制器\FormLightCH.resx">

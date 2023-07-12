@@ -35,7 +35,6 @@ namespace VisionPlatform
             public Panel panel;          //该窗体对应的panel
         }
 
-
         [Serializable]
         public struct CamInspectItem
         {
@@ -209,6 +208,15 @@ namespace VisionPlatform
             public int nChannel;
         }
 
+        public struct CamShowParam
+        {
+            public int cam;
+            public int sub_cam;
+            public int nPanel;
+        }
+
+
+        #region 同心度参数
         [Serializable]
         public struct ConcentricityParam
         {
@@ -256,5 +264,6 @@ namespace VisionPlatform
             public double dDist1;           //外导体-内导体同心度
             public double dDist2;           //外导体-绝缘体同心度
         }
+        #endregion
     }
 }

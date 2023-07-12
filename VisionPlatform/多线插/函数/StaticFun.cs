@@ -295,14 +295,110 @@ namespace StaticFun
 
     public class UIConfig
     {
-        public static void CreateFormTeachMaster(int n_cam, int sub_cam, int j)
+        public static void CreateFormTeachMaster(int n_cam, int sub_cam)
         {
-            FormTeachMaster teachmaster = new FormTeachMaster(n_cam, sub_cam, j);
+            FormTeachMaster teachmaster = new FormTeachMaster(n_cam, sub_cam);
             teachmaster.TopLevel = false;
             teachmaster.Visible = true;
             teachmaster.Dock = DockStyle.Fill;
             FormMainUI.m_PanelShow.Controls.Clear();
             FormMainUI.m_PanelShow.Controls.Add(teachmaster);
+        }
+
+        public static Dictionary<int, TMData.ShowItems[]> InitShowUI(ContextMenuStrip contextMenuStrip,TableLayoutPanel tableLayoutPanel)
+        {
+            Dictionary<int, TMData.ShowItems[]> dic_formCamShows = new Dictionary<int, ShowItems[]>();
+            try
+            {
+                FormCamShow formCamShow;
+                TMData.ShowItems[] showItems;
+                foreach (int cam in GlobalData.Config._CamConfig.camConfig.Keys)
+                {
+                    string strCamSer = GlobalData.Config._CamConfig.camConfig[cam];
+                    int num = GlobalData.Config._InitConfig.initConfig.dic_SubCam[cam];
+                    formCamShow = new FormCamShow(strCamSer, cam, 0);
+                    formCamShow.TopLevel = false;
+                    formCamShow.Visible = true;
+                    formCamShow.Dock = DockStyle.Fill;
+                    if (0 != num)
+                    {
+                        showItems = new TMData.ShowItems[num + 1];
+                        showItems[0].form = formCamShow;
+                        for (int i = 0; i < num; i++)
+                        {
+                            formCamShow = new FormCamShow(strCamSer, cam, i + 1);
+                            formCamShow.TopLevel = false;
+                            formCamShow.Visible = true;
+                            formCamShow.Dock = DockStyle.Fill;
+                            showItems[i + 1].form = formCamShow;
+                        }
+                        dic_formCamShows.Add(cam, showItems);
+                    }
+                    else
+                    {
+                        dic_formCamShows.Add(cam, new TMData.ShowItems[1] { new TMData.ShowItems() { form = formCamShow } });
+                    }
+                }
+                contextMenuStrip.Items.Clear();
+                foreach (int cam in GlobalData.Config._CamConfig.camConfig.Keys)
+                {
+                    string strCam = "相机" + cam.ToString();
+                    contextMenuStrip.Items.Add(strCam);
+                    int num = GlobalData.Config._InitConfig.initConfig.dic_SubCam[cam];
+                    for (int i = 0; i < num; i++)
+                    {
+                        strCam = "相机" + cam.ToString() + "-" + (i + 1).ToString();
+                        contextMenuStrip.Items.Add(strCam);
+                    }
+                }
+                //若已经配置，则加载已配置好的相机画面
+                RefeshCamShow(tableLayoutPanel, dic_formCamShows);
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            return dic_formCamShows;
+        }
+
+        public static void RefeshCamShow(TableLayoutPanel tableLayoutPanel, Dictionary<int, TMData.ShowItems[]> dic_formCamShows)
+        {
+            //若已经配置，则加载已配置好的相机画面
+            for (int i = 0; i < TMData_Serializer._globalData.listCamShowParam.Count; i++)
+            {
+                CamShowParam camshow = TMData_Serializer._globalData.listCamShowParam[i];
+                foreach (Control panel in tableLayoutPanel.Controls)
+                {
+                    if (panel.Name == "panel" + camshow.nPanel.ToString())
+                    {
+                        panel.Controls.Clear();
+                        panel.Controls.Add(dic_formCamShows[camshow.cam][camshow.sub_cam].form);
+                    }
+                }
+            }
+        }
+        public static CamShowParam ConfigShowItems(object sender, ToolStripItemClickedEventArgs e, ref Dictionary<int, TMData.ShowItems[]> dic_formCamShows)
+        {
+            CamShowParam camshow = new CamShowParam();
+            string strItem = e.ClickedItem.Text;
+            int ncam = int.Parse(strItem.Substring(2, 1));
+            int sub_cam = 0;
+            if (strItem.Length > 3)
+            {
+                sub_cam = int.Parse(strItem.Substring(4, 1));
+            }
+            if (sender is ContextMenuStrip cms)
+            {
+                var panel = (Panel)cms.SourceControl;
+                dic_formCamShows[ncam][sub_cam].panel = panel;
+                panel.Controls.Clear();
+                panel.Controls.Add(dic_formCamShows[ncam][sub_cam].form);
+                camshow.cam = ncam;
+                camshow.sub_cam = sub_cam;
+                camshow.nPanel = int.Parse(panel.Name.Substring(5, 1));
+                TMData_Serializer._globalData.listCamShowParam.Add(camshow);
+            }
+            return camshow;
         }
         public static void RefreshFun(int m_ncam, int sub_cam, ref Function Fun, ref TMFunction TMFun, ref string str_CamSer)
         {

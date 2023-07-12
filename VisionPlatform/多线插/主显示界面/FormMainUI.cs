@@ -42,7 +42,9 @@ namespace VisionPlatform
         public static Show6 m_Show6;
         public static FormShowResult formShowResult = new FormShowResult(); //显示检测结果
         public static FormImageSave formImageSave = new FormImageSave();    //运行状态图像保存
-       
+        //相机及其对应的相机显示窗口
+        public static Dictionary<int, TMData.ShowItems[]> m_dicFormCamShows = new Dictionary<int, TMData.ShowItems[]>();
+
         public bool formshow = false;
         public static bool bRun;  //是否处于生产状态
         [DllImport("user32.dll")]

@@ -21,20 +21,20 @@ namespace VisionPlatform
         Function Fun;
         TMFunction TMFun;
         int m_cam;
-        string bh;
-        public FormShowSet(int ncam, string b)
+        int sub_cam;
+        public FormShowSet(int ncam, int sub_cam)
         {
             InitializeComponent();
             m_cam = ncam;
-            bh = b;
-            RefreshFun();
+            this.sub_cam = sub_cam;
+            //RefreshFun();
             checkBox_LeftUp.Checked = true;
         }
 
         private void RefreshFun()
         {
             int camNum = GlobalData.Config._InitConfig.initConfig.CamNum;
-            string a = m_cam.ToString()+bh;
+            //string a = m_cam.ToString()+ bh;
             switch (camNum)
             {
                 case 1:
