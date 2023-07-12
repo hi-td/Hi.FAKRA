@@ -133,10 +133,10 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="checkBox_SaveResultImgOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 66</value>
+    <value>4, 50</value>
   </data>
   <data name="checkBox_SaveResultImgOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 24</value>
+    <value>98, 16</value>
   </data>
   <data name="checkBox_SaveResultImgOK.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -163,10 +163,10 @@
     <value>Fill</value>
   </data>
   <data name="checkBox_SaveOrgImageOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 35</value>
+    <value>4, 27</value>
   </data>
   <data name="checkBox_SaveOrgImageOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 24</value>
+    <value>98, 16</value>
   </data>
   <data name="checkBox_SaveOrgImageOK.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -193,10 +193,10 @@
     <value>Fill</value>
   </data>
   <data name="checkBox_SaveResultImgNG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 128</value>
+    <value>4, 96</value>
   </data>
   <data name="checkBox_SaveResultImgNG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 24</value>
+    <value>98, 17</value>
   </data>
   <data name="checkBox_SaveResultImgNG.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -223,10 +223,10 @@
     <value>Fill</value>
   </data>
   <data name="checkBox_SaveOrgImageNG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 97</value>
+    <value>4, 73</value>
   </data>
   <data name="checkBox_SaveOrgImageNG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 24</value>
+    <value>98, 16</value>
   </data>
   <data name="checkBox_SaveOrgImageNG.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -256,7 +256,7 @@
     <value>4, 4</value>
   </data>
   <data name="checkBox_ShowData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 24</value>
+    <value>98, 16</value>
   </data>
   <data name="checkBox_ShowData.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -289,7 +289,7 @@
     <value>5</value>
   </data>
   <data name="tLPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 156</value>
+    <value>106, 117</value>
   </data>
   <data name="tLPanel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -316,7 +316,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>106, 156</value>
+    <value>106, 117</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FormImageSave</value>

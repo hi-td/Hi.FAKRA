@@ -73,7 +73,6 @@ namespace VisionPlatform
             FormMainUI.formShowResult.tabPage1.Parent = null;
             //加载左边检测列表
             InitTreeView();
-            // string a = n_cam.ToString() + b;
             if (TMData_Serializer._globalData.dicInspectList.ContainsKey(n_cam))
             {
                 List<InspectItem> strCheck = TMData_Serializer._globalData.dicInspectList[n_cam];

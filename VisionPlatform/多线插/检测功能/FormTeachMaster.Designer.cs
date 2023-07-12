@@ -126,7 +126,7 @@ namespace VisionPlatform
             this.treeViewFun.BackColor = System.Drawing.Color.LightSteelBlue;
             this.treeViewFun.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.treeViewFun.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewFun.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.treeViewFun.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeViewFun.Location = new System.Drawing.Point(0, 0);
             this.treeViewFun.Name = "treeViewFun";
             this.treeViewFun.Size = new System.Drawing.Size(73, 473);
