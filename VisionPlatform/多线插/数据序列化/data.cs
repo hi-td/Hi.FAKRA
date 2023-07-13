@@ -24,6 +24,13 @@ namespace VisionPlatform
             Concentricity_male,
         }
         [Serializable]
+        public enum ConductorType
+        {
+            Defult,
+            front,      //正面
+            side,       //侧面
+        }
+        [Serializable]
         public enum ConcentricityType
         {
             Defult,
@@ -253,6 +260,18 @@ namespace VisionPlatform
             public double dOuterInsulation;          //外导体-绝缘体同心度
             public double dOuterInsulationHigh;      //外导体-绝缘体同心度上限
         }
+        #endregion
+        [Serializable]
+        public struct ConductorParam
+        {
+            public int nLocation_Thr;                //导体定位阈值参数
+            public int nLocation_Erosion;            //导体定位裁剪参数
+            public LocationSetMeasure CHead;                  //导体头部定位
+            public LocationSetMeasure CCentral;               //导体中部定位
+            public LocationSetMeasure CTail;                  //导体尾部定位
+            public TMData.ConductorType type;        //导体检测类型
+
+        }
 
         [Serializable]
         public struct FemaleCircle
@@ -286,6 +305,13 @@ namespace VisionPlatform
             public double dDist1;           //外导体-内导体同心度
             public double dDist2;           //外导体-绝缘体同心度
         }
-        #endregion
+
+        public struct ConductorResult
+        {
+            public Circle outerCircle;
+            public Circle innerCircle;
+            public Circle insulationCircle;
+        }
+
     }
 }

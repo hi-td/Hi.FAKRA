@@ -20,7 +20,6 @@ namespace VisionPlatform
             public Dictionary<int, ConcentricityData> dicConcentricity = new Dictionary<int, ConcentricityData>();
             //panel及其对应的图像显示窗口
             public Dictionary<int, CamShowParam> dicCamShowParam = new Dictionary<int, CamShowParam>();
-
             //端子检测项
             public Dictionary<string, Dictionary<string, TMCheckItem>>  dicTMCheckList = new Dictionary<string, Dictionary<string, TMCheckItem>>();//string由相机与界面几组成
             //显示数据
