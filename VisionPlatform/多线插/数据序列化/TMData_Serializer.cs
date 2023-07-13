@@ -24,7 +24,9 @@ namespace VisionPlatform
             //正面:     ConductorParam[0]
             //侧面:     ConductorParam[1]
             public Dictionary<int, ConductorParam[]> dicConductor = new Dictionary<int, ConductorParam[]>();
-            
+            public List<CamShowParam> listCamShowParam = new List<CamShowParam>();
+            //panel及其对应的图像显示窗口
+            public Dictionary<int, CamShowParam> dicCamShowParam = new Dictionary<int, CamShowParam>();
             //端子检测项
             public Dictionary<string, Dictionary<string, TMCheckItem>>  dicTMCheckList = new Dictionary<string, Dictionary<string, TMCheckItem>>();//string由相机与界面几组成
             //显示数据

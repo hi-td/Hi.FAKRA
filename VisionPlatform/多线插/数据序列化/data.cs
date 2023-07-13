@@ -241,7 +241,7 @@ namespace VisionPlatform
             public double dOuterInsulation;          //外导体-绝缘体同心度
             public double dOuterInsulationHigh;      //外导体-绝缘体同心度上限
         }
-
+        #endregion
         [Serializable]
         public struct ConductorParam
         {
