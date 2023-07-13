@@ -261,6 +261,21 @@ namespace BaseData
     }
 
     [Serializable]
+    //导体检测位置
+    public struct LocationSetMeasure
+    {
+        public int nSpace;               //间距
+        public int nWidth;               //宽度
+        public int nHeight;              //高度
+    }
+    //导体检测参数
+    public struct DetectionSetMeasure
+    {
+        public int nThr;                //阈值
+
+    }
+
+    [Serializable]
     public struct SizeParam
     {
         public dynamic LEFT;

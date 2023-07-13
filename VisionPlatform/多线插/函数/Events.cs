@@ -11,6 +11,7 @@ namespace VisionPlatform
     //public delegate void PanelChangedEventHandler(int id, InspectType type);
     public delegate void ValueChangedEventHandler();
     public delegate void FitCircleValueChangedEventHandler(object sender, EventArgs e);
+    public delegate void LocationSetValueChangedEvenHandler(object sender, EventArgs e);
     public static class MyEvents
     {
         public static event ControlChangedEventHandler RubberCountChanged;

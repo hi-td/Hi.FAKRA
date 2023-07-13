@@ -45,13 +45,15 @@ namespace VisionPlatform
             this.插壳检测 = new System.Windows.Forms.ToolStripMenuItem();
             this.打端检测 = new System.Windows.Forms.ToolStripMenuItem();
             this.线序检测 = new System.Windows.Forms.ToolStripMenuItem();
+            this.公头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.母头 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.ts_But_close = new System.Windows.Forms.ToolStripButton();
             this.ts_Label_cam = new System.Windows.Forms.ToolStripLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.公头 = new System.Windows.Forms.ToolStripMenuItem();
-            this.母头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.正面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.侧面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -208,6 +210,9 @@ namespace VisionPlatform
             // 
             // 打端检测
             // 
+            this.打端检测.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.正面ToolStripMenuItem,
+            this.侧面ToolStripMenuItem});
             this.打端检测.Name = "打端检测";
             this.打端检测.Size = new System.Drawing.Size(180, 22);
             this.打端检测.Text = "导体检测";
@@ -221,6 +226,20 @@ namespace VisionPlatform
             this.线序检测.Name = "线序检测";
             this.线序检测.Size = new System.Drawing.Size(180, 22);
             this.线序检测.Text = "同心度检测";
+            // 
+            // 公头
+            // 
+            this.公头.Name = "公头";
+            this.公头.Size = new System.Drawing.Size(180, 22);
+            this.公头.Text = "公头";
+            this.公头.Click += new System.EventHandler(this.同心度检测_Click);
+            // 
+            // 母头
+            // 
+            this.母头.Name = "母头";
+            this.母头.Size = new System.Drawing.Size(180, 22);
+            this.母头.Text = "母头";
+            this.母头.Click += new System.EventHandler(this.同心度检测_Click);
             // 
             // toolStrip1
             // 
@@ -279,19 +298,17 @@ namespace VisionPlatform
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip2_ItemClicked);
             // 
-            // 公头
+            // 正面ToolStripMenuItem
             // 
-            this.公头.Name = "公头";
-            this.公头.Size = new System.Drawing.Size(180, 22);
-            this.公头.Text = "公头";
-            this.公头.Click += new System.EventHandler(this.同心度检测_Click);
+            this.正面ToolStripMenuItem.Name = "正面ToolStripMenuItem";
+            this.正面ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.正面ToolStripMenuItem.Text = "正面";
             // 
-            // 母头
+            // 侧面ToolStripMenuItem
             // 
-            this.母头.Name = "母头";
-            this.母头.Size = new System.Drawing.Size(180, 22);
-            this.母头.Text = "母头";
-            this.母头.Click += new System.EventHandler(this.同心度检测_Click);
+            this.侧面ToolStripMenuItem.Name = "侧面ToolStripMenuItem";
+            this.侧面ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.侧面ToolStripMenuItem.Text = "侧面";
             // 
             // FormTeachMaster
             // 
@@ -347,5 +364,7 @@ namespace VisionPlatform
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem 公头;
         private System.Windows.Forms.ToolStripMenuItem 母头;
+        private System.Windows.Forms.ToolStripMenuItem 正面ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 侧面ToolStripMenuItem;
     }
 }

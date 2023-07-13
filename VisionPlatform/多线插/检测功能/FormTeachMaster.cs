@@ -101,12 +101,13 @@ namespace VisionPlatform
                     }
                     else if (strSel == InspectItem.Conductor)
                     {
-                        //FormMultiTM formMultiTM = new FormMultiTM(n_cam);
-                        //formMultiTM.TopLevel = false;
-                        //formMultiTM.Visible = true;
-                        //formMultiTM.Dock = DockStyle.Fill;
-                        //this.panel.Controls.Clear();
-                        //this.panel.Controls.Add(formMultiTM);
+                        Conductor formConductor = new Conductor(n_cam, ConductorType.front)
+                        {
+                            Visible = true,
+                            Dock = DockStyle.Fill
+                        };
+                        this.panel.Controls.Clear();
+                        this.panel.Controls.Add(formConductor);
                     }
                    
                     else if (strSel == InspectItem.Concentricity)

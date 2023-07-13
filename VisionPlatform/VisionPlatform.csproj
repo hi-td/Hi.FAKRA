@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>VisionPlatform</RootNamespace>
     <AssemblyName>VisionPlatform</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -175,6 +175,30 @@
     </Compile>
     <Compile Include="多线插\函数\Camimage.cs" />
     <Compile Include="多线插\数据序列化\ConfigDate.cs" />
+    <Compile Include="多线插\检测功能\导体检测\Conductor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="多线插\检测功能\导体检测\Conductor.Designer.cs">
+      <DependentUpon>Conductor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\检测功能\导体检测\DetectionSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="多线插\检测功能\导体检测\DetectionSet.Designer.cs">
+      <DependentUpon>DetectionSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\检测功能\导体检测\FitLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="多线插\检测功能\导体检测\FitLine.designer.cs">
+      <DependentUpon>FitLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\检测功能\导体检测\LocationSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="多线插\检测功能\导体检测\LocationSet.Designer.cs">
+      <DependentUpon>LocationSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="多线插\检测功能\端子检测\FormFAKRA.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -431,6 +455,18 @@
     <EmbeddedResource Include="其他\FormImageColorTrans.resx">
       <DependentUpon>FormImageColorTrans.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="多线插\检测功能\导体检测\Conductor.resx">
+      <DependentUpon>Conductor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\检测功能\导体检测\DetectionSet.resx">
+      <DependentUpon>DetectionSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\检测功能\导体检测\FitLine.resx">
+      <DependentUpon>FitLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\检测功能\导体检测\LocationSet.resx">
+      <DependentUpon>LocationSet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="多线插\检测功能\端子检测\FormFAKRA.en-US.resx">
       <DependentUpon>FormFAKRA.cs</DependentUpon>
     </EmbeddedResource>
@@ -607,7 +643,6 @@
     <Content Include="20210125022420555_easyicon_net_96.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="多线插\检测功能\导体检测\" />
     <Folder Include="序列化\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
