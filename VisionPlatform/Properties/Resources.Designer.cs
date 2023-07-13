@@ -73,9 +73,29 @@ namespace VisionPlatform.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap camera2 {
+            get {
+                object obj = ResourceManager.GetObject("camera2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap favicon__1_ {
             get {
                 object obj = ResourceManager.GetObject("favicon (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap subcam {
+            get {
+                object obj = ResourceManager.GetObject("subcam", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -16,10 +16,8 @@ namespace VisionPlatform
         {
             //相机对应的检测功能列表
             public Dictionary<int, List<TMData.InspectItem>> dicInspectList = new Dictionary<int, List<TMData.InspectItem>>();
-            //同心度检测:ConcentricityParam[] = new ConcentricityParam[2]；
-            //公头：ConcentricityParam[0]
-            //母头：ConcentricityParam[1]
-            public Dictionary<int, ConcentricityParam[]> dicConcentricity = new Dictionary<int, ConcentricityParam[]>();
+            //同心度检测
+            public Dictionary<int, ConcentricityData> dicConcentricity = new Dictionary<int, ConcentricityData>();
             //panel及其对应的图像显示窗口
             public Dictionary<int, CamShowParam> dicCamShowParam = new Dictionary<int, CamShowParam>();
 

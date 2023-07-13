@@ -106,9 +106,19 @@ namespace VisionPlatform
                         //this.panel.Controls.Add(formMultiTM);
                     }
                    
-                    else if (strSel == InspectItem.Concentricity)
+                    else if (strSel == InspectItem.Concentricity_male)
                     {
                         Concentricity formConcentricity = new Concentricity(n_cam, ConcentricityType.male)
+                        {
+                            Visible = true,
+                            Dock = DockStyle.Fill
+                        };
+                        this.panel.Controls.Clear();
+                        this.panel.Controls.Add(formConcentricity);
+                    }
+                    else if (strSel == InspectItem.Concentricity_female)
+                    {
+                        Concentricity formConcentricity = new Concentricity(n_cam, ConcentricityType.female)
                         {
                             Visible = true,
                             Dock = DockStyle.Fill
@@ -183,46 +193,26 @@ namespace VisionPlatform
                     foreach (int cam in TMData_Serializer._globalData.dicInspectList.Keys)
                     {
                         List<InspectItem> strCheck = TMData_Serializer._globalData.dicInspectList[cam];
-                        switch (cam)
+                        foreach (InspectItem str in strCheck)
                         {
-                            case 1:
-                                foreach (InspectItem str in strCheck)
+                            TreeNode node = new TreeNode();
+                            node.Text = TMFunction.GetStrCheckItem(str);
+                            if ("" != node.Text || !treeViewFun.Nodes[cam - 1].Nodes.ContainsKey(node.Text))
+                            {
+                                bool bContains = false;
+                                foreach(TreeNode node1 in treeViewFun.Nodes[cam - 1].Nodes)
                                 {
-                                    TreeNode node = new TreeNode();
-                                    node.Text = TMFunction.GetStrCheckItem(str);
-                                    treeViewFun.Nodes[0].Nodes.Add(node);
+                                    if(node1.Text == node.Text)
+                                    {
+                                        bContains = true;
+                                    }
+                                }
+                                if(!bContains)
+                                {
+                                    treeViewFun.Nodes[cam - 1].Nodes.Add(node);
                                     CheckNodeAdd(node);
                                 }
-                                break;
-                            case 2:
-                                foreach (InspectItem str in strCheck)
-                                {
-                                    TreeNode node = new TreeNode();
-                                    node.Text = TMFunction.GetStrCheckItem(str);
-                                    treeViewFun.Nodes[1].Nodes.Add(node);
-                                    CheckNodeAdd(node);
-                                }
-                                break;
-                            case 3:
-                                foreach (InspectItem str in strCheck)
-                                {
-                                    TreeNode node = new TreeNode();
-                                    node.Text = TMFunction.GetStrCheckItem(str);
-                                    treeViewFun.Nodes[2].Nodes.Add(node);
-                                    CheckNodeAdd(node);
-                                }
-                                break;
-                            case 4:
-                                foreach (InspectItem str in strCheck)
-                                {
-                                    TreeNode node = new TreeNode();
-                                    node.Text = TMFunction.GetStrCheckItem(str);
-                                    treeViewFun.Nodes[3].Nodes.Add(node);
-                                    CheckNodeAdd(node);
-                                }
-                                break;
-                            default:
-                                break;
+                            }
                         }
                     }
                 }
@@ -238,6 +228,7 @@ namespace VisionPlatform
 
         private void CheckNodeAdd(TreeNode node)
         {
+            node.Nodes.Clear();
             if (node.Text == "同心度检测")
             {
                 TreeNode node1 = new TreeNode();
@@ -354,10 +345,11 @@ namespace VisionPlatform
             this.Close();
         }
 
-        private void AddCheckItem(string strItem)
+        private void AddCheckItem( object sender, EventArgs e)
         {
             try
             {
+                string strItem = sender.ToString();
                 if (m_SelNode_z != null)
                 {
                     string strCam = m_SelNode_z;
@@ -369,15 +361,51 @@ namespace VisionPlatform
                             if (node.Text == strItem)
                             {
                                 bContain = true;
+                                CheckNodeAdd(node);
                                 break;
+                            }
+                            if (node.Nodes.Count > 0)
+                            {
+                                foreach (TreeNode node1 in node.Nodes)
+                                {
+                                    if (node1.Text == strItem)
+                                    {
+                                        bContain = true;
+                                        break;
+                                    }
+                                }
                             }
                         }
                         if (!bContain)
                         {
                             TreeNode node = new TreeNode();
-                            node.Text = strItem;
-                            treeViewFun.SelectedNode.Nodes.Add(node);
-                            CheckNodeAdd(node);
+                            if (strItem == "公头"|| strItem == "母头")
+                            {
+                                TreeNode node1 = new TreeNode();
+                                node1.Text = strItem;
+                                bool bFlag = false;
+                                foreach (TreeNode selNode in treeViewFun.SelectedNode.Nodes)
+                                {
+                                    if (selNode.Text == "同心度检测")
+                                    {
+                                        selNode.Nodes.Add(node1);
+                                        bFlag = true;
+                                        break;
+                                    }
+                                }
+                                if (!bFlag)
+                                {
+                                    node.Text = "同心度检测";
+                                    node.Nodes.Add(node1);
+                                    treeViewFun.SelectedNode.Nodes.Add(node);
+                                }
+                            }
+                            else     
+                            {
+                                node.Text = strItem;
+                                CheckNodeAdd(node);
+                                treeViewFun.SelectedNode.Nodes.Add(node);
+                            }
                         }
                     }
                     treeViewFun.ExpandAll();
@@ -399,7 +427,17 @@ namespace VisionPlatform
                     List<InspectItem> strCheckList = new List<InspectItem>();
                     foreach (TreeNode node1 in node0.Nodes)
                     {
-                        strCheckList.Add(TMFunction.GetEnumCheckItem(node1.Text));
+                        if(node1.Nodes.Count>0)
+                        {
+                            foreach(TreeNode node2 in node1.Nodes)
+                            {
+                                strCheckList.Add(TMFunction.GetEnumCheckItem(node2.Text));
+                            }
+                        }
+                        else
+                        {
+                            strCheckList.Add(TMFunction.GetEnumCheckItem(node1.Text));
+                        }
                     }
                     if (node0.Text == "相机1")
                     {
@@ -454,50 +492,24 @@ namespace VisionPlatform
             }
         }
 
-        private void 剥皮检测_Click(object sender, EventArgs e)
-        {
-            AddCheckItem("剥皮检测");
-        }
-        private void 导体检测_Click(object sender, EventArgs e)
-        {
-            AddCheckItem("导体检测");
-        }
-        private void 端子检测_Click(object sender, EventArgs e)
-        {
-            AddCheckItem("端子检测");
-        }
-        private void 同心度检测_Click(object sender, EventArgs e)
-        {
-            if(sender.ToString() == "公头")
-            {
-
-            }
-            AddCheckItem("同心度检测");
-        }
         private void toolStripMenuItem_Delete_Click(object sender, EventArgs e)
         {
             try
             {
                 if (m_SelNode_z != null)
                 {
+                    TreeNode SelNode = treeViewFun.SelectedNode;
+                    if (SelNode.Text != m_SelNode_z) return;
+                    if (null == SelNode.Parent)
+                    {
+                        return;
+                    }
+                    SelNode.Parent.Nodes.Remove(SelNode);
                     string strCam = m_SelNode_z;
                     if (strCam == "剥皮检测" || strCam == "端子检测" || strCam == "导体检测" || strCam == "同心度检测")
                     {
-                        if (null == treeViewFun.SelectedNode.Parent)
-                        {
-                            return;
-                        }
-                        foreach (TreeNode node in treeViewFun.SelectedNode.Parent.Nodes)
-                        {
-                            if (node.Text == strCam)
-                            {
-                                treeViewFun.SelectedNode.Parent.Nodes.Remove(node);
-                                break;
-                            }
-                        }
-
+                        RefreshCheckList();
                     }
-                    RefreshCheckList();
                 }
             }
             catch (SystemException ex)
@@ -709,6 +721,12 @@ namespace VisionPlatform
         {
             string strItem = e.ClickedItem.Text;
             string strNode = CurrentNode.Parent.Text;
+            TreeNode node = CurrentNode;
+            while (null != node.Parent)
+            {
+                node = node.Parent;
+            }
+            strNode = node.Text;
             int ncam = int.Parse(strNode.Substring(2, 1));
             int sub_cam = 0;
             if (strNode.Length>3)

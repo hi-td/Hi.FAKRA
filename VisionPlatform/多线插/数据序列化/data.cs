@@ -20,7 +20,8 @@ namespace VisionPlatform
             StripLen,     //剥皮检测
             TM,           //端子检测
             Conductor,    //导体检测
-            Concentricity //同心度检测
+            Concentricity_female, //同心度检测
+            Concentricity_male,
         }
         [Serializable]
         public enum ConcentricityType
@@ -221,9 +222,27 @@ namespace VisionPlatform
 
         #region 同心度参数
         [Serializable]
+        public struct ConcentricityData
+        {
+            public ConcentricityType type;       //同心圆类型
+            public ConcentricityParam female;    //母头
+            public ConcentricityParam male;      //公头
+            public ConcentricityParam GetData()
+            {
+                if (type == ConcentricityType.female)
+                {
+                    return female;
+                }
+                else
+                {
+                    return male;
+                }
+            }
+        }
+
+        [Serializable]
         public struct ConcentricityParam
         {
-            public TMData.ConcentricityType type;    //同心圆类型
             public FitCircleParam outerCircle;       //外导体圆
             public bool bInsultationCircle;          //是否检测绝缘体圆
             public FitCircleParam insulationCircle;  //绝缘体圆

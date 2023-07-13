@@ -58,7 +58,7 @@ namespace VisionPlatform
                 {
                     str = "导体检测";
                 }
-                else if (item == InspectItem.Concentricity)
+                else if (item == InspectItem.Concentricity_female || item == InspectItem.Concentricity_male)
                 {
                     str = "同心度检测";
                 }
@@ -167,9 +167,13 @@ namespace VisionPlatform
                 {
                     item = InspectItem.Conductor;
                 }
-                else if (str == "同心度检测")
+                else if (str == "母头")
                 {
-                    item = InspectItem.Concentricity;
+                    item = InspectItem.Concentricity_female;
+                }
+                else if (str == "公头")
+                {
+                    item = InspectItem.Concentricity_male;
                 }
             }
             catch (SystemException error)
@@ -427,10 +431,10 @@ namespace VisionPlatform
                     //    //光源控制
                     //    GetLightCH(camItem1_LineColor, out dicCH_open_LineColor, out dicCH_close_LineColor);
                     //}
-                    if (item == TMData.InspectItem.Concentricity)
+                    if (item == TMData.InspectItem.Concentricity_female)
                     {
                         bCheckList[4] = true;
-                        camItem1_CoreNum.item = TMData.InspectItem.Concentricity;
+                        camItem1_CoreNum.item = TMData.InspectItem.Concentricity_female;
                         GetIOPoint(camItem1_CoreNum, out readIO[4], out sendIO[4]);
                         //光源控制
                         GetLightCH(camItem1_CoreNum, out dicCH_open_CoreNum, out dicCH_close_CoreNum);
@@ -589,10 +593,10 @@ namespace VisionPlatform
                     //    //光源控制
                     //    GetLightCH(camItem1_LineColor, out dicCH_open_LineColor, out dicCH_close_LineColor);
                     //}
-                    if (item == TMData.InspectItem.Concentricity)
+                    if (item == TMData.InspectItem.Concentricity_female)
                     {
                         bCheckList[4] = true;
-                        camItem1_CoreNum.item = TMData.InspectItem.Concentricity;
+                        camItem1_CoreNum.item = TMData.InspectItem.Concentricity_female;
                         //光源控制
                         GetLightCH(camItem1_CoreNum, out dicCH_open_CoreNum, out dicCH_close_CoreNum);
                     }
@@ -738,7 +742,7 @@ namespace VisionPlatform
                         #endregion
 
                         #region 线芯检测
-                        else if (camItem.item == InspectItem.Concentricity)
+                        else if (camItem.item == InspectItem.Concentricity_female)
                         {
                             //if (1 == TMData_Serializer._globalData.dic_CoreNumParam[camItem.cam].method)
                             //{
@@ -882,37 +886,23 @@ namespace VisionPlatform
                         }
                         #endregion
 
-                        #region 线芯检测
-                        else if (camItem.item == InspectItem.Concentricity)
+                        #region 同心度检测
+                        else if (camItem.item == InspectItem.Concentricity_female || camItem.item == InspectItem.Concentricity_male)
                         {
-                            //if (1 == TMData_Serializer._globalData.dic_CoreNumParam[camItem.cam].method)
-                            //{
-                            //    if (!CountCoreNumNEW(TMData_Serializer._globalData.dic_CoreNumParam[camItem.cam], true, out int nCoreNum))
-                            //    {
-                            //        bResult = false;
-                            //        MessageFun.ShowMessage("线芯检测失败。");
-                            //    }
-                            //    else
-                            //    {
-                            //        bResult = true;
-                            //    }
-                            //}
-                            //else
-                            //{
-                            //    if (!CountCoreNumNEWArea(TMData_Serializer._globalData.dic_CoreNumParam[camItem.cam], true, out int nCoreNum))
-                            //    {
-                            //        bResult = false;
-                            //        MessageFun.ShowMessage("线芯检测失败。");
-                            //    }
-                            //    else
-                            //    {
-                            //        bResult = true;
-                            //    }
-                            //}
-
+                            ConcentricityData data = TMData_Serializer._globalData.dicConcentricity[camItem.cam];
+                            data.type = (camItem.item == InspectItem.Concentricity_male) ? ( ConcentricityType.male) : (ConcentricityType.female);
+                            if (!Concentricity(data.type, data.GetData(), false, out ConcentricityResult concentricityResult))
+                            {
+                                bResult = false;
+                                MessageFun.ShowMessage("同心度检测失败。");
+                            }
+                            else
+                            {
+                                bResult = true;
+                            }
                             ts2 = new TimeSpan(DateTime.Now.Ticks);
                             result.InspectTime = Math.Round((ts2.Subtract(ts1).Duration().TotalSeconds) * 1000, 0);   //检测时间
-                            strInspectItem = "线芯检测";
+                            strInspectItem = "同心度检测";
                             break;
                         }
                         #endregion
@@ -1909,7 +1899,7 @@ namespace VisionPlatform
 
         #region 同心度检测
 
-        public bool Concentricity(TMData.ConcentricityParam param, bool bShow, out ConcentricityResult result)
+        public bool Concentricity(TMData.ConcentricityType type, TMData.ConcentricityParam param, bool bShow, out ConcentricityResult result)
         {
             bool bResult = true;
             result = new ConcentricityResult()
@@ -1973,7 +1963,7 @@ namespace VisionPlatform
                     Fun.FitCircle(InsulationParam, bShow, out result.insulationCircle);
                 }
                 //内导体圆
-                if (param.type == ConcentricityType.female)
+                if (type == ConcentricityType.female)
                 {
                     result.innerCircle = FemaleCircle(param.femaleCircle, result.outerCircle, bShow);
                     double dRadiusLow = Math.Round(param.femaleCircle.dRadius * param.femaleCircle.dRadiusLow, 2);

@@ -74,7 +74,7 @@ namespace VisionPlatform
             }
             catch(Exception ex)
             {
-
+                ex.ToString();
             }
         }
 
@@ -111,6 +111,16 @@ namespace VisionPlatform
             {
                 ex.ToString();
             }
+        }
+
+        private void 显示1_Click(object sender, EventArgs e)
+        {
+            RefeshUI(1);
+        }
+
+        private void 显示2_Click(object sender, EventArgs e)
+        {
+            RefeshUI(2);
         }
     }
 }

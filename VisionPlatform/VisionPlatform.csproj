@@ -185,7 +185,6 @@
     <Compile Include="其他\FormImageColorTrans.designer.cs">
       <DependentUpon>FormImageColorTrans.cs</DependentUpon>
     </Compile>
-    <Compile Include="多线插\函数\Camimage.cs" />
     <Compile Include="多线插\数据序列化\ConfigDate.cs" />
     <Compile Include="多线插\检测功能\端子检测\FormFAKRA.cs">
       <SubType>Form</SubType>
@@ -623,6 +622,8 @@
   <ItemGroup>
     <Content Include="1~1.ico" />
     <Content Include="20210125022420555_easyicon_net_96.ico" />
+    <None Include="Resources\camera2.png" />
+    <None Include="Resources\分支机构.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="多线插\检测功能\导体检测\" />

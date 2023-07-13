@@ -125,13 +125,62 @@
   <data name="tLPanel.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>18, 22</value>
+  </metadata>
+  <data name="contextMenuStrip1.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="显示1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAK1JREFUWEft
+        lLENwkAQBL8Ul0LuzNUgIlIKIHbmAmiAlALcD+xKRnrtbfIXwo00iTX+l+6la0XHBG/weXiBM1QWeIff
+        btQz5F2BFb5F/qBsULtReVfAhVRxTcaAi6jimowBjlujHSquG9U9bTvB/vAHvEKF316wP3BEnsu7iiJQ
+        m9CFVHFNxoCLqOKajAGOW6PahMV/UZvQhVRxTcaAi6jimowBjluj2oTFr9PaB7ZVgcyKjwPxAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <data name="显示1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="显示1.Text" xml:space="preserve">
+    <value>显示1</value>
+  </data>
+  <data name="显示2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAOpJREFUWEft
+        1rFtwmAURWG32YIiS6RjAIZik5T0WYAl6DMBM8AzkiPrvqMD0l9EQj7SV3FfZ2FPW6v25VxuT/yUz5KN
+        3r90vDiVbPQehyajjWnRyGS0MS0amYw2pkUjk9HGtGhkMtqYFo1MRhvTopHJaGNaNDIZbUzrt9CQXEo2
+        ej8dC43TtXyVbPT+r/k/3XwUi27Wnt1v/V+HMj9I82vVzJtdyUbvHz/SU0u+SzZ6j0OT0ca0aGQy2pgW
+        jUxGG9OikcloY1o0MhltTItGJqONadHIZLQxLRqZjDamtX0PLNE7fO2dvgem6Q62JC+deImCjwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="显示2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="显示2.Text" xml:space="preserve">
+    <value>显示2</value>
+  </data>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 60</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
+    <value>contextMenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="checkBox_SaveResultImgOK.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="checkBox_SaveResultImgOK.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="checkBox_SaveResultImgOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="checkBox_SaveResultImgOK.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 50</value>
   </data>
@@ -161,6 +210,9 @@
   </data>
   <data name="checkBox_SaveOrgImageOK.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <data name="checkBox_SaveOrgImageOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="checkBox_SaveOrgImageOK.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 27</value>
@@ -192,6 +244,9 @@
   <data name="checkBox_SaveResultImgNG.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="checkBox_SaveResultImgNG.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="checkBox_SaveResultImgNG.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 96</value>
   </data>
@@ -222,6 +277,9 @@
   <data name="checkBox_SaveOrgImageNG.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="checkBox_SaveOrgImageNG.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="checkBox_SaveOrgImageNG.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 73</value>
   </data>
@@ -251,6 +309,9 @@
   </data>
   <data name="checkBox_ShowData.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <data name="checkBox_ShowData.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="checkBox_ShowData.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 4</value>
@@ -304,7 +365,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tLPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="tLPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="checkBox_SaveResultImgOK" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="checkBox_SaveOrgImageOK" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="checkBox_SaveResultImgNG" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="checkBox_SaveOrgImageNG" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="checkBox_ShowData" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
@@ -320,6 +381,18 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FormImageSave</value>
+  </data>
+  <data name="&gt;&gt;显示1.Name" xml:space="preserve">
+    <value>显示1</value>
+  </data>
+  <data name="&gt;&gt;显示1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;显示2.Name" xml:space="preserve">
+    <value>显示2</value>
+  </data>
+  <data name="&gt;&gt;显示2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormImageSave</value>

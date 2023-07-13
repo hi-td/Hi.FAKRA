@@ -38,10 +38,10 @@ namespace VisionPlatform
             this.panel3 = new System.Windows.Forms.Panel();
             this.tLPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tLPanel_resultShow = new System.Windows.Forms.TableLayoutPanel();
-            this.but_Run = new System.Windows.Forms.Button();
             this.tLPanel_ImageSave = new System.Windows.Forms.TableLayoutPanel();
             this.panel_Message = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.but_Run = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tLPanel_CamShow.SuspendLayout();
             this.tLPanel.SuspendLayout();
@@ -94,14 +94,6 @@ namespace VisionPlatform
             resources.ApplyResources(this.tLPanel_resultShow, "tLPanel_resultShow");
             this.tLPanel_resultShow.Name = "tLPanel_resultShow";
             // 
-            // but_Run
-            // 
-            this.but_Run.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.but_Run, "but_Run");
-            this.but_Run.Name = "but_Run";
-            this.but_Run.UseVisualStyleBackColor = false;
-            this.but_Run.Click += new System.EventHandler(this.but_Run_Click);
-            // 
             // tLPanel_ImageSave
             // 
             resources.ApplyResources(this.tLPanel_ImageSave, "tLPanel_ImageSave");
@@ -117,6 +109,14 @@ namespace VisionPlatform
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
+            // 
+            // but_Run
+            // 
+            this.but_Run.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.but_Run, "but_Run");
+            this.but_Run.Name = "but_Run";
+            this.but_Run.UseVisualStyleBackColor = false;
+            this.but_Run.Click += new System.EventHandler(this.but_Run_Click);
             // 
             // Show3
             // 

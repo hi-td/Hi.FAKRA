@@ -44,7 +44,7 @@ namespace VisionPlatform
             this.剥皮检测 = new System.Windows.Forms.ToolStripMenuItem();
             this.插壳检测 = new System.Windows.Forms.ToolStripMenuItem();
             this.打端检测 = new System.Windows.Forms.ToolStripMenuItem();
-            this.线序检测 = new System.Windows.Forms.ToolStripMenuItem();
+            this.同心度检测 = new System.Windows.Forms.ToolStripMenuItem();
             this.公头 = new System.Windows.Forms.ToolStripMenuItem();
             this.母头 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -188,7 +188,7 @@ namespace VisionPlatform
             this.剥皮检测,
             this.插壳检测,
             this.打端检测,
-            this.线序检测});
+            this.同心度检测});
             this.toolStripMenuItem_Add.Name = "toolStripMenuItem_Add";
             this.toolStripMenuItem_Add.Size = new System.Drawing.Size(100, 22);
             this.toolStripMenuItem_Add.Text = "添加";
@@ -196,46 +196,47 @@ namespace VisionPlatform
             // 剥皮检测
             // 
             this.剥皮检测.Name = "剥皮检测";
-            this.剥皮检测.Size = new System.Drawing.Size(136, 22);
+            this.剥皮检测.Size = new System.Drawing.Size(180, 22);
             this.剥皮检测.Text = "剥皮检测";
-            this.剥皮检测.Click += new System.EventHandler(this.剥皮检测_Click);
+            this.剥皮检测.Click += new System.EventHandler(this.AddCheckItem);
             // 
             // 插壳检测
             // 
             this.插壳检测.Name = "插壳检测";
-            this.插壳检测.Size = new System.Drawing.Size(136, 22);
+            this.插壳检测.Size = new System.Drawing.Size(180, 22);
             this.插壳检测.Text = "端子检测";
-            this.插壳检测.Click += new System.EventHandler(this.端子检测_Click);
+            this.插壳检测.Click += new System.EventHandler(this.AddCheckItem);
             // 
             // 打端检测
             // 
             this.打端检测.Name = "打端检测";
-            this.打端检测.Size = new System.Drawing.Size(136, 22);
+            this.打端检测.Size = new System.Drawing.Size(180, 22);
             this.打端检测.Text = "导体检测";
-            this.打端检测.Click += new System.EventHandler(this.导体检测_Click);
+            this.打端检测.Click += new System.EventHandler(this.AddCheckItem);
             // 
-            // 线序检测
+            // 同心度检测
             // 
-            this.线序检测.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.同心度检测.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.公头,
             this.母头});
-            this.线序检测.Name = "线序检测";
-            this.线序检测.Size = new System.Drawing.Size(136, 22);
-            this.线序检测.Text = "同心度检测";
+            this.同心度检测.Name = "同心度检测";
+            this.同心度检测.Size = new System.Drawing.Size(180, 22);
+            this.同心度检测.Text = "同心度检测";
+            this.同心度检测.Click += new System.EventHandler(this.AddCheckItem);
             // 
             // 公头
             // 
             this.公头.Name = "公头";
-            this.公头.Size = new System.Drawing.Size(100, 22);
+            this.公头.Size = new System.Drawing.Size(180, 22);
             this.公头.Text = "公头";
-            this.公头.Click += new System.EventHandler(this.同心度检测_Click);
+            this.公头.Click += new System.EventHandler(this.AddCheckItem);
             // 
             // 母头
             // 
             this.母头.Name = "母头";
-            this.母头.Size = new System.Drawing.Size(100, 22);
+            this.母头.Size = new System.Drawing.Size(180, 22);
             this.母头.Text = "母头";
-            this.母头.Click += new System.EventHandler(this.同心度检测_Click);
+            this.母头.Click += new System.EventHandler(this.AddCheckItem);
             // 
             // toolStrip1
             // 
@@ -344,7 +345,7 @@ namespace VisionPlatform
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ToolStripMenuItem 线序检测;
+        private System.Windows.Forms.ToolStripMenuItem 同心度检测;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem 公头;
         private System.Windows.Forms.ToolStripMenuItem 母头;

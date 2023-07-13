@@ -23,12 +23,6 @@ namespace VisionPlatform
 {
     public partial class Show3 : Form
     {
-        public static FormCamShow formCamShow1;
-        public static FormCamShow formCamShow2;
-        public static FormCamShow formCamShow3;
-        public static List<Function> m_listFun = new List<Function>();
-        public static List<TMFunction> m_listTMFun = new List<TMFunction>();
-        public static List<string> m_listCamSer = new List<string>();
 
         public Show3()
         {
@@ -40,7 +34,7 @@ namespace VisionPlatform
 
         private void but_Run_Click(object sender, EventArgs e)
         {
-            StaticFun.Run.LoadRun(but_Run, m_listFun, m_listTMFun, m_listCamSer);
+            //StaticFun.Run.LoadRun(but_Run, m_listFun, m_listTMFun, m_listCamSer);
         }
         
         private void Show3_Load(object sender, EventArgs e)

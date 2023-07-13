@@ -16,6 +16,7 @@ using System.Drawing;
 using CamSDK;
 using DAL;
 using EnumData;
+using VisionPlatform.Properties;
 
 namespace StaticFun
 {
@@ -348,11 +349,13 @@ namespace StaticFun
                 {
                     string strCam = "相机" + cam.ToString();
                     contextMenuStrip.Items.Add(strCam);
+                    contextMenuStrip.Items[contextMenuStrip.Items.Count - 1].Image = Resources.camera2;
                     int num = GlobalData.Config._InitConfig.initConfig.dic_SubCam[cam];
                     for (int i = 0; i < num; i++)
                     {
                         strCam = "相机" + cam.ToString() + "-" + (i + 1).ToString();
                         contextMenuStrip.Items.Add(strCam);
+                        contextMenuStrip.Items[contextMenuStrip.Items.Count - 1].Image = Resources.subcam;
                     }
                 }
                 //若已经配置，则加载已配置好的相机画面
