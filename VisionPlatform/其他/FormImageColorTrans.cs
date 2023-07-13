@@ -17,13 +17,13 @@ namespace VisionPlatform
         ColorSpace m_colorSpace;
         TMData.ColorSpaceParam m_colorSpaceParam;
         Label m_label_Img, m_label_colorSpace;
-        public FormImageColorTrans(int cam, string b, Label label_Img, Label colorSpace)
+        public FormImageColorTrans(int cam, int sub_cam, Label label_Img, Label colorSpace)
         {
             InitializeComponent();
             m_label_Img = label_Img;
             m_label_colorSpace = colorSpace;
            //m_colorSpaceParam = colorSpaceParam;
-            Refresh(cam,b);
+            Refresh(cam, sub_cam);
             InitUI();
         }
         private void InitUI()
@@ -48,80 +48,45 @@ namespace VisionPlatform
             }
         }
 
-        private void Refresh(int cam,string b)
+        private void Refresh(int cam, int sub_cam)
         {
-            int camNum = GlobalData.Config._InitConfig.initConfig.CamNum;
-            this.panelWindow.Controls.Clear();
-            string a = cam.ToString() + b;
-            switch (camNum)
+            try
             {
-                case 1:
-                    formCamShow = Show1.formCamShow1;
-                    Show1.formCamShow1.TopLevel = false;
-                    Show1.formCamShow1.Visible = true;
-                    Show1.formCamShow1.Dock = DockStyle.Fill;
-                    this.panelWindow.Controls.Add(Show1.formCamShow1);
-                    break;
-                case 2:
-                    if (cam == 1)
+                int camNum = 0;
+                for (int i = 0; i < GlobalData.Config._InitConfig.initConfig.CamNum; i++)
+                {
+                    camNum++;
+                    if (GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1] != 0)
                     {
-                        formCamShow = Show2.formCamShow1;
-                        Show2.formCamShow1.TopLevel = false;
-                        Show2.formCamShow1.Visible = true;
-                        Show2.formCamShow1.Dock = DockStyle.Fill;
-                        this.panelWindow.Controls.Add(Show2.formCamShow1);
+                        camNum = camNum + GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1];
+                    }
+                }
+                switch (camNum)
+                {
+                    case 1:
+                        Show1.formCamShow1.TopLevel = false;
+                        Show1.formCamShow1.Visible = true;
+                        Show1.formCamShow1.Dock = DockStyle.Fill;
+                        this.panelWindow.Controls.Add(Show1.formCamShow1);
                         break;
-                    }
-                    if (cam == 2)
-                    {
-                        formCamShow = Show2.formCamShow2;
-                        Show2.formCamShow2.TopLevel = false;
-                        Show2.formCamShow2.Visible = true;
-                        Show2.formCamShow2.Dock = DockStyle.Fill;
-                        this.panelWindow.Controls.Add(Show2.formCamShow2);
-
-                    }
-                    break;
-                case 3:
-                    if (cam == 1)
-                    {
-                        formCamShow = Show3.formCamShow1;
-                        Show3.formCamShow1.TopLevel = false;
-                        Show3.formCamShow1.Visible = true;
-                        Show3.formCamShow1.Dock = DockStyle.Fill;
-                        this.panelWindow.Controls.Add(Show3.formCamShow1);
+                    case 2:
+                        Show2.dic_formCamShow[cam][sub_cam].form.TopLevel = false;
+                        Show2.dic_formCamShow[cam][sub_cam].form.Visible = true;
+                        Show2.dic_formCamShow[cam][sub_cam].form.Dock = DockStyle.Fill;
+                        this.panelWindow.Controls.Add(Show2.dic_formCamShow[cam][sub_cam].form);
                         break;
-                    }
-                    if (cam == 2)
-                    {
-                        formCamShow = Show3.formCamShow2;
-                        Show3.formCamShow2.TopLevel = false;
-                        Show3.formCamShow2.Visible = true;
-                        Show3.formCamShow2.Dock = DockStyle.Fill;
-                        this.panelWindow.Controls.Add(Show3.formCamShow2);
-
-                    }
-                    if (cam == 3)
-                    {
-                        formCamShow = Show3.formCamShow3;
-                        Show3.formCamShow3.TopLevel = false;
-                        Show3.formCamShow3.Visible = true;
-                        Show3.formCamShow3.Dock = DockStyle.Fill;
-                        this.panelWindow.Controls.Add(Show3.formCamShow3);
-
-                    }
-                    break;
-
-                case 7:
-                    Show7.formCamShows[a].TopLevel = false;
-                    Show7.formCamShows[a].Visible = true;
-                    Show7.formCamShows[a].Dock = DockStyle.Fill;
-                    this.panelWindow.Controls.Add(Show7.formCamShows[a]);
-                    Show7.formCamShows[a].label_x.Visible = false;
-                    Show7.formCamShows[a].label_d.Visible = false;
-                    break;
-                default:
-                    break;
+                    default:
+                        this.panelWindow.Controls.Clear();
+                        FormMainUI.m_dicFormCamShows[cam][sub_cam].form.TopLevel = false;
+                        FormMainUI.m_dicFormCamShows[cam][sub_cam].form.Visible = true;
+                        FormMainUI.m_dicFormCamShows[cam][sub_cam].form.Dock = DockStyle.Fill;
+                        this.panelWindow.Controls.Add(FormMainUI.m_dicFormCamShows[cam][sub_cam].form);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
             }
 
         }

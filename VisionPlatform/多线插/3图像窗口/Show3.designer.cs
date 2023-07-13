@@ -29,118 +29,54 @@ namespace VisionPlatform
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Show3));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel33 = new System.Windows.Forms.Panel();
-            this.label1_Edit = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label2_Edit = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.tLPanel_CamShow = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label3_Edit = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tLPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tLPanel_resultShow = new System.Windows.Forms.TableLayoutPanel();
             this.but_Run = new System.Windows.Forms.Button();
             this.tLPanel_ImageSave = new System.Windows.Forms.TableLayoutPanel();
             this.panel_Message = new System.Windows.Forms.Panel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.panel33.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.tLPanel_CamShow.SuspendLayout();
             this.tLPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tLPanel_CamShow, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tLPanel, 0, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
-            // tableLayoutPanel2
+            // tLPanel_CamShow
             // 
-            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
-            this.tableLayoutPanel2.Controls.Add(this.panel33, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel6, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.panel4, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel3, 2, 1);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            // 
-            // panel33
-            // 
-            this.panel33.Controls.Add(this.label1_Edit);
-            this.panel33.Controls.Add(this.label12);
-            resources.ApplyResources(this.panel33, "panel33");
-            this.panel33.Name = "panel33";
-            // 
-            // label1_Edit
-            // 
-            resources.ApplyResources(this.label1_Edit, "label1_Edit");
-            this.label1_Edit.Name = "label1_Edit";
-            this.label1_Edit.Click += new System.EventHandler(this.label1_Edit_Click);
-            // 
-            // label12
-            // 
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.Name = "label12";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label2_Edit);
-            this.panel6.Controls.Add(this.label15);
-            resources.ApplyResources(this.panel6, "panel6");
-            this.panel6.Name = "panel6";
-            // 
-            // label2_Edit
-            // 
-            resources.ApplyResources(this.label2_Edit, "label2_Edit");
-            this.label2_Edit.Name = "label2_Edit";
-            this.label2_Edit.Click += new System.EventHandler(this.label2_Edit_Click);
-            // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
+            resources.ApplyResources(this.tLPanel_CamShow, "tLPanel_CamShow");
+            this.tLPanel_CamShow.Controls.Add(this.panel1, 0, 0);
+            this.tLPanel_CamShow.Controls.Add(this.panel2, 1, 0);
+            this.tLPanel_CamShow.Controls.Add(this.panel3, 2, 0);
+            this.tLPanel_CamShow.Name = "tLPanel_CamShow";
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label3_Edit);
-            this.panel4.Controls.Add(this.label13);
-            resources.ApplyResources(this.panel4, "panel4");
-            this.panel4.Name = "panel4";
-            // 
-            // label3_Edit
-            // 
-            resources.ApplyResources(this.label3_Edit, "label3_Edit");
-            this.label3_Edit.Name = "label3_Edit";
-            this.label3_Edit.Click += new System.EventHandler(this.label3_Edit_Click);
-            // 
-            // label13
-            // 
-            resources.ApplyResources(this.label13, "label13");
-            this.label13.Name = "label13";
-            // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
             // 
@@ -176,6 +112,12 @@ namespace VisionPlatform
             resources.ApplyResources(this.panel_Message, "panel_Message");
             this.panel_Message.Name = "panel_Message";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
+            // 
             // Show3
             // 
             resources.ApplyResources(this, "$this");
@@ -186,13 +128,7 @@ namespace VisionPlatform
             this.Name = "Show3";
             this.Load += new System.EventHandler(this.Show3_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel33.ResumeLayout(false);
-            this.panel33.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.tLPanel_CamShow.ResumeLayout(false);
             this.tLPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -201,23 +137,15 @@ namespace VisionPlatform
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Panel panel33;
-        private System.Windows.Forms.Label label1_Edit;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label2_Edit;
-        private System.Windows.Forms.Label label15;
+        public System.Windows.Forms.TableLayoutPanel tLPanel_CamShow;
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label3_Edit;
-        private System.Windows.Forms.Label label13;
         public System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tLPanel;
         public System.Windows.Forms.Button but_Run;
         private System.Windows.Forms.TableLayoutPanel tLPanel_resultShow;
         private System.Windows.Forms.TableLayoutPanel tLPanel_ImageSave;
-        private System.Windows.Forms.Panel panel_Message;
+        public System.Windows.Forms.Panel panel_Message;
+        public System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

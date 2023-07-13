@@ -4,6 +4,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using BaseData;
 using HalconDotNet;
 using static VisionPlatform.TMData;
@@ -34,6 +35,11 @@ namespace VisionPlatform
             Defult,
             male,      //公头
             female,    //母头
+        }
+        public struct ShowItems
+        {
+            public FormCamShow form;     //相机显示窗体
+            public Panel panel;          //该窗体对应的panel
         }
 
         [Serializable]
@@ -99,13 +105,17 @@ namespace VisionPlatform
         [Serializable]
         public struct FakraParam
         {
-            public int nTMNum;                      //单个胶壳内端子数量
-            public ROIParam roi;                    //胶壳检测框
-            public int nMethod;                     //检测方法
+            public TMLocateParam tMLocateParam;
 
         }
-
-
+        #region 端子匹配参数
+        public struct TMLocateParam
+        {
+            public double nminscore;              //最小分数
+            public int nThd;               //端子亮度：静态阈值
+            public int nminArea;           //端子筛选最小面积
+        }
+        #endregion
         public struct RubberResult
         {
 
@@ -118,8 +128,8 @@ namespace VisionPlatform
             public List<Rect2> listRubberRect2;     //定位框
         }
 
-        #endregion
 
+        #endregion
         [Serializable]
         public struct ROIParam
         {
@@ -209,6 +219,14 @@ namespace VisionPlatform
             public int nChannel;
         }
 
+        public struct CamShowParam
+        {
+            public int cam;
+            public int sub_cam;
+        }
+
+
+        #region 同心度参数
         [Serializable]
         public struct ConcentricityParam
         {
@@ -218,6 +236,10 @@ namespace VisionPlatform
             public FitCircleParam insulationCircle;  //绝缘体圆
             public FemaleCircle femaleCircle;        //母头圆
             public MaleCircle maleCircle;            //公头圆
+            public double dOuterInner;               //外导体-内导体同心度
+            public double dOuterInnerHigh;           //外导体-内导体同心度上限
+            public double dOuterInsulation;          //外导体-绝缘体同心度
+            public double dOuterInsulationHigh;      //外导体-绝缘体同心度上限
         }
 
         [Serializable]
@@ -261,6 +283,8 @@ namespace VisionPlatform
             public Circle outerCircle;
             public Circle innerCircle;
             public Circle insulationCircle;
+            public double dDist1;           //外导体-内导体同心度
+            public double dDist2;           //外导体-绝缘体同心度
         }
 
         public struct ConductorResult

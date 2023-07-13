@@ -29,23 +29,21 @@ namespace VisionPlatform
         private Function Fun;                                         //当前底层函数
         string str_CamSer;                                            //当前相机序列号
         int m_ncam;                                                   //当前相机
-        string bh;                                                    //当前相机几号界面
+        int sub_cam;                                                    //当前相机几号界面
         string  m_TMType= "teach";                                    //生产的线的类型：标准线or大小线
-        //TMParam m_TMParam;
-        Rect2 m_SkinWeldROIY = new Rect2();                           //示教时计算得到的绝缘皮压脚区域的大小
-        Rect2 m_LineWeldROI = new Rect2();                            // 创建模板时绘制的线芯压脚区域
+
         LocateOutParams m_LocateResult = new LocateOutParams();       //模板匹配结果
         private List<Arbitrary> m_arbitrary = new List<Arbitrary>();  //绘制的线芯飞边区域
         int model_ID;                                                 //模板ID
         FormImageColorTrans formImageColorTrans;                      //图像颜色空间转换
 
         private bool TorF = false;
-        public FormFAKRA(int ncam,string b)
+        public FormFAKRA(int ncam, int sub_cam)
         {
             InitializeComponent();
             m_ncam = ncam;
-            bh = b;
-            UIConfig.RefreshFun(ncam,b, ref Fun, ref TMFun, ref str_CamSer);
+            this.sub_cam = sub_cam;
+            UIConfig.RefreshFun(ncam, sub_cam, ref Fun, ref TMFun, ref str_CamSer);
             InitUI();
             selectcombox();
         }
@@ -54,15 +52,11 @@ namespace VisionPlatform
             try
             {
                 radioBut_ModelImage.Checked = true;      //默认使用模板图片
-                tabPage_SkinWeld.Parent = null;
                 tabPage_SkinPos.Parent = null;
                 tabPage_LineWeld.Parent = null;
                 tabPage_LinePos.Parent = null;
                 tabPage_LineSide.Parent = null;
-                tabPage_TMNose.Parent = null;
-                tabPage_TMhead.Parent = null;
                 tabPage_TMwing.Parent = null;
-                tabPage_LineColorf1.Parent = null;          //线序检测 
                 checkBox_bColorSpaceTrans.Checked = false;
                 tLPanel_ColorSpace.Visible = false;
 
@@ -100,7 +94,7 @@ namespace VisionPlatform
         {
             try
             {
-                string a = m_ncam.ToString() + bh;
+                string a = m_ncam.ToString() + sub_cam.ToString();
                 comboBox_SelectModel.Items.Add("自动");
                 comboBox_Model.Items.Add("teach");
                 if (TMData_Serializer._globalData.dicTMCheckList != null && TMData_Serializer._globalData.dicTMCheckList.ContainsKey(a))
@@ -144,7 +138,7 @@ namespace VisionPlatform
         {
             try
             {
-                string a = m_ncam.ToString() + bh;
+                string a = m_ncam.ToString() + sub_cam.ToString();
                 //如果相机实时，则停止实时
                 try
                 {
@@ -157,7 +151,7 @@ namespace VisionPlatform
                 Fun.ClearObjShow();
 
                 #region 导入模板图像
-                string model_name = "camera" + m_ncam.ToString() + "_"+ bh + "-" + m_TMType.ToString();
+                string model_name = "camera" + m_ncam.ToString() + "_"+ sub_cam.ToString() + "-" + m_TMType.ToString();
                 string strPath = System.IO.Path.Combine(GlobalPath.SavePath.ModelImagePath, model_name) + ".bmp";
                 if (File.Exists(strPath))
                 {
@@ -220,15 +214,6 @@ namespace VisionPlatform
                         {
                             tabPage_LineSide.Parent = null;
                         }
-                        if (TMCheckList.LineColor)
-                        {
-                            tabPage_LineColorf1.Parent = tabCtrl_InspectItem;
-                        }
-                        else
-                        {
-                            tabPage_LineColorf1.Parent = null;
-                        }
-
                     }
                     #endregion
 
@@ -242,12 +227,12 @@ namespace VisionPlatform
                         }
                         else
                         {
-                            numUpD_Score.Value = (decimal)0.6;
+                            numericUpDown_LocateScore.Value = (decimal)0.6;
                         }
                     }
                     else
                     {
-                        numUpD_Score.Value = (decimal)0.6;
+                        numericUpDown_LocateScore.Value = (decimal)0.6;
                     }
                     #endregion
                 }
@@ -313,38 +298,10 @@ namespace VisionPlatform
         }
         private void trackBar_JypyjGap_Scroll(object sender, EventArgs e)
         {
-            numericUpDown_JypyjGap.Value = trackBar_JypyjGap.Value;
+            numericUpDown_Locatethd.Value = trackBar_Locatethd.Value;
         }
         private void numericUpDown_JypyjGap_ValueChanged(object sender, EventArgs e)
         {
-            if (TorF)
-            {
-                //SkinWeldInspect();
-            }
-
-        }
-        private void trackBar_JypyjWidth_Scroll(object sender, EventArgs e)
-        {
-            numericUpDown_JypyjWidth.Value = trackBar_JypyjWidth.Value;
-        }
-        private void numericUpDown_JypyjWidth_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinWeldInspect();
-            }
-
-        }
-        private void trackBar_JypyjHeight_Scroll(object sender, EventArgs e)
-        {
-            numericUpDown_JypyjHeight.Value = trackBar_JypyjHeight.Value;
-        }
-        private void numericUpDown_JypyjHeight_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinWeldInspect();
-            }
 
         }
 
@@ -1192,342 +1149,33 @@ namespace VisionPlatform
         
         #endregion
 
-        #region 线芯压脚上方飞丝
-
-        //private LineOnWeldParam InitLineOnWeldParam()
-        //{
-        //    LineOnWeldParam param = new LineOnWeldParam();
-        //    param.dDev = new double[2];
-        //    param.dStandDev = new double[2];
-        //    try
-        //    {
-        //        param.nThd = (int)numUpD_LineCopper_Thd.Value;
-        //        if ("--" != label_LineCopper_Thd.Text)
-        //        {
-        //            param.nStandThd = int.Parse(label_LineCopper_Thd.Text);
-        //        }
-        //        trackBar_LineCopper_Thd.Value = (int)numUpD_LineCopper_Thd.Value;
-        //        param.dDev[0] = (double)numUpD_LineCopper_Dev0.Value;
-        //        if ("--" != label_LineCopper_Dev0.Text)
-        //        {
-        //            param.dStandDev[0] = double.Parse(label_LineCopper_Dev0.Text);
-        //        }
-        //        param.dDev[1] = (double)numUpD_LineCopper_Dev1.Value;
-        //        if ("--" != label_LineCopper_Dev1.Text)
-        //        {
-        //            param.dStandDev[1] = double.Parse(label_LineCopper_Dev1.Text);
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ex.ToString();
-        //    }
-        //    return param;
-        //}
-
-        //private void LoadLineOnWedlParam(LineOnWeldParam param)
-        //{
-        //    try
-        //    {
-        //        trackBar_LineCopper_Thd.Value = param.nThd;
-        //        label_LineCopper_Thd.Text = param.nStandThd.ToString();
-        //        numUpD_LineCopper_Thd.Value = param.nThd;
-        //        if (null != param.dDev)
-        //        {
-        //            numUpD_LineCopper_Dev0.Value = (decimal)param.dDev[0];
-        //            label_LineCopper_Dev0.Text = param.dStandDev[0].ToString();
-        //            numUpD_LineCopper_Dev1.Value = (decimal)param.dDev[1];
-        //            label_LineCopper_Dev1.Text = param.dStandDev[1].ToString();
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ex.ToString();
-        //    }
-        //}
-        private void LineWeldCopperInspect()
-        {
-            if (null == TMFun || null == Fun.m_hImage)
-            {
-                return;
-            }
-            if (radioBut_ModelImage.Checked)
-            {
-                //TMFun.TransModelImage();
-            }
-            if (radioBut_PreImage.Checked)
-            {
-                //TMFun.ModelImageTransBack();
-            }
-            Fun.ClearObjShow();
-            //TMParam param = InitParam();
-            //TMFun.setseiz();
-            //if (!TMFun.FindNccModelYXSS(param, true, out Rect2 LineWeldROI, out _))
-            //{
-            //    MessageFun.ShowMessage("定位失败！");
-            //    return;
-            //}
-            //TMFun.LineOnWeldInspect(param.lineOnWeld, m_LineWeldROI, out LineOnWeldResult outData);
-            //label_LineCopper_Thd.Text = outData.nThd.ToString();
-            //if (null != outData.dDeviation)
-            //{
-            //    label_LineCopper_Dev0.Text = outData.dDeviation[0].ToString();
-            //    label_LineCopper_Dev1.Text = outData.dDeviation[1].ToString();
-            //}
-
-        }
-
-        private void trackBar_LineCopper_Thd_Scroll(object sender, EventArgs e)
-        {
-            numUpD_LineCopper_Thd.Value = trackBar_LineCopper_Thd.Value;
-        }
-
-        private void numUpD_LineCopper_Thd_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                LineWeldCopperInspect();
-            }
-
-        }
-
-        #endregion
-
-        #region 线芯压脚位置露铜芯检测
 
 
-        #endregion
-
-        #region 端子鼻检测
-        //private TMNoseParam InitTMNoseParam()
-        //{
-        //    TMNoseParam param = new TMNoseParam();
-        //    try
-        //    {
-        //        //X偏移量
-        //        param.nXMove = (int)numUpD_Nose_XMove.Value;
-        //        trackBar_Nose_XMove.Value = (int)numUpD_Nose_XMove.Value;
-        //        //Y偏移量
-        //        param.nYMove = (int)numUpD_Nose_YMove.Value;
-        //        trackBar_Nose_YMove.Value = (int)numUpD_Nose_YMove.Value;
-        //        //宽度
-        //        param.nROILen1 = (int)numUpD_Nose_Len1.Value;
-        //        trackBar_Nose_Len1.Value = (int)numUpD_Nose_Len1.Value;
-        //        //高度
-        //        param.nROILen2 = (int)numUpD_Nose_Len2.Value;
-        //        trackBar_Nose_Len2.Value = (int)numUpD_Nose_Len2.Value;
-        //        //端子鼻长度
-        //        param.dNoseLen = double.Parse(label_Nose_Len.Text);      //端子鼻长度
-        //        param.nNoseLenLow = (int)numUpD_Nose_LenLow.Value;      //端子鼻长度下限
-        //        param.nNoseLenHigh = (int)numUpD_Nose_LenHigh.Value;     //端子鼻长度上限
-        //        //端子鼻角度
-        //        param.dAngle = double.Parse(label_Nose_Angle.Text);        //端子鼻与端子的角度（非弧度）
-        //        param.nAngleLow = (int)numUpD_Nose_AngleLow.Value;        //端子鼻与端子的角度下限（非弧度）
-        //        param.nAngleHigh = (int)numUpD_Nose_AngleHigh.Value;       //端子鼻与端子的角度上限（非弧度）
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ex.ToString();
-        //    }
-        //    return param;
-        //}
-        //private void LoadTMNoseParam(TMNoseParam param)
-        //{
-        //    try
-        //    {
-        //        //X偏移量
-        //        numUpD_Nose_XMove.Value = param.nXMove;
-        //        trackBar_Nose_XMove.Value = (int)numUpD_Nose_XMove.Value;
-        //        //Y偏移量
-        //        numUpD_Nose_YMove.Value = param.nYMove;
-        //        trackBar_Nose_YMove.Value = (int)numUpD_Nose_YMove.Value;
-        //        //宽度
-        //        numUpD_Nose_Len1.Value = param.nROILen1;
-        //        trackBar_Nose_Len1.Value = (int)numUpD_Nose_Len1.Value;
-        //        //高度
-        //        numUpD_Nose_Len2.Value = param.nROILen2;
-        //        trackBar_Nose_Len2.Value = (int)numUpD_Nose_Len2.Value;
-        //        //端子鼻长度
-        //        label_Nose_Len.Text = param.dNoseLen.ToString();      //端子鼻长度
-        //        numUpD_Nose_LenLow.Value = param.nNoseLenLow;      //端子鼻长度下限
-        //        label_Nose_LenMin.Text = (param.dNoseLen - param.nNoseLenLow).ToString();
-        //        numUpD_Nose_LenHigh.Value = param.nNoseLenHigh;     //端子鼻长度上限
-        //        label_Nose_LenMax.Text = (param.dNoseLen + param.nNoseLenHigh).ToString();
-        //        //端子鼻角度
-        //        label_Nose_Angle.Text = param.dAngle.ToString();        //端子鼻与端子的角度（非弧度）
-        //        numUpD_Nose_AngleLow.Value = param.nAngleLow;        //端子鼻与端子的角度下限（非弧度）
-        //        label_Nose_AngleMin.Text = (param.dAngle - param.nAngleLow).ToString();
-        //        numUpD_Nose_AngleHigh.Value = param.nAngleHigh;       //端子鼻与端子的角度上限（非弧度）
-        //        label_Nose_AngleMax.Text = (param.dAngle + param.nAngleHigh).ToString();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ex.ToString();
-        //    }
-        //}
-        private void TMNoseInspect()
-        {
-        //    if (null == TMFun || null == Fun.m_hImage)
-        //    {
-        //        return;
-        //    }
-        //    if (radioBut_ModelImage.Checked)
-        //    {
-        //        TMFun.TransModelImage();
-        //    }
-        //    if (radioBut_PreImage.Checked)
-        //    {
-        //        TMFun.ModelImageTransBack();
-        //    }
-        //    Fun.ClearObjShow();
-        //    TMParam param = InitParam();
-        //    TMFun.setseiz();
-        //    if (!TMFun.FindNccModelYXSS(param, true, out Rect2 LineWeldROI, out _))
-        //    {
-        //        MessageFun.ShowMessage("定位失败！");
-        //        return;
-        //    }
-        //    if (TMFun.TMNoseInspect(param.tmNose, LineWeldROI, true, out TMNoseResult outData))
-        //    {
-        //        label_Nose_Len.Text = outData.dNoseLen.ToString();
-        //        label_Nose_LenMin.Text = (outData.dNoseLen - param.tmNose.nNoseLenLow).ToString();
-        //        label_Nose_LenMax.Text = (outData.dNoseLen + param.tmNose.nNoseLenHigh).ToString();
-        //        label_Nose_Angle.Text = outData.dAngle.ToString();
-        //        label_Nose_AngleMin.Text = (outData.dAngle - param.tmNose.nAngleLow).ToString();
-        //        label_Nose_AngleMax.Text = (outData.dAngle + param.tmNose.nAngleHigh).ToString();
-        //    }
-        }
-        private void trackBar_Nose_XMove_Scroll(object sender, EventArgs e)
-        {
-            numUpD_Nose_XMove.Value = trackBar_Nose_XMove.Value;
-        }
-        private void numUpD_Nose_XMove_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //TMNoseInspect();
-            }
-
-        }
-        private void trackBar_Nose_YMove_Scroll(object sender, EventArgs e)
-        {
-            numUpD_Nose_YMove.Value = trackBar_Nose_YMove.Value;
-        }
-        private void numUpD_Nose_YMove_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //TMNoseInspect();
-            }
-        }
-
-        private void trackBar_Nose_Len1_Scroll(object sender, EventArgs e)
-        {
-            numUpD_Nose_Len1.Value = trackBar_Nose_Len1.Value;
-        }
-
-        private void numUpD_Nose_Len1_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //TMNoseInspect();
-            }
-        }
-
-        private void trackBar_Nose_Len2_Scroll(object sender, EventArgs e)
-        {
-            numUpD_Nose_Len2.Value = trackBar_Nose_Len2.Value;
-        }
-
-        private void numUpD_Nose_Len2_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //TMNoseInspect();
-            }
-        }
-        private void numUpD_Nose_AngleHigh_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //TMNoseInspect();
-            }
-        }
-
-        private void numUpD_Nose_LenHigh_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //TMNoseInspect();
-            }
-        }
-
-        private void numUpD_Nose_AngleLow_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //TMNoseInspect();
-            }
-        }
-
-        private void numUpD_Nose_LenLow_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //TMNoseInspect();
-            }
-        }
-        #endregion
         private void but_SetModel_Click_1(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (Fun.m_rect2.dLength1 == 0 && Fun.m_rect2.dLength2 == 0)
-            //    {
-            //        if (GlobalData.Config._language == EnumData.Language.english)
-            //        {
-            //            MessageBox.Show("Please go to Image window - Right mouse button - Draw and select “Rectangle 2”, draw the conductor crimp ROI, and right click to confirm!");
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("请在图像窗口-鼠标右键-绘制-选择“矩形2”，画出线芯压脚区域,并右键确认完成。");
-            //        }
-            //        return;
-            //    }
-            //    if (TMFun.CreateModel(out model_ID, out m_LineWeldROI, out m_LocateResult))
-            //    {
-            //        //保存模板
-            //        string model_name = "camera" + m_ncam.ToString() + "_" + m_TMType.ToString();
-            //        Fun.WriteModel(model_name, ModelType.ncc, model_ID);
-            //        //保存模板图像
-            //        string strPath = System.IO.Path.Combine(GlobalPath.SavePath.ModelImagePath, model_name);
-            //        Fun.SaveImageWithoutDate(strPath);
-            //        TMFun.m_ModelImage = Fun.m_hImage.Clone();
-            //        if (GlobalData.Config._language == EnumData.Language.english)
-            //        {
-            //            MessageBox.Show("The model is created successfully!");
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("模板创建成功！");
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    ex.ToString();
-            //    if (GlobalData.Config._language == EnumData.Language.english)
-            //    {
-            //        MessageBox.Show("The model is created failed!");
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("模板创建失败！");
-            //    }
-
-            //}
+            try
+            {
+                if (Fun.m_rect2.dLength1 == 0 && Fun.m_rect2.dLength2 == 0)
+                {
+                    MessageBox.Show("请在图像窗口-鼠标右键-绘制-选择“矩形2”，画出定位区域,并右键确认完成。");
+                    return;
+                }
+                if (TMFun.CreateModel(out model_ID, out m_LocateResult))
+                {
+                    //保存模板
+                    string model_name = "camera" + m_ncam.ToString() + "_" + m_TMType.ToString();
+                    //Fun.WriteModel(model_name, ModelType.ncc, model_ID);
+                    //保存模板图像
+                    string strPath = System.IO.Path.Combine(GlobalPath.SavePath.ModelImagePath, model_name);
+                    //Fun.SaveImageWithoutDate(strPath);
+                    TMFun.m_ModelImage = Fun.m_hImage.Clone();
+                    MessageBox.Show("模板创建成功！");
+                }
+            }
+            catch (Exception ex)
+            {
+               MessageBox.Show("模板创建失败！"+ ex.ToString());
+            }
 
         }
         private void but_TestModel_Click(object sender, EventArgs e)
@@ -1777,27 +1425,6 @@ namespace VisionPlatform
                 //TMheadInspect();
             }
         }
-
-        private void trackBar_head_Gap_Scroll(object sender, EventArgs e)
-        {
-            numericUpDown_head_Gap.Value = trackBar_head_Gap.Value;
-        }
-
-        private void trackBar_head_Width_Scroll(object sender, EventArgs e)
-        {
-            numericUpDown_head_Width.Value = trackBar_head_Width.Value;
-        }
-
-        private void trackBar_head_Height_Scroll(object sender, EventArgs e)
-        {
-            numericUpDown_head_Height.Value = trackBar_head_Height.Value;
-        }
-
-        private void trackBar_head_Thd_Scroll(object sender, EventArgs e)
-        {
-            numericUpDown_head_Thd.Value = trackBar_head_Thd.Value;
-        }
-
         private void radioBut_LinePos_methodOutline_CheckedChanged(object sender, EventArgs e)
         {
             if (radioBut_LinePos_methodOutline.Checked)
@@ -1808,131 +1435,6 @@ namespace VisionPlatform
                 tabPage_LineOutline.Parent = tabControl1;
             }
         }
-
-
-
-        #region 线序检测
-        //private TMData.LineColorParam InitLineColorParam()
-        //{
-        //    TMData.LineColorParam param = new TMData.LineColorParam();
-        //    try
-        //    {
-        //        param.bInspect = true;
-        //        param.colorID = m_colorID;
-        //        param.nROIGap = (int)numUpD_lineColor_gap.Value;            //ROI间距
-        //        param.nROIWidth = (int)numUpD_lineColor_width.Value;        //ROI宽度
-        //        param.nROIHeight = (int)numUpD_lineColor_height.Value;      //ROI高度
-        //        param.nGrayDiff = (int)numUpD_lineColor_GrayDiff.Value;     //灰度差
-        //        param.nMinArea = (int)numUpD_LineColor_MinArea.Value;       //识别出的颜色区域的最小面积
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        StaticFun.MessageFun.ShowMessage(ex.ToString());
-        //    }
-        //    return param;
-        //}
-        //private void LoadLineColorParam(LineColorParam data)
-        //{
-        //    try
-        //    {
-        //        TMData.LineColorParam param = new LineColorParam();
-        //        /*导入检测参数*/
-        //        if (TMData_Serializer._globalData.dic_LineColor.ContainsKey(m_ncam))
-        //        {
-
-        //            param = TMData_Serializer._globalData.dic_LineColor[m_ncam];
-        //        }
-        //        else if (data.bInspect)
-        //        {
-        //            param = data;
-        //        }
-        //        numUpD_lineColor_gap.Value = param.nROIGap;
-        //        numUpD_lineColor_width.Value = param.nROIWidth;
-        //        numUpD_lineColor_height.Value = param.nROIHeight;
-        //        numUpD_lineColor_GrayDiff.Value = param.nGrayDiff;
-        //        if(param.nMinArea>=1)
-        //            numUpD_LineColor_MinArea.Value = param.nMinArea;
-        //        m_colorID = param.colorID;
-        //    }
-        //    catch (SystemException ex)
-        //    {
-        //        StaticFun.MessageFun.ShowMessage(ex.ToString());
-        //    }
-        //}
-
-        private void LineColorInspect(object sender, EventArgs e)
-        {
-        //    if (null == TMFun || null == Fun.m_hImage ||!TorF)
-        //    {
-        //        return;
-        //    }
-        //    if (radioBut_ModelImage.Checked)
-        //    {
-        //        TMFun.TransModelImage();
-        //    }
-        //    if (radioBut_PreImage.Checked)
-        //    {
-        //        TMFun.ModelImageTransBack();
-        //    }
-        //    Fun.ClearObjShow();
-        //    TMParam param = InitParam();
-        //    TMFun.setseiz();
-        //    if (!TMFun.FindNccModelYXSS(param, true, out Rect2 LineWeldROI, out _))
-        //    {
-        //        MessageFun.ShowMessage("定位失败！");
-        //        return;
-        //    }
-        //    TMFun.LineColor_MLP(param.lineColor, LineWeldROI, true, out LineColorResult lineColorResult);
-        }
-
-        private void but_CreateColorModel_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    TMParam param = InitParam();
-            //    if (!TMFun.FindNccModelYXSS(param, true, out Rect2 LineWeldROI, out _))
-            //    {
-            //        MessageFun.ShowMessage("定位失败！");
-            //        return;
-            //    }
-            //    if (TMFun.CreateColorClassGmm(param.lineColor, LineWeldROI, true, out ColorID colorID))
-            //    {
-            //        //m_listID = new List<ColorID>();
-            //        m_colorID = colorID;
-            //        TMFun.WriteLineColor(m_ncam, "线序模板" + m_TMType.ToString(), colorID);
-            //        MessageBox.Show("线序颜色模型创建成功！");
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("线序颜色模型创建失败！");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    ex.ToString();
-            //}
-        }
-
-        private void trackBar_lineColor_gap_Scroll(object sender, EventArgs e)
-        {
-            numUpD_lineColor_gap.Value = (int)trackBar_lineColor_gap.Value;
-        }
-
-        private void trackBar_lineColor_width_Scroll(object sender, EventArgs e)
-        {
-            numUpD_lineColor_width.Value = (int)trackBar_lineColor_width.Value;
-        }
-
-        private void trackBar_lineColor_height_Scroll(object sender, EventArgs e)
-        {
-            numUpD_lineColor_height.Value = (int)trackBar_lineColor_height.Value;
-        }
-        private void trackBar_LineColor_MinArea_Scroll(object sender, EventArgs e)
-        {
-            numUpD_LineColor_MinArea.Value = (int)trackBar_LineColor_MinArea.Value;
-        }
-
-        #endregion
 
         private void TMwingInspect()
         {
@@ -2121,7 +1623,7 @@ namespace VisionPlatform
                 {
                     return;
                 }
-                string a = m_ncam.ToString() + bh;
+                string a = m_ncam.ToString() + sub_cam.ToString();
                 string c = comboBox_Model.Text;
                 if (TMData_Serializer._globalData.dicTMCheckList.ContainsKey(a))
                 {
@@ -2188,7 +1690,7 @@ namespace VisionPlatform
                 {
                     return;
                 }
-                string c = m_ncam.ToString() + bh;
+                string c = m_ncam.ToString() + sub_cam.ToString();
                 if (TMData_Serializer._globalData.dicTMCheckList.ContainsKey(c))
                 {
                     string a = comboBox_Model.Text;
@@ -2273,5 +1775,82 @@ namespace VisionPlatform
             //}
 
         }
+        #region 匹配定位
+        private TMLocateParam InitTMLocateParam()
+        {
+            TMLocateParam param = new TMLocateParam();
+            try
+            {
+                //亮度
+                param.nThd = (int)numericUpDown_Locatethd.Value;
+                trackBar_Locatethd.Value = (int)numericUpDown_Locatethd.Value;
+                //最小面积
+                param.nminArea = (int)numericUpDown_LocateminArea.Value;
+                trackBar_LocateminArea.Value = (int)numericUpDown_LocateminArea.Value;
+                //最低匹配分数
+                param.nminscore = (int)numericUpDown_LocateScore.Value;
+                //亮度取值
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            return param;
+        }
+        private void TMLocateInspect()
+        {
+            try
+            {
+                if (null == TMFun || null == Fun.m_hImage)
+                {
+                    return;
+                }
+
+                //if (radioBut_ModelImage.Checked)
+                //{
+                //    TMFun.TransModelImage();
+                //}
+                //if (radioBut_PreImage.Checked)
+                //{
+                //    TMFun.ModelImageTransBack();
+                //}
+                Fun.ClearObjShow();
+                //TMParam param = InitParam();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+        private void trackBar_Locatethd_Scroll(object sender, EventArgs e)
+        {
+            numericUpDown_Locatethd.Value = trackBar_Locatethd.Value;
+        }
+
+
+        private void trackBar_LocateminArea_Scroll(object sender, EventArgs e)
+        {
+            numericUpDown_LocateminArea.Value = trackBar_LocateminArea.Value;
+        }
+        private void numericUpDown_Locatethd_ValueChanged(object sender, EventArgs e)
+        {
+            Fun.ClearObjShow();
+            TMLocateParam param=InitTMLocateParam();
+            TMFun.GetTMregion(param);
+            if (TorF)
+            {
+
+            }
+        }
+
+        private void numericUpDown_LocateminArea_ValueChanged(object sender, EventArgs e)
+        {
+            Fun.ClearObjShow();
+            TMLocateParam param = InitTMLocateParam();
+            TMFun.GetTMregion(param);
+        }
+        #endregion
+
+
     }
 }

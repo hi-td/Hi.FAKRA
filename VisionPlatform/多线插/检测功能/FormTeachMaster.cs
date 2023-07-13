@@ -15,8 +15,7 @@ namespace VisionPlatform
     public partial class FormTeachMaster : Form
     {
         int m_cam;                                           //导入第几个相机
-        string bh;                                           //相机界面编号
-        int m_j;                                           //导入第几个界面
+        int sub_cam;                                         //相机界面编号
         int nPreIO_in;                                       //输入/输出的IO点位
         private string m_SelNode_z = null;                   //关联相机时选中的根节点
         TMData.InspectItem m_item = new TMData.InspectItem();//当前选中的检测项目
@@ -30,24 +29,23 @@ namespace VisionPlatform
         public static Panel m_panelWindow;
         FormFAKRA formFakra;
 
-        public FormTeachMaster(int n_cam, string b,int j)
+        public FormTeachMaster(int n_cam, int sub_cam)
         {
             InitializeComponent();
             m_cam = n_cam;
-            bh = b;
-            m_j = j;
-            if(""== b)
+            this.sub_cam = sub_cam;
+            if(0 == sub_cam)
             {
                 ts_Label_cam.Text = "编辑：相机" + n_cam.ToString();
+                label_SelCam.Text = "相机" + n_cam.ToString();
             }
             else
             {
-                ts_Label_cam.Text = "编辑：相机" + n_cam.ToString() + "-" + bh;
+                ts_Label_cam.Text = "编辑：相机" + n_cam.ToString() + "-" + sub_cam.ToString();
+                label_SelCam.Text = "相机" + n_cam.ToString() + "-" + sub_cam.ToString();
             }
-            
-            label_SelCam.Text = "相机" + n_cam.ToString() + "_" + bh;
             //InitUI();
-            LoadUI(n_cam, bh);
+            LoadUI(n_cam, sub_cam);
         }
 
         /// <summary>
@@ -62,10 +60,10 @@ namespace VisionPlatform
                 return cp;
             }
         }
-        private void LoadUI(int n_cam, string b)
+        private void LoadUI(int n_cam, int sub_cam)
         {
             //加载图像显示窗口
-            Refresh(n_cam, b);
+            Refresh(n_cam, sub_cam);
             //加载消息显示
             FormMainUI.formShowResult.TopLevel = false;
             FormMainUI.formShowResult.Visible = true;
@@ -75,7 +73,6 @@ namespace VisionPlatform
             FormMainUI.formShowResult.tabPage1.Parent = null;
             //加载左边检测列表
             InitTreeView();
-            // string a = n_cam.ToString() + b;
             if (TMData_Serializer._globalData.dicInspectList.ContainsKey(n_cam))
             {
                 List<InspectItem> strCheck = TMData_Serializer._globalData.dicInspectList[n_cam];
@@ -92,12 +89,12 @@ namespace VisionPlatform
                     }
                     else if (strSel == InspectItem.TM)
                     {
-                        FormFAKRA formFakra = new FormFAKRA(n_cam, b);
-                        formFakra.TopLevel = false;
-                        formFakra.Visible = true;
-                        formFakra.Dock = DockStyle.Fill;
-                        this.panel.Controls.Clear();
-                        this.panel.Controls.Add(formFakra);
+                        //FormFAKRA formFakra = new FormFAKRA(n_cam, b);
+                        //formFakra.TopLevel = false;
+                        //formFakra.Visible = true;
+                        //formFakra.Dock = DockStyle.Fill;
+                        //this.panel.Controls.Clear();
+                        //this.panel.Controls.Add(formFakra);
                     }
                     else if (strSel == InspectItem.Conductor)
                     {
@@ -124,73 +121,45 @@ namespace VisionPlatform
             }
            
         }
-        private void Refresh(int cam, string b)
+        private void Refresh(int cam, int sub_cam)
         {
-            int camNum = GlobalData.Config._InitConfig.initConfig.CamNum;
-            this.panelWindow.Controls.Clear();
-            string a = cam.ToString() + b;
-            switch (camNum)
+            try
             {
-                case 1:
-                    Show1.formCamShow1.TopLevel = false;
-                    Show1.formCamShow1.Visible = true;
-                    Show1.formCamShow1.Dock = DockStyle.Fill;
-                    this.panelWindow.Controls.Add(Show1.formCamShow1);
-                    break;
-                case 2:
-                    if (cam == 1)
+                int camNum = 0;
+                for (int i = 0; i < GlobalData.Config._InitConfig.initConfig.CamNum; i++)
+                {
+                    camNum++;
+                    if (GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1] != 0)
                     {
-                        Show2.formCamShow1.TopLevel = false;
-                        Show2.formCamShow1.Visible = true;
-                        Show2.formCamShow1.Dock = DockStyle.Fill;
-                        this.panelWindow.Controls.Add(Show2.formCamShow1);
+                        camNum = camNum + GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1];
+                    }
+                }
+                switch (camNum)
+                {
+                    case 1:
+                        Show1.formCamShow1.TopLevel = false;
+                        Show1.formCamShow1.Visible = true;
+                        Show1.formCamShow1.Dock = DockStyle.Fill;
+                        this.panelWindow.Controls.Add(Show1.formCamShow1);
                         break;
-                    }
-                    if (cam == 2)
-                    {
-                        Show2.formCamShow2.TopLevel = false;
-                        Show2.formCamShow2.Visible = true;
-                        Show2.formCamShow2.Dock = DockStyle.Fill;
-                        this.panelWindow.Controls.Add(Show2.formCamShow2);
-                    }
-                    break;
-                //case 3:
-                //    if (cam == 1)
-                //    {
-                //        Show3.formCamShow1.TopLevel = false;
-                //        Show3.formCamShow1.Visible = true;
-                //        Show3.formCamShow1.Dock = DockStyle.Fill;
-                //        this.panelWindow.Controls.Add(Show3.formCamShow1);
-                //        break;
-                //    }
-                //    if (cam == 2)
-                //    {
-                //        Show3.formCamShow2.TopLevel = false;
-                //        Show3.formCamShow2.Visible = true;
-                //        Show3.formCamShow2.Dock = DockStyle.Fill;
-                //        this.panelWindow.Controls.Add(Show3.formCamShow2);
-
-                //    }
-                //    if (cam == 3)
-                //    {
-                //        Show3.formCamShow3.TopLevel = false;
-                //        Show3.formCamShow3.Visible = true;
-                //        Show3.formCamShow3.Dock = DockStyle.Fill;
-                //        this.panelWindow.Controls.Add(Show3.formCamShow3);
-
-                //    }
-                //    break;
-
-                case 7:
-                    Show7.formCamShows[a].TopLevel = false;
-                    Show7.formCamShows[a].Visible = true;
-                    Show7.formCamShows[a].Dock = DockStyle.Fill;
-                    this.panelWindow.Controls.Add(Show7.formCamShows[a]);
-                    Show7.formCamShows[a].label_x.Visible = false;
-                    Show7.formCamShows[a].label_d.Visible = false;
-                    break;
-                default:
-                    break;
+                    case 2:
+                        Show2.dic_formCamShow[cam][sub_cam].form.TopLevel = false;
+                        Show2.dic_formCamShow[cam][sub_cam].form.Visible = true;
+                        Show2.dic_formCamShow[cam][sub_cam].form.Dock = DockStyle.Fill;
+                        this.panelWindow.Controls.Add(Show2.dic_formCamShow[cam][sub_cam].form);
+                        break;
+                    default:
+                        this.panelWindow.Controls.Clear();
+                        FormMainUI.m_dicFormCamShows[cam][sub_cam].form.TopLevel = false;
+                        FormMainUI.m_dicFormCamShows[cam][sub_cam].form.Visible = true;
+                        FormMainUI.m_dicFormCamShows[cam][sub_cam].form.Dock = DockStyle.Fill;
+                        this.panelWindow.Controls.Add(FormMainUI.m_dicFormCamShows[cam][sub_cam].form);
+                        break;
+                }
+            }
+            catch(Exception ex)
+            {
+                ex.ToString();
             }
 
         }
@@ -199,32 +168,16 @@ namespace VisionPlatform
         {
             try
             {
-                if (GlobalData.Config._InitConfig.initConfig.CamNum == 1)
+                foreach (int cam in GlobalData.Config._InitConfig.initConfig.dic_SubCam.Keys)
                 {
-                    treeViewFun.Nodes.Add("相机1");
-                }
-                else if (GlobalData.Config._InitConfig.initConfig.CamNum == 2)
-                {
-                    treeViewFun.Nodes.Add("相机1");
-                    treeViewFun.Nodes.Add("相机2");
-                }
-                else if (GlobalData.Config._InitConfig.initConfig.CamNum == 4)
-                {
-                    treeViewFun.Nodes.Add("相机1");
-                    treeViewFun.Nodes.Add("相机2");
-                    treeViewFun.Nodes.Add("相机3");
-                    treeViewFun.Nodes.Add("相机4");
-                }
-                else if (GlobalData.Config._InitConfig.initConfig.CamNum == 7)
-                {
-
-                    treeViewFun.Nodes.Add("相机1_1");
-                    treeViewFun.Nodes.Add("相机1_2");
-                    treeViewFun.Nodes.Add("相机1_3");
-                    treeViewFun.Nodes.Add("相机1_4");
-                    treeViewFun.Nodes.Add("相机2_1");
-                    treeViewFun.Nodes.Add("相机3_1");
-
+                    string strCam = "相机" + cam.ToString();
+                    treeViewFun.Nodes.Add(strCam);
+                    int num = GlobalData.Config._InitConfig.initConfig.dic_SubCam[cam];
+                    for (int i = 0; i < num; i++)
+                    {
+                        strCam = "相机" + cam.ToString() + "-" + (i + 1).ToString();
+                        treeViewFun.Nodes.Add(strCam);
+                    }
                 }
                 if (TMData_Serializer._globalData.dicInspectList.Count != 0)
                 {
@@ -239,9 +192,7 @@ namespace VisionPlatform
                                     TreeNode node = new TreeNode();
                                     node.Text = TMFunction.GetStrCheckItem(str);
                                     treeViewFun.Nodes[0].Nodes.Add(node);
-                                    ConcentricityAdd(node);
-                                    ConductorAdd(node);
-                                    TMAdd(node);
+                                    CheckNodeAdd(node);
                                 }
                                 break;
                             case 2:
@@ -250,9 +201,7 @@ namespace VisionPlatform
                                     TreeNode node = new TreeNode();
                                     node.Text = TMFunction.GetStrCheckItem(str);
                                     treeViewFun.Nodes[1].Nodes.Add(node);
-                                    ConcentricityAdd(node);
-                                    ConductorAdd(node);
-                                    TMAdd(node);
+                                    CheckNodeAdd(node);
                                 }
                                 break;
                             case 3:
@@ -261,9 +210,7 @@ namespace VisionPlatform
                                     TreeNode node = new TreeNode();
                                     node.Text = TMFunction.GetStrCheckItem(str);
                                     treeViewFun.Nodes[2].Nodes.Add(node);
-                                    ConcentricityAdd(node);
-                                    ConductorAdd(node);
-                                    TMAdd(node);
+                                    CheckNodeAdd(node);
                                 }
                                 break;
                             case 4:
@@ -272,9 +219,7 @@ namespace VisionPlatform
                                     TreeNode node = new TreeNode();
                                     node.Text = TMFunction.GetStrCheckItem(str);
                                     treeViewFun.Nodes[3].Nodes.Add(node);
-                                    ConcentricityAdd(node);
-                                    ConductorAdd(node);
-                                    TMAdd(node);
+                                    CheckNodeAdd(node);
                                 }
                                 break;
                             default:
@@ -292,7 +237,7 @@ namespace VisionPlatform
             }
         }
 
-        private void ConcentricityAdd(TreeNode node)
+        private void CheckNodeAdd(TreeNode node)
         {
             if (node.Text == "同心度检测")
             {
@@ -303,10 +248,7 @@ namespace VisionPlatform
                 node2.Text = "母头";
                 node.Nodes.Add(node2);
             }
-        }
-        private void ConductorAdd(TreeNode node)
-        {
-            if (node.Text == "导体检测")
+            else if (node.Text == "导体检测")
             {
                 TreeNode node1 = new TreeNode();
                 node1.Text = "正面";
@@ -315,18 +257,9 @@ namespace VisionPlatform
                 node2.Text = "侧面";
                 node.Nodes.Add(node2);
             }
-        }
-
-        private void TMAdd(TreeNode node)
-        {
-            if (node.Text == "端子检测")
+            else if (node.Text == "端子检测")
             {
-                TreeNode node1 = new TreeNode();
-                node1.Text = "正面";
-                node.Nodes.Add(node1);
-                TreeNode node2 = new TreeNode();
-                node2.Text = "侧面";
-                node.Nodes.Add(node2);
+
             }
         }
 
@@ -339,9 +272,18 @@ namespace VisionPlatform
         {
             try
             {
-                //FormMainUI.formShowResult.tabPage1.Parent = FormMainUI.formShowResult.tabControl1;
-                //FormMainUI.formShowResult.tabControl1.SelectedTab = FormMainUI.formShowResult.tabPage1;
-                int camNum = GlobalData.Config._InitConfig.initConfig.CamNum;
+                FormMainUI.formShowResult.tabPage1.Parent = FormMainUI.formShowResult.tabControl1;
+                FormMainUI.formShowResult.tabControl1.SelectedTab = FormMainUI.formShowResult.tabPage1;
+                int camNum = 0;
+                for(int i=0;i < GlobalData.Config._InitConfig.initConfig.CamNum; i++)
+                {
+                    camNum++;
+                    if (GlobalData.Config._InitConfig.initConfig.dic_SubCam[i+1]!=0)
+                    {
+                        camNum = camNum + GlobalData.Config._InitConfig.initConfig.dic_SubCam[i + 1];
+                    }
+                }
+                FormMainUI.m_PanelShow.Controls.Clear();
                 switch (camNum)
                 {
                     case 1:
@@ -351,63 +293,54 @@ namespace VisionPlatform
                         FormMainUI.m_Show1.panel1.Controls.Add(Show1.formCamShow1);
                         FormMainUI.m_Show1.splitContainer1.Panel2.Controls.Clear();
                         FormMainUI.m_Show1.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
-                        FormMainUI.formShowResult.tabPage1.Parent = FormMainUI.formShowResult.tabControl1;
                         UIConfig.RefreshSTATS(FormMainUI.m_Show1.tLPanel, out TMFunction.m_ListFormSTATS);
                         break;
                     case 2:
+                        
+                        foreach(int cam in Show2.dic_formCamShow.Keys)
+                        {
+                            for(int n=0;n< Show2.dic_formCamShow[cam].Length;n++)
+                            {
+                                TMData.ShowItems showItems = Show2.dic_formCamShow[cam][n];
+                                showItems.panel.Controls.Clear();
+                                showItems.panel.Controls.Add(showItems.form);
+                            }
+                        }
+                        FormMainUI.m_Show2.splitContainer1.Panel2.Controls.Clear();
+                        FormMainUI.m_Show2.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
                         FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show2);
-                        FormMainUI.m_Show2.panel1.Controls.Clear();
-                        FormMainUI.m_Show2.panel1.Controls.Add(Show2.formCamShow1);
-                        FormMainUI.m_Show2.panel2.Controls.Clear();
-                        FormMainUI.m_Show2.panel2.Controls.Add(Show2.formCamShow2);
-                        //FormMainUI.m_Show2.splitContainer1.Panel2.Controls.Clear();
-                        //FormMainUI.m_Show2.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
                         //UIConfig.RefreshSTATS(FormMainUI.m_Show2.tLPanel, out TMFunction.m_ListFormSTATS);
                         break;
                     case 3:
-                        //FormMainUI.m_Show3.Run();
-                        //FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show3);
-                        //FormMainUI.m_Show3.panel1.Controls.Clear();
-                        //FormMainUI.m_Show3.panel1.Controls.Add(Show3.formCamShow1);
-                        //FormMainUI.m_Show3.panel2.Controls.Clear();
-                        //FormMainUI.m_Show3.panel2.Controls.Add(Show3.formCamShow2);
-                        //FormMainUI.m_Show3.panel3.Controls.Clear();
-                        //FormMainUI.m_Show3.panel3.Controls.Add(Show3.formCamShow3);
-                        //FormMainUI.m_Show3.panel_Message.Controls.Clear();
-                        //FormMainUI.m_Show3.panel_Message.Controls.Add(FormMainUI.formMessage);
+                        StaticFun.UIConfig.RefeshCamShow(FormMainUI.m_Show3.tLPanel_CamShow, FormMainUI.m_dicFormCamShows);
+                        FormMainUI.m_Show3.panel_Message.Controls.Clear();
+                        FormMainUI.m_Show3.panel_Message.Controls.Add(FormMainUI.formShowResult);
+                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show3);
                         break;
-                    case 7:
-                        //FormMainUI.m_Show7.Run();
-                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show7);
-                        FormMainUI.m_Show7.panel1.Controls.Clear();
-                        FormMainUI.m_Show7.panel1.Controls.Add(Show7.formCamShows["11"]);
-                        FormMainUI.m_Show7.panel2.Controls.Clear();
-                        FormMainUI.m_Show7.panel2.Controls.Add(Show7.formCamShows["12"]);
-                        FormMainUI.m_Show7.panel3.Controls.Clear();
-                        FormMainUI.m_Show7.panel3.Controls.Add(Show7.formCamShows["13"]);
-                        FormMainUI.m_Show7.panel4.Controls.Clear();
-                        FormMainUI.m_Show7.panel4.Controls.Add(Show7.formCamShows["14"]);
-                        FormMainUI.m_Show7.panel5.Controls.Clear();
-                        FormMainUI.m_Show7.panel5.Controls.Add(Show7.formCamShows["21"]);
-                        FormMainUI.m_Show7.panel6.Controls.Clear();
-                        FormMainUI.m_Show7.panel6.Controls.Add(Show7.formCamShows["31"]);
-                        FormMainUI.m_Show7.panel13.Controls.Clear();
-                        FormMainUI.m_Show7.panel13.Controls.Add(FormMainUI.formShowResult);
+                    case 4:
+                        
+                        StaticFun.UIConfig.RefeshCamShow(FormMainUI.m_Show4.tLPanel_CamShow, FormMainUI.m_dicFormCamShows);
+                        FormMainUI.m_Show4.tableLayoutPanel1.Controls.Add(FormMainUI.formShowResult,0,2);
+                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show4);
                         //UIConfig.RefreshSTATS(FormMainUI.m_Show7.tLPanel2, out TMFunction.m_ListFormSTATS, 2);
-                        //Show7.formCamShow1.label_x.Visible = true;
-                        //Show7.formCamShow1.label_d.Visible = true;
-                        //Show7.formCamShow2.label_x.Visible = true;
-                        //Show7.formCamShow2.label_d.Visible = true;
-                        //Show7.formCamShow3.label_x.Visible = true;
-                        //Show7.formCamShow3.label_d.Visible = true;
-                        //Show7.formCamShow4.label_x.Visible = true;
-                        //Show7.formCamShow4.label_d.Visible = true;
-
+                        break;
+                    case 5:
+                        StaticFun.UIConfig.RefeshCamShow(FormMainUI.m_Show5.tLPanel_CamShow, FormMainUI.m_dicFormCamShows);
+                        FormMainUI.m_Show5.tableLayoutPanel2.Controls.Add(FormMainUI.formShowResult, 0, 1);
+                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show5);
+                        //UIConfig.RefreshSTATS(FormMainUI.m_Show7.tLPanel2, out TMFunction.m_ListFormSTATS, 2);
+                        break;
+                    case 6:
+                        StaticFun.UIConfig.RefeshCamShow(FormMainUI.m_Show6.tableLayoutPanel3, FormMainUI.m_dicFormCamShows);
+                        FormMainUI.m_Show6.panel13.Controls.Clear();
+                        FormMainUI.m_Show6.panel13.Controls.Add(FormMainUI.formShowResult);
+                        FormMainUI.m_PanelShow.Controls.Add(FormMainUI.m_Show6);
+                        //UIConfig.RefreshSTATS(FormMainUI.m_Show7.tLPanel2, out TMFunction.m_ListFormSTATS, 2);
                         break;
                     default:
                         break;
                 }
-                //GC.Collect();
+                GC.Collect();
                 //
             }
             catch (Exception ex)
@@ -424,7 +357,7 @@ namespace VisionPlatform
                 if (m_SelNode_z != null)
                 {
                     string strCam = m_SelNode_z;
-                    if (strCam == "相机1" || strCam == "相机2" || strCam == "相机3" || strCam == "相机4")
+                    if (null == treeViewFun.SelectedNode.Parent)
                     {
                         bool bContain = false;  //是否已经存在该检测项目
                         foreach (TreeNode node in treeViewFun.SelectedNode.Nodes)
@@ -437,9 +370,13 @@ namespace VisionPlatform
                         }
                         if (!bContain)
                         {
-                            treeViewFun.SelectedNode.Nodes.Add(strItem);
+                            TreeNode node = new TreeNode();
+                            node.Text = strItem;
+                            treeViewFun.SelectedNode.Nodes.Add(node);
+                            CheckNodeAdd(node);
                         }
                     }
+                    treeViewFun.ExpandAll();
                     RefreshCheckList();
                 }
             }
@@ -540,7 +477,7 @@ namespace VisionPlatform
                 if (m_SelNode_z != null)
                 {
                     string strCam = m_SelNode_z;
-                    if (strCam == "剥皮检测" || strCam == "插壳检测" || strCam == "端子检测" || strCam == "线序检测" || strCam == "线芯检测")
+                    if (strCam == "剥皮检测" || strCam == "端子检测" || strCam == "导体检测" || strCam == "同心度检测")
                     {
                         if (null == treeViewFun.SelectedNode.Parent)
                         {
@@ -568,7 +505,7 @@ namespace VisionPlatform
         {
             string strSel = treeViewFun.SelectedNode.Text;
             int ncam;
-            string b;
+            int sub_cam=0;
             if (null != treeViewFun.SelectedNode.Parent)
             {
                 TreeNode selNode = treeViewFun.SelectedNode;
@@ -579,14 +516,16 @@ namespace VisionPlatform
                         selNode = selNode.Parent;
                     }
                 }
-
                 label_SelCam.Text = selNode.Text;
                 ts_Label_cam.Text = "编辑：" + selNode.Text;
                 ncam = int.Parse(selNode.Text.Substring(2, 1));
-                b = selNode.Text.Substring(2, 1);
-                Refresh(ncam, b);
+                if(selNode.Text.Length>3)
+                {
+                    sub_cam = int.Parse(selNode.Text.Substring(4, 1));
+                }
+                Refresh(ncam, sub_cam);
                 m_cam = ncam;
-                bh = b;
+                //bh = b;
                 e.Node.BackColor = Color.Green;
                 e.Node.Parent.BackColor = Color.Green;
                 foreach (TreeNode node0 in treeViewFun.Nodes)
@@ -603,9 +542,9 @@ namespace VisionPlatform
                         }
                     }
                 }
-                if (strSel == "FAKRA检测")
+                if (strSel == "端子检测")
                 {
-                    formFakra = new FormFAKRA(ncam, b);
+                    formFakra = new FormFAKRA(ncam, sub_cam);
                     formFakra.TopLevel = false;
                     formFakra.Visible = true;
                     formFakra.Dock = DockStyle.Fill;
@@ -667,6 +606,8 @@ namespace VisionPlatform
                     {
                         m_item = TMFunction.GetEnumCheckItem(CurrentNode.Text);
                         contextMenuStrip2.Items.Clear();
+                        contextMenuStrip2.Items.Add(del);
+                        del.Click += new EventHandler(toolStripMenuItem_Delete_Click);
                         contextMenuStrip2.Items.Add("检测项目");
                         contextMenuStrip2.Items.Add("显示设置");
                         //添加IO点位配置
@@ -764,13 +705,16 @@ namespace VisionPlatform
         {
             string strItem = e.ClickedItem.Text;
             string strNode = CurrentNode.Parent.Text;
-            int ncam = int.Parse(strNode.Substring(2, 1));
-            string b = treeViewFun.SelectedNode.Parent.Text.Substring(4, 1);
             string c = formFakra.comboBox_Model.Text;
-
+            int ncam = int.Parse(strNode.Substring(2, 1));
+            int sub_cam = 0;
+            if (strNode.Length>3)
+            {
+                sub_cam = int.Parse(strNode.Substring(4, 1));
+            }
             if ("检测项目" == strItem)
             {
-                FormTMCheckItem formTMCheckItem = new FormTMCheckItem(ncam, b,c);
+                FormTMCheckItem formTMCheckItem = new FormTMCheckItem(ncam, sub_cam.ToString(), c);
                 formTMCheckItem.Location = new Point(Control.MousePosition.X, Control.MousePosition.Y);
                 formTMCheckItem.ShowDialog();
                 //添加界面刷新
@@ -780,7 +724,7 @@ namespace VisionPlatform
             {
                 if (null == formShowSet || formShowSet.IsDisposed)
                 {
-                    formShowSet = new FormShowSet(ncam, b);
+                    formShowSet = new FormShowSet(ncam, sub_cam);
                     formShowSet.TopMost = true;
                     formShowSet.Show();
                 }

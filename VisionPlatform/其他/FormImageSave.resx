@@ -118,11 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tableLayoutPanel3.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
+  <data name="tLPanel.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>Single</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tableLayoutPanel3.ColumnCount" type="System.Int32, mscorlib">
+  <data name="tLPanel.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="checkBox_SaveResultImgOK.AutoSize" type="System.Boolean, mscorlib">
@@ -133,10 +133,10 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="checkBox_SaveResultImgOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 66</value>
+    <value>4, 50</value>
   </data>
   <data name="checkBox_SaveResultImgOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 24</value>
+    <value>98, 16</value>
   </data>
   <data name="checkBox_SaveResultImgOK.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -151,7 +151,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBox_SaveResultImgOK.Parent" xml:space="preserve">
-    <value>tableLayoutPanel3</value>
+    <value>tLPanel</value>
   </data>
   <data name="&gt;&gt;checkBox_SaveResultImgOK.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -163,10 +163,10 @@
     <value>Fill</value>
   </data>
   <data name="checkBox_SaveOrgImageOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 35</value>
+    <value>4, 27</value>
   </data>
   <data name="checkBox_SaveOrgImageOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 24</value>
+    <value>98, 16</value>
   </data>
   <data name="checkBox_SaveOrgImageOK.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -181,7 +181,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBox_SaveOrgImageOK.Parent" xml:space="preserve">
-    <value>tableLayoutPanel3</value>
+    <value>tLPanel</value>
   </data>
   <data name="&gt;&gt;checkBox_SaveOrgImageOK.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -193,10 +193,10 @@
     <value>Fill</value>
   </data>
   <data name="checkBox_SaveResultImgNG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 128</value>
+    <value>4, 96</value>
   </data>
   <data name="checkBox_SaveResultImgNG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 24</value>
+    <value>98, 17</value>
   </data>
   <data name="checkBox_SaveResultImgNG.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -211,7 +211,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBox_SaveResultImgNG.Parent" xml:space="preserve">
-    <value>tableLayoutPanel3</value>
+    <value>tLPanel</value>
   </data>
   <data name="&gt;&gt;checkBox_SaveResultImgNG.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -223,10 +223,10 @@
     <value>Fill</value>
   </data>
   <data name="checkBox_SaveOrgImageNG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 97</value>
+    <value>4, 73</value>
   </data>
   <data name="checkBox_SaveOrgImageNG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 24</value>
+    <value>98, 16</value>
   </data>
   <data name="checkBox_SaveOrgImageNG.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -241,7 +241,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBox_SaveOrgImageNG.Parent" xml:space="preserve">
-    <value>tableLayoutPanel3</value>
+    <value>tLPanel</value>
   </data>
   <data name="&gt;&gt;checkBox_SaveOrgImageNG.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -256,7 +256,7 @@
     <value>4, 4</value>
   </data>
   <data name="checkBox_ShowData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 24</value>
+    <value>98, 16</value>
   </data>
   <data name="checkBox_ShowData.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -271,42 +271,42 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBox_ShowData.Parent" xml:space="preserve">
-    <value>tableLayoutPanel3</value>
+    <value>tLPanel</value>
   </data>
   <data name="&gt;&gt;checkBox_ShowData.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="tableLayoutPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="tLPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="tableLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tLPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="tableLayoutPanel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="tLPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="tableLayoutPanel3.RowCount" type="System.Int32, mscorlib">
+  <data name="tLPanel.RowCount" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 156</value>
+  <data name="tLPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 117</value>
   </data>
-  <data name="tableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
+  <data name="tLPanel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel3.Name" xml:space="preserve">
-    <value>tableLayoutPanel3</value>
+  <data name="&gt;&gt;tLPanel.Name" xml:space="preserve">
+    <value>tLPanel</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel3.Type" xml:space="preserve">
+  <data name="&gt;&gt;tLPanel.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tLPanel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tLPanel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+  <data name="tLPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="checkBox_SaveResultImgOK" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="checkBox_SaveOrgImageOK" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="checkBox_SaveResultImgNG" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="checkBox_SaveOrgImageNG" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="checkBox_ShowData" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -316,7 +316,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>106, 156</value>
+    <value>106, 117</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FormImageSave</value>

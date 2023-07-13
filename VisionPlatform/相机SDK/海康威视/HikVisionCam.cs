@@ -333,7 +333,7 @@ namespace VisionPlatform
             }
         }
 
-        public static bool LiveThread(int i, Camimage fun)
+        public static bool LiveThread(int i, Function fun)
         {
             try
             {
@@ -362,7 +362,7 @@ namespace VisionPlatform
                     return false;
                 }
                 Thread hReceiveImageThreadHandle = new Thread(ReceiveImageWorkThread);
-                Tuple<MyCamera, Camimage> tuple = new Tuple<MyCamera, Camimage>(myCamera, fun);
+                Tuple<MyCamera, Function> tuple = new Tuple<MyCamera, Function>(myCamera, fun);
                 hReceiveImageThreadHandle.Start(tuple);
                 m_bLive[i] = true;
                 return true;
@@ -540,13 +540,13 @@ namespace VisionPlatform
         {
            // bool m_bLive = true;
             int nRet = MyCamera.MV_OK;
-            if (!(obj is Tuple<MyCamera, Camimage>))
+            if (!(obj is Tuple<MyCamera, Function>))
             {
                 return;
             }
-            Tuple<MyCamera, Camimage> tuple = obj as Tuple<MyCamera, Camimage>;
+            Tuple<MyCamera, Function> tuple = obj as Tuple<MyCamera, Function>;
             MyCamera device = tuple.Item1;
-            Camimage fun = tuple.Item2;
+            Function fun = tuple.Item2;
 
             MyCamera.MV_FRAME_OUT stFrameOut = new MyCamera.MV_FRAME_OUT();
 

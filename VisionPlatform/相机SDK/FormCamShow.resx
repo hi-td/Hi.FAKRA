@@ -198,359 +198,6 @@
   <data name="&gt;&gt;label_x.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="but_ImageList.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="but_ImageList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="but_ImageList.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="but_ImageList.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 9pt, style=Bold</value>
-  </data>
-  <data name="but_ImageList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAd1JREFUWEft
-        ljtIA0EQhq/X1trCThtbLSSNFmqjEFFQ8NFZKV4XklwSTS/2VoJgo1gL6awtfDSCoNgaBAWt4v8Ps2EN
-        5m73SBHhPvjZ2bl53W3uNMjoW8rl8lkURe9QK4VeoEhL+YPcVxaqVCqX0BbsXFppSXeQtAzxLo7UFWCI
-        PPZpWdcybmgSBxjX/YnuUws3cCvFXUACadEulUrTtHshHqc0SALBRAbAukO7R2pKgyQQSMwAYvdK0iAJ
-        BJJsgP89gH5FI13bfmmQBBNNsLE99I3XbU0KKXyV4XvkdXXFg0CSZoA3NJqTIgD7XBiGA2pP4ml8yIUk
-        EEy8BkDxZ6xTUgCYR4+B9tTFz/mCmvEgkTgPgGb3WOWzTTrOfV7d7iCJ+DyBVUkEdnPccV7dfiCZuA7Q
-        kCQA+9P40fxL90b0P9VqtREN7w4CidcAWAc7/N20yPhYEERcB2hC5s/2vuV/gLZxJEuWZhiXCBJnWURt
-        Yjf8S+eSCHjulv8GGtVLfrCArsRu1k3HkgjsIWC3X0Ps/f49Q/IGkjZNMQcdaqoZooF1hftCoTCM/alc
-        9KFYLE5YDVx0oKm/gP8Ow+zq1g/+eJB83dEoThfVanWMufV6fQi5V1D7KDIy+owg+AGIP0Gk2wfrZwAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="but_ImageList.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="but_ImageList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>282, 0</value>
-  </data>
-  <data name="but_ImageList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 57</value>
-  </data>
-  <data name="but_ImageList.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="but_ImageList.Text" xml:space="preserve">
-    <value>批量测试</value>
-  </data>
-  <data name="but_ImageList.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageAboveText</value>
-  </data>
-  <data name="&gt;&gt;but_ImageList.Name" xml:space="preserve">
-    <value>but_ImageList</value>
-  </data>
-  <data name="&gt;&gt;but_ImageList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;but_ImageList.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;but_ImageList.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="but_LoadImage.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="but_LoadImage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="but_LoadImage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="but_LoadImage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 9pt, style=Bold</value>
-  </data>
-  <data name="but_LoadImage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAUtJREFUWEft
-        l09OAjEYxRuuwdZDuHTDQdAjeAC69hKGzB+0HRaK7SzlIsatSxM3hg3OFx8C5dN+lEmQZF7ySybt9/pe
-        wsyQUZ3+hbJ7p0vrn2MUVX2bT/05bO2psH65B++ldUNY2xETEiU37gb2w8UFiKj8Y2YeznBMutjDxdQf
-        3P0SI7OzC8QfWiCRyr8i/kgFGhB/wgXo/dHcAyNuTwLikwuMYSf/ONgTAXtSgbnWyx7sSmvdo7VgJgrs
-        exd44Z59WqO9YPZPYJUXyI1flMYNYNsR7RXNDOflgE1eYFL5S1h+VWGerjgvByzSAvUI41F9Px3cGdtg
-        XFjAuLf1Y7dbhvZW0KuWPSMAVvlPsIICYP2RNHQTWLsCJ1ig4dOYWR92Rde0FsxEgT2pAP2f3+XWXxN0
-        zc5EQHxigRZAfFdA/mHSJpSJ+E7HlFJf9Zamjht7BPIAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="but_LoadImage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="but_LoadImage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>218, 0</value>
-  </data>
-  <data name="but_LoadImage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 57</value>
-  </data>
-  <data name="but_LoadImage.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="but_LoadImage.Text" xml:space="preserve">
-    <value>导入图像</value>
-  </data>
-  <data name="but_LoadImage.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageAboveText</value>
-  </data>
-  <data name="&gt;&gt;but_LoadImage.Name" xml:space="preserve">
-    <value>but_LoadImage</value>
-  </data>
-  <data name="&gt;&gt;but_LoadImage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;but_LoadImage.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;but_LoadImage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="but_RecoverImg.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="but_RecoverImg.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="but_RecoverImg.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="but_RecoverImg.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 9pt, style=Bold</value>
-  </data>
-  <data name="but_RecoverImg.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAxJJREFUWEfl
-        lj9IVVEcx10jl1qiogishpCmGoIGwSHMlnAoCUExh8KgpaFoaDEIQaEgCI3KJWqQBAle7+l7/nkWEU0S
-        7i0uBaLN9vldvudy7vWe6/XpEn3hyzn3e36/3/nec8479zX9U5ibmzs2OzvbWa1W+2kf0A7Sds3Pz59R
-        yN5jenr6wMzMzCMm+wI3c7gMR2GrUnePWq12i4IrmqAoN8gbUonGobeOC1P0D+13+BY+hFfQ+uAI/TJc
-        hX58XaV2jvTk7PPzcrl8XMNBEGdm4jy4rqHiyJi8U0OFwJt3kLPm1ahqaHuQbHseTy65IZDvn50xyWHY
-        afeTMHPfdNoXvNFTfmqHo8Ac8DO9TG7VVnFxcfGIq2WkRrvCsuEvPZNOmUa/zWnWjwJz4NWIlp06A3qO
-        awZhSRYIN+r1eou0oAEKdqS1tAEDcZ+kbVYqlUOSk7DldUHwq+SgAfrXs/QsA3SfSdtkvEdyEnbSXRB8
-        JTlogLe67XT63ZJDBgalGYclJ8FAvwui4D3JQQNMdBTTT9BGJUUIGLgozWpPSE6CYvZhiYLsJEsOGggh
-        YKBZmhkoSU6CwXiZCOqTHDSwtLS0jwN1Fu2kpAhZBhYWFk5LM8bbmwAr0OWCMDAiOWiAvn8IYxNZBqjX
-        LS2xvQnY99wFwbLkPAM3nU7R85JDBh67WH97t4AA+55b4KqkPANtFL5De6NUKu2XHDoDH6QZT0jeCgbt
-        z0QUyJZE20B/V4eQOpf0bHwfBYVAQCvccAm8YYe25hu01Qm7F4jptVwYHTban3q2W/BCFJQHJh1yCbhf
-        k9wQyH/jasHs058FTNS9xBX7qmmoMMireDWM265eAiSs+wUwNaChXBDbS+wvP1f8qJDiIMkQF6GwfdXs
-        w2KXll2vzRy6FvSrOnyT0J80QeLeqXRxkDiWLlSQk9yWB2nPpfRxlS4ODlM77qdShUL8DK8pNULqkjO+
-        1tDOYH8mWOoeCgxjaAKW4Eue72Kyk1vulEK3QCZ+y0Bj27FbmAkm/uFMwG0vtj2HVmLZVlDSf4+mpr/v
-        QM2Dfy0JCQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="but_RecoverImg.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="but_RecoverImg.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 0</value>
-  </data>
-  <data name="but_RecoverImg.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 57</value>
-  </data>
-  <data name="but_RecoverImg.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="but_RecoverImg.Text" xml:space="preserve">
-    <value>原图比例</value>
-  </data>
-  <data name="but_RecoverImg.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageAboveText</value>
-  </data>
-  <data name="&gt;&gt;but_RecoverImg.Name" xml:space="preserve">
-    <value>but_RecoverImg</value>
-  </data>
-  <data name="&gt;&gt;but_RecoverImg.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;but_RecoverImg.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;but_RecoverImg.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="but_SaveImg.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="but_SaveImg.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="but_SaveImg.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="but_SaveImg.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 9pt, style=Bold</value>
-  </data>
-  <data name="but_SaveImg.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAUFJREFUWEft
-        lrFKxEAURfMp/oS1tR9gJ4uVpRZiI6yVgoWw2FlaKSyCzS4IgqydjWAjwiZDTPwCO7sxL9yVYXJfslkH
-        qzlwurnvvkwgJIlEGKkpR5kp8tQU1nV3b2g3NrdblTPV2WOM6k8VHrulrj0WsNUDPBhTrmPs8vilrn0W
-        gN/z7OMQo5fDCTdcYYHa6jYm73m+hop2/LDrqgvAr3mW76BGhwR/vbq+o6WucoZlF6JGh4VCihodFgop
-        anRYKKSo0WGhkKJGh4VCihodFgopanRYKKSo0WEhcXI/s8OTi/pD0+Xp+aV9eX2jc1Cjw0I3t1P60Wlz
-        a7DfmCOiRoeFDo7OaEmXj0/PjVmo0fEDolwrK+hSXps/CzU6fkCMC8QF/nuBxk9pwAXGqGlHfsvTrPhc
-        BP+8QD2rHGF8JOKQJD+Dz3crecomIAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="but_SaveImg.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="but_SaveImg.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 0</value>
-  </data>
-  <data name="but_SaveImg.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 57</value>
-  </data>
-  <data name="but_SaveImg.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="but_SaveImg.Text" xml:space="preserve">
-    <value>保存图像</value>
-  </data>
-  <data name="but_SaveImg.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageAboveText</value>
-  </data>
-  <data name="&gt;&gt;but_SaveImg.Name" xml:space="preserve">
-    <value>but_SaveImg</value>
-  </data>
-  <data name="&gt;&gt;but_SaveImg.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;but_SaveImg.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;but_SaveImg.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="but_GrabImage.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="but_GrabImage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="but_GrabImage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="but_GrabImage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 9pt, style=Bold</value>
-  </data>
-  <data name="but_GrabImage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAZZJREFUWEft
-        lj9LA0EQxe+DWAj5EKKpxSaIjZ221hG0t7cRLUSIBCws0oiFoHB/i+tE0MrOylosLKz0TZjc7Y2zXrJ7
-        192DHwe7b/bNziUkQadO8yiKoqM0Td+TJPmRxHF8yrZ2ROFasGDC9uaFw19EmAoa7XGJnzDSDYz7kG4+
-        5+2nzPw24BmGYbjOMboQfCkPbhrK4LiquEu1qGkoi2NLYeNGGn3BbffxSvfkOtbuOLYUNkgVoycJH62d
-        XewVokXINP3HCGPcxXMZLOGm27jVtbE/YwLGYo1wbyDLsk0u+SPsH0i/BecGzthuFTw7okbDqYF7ttYK
-        r+RBqTdZvAH1q2MR/MeyXuA0gQFbawXvlqiVLN4AfZ/ZWiv4h7Je4DSBEVtrhc/AlVJv4jSBb3wO1thu
-        VZ7nPTTwpZ1h4DQB4o3tVsHzJGo0nBsgXvGzusplhbA+wM3Vf00KXg1MwSt5xnOM0As8H829OfBvwBO1
-        gRPD0DbnHFsKI+0rxlZA1grHVkVNgFvwqRV68sFn9zmuUycoCH4BlNBw+vfZnvoAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="but_GrabImage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="but_GrabImage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 0</value>
-  </data>
-  <data name="but_GrabImage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 57</value>
-  </data>
-  <data name="but_GrabImage.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="but_GrabImage.Text" xml:space="preserve">
-    <value>拍照</value>
-  </data>
-  <data name="but_GrabImage.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageAboveText</value>
-  </data>
-  <data name="&gt;&gt;but_GrabImage.Name" xml:space="preserve">
-    <value>but_GrabImage</value>
-  </data>
-  <data name="&gt;&gt;but_GrabImage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;but_GrabImage.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;but_GrabImage.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="but_Live.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="but_Live.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="but_Live.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="but_Live.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 9pt, style=Bold</value>
-  </data>
-  <data name="but_Live.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAARlJREFUWEft
-        V8sNwjAMzSbswI0bVxZgFibgQjdgA66oKRxQPxwQCeLQjtAROgDYJRFqZVAjmloCnvRUKX6xrcbOR/zR
-        RpScJ1GiljLTR5mqAljKVFfwvbmxngNzwQf4CmO12GWXsQlDA8TB04EnZnpjwjVBij3ShH0As6JEnhnU
-        wXFdCOMgxHoTWByUcQhisePvx2onBd4JsbH4sNVogX8WmAD2KmUcgiUk4LbJbOPTNDxcR7B+a8ruRl05
-        93/dOgZhqubgJKd0XflRAhYwvmrrurKXBCzgb+ypOe/YawIImegZNe8VvysBtiWAcZ4i7KkN+Tci7q2Y
-        +zDiPo7ZLyTsVzIE66XUghB4pQnbBBj4HiYWrE+zH4QQd0Z+Lq1ChBgqAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="but_Live.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="but_Live.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="but_Live.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 57</value>
-  </data>
-  <data name="but_Live.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="but_Live.Text" xml:space="preserve">
-    <value>实时</value>
-  </data>
-  <data name="but_Live.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageAboveText</value>
-  </data>
-  <data name="&gt;&gt;but_Live.Name" xml:space="preserve">
-    <value>but_Live</value>
-  </data>
-  <data name="&gt;&gt;but_Live.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;but_Live.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;but_Live.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>582, 57</value>
-  </data>
-  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>panel_hWnd</value>
-  </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="hWndCtrl.LayoutBitmap" type="System.Resources.ResXNullRef, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value />
   </metadata>
@@ -1122,10 +769,10 @@
     <value>Fill</value>
   </data>
   <data name="hWndCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>0, 57</value>
   </data>
   <data name="hWndCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>582, 444</value>
+    <value>582, 369</value>
   </data>
   <data name="hWndCtrl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1140,6 +787,359 @@
     <value>panel_hWnd</value>
   </data>
   <data name="&gt;&gt;hWndCtrl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="but_ImageList.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="but_ImageList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="but_ImageList.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="but_ImageList.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_ImageList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAd1JREFUWEft
+        ljtIA0EQhq/X1trCThtbLSSNFmqjEFFQ8NFZKV4XklwSTS/2VoJgo1gL6awtfDSCoNgaBAWt4v8Ps2EN
+        5m73SBHhPvjZ2bl53W3uNMjoW8rl8lkURe9QK4VeoEhL+YPcVxaqVCqX0BbsXFppSXeQtAzxLo7UFWCI
+        PPZpWdcybmgSBxjX/YnuUws3cCvFXUACadEulUrTtHshHqc0SALBRAbAukO7R2pKgyQQSMwAYvdK0iAJ
+        BJJsgP89gH5FI13bfmmQBBNNsLE99I3XbU0KKXyV4XvkdXXFg0CSZoA3NJqTIgD7XBiGA2pP4ml8yIUk
+        EEy8BkDxZ6xTUgCYR4+B9tTFz/mCmvEgkTgPgGb3WOWzTTrOfV7d7iCJ+DyBVUkEdnPccV7dfiCZuA7Q
+        kCQA+9P40fxL90b0P9VqtREN7w4CidcAWAc7/N20yPhYEERcB2hC5s/2vuV/gLZxJEuWZhiXCBJnWURt
+        Yjf8S+eSCHjulv8GGtVLfrCArsRu1k3HkgjsIWC3X0Ps/f49Q/IGkjZNMQcdaqoZooF1hftCoTCM/alc
+        9KFYLE5YDVx0oKm/gP8Ow+zq1g/+eJB83dEoThfVanWMufV6fQi5V1D7KDIy+owg+AGIP0Gk2wfrZwAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="but_ImageList.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="but_ImageList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>282, 0</value>
+  </data>
+  <data name="but_ImageList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 57</value>
+  </data>
+  <data name="but_ImageList.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="but_ImageList.Text" xml:space="preserve">
+    <value>批量测试</value>
+  </data>
+  <data name="but_ImageList.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;but_ImageList.Name" xml:space="preserve">
+    <value>but_ImageList</value>
+  </data>
+  <data name="&gt;&gt;but_ImageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_ImageList.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;but_ImageList.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="but_LoadImage.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="but_LoadImage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="but_LoadImage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="but_LoadImage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_LoadImage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAUtJREFUWEft
+        l09OAjEYxRuuwdZDuHTDQdAjeAC69hKGzB+0HRaK7SzlIsatSxM3hg3OFx8C5dN+lEmQZF7ySybt9/pe
+        wsyQUZ3+hbJ7p0vrn2MUVX2bT/05bO2psH65B++ldUNY2xETEiU37gb2w8UFiKj8Y2YeznBMutjDxdQf
+        3P0SI7OzC8QfWiCRyr8i/kgFGhB/wgXo/dHcAyNuTwLikwuMYSf/ONgTAXtSgbnWyx7sSmvdo7VgJgrs
+        exd44Z59WqO9YPZPYJUXyI1flMYNYNsR7RXNDOflgE1eYFL5S1h+VWGerjgvByzSAvUI41F9Px3cGdtg
+        XFjAuLf1Y7dbhvZW0KuWPSMAVvlPsIICYP2RNHQTWLsCJ1ig4dOYWR92Rde0FsxEgT2pAP2f3+XWXxN0
+        zc5EQHxigRZAfFdA/mHSJpSJ+E7HlFJf9Zamjht7BPIAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="but_LoadImage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="but_LoadImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>218, 0</value>
+  </data>
+  <data name="but_LoadImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 57</value>
+  </data>
+  <data name="but_LoadImage.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="but_LoadImage.Text" xml:space="preserve">
+    <value>导入图像</value>
+  </data>
+  <data name="but_LoadImage.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;but_LoadImage.Name" xml:space="preserve">
+    <value>but_LoadImage</value>
+  </data>
+  <data name="&gt;&gt;but_LoadImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_LoadImage.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;but_LoadImage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="but_RecoverImg.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="but_RecoverImg.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="but_RecoverImg.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="but_RecoverImg.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_RecoverImg.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAxJJREFUWEfl
+        lj9IVVEcx10jl1qiogishpCmGoIGwSHMlnAoCUExh8KgpaFoaDEIQaEgCI3KJWqQBAle7+l7/nkWEU0S
+        7i0uBaLN9vldvudy7vWe6/XpEn3hyzn3e36/3/nec8479zX9U5ibmzs2OzvbWa1W+2kf0A7Sds3Pz59R
+        yN5jenr6wMzMzCMm+wI3c7gMR2GrUnePWq12i4IrmqAoN8gbUonGobeOC1P0D+13+BY+hFfQ+uAI/TJc
+        hX58XaV2jvTk7PPzcrl8XMNBEGdm4jy4rqHiyJi8U0OFwJt3kLPm1ahqaHuQbHseTy65IZDvn50xyWHY
+        afeTMHPfdNoXvNFTfmqHo8Ac8DO9TG7VVnFxcfGIq2WkRrvCsuEvPZNOmUa/zWnWjwJz4NWIlp06A3qO
+        awZhSRYIN+r1eou0oAEKdqS1tAEDcZ+kbVYqlUOSk7DldUHwq+SgAfrXs/QsA3SfSdtkvEdyEnbSXRB8
+        JTlogLe67XT63ZJDBgalGYclJ8FAvwui4D3JQQNMdBTTT9BGJUUIGLgozWpPSE6CYvZhiYLsJEsOGggh
+        YKBZmhkoSU6CwXiZCOqTHDSwtLS0jwN1Fu2kpAhZBhYWFk5LM8bbmwAr0OWCMDAiOWiAvn8IYxNZBqjX
+        LS2xvQnY99wFwbLkPAM3nU7R85JDBh67WH97t4AA+55b4KqkPANtFL5De6NUKu2XHDoDH6QZT0jeCgbt
+        z0QUyJZE20B/V4eQOpf0bHwfBYVAQCvccAm8YYe25hu01Qm7F4jptVwYHTban3q2W/BCFJQHJh1yCbhf
+        k9wQyH/jasHs058FTNS9xBX7qmmoMMireDWM265eAiSs+wUwNaChXBDbS+wvP1f8qJDiIMkQF6GwfdXs
+        w2KXll2vzRy6FvSrOnyT0J80QeLeqXRxkDiWLlSQk9yWB2nPpfRxlS4ODlM77qdShUL8DK8pNULqkjO+
+        1tDOYH8mWOoeCgxjaAKW4Eue72Kyk1vulEK3QCZ+y0Bj27FbmAkm/uFMwG0vtj2HVmLZVlDSf4+mpr/v
+        QM2Dfy0JCQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="but_RecoverImg.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="but_RecoverImg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 0</value>
+  </data>
+  <data name="but_RecoverImg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 57</value>
+  </data>
+  <data name="but_RecoverImg.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="but_RecoverImg.Text" xml:space="preserve">
+    <value>原图比例</value>
+  </data>
+  <data name="but_RecoverImg.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;but_RecoverImg.Name" xml:space="preserve">
+    <value>but_RecoverImg</value>
+  </data>
+  <data name="&gt;&gt;but_RecoverImg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_RecoverImg.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;but_RecoverImg.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="but_SaveImg.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="but_SaveImg.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="but_SaveImg.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="but_SaveImg.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_SaveImg.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAUFJREFUWEft
+        lrFKxEAURfMp/oS1tR9gJ4uVpRZiI6yVgoWw2FlaKSyCzS4IgqydjWAjwiZDTPwCO7sxL9yVYXJfslkH
+        qzlwurnvvkwgJIlEGKkpR5kp8tQU1nV3b2g3NrdblTPV2WOM6k8VHrulrj0WsNUDPBhTrmPs8vilrn0W
+        gN/z7OMQo5fDCTdcYYHa6jYm73m+hop2/LDrqgvAr3mW76BGhwR/vbq+o6WucoZlF6JGh4VCihodFgop
+        anRYKKSo0WGhkKJGh4VCihodFgopanRYKKSo0WEhcXI/s8OTi/pD0+Xp+aV9eX2jc1Cjw0I3t1P60Wlz
+        a7DfmCOiRoeFDo7OaEmXj0/PjVmo0fEDolwrK+hSXps/CzU6fkCMC8QF/nuBxk9pwAXGqGlHfsvTrPhc
+        BP+8QD2rHGF8JOKQJD+Dz3crecomIAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="but_SaveImg.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="but_SaveImg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>90, 0</value>
+  </data>
+  <data name="but_SaveImg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 57</value>
+  </data>
+  <data name="but_SaveImg.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="but_SaveImg.Text" xml:space="preserve">
+    <value>保存图像</value>
+  </data>
+  <data name="but_SaveImg.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;but_SaveImg.Name" xml:space="preserve">
+    <value>but_SaveImg</value>
+  </data>
+  <data name="&gt;&gt;but_SaveImg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_SaveImg.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;but_SaveImg.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="but_GrabImage.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="but_GrabImage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="but_GrabImage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="but_GrabImage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_GrabImage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAZZJREFUWEft
+        lj9LA0EQxe+DWAj5EKKpxSaIjZ221hG0t7cRLUSIBCws0oiFoHB/i+tE0MrOylosLKz0TZjc7Y2zXrJ7
+        192DHwe7b/bNziUkQadO8yiKoqM0Td+TJPmRxHF8yrZ2ROFasGDC9uaFw19EmAoa7XGJnzDSDYz7kG4+
+        5+2nzPw24BmGYbjOMboQfCkPbhrK4LiquEu1qGkoi2NLYeNGGn3BbffxSvfkOtbuOLYUNkgVoycJH62d
+        XewVokXINP3HCGPcxXMZLOGm27jVtbE/YwLGYo1wbyDLsk0u+SPsH0i/BecGzthuFTw7okbDqYF7ttYK
+        r+RBqTdZvAH1q2MR/MeyXuA0gQFbawXvlqiVLN4AfZ/ZWiv4h7Je4DSBEVtrhc/AlVJv4jSBb3wO1thu
+        VZ7nPTTwpZ1h4DQB4o3tVsHzJGo0nBsgXvGzusplhbA+wM3Vf00KXg1MwSt5xnOM0As8H829OfBvwBO1
+        gRPD0DbnHFsKI+0rxlZA1grHVkVNgFvwqRV68sFn9zmuUycoCH4BlNBw+vfZnvoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="but_GrabImage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="but_GrabImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>45, 0</value>
+  </data>
+  <data name="but_GrabImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 57</value>
+  </data>
+  <data name="but_GrabImage.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="but_GrabImage.Text" xml:space="preserve">
+    <value>拍照</value>
+  </data>
+  <data name="but_GrabImage.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;but_GrabImage.Name" xml:space="preserve">
+    <value>but_GrabImage</value>
+  </data>
+  <data name="&gt;&gt;but_GrabImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_GrabImage.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;but_GrabImage.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="but_Live.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="but_Live.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="but_Live.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="but_Live.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="but_Live.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAARlJREFUWEft
+        V8sNwjAMzSbswI0bVxZgFibgQjdgA66oKRxQPxwQCeLQjtAROgDYJRFqZVAjmloCnvRUKX6xrcbOR/zR
+        RpScJ1GiljLTR5mqAljKVFfwvbmxngNzwQf4CmO12GWXsQlDA8TB04EnZnpjwjVBij3ShH0As6JEnhnU
+        wXFdCOMgxHoTWByUcQhisePvx2onBd4JsbH4sNVogX8WmAD2KmUcgiUk4LbJbOPTNDxcR7B+a8ruRl05
+        93/dOgZhqubgJKd0XflRAhYwvmrrurKXBCzgb+ypOe/YawIImegZNe8VvysBtiWAcZ4i7KkN+Tci7q2Y
+        +zDiPo7ZLyTsVzIE66XUghB4pQnbBBj4HiYWrE+zH4QQd0Z+Lq1ChBgqAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="but_Live.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="but_Live.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="but_Live.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 57</value>
+  </data>
+  <data name="but_Live.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="but_Live.Text" xml:space="preserve">
+    <value>实时</value>
+  </data>
+  <data name="but_Live.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;but_Live.Name" xml:space="preserve">
+    <value>but_Live</value>
+  </data>
+  <data name="&gt;&gt;but_Live.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;but_Live.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;but_Live.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>582, 57</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>panel_hWnd</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -1206,7 +1206,7 @@
     <value>*</value>
   </data>
   <data name="toolStrip2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 444</value>
+    <value>0, 426</value>
   </data>
   <data name="toolStrip2.Size" type="System.Drawing.Size, System.Drawing">
     <value>582, 25</value>
@@ -1236,7 +1236,7 @@
     <value>0, 0</value>
   </data>
   <data name="panel_hWnd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>582, 469</value>
+    <value>582, 451</value>
   </data>
   <data name="panel_hWnd.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1265,14 +1265,17 @@
   <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="listView_ImgList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="listView_ImgList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="listView_ImgList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 34</value>
+    <value>1, 24</value>
+  </data>
+  <data name="listView_ImgList.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 1, 1, 1</value>
   </data>
   <data name="listView_ImgList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 356</value>
+    <value>116, 358</value>
   </data>
   <data name="listView_ImgList.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1313,7 +1316,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="but_PreImage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 31</value>
+    <value>118, 23</value>
   </data>
   <data name="but_PreImage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1357,13 +1360,13 @@
 </value>
   </data>
   <data name="but_NextImage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 393</value>
+    <value>0, 383</value>
   </data>
   <data name="but_NextImage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="but_NextImage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 31</value>
+    <value>118, 23</value>
   </data>
   <data name="but_NextImage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1399,7 +1402,7 @@
     <value>3</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 424</value>
+    <value>118, 406</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1417,7 +1420,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="listView_ImgList" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="but_PreImage" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="but_NextImage" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,31,Percent,100,Absolute,31" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="listView_ImgList" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="but_PreImage" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="but_NextImage" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,23,Percent,100,Absolute,23" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="toolStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>808, 22</value>
@@ -1471,27 +1474,27 @@
   <data name="tsBut_LoadNG.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASJSURBVGhD7VlNiBxFFB4huNmqnt3gv/hziOAfopCDF3PI
-        RcQggoiIKCiKIgbBXFSUsIIHUdSDYg4SCLjMTlW1m5jVRBFhxYOIKIh6UDYSCCwkO91VvZs1eNAdX+28
-        2Z+uNz1VMz2zAf3gY4ed97763nRX9avqyv9oQ66MMpHeE0nzFJfpa1zoQ5HSX0RSq0jod3ls9kdx9hAX
-        6W2YsfVgQt/BlX6eS/NppEzTl2wqnYPC3q5Kff/4YbMD5YaHarx4H1dmhjLXA+ftFWPTy1ej/OBQsvE8
-        B1sIk8kHxKClE8Y5aW8tHLYcRDKdpQYbLLNncPj+cPFkskAPMATG2StoozfAkvgrKTxE8rrZg3bCYCcU
-        JbgVrNYXb0RbfrD3HyW0ZYQ5eOmhRhXtFSMS6V2kyBaTq+xDtFgMeNQfowQuDC7tRps0qtI8SScW8hfi
-        f34MXSSEFmjVRVSbv2x0Sv9GJnbg6kSvL90Cc+ZH6vtCyuzVSC7dGloENIx70fJmcKn3UQmdaM1jamXs
-        SHYD5H9HxZEU6YuYCkt1YBGdrgJ0lJ+QCST1BKatYbvS1zNpvqHj1wm91AuYsoagIiaTvyD+ckxFTMxu
-        i2r6TzIhx42/fB5MLV8Ft8ZXVF6L2XMY6iDsSuR02MeLe+lAmkVFjMnsErjMnzt5Mn0aQxwE30bwXMDU
-        FrhI3iADC1hUhH3ocGHWlmMm9eP4lYNg88jKiZURlAARZSbzAT4sKsIOwEQWc5k9gv9x0Kt5S7twoIwV
-        6qdddif0GprNi/CTg37MW25q8uwmggryZ0ERBPo1bwnL9mMoB4J2aSKCwuhXRBnmW8xeRknYtKhGgw4K
-        Y+GcAJRnHsaKs30oC8LK/JQP6IlSH0BJElGtcXNUb/xM5oZSJg+g7GoBx52AUMr0JZQrxHgt2xmp9AdS
-        I4BjMrkTJeE5AL02FeRLaEP2o5QXRqeTa3ldf0tp+XJUJtegnO2Det8+2iYQZRzYex4/OuDT565gynxN
-        afoQZVpgwuyigrpSmq7tQdHEHj9qdkDb8SWpXUDYdB1GiXVw1ThFBXcii/3bg8LVaabJoO34bKN2N7I4
-        vRez18Fi433yBktYcHtQWMRscxv8qkfyORTtD41ZmwE9y8NUgsOCbV33db7zwy4S5sFIzf1D522gNO9h
-        igvf+5G6B7ubb9Mtwm4TYaOzTMdvIHQM9kgf01xwmdxNJhJkIjmIaQHm21wvAj7v9u4EhH4H0zoDLuX7
-        ZDJBLvRb4ebb1BM81rfD59Pudy5tkeO1MzvRZmdsP3r+Otjg/EGJkOzJfIshpyDd+qxN8J7Qw+NxtOYP
-        WCrfJISGTnvroKVwXAjHjFW5eBPa6Q12taGEh8GqbPRnvg1olZ+lBhgU7QEZP3buShy+HMCS+SiIz+cH
-        K5vwoIorM/MMhy0X9hUott6lF2Jf39rXuDjUYNEuhCn9O2XGmwfn/h6qcQq2FYAd2etc6e9JkzmOfHQ2
-        hb9TsJl5gk0vDP7tfBBOrIysHrXXzR57bmOPPuxBrH1xzcTCLmg7cqfK/3lUKv8C61S/8XxGMnkAAAAA
-        SUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASKSURBVGhD7VlNiBxFFB4hZLNVPbvBn6j4c4jgH6KQg5fk
+        kIuIQQQREVFQFEUMgrmoKLKCB1FMEEUPEgi4zE5VtZuY1UQRYcWDiCiIGlBUBGFBd7qrejebkIPu+Grn
+        zf50vempmumZDegHHzvsvPfV96a7ql9VV/5HG3J5lIn09kiaR7lMX+JCH46U/iSSWkVCH+KxORDF2b1c
+        pDdhxuaDCX0LV/opLs2HkTJNX7Kp9Bco7PWq1HeNHzHbUW54qMYLd3JlZihzPXDOXjE2vXQ5yg8OJRvP
+        c7CFMJm8TQxaOmGcX+2thcOWg0ims9Rgg2X2OA7fH7ZOJvP0AENgnD2PNnoDLIk/ksJDJK+bvWgnDHZC
+        UYKbwWp94Vq05Qd7/1FCm0aYgxcdblTRXjEike4mRTaZXGXvosViwKP+OCVwfnBxD9qkUZXmETqxkD8Q
+        //Nj6CIhtECrLqLa3MWjU/onMrEDVyZ6ffEGmDPfUt8XUmYvRHLxxtAioGHch5Y3gku9n0roRGseUytj
+        R7NrIP8rKo6kSJ/BVFiqA4vodBWgo/yATCCpJzBtFduUvppJ8wUdv0bopZ7GlFUEFTGZnIP4SzAVMTG7
+        JarpM2RCjut/+TyYWroMbo3PqLwWsycx1EHYlcjpsPcX9tGBNIuKGJPZhXCZP3byZPoYhjgIvo3guYCp
+        LXCRvEIGFrCoCPvQ4cKsLsdM6ofwKwfB5pGVk8sjKAEiykzmA3xYVIQdgIks5jK7H//joFfzlnbhQBkr
+        1E+77E7oVTSbF+AnB/2Yt9zQ5NlNBBXkz4IiCPRr3hKW7QdRDgTt0kQEhdGviDLMt5g9h5KwaVGNBh0U
+        xsI5ASjPPIwVZ/tRFoSV+S4f0BOlfhElSUS1xvVRvfE9mRtKmdyNsisFnHACQinTZ1GuEOO1bGek0m9I
+        jQCOyeRWlITnAPTaVJAvoQ05gFJeGJ1OruR1/SWl5ctRmVyBcrYP6n37aJtAlHFg73n86IBPn97BlPmc
+        0vQhyrTAhNlFBXWlNF3bg6KJPX7MbIe241NSu4Cw6TqCEmvgqvE7FdyJLPZvDwpXp5kmg7bjo/Xa3cji
+        9A7MXgOLjffJGyxhwe1BYRGzzS3wqx7N51C0PzRmbQT0LPdRCQ4LtnXd1/nOD7tImHsideofOm8dpXkT
+        U1z43o/UPdjdfJtuEXabCBudJTp+HaFjsEf6mOaCy+Q2MpEgE8k7mBZgvs21IuDzHu9OQOiDmNYZcCnf
+        IpMJcqFfCzffpp7gsb4ZPv/hfufSFjle+3Mn2uyMbcfOXgUbnN8oEZI9mW8x5BSkW5+1Ad4Teng8gdb8
+        AUvlq4TQ0GlvHbQUjvPhmLEqF65DO73BrjaU8DBYlY3+zLcBrfIT1ACDoj0g48dPX4rDlwNYMh8A8bn8
+        YGUTHlRxZWaO4bDlwr4Cxda79ELs61v7GheHGizahTClf6bMePONU38P1TgF2wrAjuxlrvTXpMkcR977
+        K4W/U7CZeZhNzw/+7XwQTi6PrBy1181ee25jjz7sQax9cc3E/C5oO3Knyv95VCr/AogMv98n/HT4AAAA
+        AElFTkSuQmCC
 </value>
   </data>
   <data name="tsBut_LoadNG.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -1558,7 +1561,7 @@
     <value>582, 0</value>
   </data>
   <data name="groupBox_ImageList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 469</value>
+    <value>124, 451</value>
   </data>
   <data name="groupBox_ImageList.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1573,19 +1576,19 @@
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBox_ImageList.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;groupBox_ImageList.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>0, 18</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>582, 469</value>
+    <value>706, 451</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1611,6 +1614,102 @@
   <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 60</value>
   </metadata>
+  <data name="panel4.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="label_Edit.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label_Edit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="label_Edit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="label_Edit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>674, 0</value>
+  </data>
+  <data name="label_Edit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 17</value>
+  </data>
+  <data name="label_Edit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label_Edit.Text" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="&gt;&gt;label_Edit.Name" xml:space="preserve">
+    <value>label_Edit</value>
+  </data>
+  <data name="&gt;&gt;label_Edit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_Edit.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;label_Edit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label_Cam.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label_Cam.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="label_Cam.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt, style=Bold</value>
+  </data>
+  <data name="label_Cam.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="label_Cam.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 17</value>
+  </data>
+  <data name="label_Cam.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label_Cam.Text" xml:space="preserve">
+    <value>相机</value>
+  </data>
+  <data name="&gt;&gt;label_Cam.Name" xml:space="preserve">
+    <value>label_Cam</value>
+  </data>
+  <data name="&gt;&gt;label_Cam.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_Cam.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;label_Cam.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>706, 18</value>
+  </data>
+  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

@@ -101,12 +101,13 @@ namespace BaseData
     [Serializable]
     public struct ConfigData
     {
-        public CamBrand camBrand;  //相机品牌
-        public int CamNum;         //相机数量
-        public ComMode comMode;    //通讯方式
-        public bool CheckUSB;      //是否USB相机
-        public bool bDigitLight;   //是否数字型光源控制器
-        public int nLightCH;       //光源控制器通道数
+        public CamBrand camBrand;                 //相机品牌
+        public int CamNum;                        //相机数量
+        public Dictionary<int, int> dic_SubCam;   //相机对应的子画面数量
+        public ComMode comMode;                   //通讯方式
+        public bool CheckUSB;                     //是否USB相机
+        public bool bDigitLight;                  //是否数字型光源控制器
+        public int nLightCH;                      //光源控制器通道数
     }
 
     [Serializable]

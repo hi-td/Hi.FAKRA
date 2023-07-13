@@ -154,6 +154,18 @@
     <Compile Include="Auxiliary\Invoke.cs" />
     <Compile Include="Auxiliary\Logging.cs" />
     <Compile Include="Auxiliary\Variable.cs" />
+    <Compile Include="多线插\4图像窗口\Show4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="多线插\4图像窗口\Show4.Designer.cs">
+      <DependentUpon>Show4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="多线插\5图像窗口\Show5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\5图像窗口\Show5.Designer.cs">
+      <DependentUpon>Show5.cs</DependentUpon>
+    </Compile>
     <Compile Include="多线插\检测功能\同心度检测\FitCircle.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -236,10 +248,10 @@
       <DependentUpon>FormContactUs.cs</DependentUpon>
     </Compile>
     <Compile Include="Security\Md5.cs" />
-    <Compile Include="多线插\4三相机\Show3.cs">
+    <Compile Include="多线插\3图像窗口\Show3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="多线插\4三相机\Show3.designer.cs">
+    <Compile Include="多线插\3图像窗口\Show3.designer.cs">
       <DependentUpon>Show3.cs</DependentUpon>
     </Compile>
     <Compile Include="多线插\函数\Events.cs" />
@@ -325,11 +337,11 @@
     <Compile Include="其他\FormSaveGlobalData.designer.cs">
       <DependentUpon>FormSaveGlobalData.cs</DependentUpon>
     </Compile>
-    <Compile Include="多线插\3相机6界面%281相机4界面%29\Show7.cs">
+    <Compile Include="多线插\6图像窗口\Show6.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="多线插\3相机6界面%281相机4界面%29\Show7.designer.cs">
-      <DependentUpon>Show7.cs</DependentUpon>
+    <Compile Include="多线插\6图像窗口\Show6.designer.cs">
+      <DependentUpon>Show6.cs</DependentUpon>
     </Compile>
     <Compile Include="多线插\函数\StaticFun.cs" />
     <Compile Include="多线插\数据序列化\EnumData.cs" />
@@ -443,6 +455,12 @@
     <Compile Include="多线插\函数\Function.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="多线插\4图像窗口\Show4.resx">
+      <DependentUpon>Show4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\5图像窗口\Show5.resx">
+      <DependentUpon>Show5.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="多线插\检测功能\同心度检测\FitCircle.resx">
       <DependentUpon>FitCircle.cs</DependentUpon>
     </EmbeddedResource>
@@ -488,10 +506,10 @@
     <EmbeddedResource Include="其他\联系我们\FormContactUs.resx">
       <DependentUpon>FormContactUs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="多线插\4三相机\Show3.en-US.resx">
+    <EmbeddedResource Include="多线插\3图像窗口\Show3.en-US.resx">
       <DependentUpon>Show3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="多线插\4三相机\Show3.resx">
+    <EmbeddedResource Include="多线插\3图像窗口\Show3.resx">
       <DependentUpon>Show3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="多线插\通讯\光源控制器\FormLightCH.resx">
@@ -542,8 +560,8 @@
     <EmbeddedResource Include="其他\FormSaveGlobalData.resx">
       <DependentUpon>FormSaveGlobalData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="多线插\3相机6界面%281相机4界面%29\Show7.resx">
-      <DependentUpon>Show7.cs</DependentUpon>
+    <EmbeddedResource Include="多线插\6图像窗口\Show6.resx">
+      <DependentUpon>Show6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="其他\FormSTATS.resx">
       <DependentUpon>FormSTATS.cs</DependentUpon>

@@ -324,6 +324,7 @@
             this.DoubleBuffered = true;
             this.IsMdiContainer = true;
             this.Name = "FormMainUI";
+            this.ShowIcon = false;
             this.TransparencyKey = System.Drawing.Color.SteelBlue;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMainUI_FormClosing);

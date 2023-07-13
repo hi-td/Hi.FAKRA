@@ -1925,9 +1925,6 @@ namespace VisionPlatform
             HOperatorSet.GenEmptyObj(out HObject ho_RegionClosing);
             HOperatorSet.GenEmptyObj(out HObject ho_ConnectedRegions);
             HOperatorSet.GenEmptyObj(out HObject ho_SelectedRegions);
-            HOperatorSet.GenEmptyObj(out HObject ho_ROI);
-            HOperatorSet.GenEmptyObj(out HObject ho_ImageReduced);
-            HOperatorSet.GenEmptyObj(out HObject ho_RegionOpening);
             HOperatorSet.GenEmptyObj(out HObject ho_OuterCircle);
             HOperatorSet.GenEmptyObj(out HObject ho_InsulationCircle);
             HOperatorSet.GenEmptyObj(out HObject ho_InnerCircle);
@@ -1967,8 +1964,8 @@ namespace VisionPlatform
                     {
                         circleIn = new Circle()
                         {
-                            dRow = hv_Row.D,
-                            dCol = hv_Column.D,
+                            dRow = result.outerCircle.dRow,
+                            dCol = result.outerCircle.dCol,
                             dRadius = param.insulationCircle.nRadius,
                         },
                         EPMeasure = param.insulationCircle.EPMeasure,
@@ -1976,29 +1973,53 @@ namespace VisionPlatform
                     Fun.FitCircle(InsulationParam, bShow, out result.insulationCircle);
                 }
                 //内导体圆
-                if(param.type == ConcentricityType.female)
+                if (param.type == ConcentricityType.female)
                 {
                     result.innerCircle = FemaleCircle(param.femaleCircle, result.outerCircle, bShow);
+                    double dRadiusLow = Math.Round(param.femaleCircle.dRadius * param.femaleCircle.dRadiusLow, 2);
+                    double dRadiusHigh = Math.Round(param.femaleCircle.dRadius * param.femaleCircle.dRadiusHigh, 2);
+                    if (result.innerCircle.dRadius < dRadiusLow || result.innerCircle.dRadius > dRadiusHigh)
+                    {
+                        bResult = false;
+                    }
                 }
                 else
                 {
                     result.innerCircle = MaleCircle(param.maleCircle, result.outerCircle, bShow);
                 }
+                //同心度计算
+                HOperatorSet.DistancePp(result.outerCircle.dRow, result.outerCircle.dCol, result.innerCircle.dRow, result.innerCircle.dCol, out HTuple hv_Dist1);
+                result.dDist1 = Math.Round(hv_Dist1.D, 2);
+                double dDist1High = Math.Round(param.dOuterInner * param.dOuterInnerHigh, 2);
+                if(result.dDist1 > dDist1High)
+                {
+                    bResult = false;
+                }
+                if (param.bInsultationCircle)
+                {
+                    HOperatorSet.DistancePp(result.outerCircle.dRow, result.outerCircle.dCol, result.insulationCircle.dRow, result.insulationCircle.dCol, out HTuple hv_Dist2);
+                    result.dDist2 = Math.Round(hv_Dist2.D, 2);
+                    ho_InsulationCircle.Dispose();
+                    HOperatorSet.GenCircle(out ho_InsulationCircle, result.insulationCircle.dRow, result.insulationCircle.dCol, result.insulationCircle.dRadius);
+                    Fun.DispRegion(ho_InsulationCircle, "red");
+                    Fun.m_hWnd.SetColor("red");
+                    Fun.m_hWnd.DispCross(result.insulationCircle.dRow, result.insulationCircle.dCol, 30, 0);
+                    double dDist2High = Math.Round(param.dOuterInsulation * param.dOuterInsulationHigh,2);
+                    if (result.dDist2 > dDist2High)
+                    {
+                        bResult = false;
+                    }
+                }
+                //显示
                 ho_OuterCircle.Dispose();
                 HOperatorSet.GenCircle(out ho_OuterCircle, result.outerCircle.dRow, result.outerCircle.dCol, result.outerCircle.dRadius);
-                ho_InsulationCircle.Dispose();
-                HOperatorSet.GenCircle(out ho_InsulationCircle, result.insulationCircle.dRow, result.insulationCircle.dCol, result.insulationCircle.dRadius);
                 ho_InnerCircle.Dispose();
                 HOperatorSet.GenCircle(out ho_InnerCircle, result.innerCircle.dRow, result.innerCircle.dCol, result.innerCircle.dRadius);
                 //Fun.m_hWnd.DispObj(Fun.m_hImage);
-                Fun.DispRegion(ho_ROI, "blue");
                 Fun.m_hWnd.SetLineWidth(3);
                 Fun.DispRegion(ho_OuterCircle, "green");
                 Fun.m_hWnd.SetColor("green");
                 Fun.m_hWnd.DispCross(result.outerCircle.dRow, result.outerCircle.dCol, 40, 0);
-                Fun.DispRegion(ho_InsulationCircle, "red");
-                Fun.m_hWnd.SetColor("red");
-                Fun.m_hWnd.DispCross(result.insulationCircle.dRow, result.insulationCircle.dCol, 30, 0);
                 Fun.DispRegion(ho_InnerCircle, "blue");
                 Fun.m_hWnd.SetColor("blue");
                 Fun.m_hWnd.DispCross(result.innerCircle.dRow, result.innerCircle.dCol, 20, 0);
@@ -2015,9 +2036,6 @@ namespace VisionPlatform
                 ho_RegionClosing?.Dispose();
                 ho_ConnectedRegions?.Dispose();
                 ho_SelectedRegions?.Dispose();
-                ho_ROI?.Dispose();
-                ho_ImageReduced?.Dispose();
-                ho_RegionOpening?.Dispose();
                 ho_OuterCircle?.Dispose();
                 ho_InsulationCircle?.Dispose();
                 ho_InnerCircle?.Dispose();
@@ -2025,7 +2043,7 @@ namespace VisionPlatform
             return bResult;
         }
 
-        public Circle FemaleCircle(FemaleCircle param, Circle outerCircle,bool bShow)
+        public Circle FemaleCircle(FemaleCircle param, Circle outerCircle, bool bShow)
         {
             Circle circle = new Circle();
             HOperatorSet.GenEmptyObj(out HObject ho_ROI);
@@ -2034,11 +2052,16 @@ namespace VisionPlatform
             HOperatorSet.GenEmptyObj(out HObject ho_RegionOpening);
             HOperatorSet.GenEmptyObj(out HObject ho_ConnectedRegions);
             HOperatorSet.GenEmptyObj(out HObject ho_SelectedRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_MeanImage);
             try
             {
                 //内导体圆
                 ho_ROI.Dispose();
                 HOperatorSet.GenCircle(out ho_ROI, outerCircle.dRow, outerCircle.dCol, param.nRadiusROI);
+                if (bShow)
+                {
+                    Fun.DispRegion(ho_ROI, "blue");
+                }
                 ho_ImageReduced.Dispose();
                 HOperatorSet.ReduceDomain(Fun.m_GrayImage, ho_ROI, out ho_ImageReduced);
                 ho_Region.Dispose();
@@ -2056,8 +2079,33 @@ namespace VisionPlatform
                     dCol = hv_col.D,
                     dRadius = hv_radius.D,
                 };
+                ho_ROI.Dispose();
+                HOperatorSet.GenCircle(out ho_ROI, hv_row, hv_col, param.nRadiusROI);
+                ho_MeanImage.Dispose();
+                HOperatorSet.MeanImage(Fun.m_GrayImage, out ho_MeanImage, 35, 35);
+                ho_ImageReduced.Dispose();
+                HOperatorSet.ReduceDomain(ho_MeanImage, ho_ROI, out ho_ImageReduced);
+                ho_Region.Dispose();
+                HOperatorSet.DynThreshold(Fun.m_GrayImage, ho_ImageReduced, out ho_Region, 5, "light");
+                ho_ImageReduced.Dispose();
+                HOperatorSet.ReduceDomain(Fun.m_GrayImage, ho_Region, out ho_ImageReduced);
+                ho_SelectedRegions.Dispose();
+                HOperatorSet.Threshold(ho_ImageReduced, out ho_SelectedRegions, 158, 255);
+                ho_RegionOpening.Dispose();
+                HOperatorSet.ClosingCircle(ho_SelectedRegions, out ho_RegionOpening, 3.5);
+                ho_ConnectedRegions.Dispose();
+                HOperatorSet.Connection(ho_RegionOpening, out ho_ConnectedRegions);
+                ho_Region.Dispose();
+                HOperatorSet.FillUp(ho_ConnectedRegions, out ho_Region);
+                ho_RegionOpening.Dispose();
+                HOperatorSet.OpeningCircle(ho_Region, out ho_RegionOpening, 3.5);
+                ho_ConnectedRegions.Dispose();
+                HOperatorSet.Connection(ho_RegionOpening, out ho_ConnectedRegions);
+                ho_SelectedRegions.Dispose();
+                HOperatorSet.SelectShape(ho_ConnectedRegions, out ho_SelectedRegions, "area", "and", 500, 99999);
+                Fun.DispRegion(ho_SelectedRegions, "blue", "fill");
             }
-            catch(HalconException ex)
+            catch (HalconException ex)
             {
                 ex.ToString();
             }
@@ -2069,7 +2117,7 @@ namespace VisionPlatform
                 ho_RegionOpening?.Dispose();
                 ho_ConnectedRegions?.Dispose();
                 ho_SelectedRegions?.Dispose();
-
+                ho_MeanImage?.Dispose();
             }
             return circle;
         }
@@ -2077,6 +2125,8 @@ namespace VisionPlatform
         public Circle MaleCircle(MaleCircle param, Circle outerCircle, bool bShow)
         {
             Circle circle = new Circle();
+            HOperatorSet.GenEmptyObj(out HObject ho_ImageEdgeAmp);
+            HOperatorSet.GenEmptyObj(out HObject ho_ImageScaled);
             HOperatorSet.GenEmptyObj(out HObject ho_ROI);
             HOperatorSet.GenEmptyObj(out HObject ho_ImageReduced);
             HOperatorSet.GenEmptyObj(out HObject ho_Region);
@@ -2085,19 +2135,31 @@ namespace VisionPlatform
             HOperatorSet.GenEmptyObj(out HObject ho_SelectedRegions);
             try
             {
+                ho_ImageEdgeAmp.Dispose();
+                HOperatorSet.KirschAmp(Fun.m_GrayImage, out ho_ImageEdgeAmp);
+                ho_ImageScaled.Dispose();
+                Fun.scale_image_range(ho_ImageEdgeAmp, out ho_ImageScaled, 20, 200);
+                //Fun.m_hWnd.DispObj(ho_ImageScaled);
                 //内导体圆
                 ho_ROI.Dispose();
                 HOperatorSet.GenCircle(out ho_ROI, outerCircle.dRow, outerCircle.dCol, param.nRadiusROI);
+                if (bShow)
+                {
+                    Fun.DispRegion(ho_ROI, "blue");
+                }
                 ho_ImageReduced.Dispose();
-                HOperatorSet.ReduceDomain(Fun.m_GrayImage, ho_ROI, out ho_ImageReduced);
+                HOperatorSet.ReduceDomain(ho_ImageScaled, ho_ROI, out ho_ImageReduced);
                 ho_Region.Dispose();
-                HOperatorSet.Threshold(ho_ImageReduced, out ho_Region, 0, param.nThd);
+                HOperatorSet.Threshold(ho_ImageReduced, out ho_Region, param.nThd, 255);
+                // Fun.DispRegion(ho_Region, "red");
                 ho_RegionOpening.Dispose();
-                HOperatorSet.OpeningCircle(ho_Region, out ho_RegionOpening, 5);
+                HOperatorSet.ClosingCircle(ho_Region, out ho_RegionOpening, 5);
                 ho_ConnectedRegions.Dispose();
                 HOperatorSet.Connection(ho_RegionOpening, out ho_ConnectedRegions);
+                ho_Region.Dispose();
+                HOperatorSet.FillUp(ho_ConnectedRegions, out ho_Region);
                 ho_SelectedRegions.Dispose();
-                HOperatorSet.SelectShapeStd(ho_ConnectedRegions, out ho_SelectedRegions, "max_area", 70);
+                HOperatorSet.SelectShapeStd(ho_Region, out ho_SelectedRegions, "max_area", 70);
                 HOperatorSet.InnerCircle(ho_SelectedRegions, out HTuple hv_row, out HTuple hv_col, out HTuple hv_radius);
                 circle = new Circle()
                 {
