@@ -44,6 +44,8 @@ namespace VisionPlatform
             this.剥皮检测 = new System.Windows.Forms.ToolStripMenuItem();
             this.插壳检测 = new System.Windows.Forms.ToolStripMenuItem();
             this.打端检测 = new System.Windows.Forms.ToolStripMenuItem();
+            this.导体_正面 = new System.Windows.Forms.ToolStripMenuItem();
+            this.导体_侧面 = new System.Windows.Forms.ToolStripMenuItem();
             this.同心度检测 = new System.Windows.Forms.ToolStripMenuItem();
             this.公头 = new System.Windows.Forms.ToolStripMenuItem();
             this.母头 = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,8 +54,6 @@ namespace VisionPlatform
             this.ts_Label_cam = new System.Windows.Forms.ToolStripLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.正面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.侧面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -182,7 +182,7 @@ namespace VisionPlatform
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem_Add});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
             // 
             // toolStripMenuItem_Add
             // 
@@ -192,7 +192,7 @@ namespace VisionPlatform
             this.打端检测,
             this.同心度检测});
             this.toolStripMenuItem_Add.Name = "toolStripMenuItem_Add";
-            this.toolStripMenuItem_Add.Size = new System.Drawing.Size(100, 22);
+            this.toolStripMenuItem_Add.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem_Add.Text = "添加";
             // 
             // 剥皮检测
@@ -212,12 +212,26 @@ namespace VisionPlatform
             // 打端检测
             // 
             this.打端检测.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.正面ToolStripMenuItem,
-            this.侧面ToolStripMenuItem});
+            this.导体_正面,
+            this.导体_侧面});
             this.打端检测.Name = "打端检测";
             this.打端检测.Size = new System.Drawing.Size(180, 22);
             this.打端检测.Text = "导体检测";
             this.打端检测.Click += new System.EventHandler(this.AddCheckItem);
+            // 
+            // 导体_正面
+            // 
+            this.导体_正面.Name = "导体_正面";
+            this.导体_正面.Size = new System.Drawing.Size(180, 22);
+            this.导体_正面.Text = "正面";
+            this.导体_正面.Click += new System.EventHandler(this.AddCheckItem);
+            // 
+            // 导体_侧面
+            // 
+            this.导体_侧面.Name = "导体_侧面";
+            this.导体_侧面.Size = new System.Drawing.Size(180, 22);
+            this.导体_侧面.Text = "侧面";
+            this.导体_侧面.Click += new System.EventHandler(this.AddCheckItem);
             // 
             // 同心度检测
             // 
@@ -300,20 +314,6 @@ namespace VisionPlatform
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip2_ItemClicked);
             // 
-            // 公头
-            // 
-            this.公头.Name = "公头";
-            this.公头.Size = new System.Drawing.Size(180, 22);
-            this.公头.Text = "公头";
-            this.公头.Click += new System.EventHandler(this.同心度检测_Click);
-            // 
-            // 母头
-            // 
-            this.母头.Name = "母头";
-            this.母头.Size = new System.Drawing.Size(180, 22);
-            this.母头.Text = "母头";
-            this.母头.Click += new System.EventHandler(this.同心度检测_Click);
-            // 
             // FormTeachMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -368,7 +368,7 @@ namespace VisionPlatform
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem 公头;
         private System.Windows.Forms.ToolStripMenuItem 母头;
-        private System.Windows.Forms.ToolStripMenuItem 正面ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 侧面ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 导体_正面;
+        private System.Windows.Forms.ToolStripMenuItem 导体_侧面;
     }
 }

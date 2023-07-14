@@ -45,7 +45,7 @@ namespace VisionPlatform
             this.label_CH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_CH.Location = new System.Drawing.Point(55, 1);
             this.label_CH.Name = "label_CH";
-            this.label_CH.Size = new System.Drawing.Size(44, 25);
+            this.label_CH.Size = new System.Drawing.Size(44, 24);
             this.label_CH.TabIndex = 5;
             this.label_CH.Text = "CH1";
             this.label_CH.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -58,7 +58,7 @@ namespace VisionPlatform
             this.trackBar_Brightness.Maximum = 255;
             this.trackBar_Brightness.Name = "trackBar_Brightness";
             this.trackBar_Brightness.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.trackBar_Brightness.Size = new System.Drawing.Size(159, 19);
+            this.trackBar_Brightness.Size = new System.Drawing.Size(159, 18);
             this.trackBar_Brightness.TabIndex = 0;
             this.trackBar_Brightness.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar_Brightness.Scroll += new System.EventHandler(this.trackBar_Brightness_Scroll);
@@ -80,20 +80,21 @@ namespace VisionPlatform
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(320, 27);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(320, 26);
             this.tableLayoutPanel1.TabIndex = 14;
             // 
             // numUpD_Brightness
             // 
             this.numUpD_Brightness.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numUpD_Brightness.Location = new System.Drawing.Point(106, 4);
+            this.numUpD_Brightness.Location = new System.Drawing.Point(104, 2);
+            this.numUpD_Brightness.Margin = new System.Windows.Forms.Padding(1);
             this.numUpD_Brightness.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.numUpD_Brightness.Name = "numUpD_Brightness";
-            this.numUpD_Brightness.Size = new System.Drawing.Size(44, 21);
+            this.numUpD_Brightness.Size = new System.Drawing.Size(48, 21);
             this.numUpD_Brightness.TabIndex = 6;
             this.numUpD_Brightness.ValueChanged += new System.EventHandler(this.numUpD_Brightness_ValueChanged);
             // 
@@ -103,7 +104,7 @@ namespace VisionPlatform
             this.label_CheckItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_CheckItem.Location = new System.Drawing.Point(4, 1);
             this.label_CheckItem.Name = "label_CheckItem";
-            this.label_CheckItem.Size = new System.Drawing.Size(44, 25);
+            this.label_CheckItem.Size = new System.Drawing.Size(44, 24);
             this.label_CheckItem.TabIndex = 7;
             this.label_CheckItem.Text = "--";
             this.label_CheckItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,7 +114,7 @@ namespace VisionPlatform
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(320, 27);
+            this.ClientSize = new System.Drawing.Size(320, 26);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormLedSet";

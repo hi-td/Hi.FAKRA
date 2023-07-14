@@ -44,6 +44,7 @@ namespace VisionPlatform
         public static Show6 m_Show6;
         public static FormShowResult formShowResult = new FormShowResult(); //显示检测结果
         public static FormImageSave formImageSave = new FormImageSave();    //运行状态图像保存
+        public static but_run formRun = new but_run();                      //运行按钮
         //相机及其对应的相机显示窗口
         public static Dictionary<int, TMData.ShowItems[]> m_dicFormCamShows = new Dictionary<int, TMData.ShowItems[]>();
 
@@ -412,7 +413,7 @@ namespace VisionPlatform
                         //m_Show1.splitContainer1.Panel2.Controls.Clear();
                         //m_Show1.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
                         //FormMainUI.formShowResult.tabPage1.Parent = FormMainUI.formShowResult.tabControl1;
-                        StaticFun.Run.Zoom(Show1.m_listFun);
+                        StaticFun.Run.Zoom();
                         break;
                     case 2:
                         m_Show2.TopLevel = false;
@@ -427,7 +428,7 @@ namespace VisionPlatform
                         //m_Show2.panel2.Controls.Add(Show2.formCamShow2);
                         //m_Show2.splitContainer1.Panel2.Controls.Clear();
                         //m_Show2.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
-                        StaticFun.Run.Zoom(Show2.m_listFun);
+                        StaticFun.Run.Zoom();
                         break;
                     case 3:
                         break;

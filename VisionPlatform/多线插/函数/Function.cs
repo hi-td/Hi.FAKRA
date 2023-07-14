@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using HalconDotNet;
 using System.Windows.Forms;
@@ -18,8 +17,6 @@ namespace VisionPlatform
 {
     public class Function
     {
-        public static List<Function> my_fun = new List<Function>(); //只初始化一次
-
         public HWindow m_hWnd = null;
         public HWindowControl m_hWndCtrl = null;
         public HObject m_OrgImage = null;

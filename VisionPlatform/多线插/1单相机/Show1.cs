@@ -51,6 +51,7 @@ namespace VisionPlatform
             FormMainUI.formShowResult.Dock = DockStyle.Fill;
             this.splitContainer1.Panel2.Controls.Clear();
             this.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
+          
         }
 
         private void Show1_Load(object sender, EventArgs e)
@@ -74,12 +75,12 @@ namespace VisionPlatform
 
         private void but_Run_Click(object sender, EventArgs e)
         {
-            StaticFun.Run.LoadRun(but_Run, m_listFun, m_listTMFun, m_listCamSer);
+            StaticFun.Run.LoadRun(but_Run);
         }
 
         private void Show1_SizeChanged(object sender, EventArgs e)
         {
-            StaticFun.Run.Zoom(m_listFun);
+            StaticFun.Run.Zoom();
         }
 
     }

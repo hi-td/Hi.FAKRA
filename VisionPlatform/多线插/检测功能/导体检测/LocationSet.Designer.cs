@@ -71,7 +71,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(403, 101);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(403, 74);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -80,7 +80,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(4, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 32);
+            this.label1.Size = new System.Drawing.Size(54, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "间距";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -89,9 +89,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(4, 34);
+            this.label2.Location = new System.Drawing.Point(4, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 32);
+            this.label2.Size = new System.Drawing.Size(54, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "宽度";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -100,9 +100,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(4, 67);
+            this.label3.Location = new System.Drawing.Point(4, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 33);
+            this.label3.Size = new System.Drawing.Size(54, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "高度";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -110,7 +110,8 @@
             // numUp_Space
             // 
             this.numUp_Space.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numUp_Space.Location = new System.Drawing.Point(65, 4);
+            this.numUp_Space.Location = new System.Drawing.Point(63, 2);
+            this.numUp_Space.Margin = new System.Windows.Forms.Padding(1);
             this.numUp_Space.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -122,7 +123,7 @@
             0,
             -2147483648});
             this.numUp_Space.Name = "numUp_Space";
-            this.numUp_Space.Size = new System.Drawing.Size(69, 21);
+            this.numUp_Space.Size = new System.Drawing.Size(73, 21);
             this.numUp_Space.TabIndex = 3;
             this.numUp_Space.Value = new decimal(new int[] {
             830,
@@ -134,14 +135,15 @@
             // numUp_Width
             // 
             this.numUp_Width.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numUp_Width.Location = new System.Drawing.Point(65, 37);
+            this.numUp_Width.Location = new System.Drawing.Point(63, 26);
+            this.numUp_Width.Margin = new System.Windows.Forms.Padding(1);
             this.numUp_Width.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.numUp_Width.Name = "numUp_Width";
-            this.numUp_Width.Size = new System.Drawing.Size(69, 21);
+            this.numUp_Width.Size = new System.Drawing.Size(73, 21);
             this.numUp_Width.TabIndex = 4;
             this.numUp_Width.Value = new decimal(new int[] {
             100,
@@ -153,14 +155,15 @@
             // numUp_Height
             // 
             this.numUp_Height.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numUp_Height.Location = new System.Drawing.Point(65, 70);
+            this.numUp_Height.Location = new System.Drawing.Point(63, 50);
+            this.numUp_Height.Margin = new System.Windows.Forms.Padding(1);
             this.numUp_Height.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.numUp_Height.Name = "numUp_Height";
-            this.numUp_Height.Size = new System.Drawing.Size(69, 21);
+            this.numUp_Height.Size = new System.Drawing.Size(73, 21);
             this.numUp_Height.TabIndex = 5;
             this.numUp_Height.Value = new decimal(new int[] {
             200,
@@ -176,7 +179,7 @@
             this.trackBar_Space.Maximum = 1000;
             this.trackBar_Space.Minimum = -1000;
             this.trackBar_Space.Name = "trackBar_Space";
-            this.trackBar_Space.Size = new System.Drawing.Size(258, 26);
+            this.trackBar_Space.Size = new System.Drawing.Size(258, 17);
             this.trackBar_Space.TabIndex = 6;
             this.trackBar_Space.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar_Space.Value = -830;
@@ -185,10 +188,10 @@
             // trackBar_Width
             // 
             this.trackBar_Width.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBar_Width.Location = new System.Drawing.Point(141, 37);
+            this.trackBar_Width.Location = new System.Drawing.Point(141, 28);
             this.trackBar_Width.Maximum = 1000;
             this.trackBar_Width.Name = "trackBar_Width";
-            this.trackBar_Width.Size = new System.Drawing.Size(258, 26);
+            this.trackBar_Width.Size = new System.Drawing.Size(258, 17);
             this.trackBar_Width.TabIndex = 7;
             this.trackBar_Width.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar_Width.Value = 100;
@@ -197,10 +200,10 @@
             // trackBar_Height
             // 
             this.trackBar_Height.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBar_Height.Location = new System.Drawing.Point(141, 70);
+            this.trackBar_Height.Location = new System.Drawing.Point(141, 52);
             this.trackBar_Height.Maximum = 1000;
             this.trackBar_Height.Name = "trackBar_Height";
-            this.trackBar_Height.Size = new System.Drawing.Size(258, 27);
+            this.trackBar_Height.Size = new System.Drawing.Size(258, 18);
             this.trackBar_Height.TabIndex = 8;
             this.trackBar_Height.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar_Height.Value = 200;
@@ -210,10 +213,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "LocationSet";
-            this.Size = new System.Drawing.Size(403, 101);
+            this.Size = new System.Drawing.Size(403, 74);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUp_Space)).EndInit();

@@ -76,17 +76,18 @@ namespace StaticFun
 
     public class Run
     {
-        public static void LoadRun(System.Windows.Forms.Button but_Run, List<Function> listFun, List<TMFunction> listTMFun, List<string> listCamSer)
+        public static void LoadRun(System.Windows.Forms.Button but_Run)
         {
             try
             {
-                StaticFun.Run.Zoom(listFun);
+                StaticFun.Run.Zoom();
                 if (but_Run.Text == "运行")
                 {
+                    but_Run.Image = Resources.runing;
                     if (CamSDK.CamCommon.m_listCamSer.Count != 0)
                     {
                         CamSDK.CamCommon.StopLiveAll();   //防止抓拍出来的图片不对
-                        if (StaticFun.Run.Start(listTMFun, listCamSer))
+                        if (StaticFun.Run.Start())
                         {
                             FormMainUI.bRun = true;
                             TMFunction.isAuto = true;
@@ -111,6 +112,7 @@ namespace StaticFun
                     TMFunction.isAuto = false;
                     FormMainUI.bRun = false;
                     Thread.Sleep(3);
+                    but_Run.Image = Resources.stop;
                     but_Run.Text = "运行";
                     but_Run.BackColor = default;
                 }
@@ -121,7 +123,7 @@ namespace StaticFun
                 return;
             }
         }
-        public static bool Start(List<TMFunction> listTMFun, List<string> listCamSer)
+        public static bool Start()
         {
             try
             {
@@ -160,11 +162,18 @@ namespace StaticFun
                         return false;
                     }
                     TMFunction.isAuto = true;
-                    for (int i = 0; i < listTMFun.Count; i++)
+                    foreach(int cam in FormMainUI.m_dicFormCamShows.Keys)
                     {
-                        new Task(() => { listTMFun[i].RunCam_IO((i + 1), listCamSer[i]); }, TaskCreationOptions.LongRunning).Start();
-                        Thread.Sleep(20);
+                        ShowItems[] arrayShows = FormMainUI.m_dicFormCamShows[cam];
+                        for (int i = 0; i < arrayShows.Length; i++)
+                        {
+                            TMFunction TMFun = arrayShows[i].form.TM_fun;
+                            String strCamSer = arrayShows[i].form.m_strCamSer;
+                            new Task(() => { TMFun.RunCam_IO((i + 1), strCamSer); }, TaskCreationOptions.LongRunning).Start();
+                            Thread.Sleep(20);
+                        }
                     }
+                    
                 }
                 else if (GlobalData.Config._InitConfig.initConfig.comMode.TYPE == EnumData.COMType.NET)
                 {
@@ -187,10 +196,16 @@ namespace StaticFun
                         return false;
                     }
                     TMFunction.isAuto = true;
-                    for (int i = 0; i < listTMFun.Count; i++)
+                    foreach (int cam in FormMainUI.m_dicFormCamShows.Keys)
                     {
-                        new Task(() => { listTMFun[i].RunCam_ModbusRTU((i + 1), listCamSer[i]); }, TaskCreationOptions.LongRunning).Start();
-                        Thread.Sleep(20);
+                        ShowItems[] arrayShows = FormMainUI.m_dicFormCamShows[cam];
+                        for (int i = 0; i < arrayShows.Length; i++)
+                        {
+                            TMFunction TMFun = arrayShows[i].form.TM_fun;
+                            String strCamSer = arrayShows[i].form.m_strCamSer;
+                            new Task(() => { TMFun.RunCam_ModbusRTU((i + 1), strCamSer); }, TaskCreationOptions.LongRunning).Start();
+                            Thread.Sleep(20);
+                        }
                     }
                 }
                 Thread.Sleep(10);
@@ -202,19 +217,24 @@ namespace StaticFun
                 return false;
             }
         }
-        public static void Zoom(List<Function> listFun)
+        public static void Zoom()
         {
             try
             {
-                for (int i = 0; i < listFun.Count; i++)
+                foreach(int cam in FormMainUI.m_dicFormCamShows.Keys)
                 {
-                    if (null != listFun[i])
+                    TMData.ShowItems[] arrayShows = FormMainUI.m_dicFormCamShows[cam];
+                    for (int i = 0; i < arrayShows.Length; i++)
                     {
-                        listFun[i].dReslutRow0 = 0;
-                        listFun[i].dReslutCol0 = 0;
-                        listFun[i].dReslutRow1 = 0;
-                        listFun[i].dReslutCol1 = 0;
-                        listFun[i].FitImageToWindow(ref listFun[i].dReslutRow0, ref listFun[i].dReslutCol0, ref listFun[i].dReslutRow1, ref listFun[i].dReslutCol1);
+                        if (null != arrayShows[i].form.fun)
+                        {
+                            Function fun = arrayShows[i].form.fun;
+                            fun.dReslutRow0 = 0;
+                            fun.dReslutCol0 = 0;
+                            fun.dReslutRow1 = 0;
+                            fun.dReslutCol1 = 0;
+                            fun.FitImageToWindow(ref fun.dReslutRow0, ref fun.dReslutCol0, ref fun.dReslutRow1, ref fun.dReslutCol1);
+                        }
                     }
                 }
             }
@@ -439,11 +459,6 @@ namespace StaticFun
                     TMFun = Show1.formCamShow1.TM_fun;
                     Fun = Show1.formCamShow1.fun;
                     str_CamSer = Show1.formCamShow1.m_strCamSer;
-                    break;
-                case 2:
-                    TMFun = Show2.dic_formCamShow[m_ncam][sub_cam].form.TM_fun;
-                    Fun = Show2.dic_formCamShow[m_ncam][sub_cam].form.fun;
-                    str_CamSer = Show2.dic_formCamShow[m_ncam][sub_cam].form.m_strCamSer;
                     break;
                 default:
                     TMFun = FormMainUI.m_dicFormCamShows[m_ncam][sub_cam].form.TM_fun;

@@ -154,6 +154,12 @@
     <Compile Include="Auxiliary\Invoke.cs" />
     <Compile Include="Auxiliary\Logging.cs" />
     <Compile Include="Auxiliary\Variable.cs" />
+    <Compile Include="其他\but_run.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="其他\but_run.Designer.cs">
+      <DependentUpon>but_run.cs</DependentUpon>
+    </Compile>
     <Compile Include="多线插\4图像窗口\Show4.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -454,6 +460,9 @@
     <Compile Include="多线插\函数\Function.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="其他\but_run.resx">
+      <DependentUpon>but_run.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="多线插\4图像窗口\Show4.resx">
       <DependentUpon>Show4.cs</DependentUpon>
     </EmbeddedResource>
@@ -658,6 +667,8 @@
   <ItemGroup>
     <Content Include="1~1.ico" />
     <Content Include="20210125022420555_easyicon_net_96.ico" />
+    <None Include="Resources\运行中.png" />
+    <None Include="Resources\暂停.png" />
     <None Include="Resources\camera2.png" />
     <None Include="Resources\分支机构.png" />
   </ItemGroup>

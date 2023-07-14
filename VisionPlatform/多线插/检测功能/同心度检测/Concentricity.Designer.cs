@@ -829,7 +829,7 @@
             this.tabPage_male.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_male.Name = "tabPage_male";
             this.tabPage_male.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_male.Size = new System.Drawing.Size(411, 75);
+            this.tabPage_male.Size = new System.Drawing.Size(381, 75);
             this.tabPage_male.TabIndex = 1;
             this.tabPage_male.Text = "公头";
             // 
@@ -848,7 +848,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(405, 26);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(375, 26);
             this.tableLayoutPanel8.TabIndex = 8;
             // 
             // label13
@@ -857,7 +857,7 @@
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Location = new System.Drawing.Point(4, 1);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 24);
+            this.label13.Size = new System.Drawing.Size(56, 24);
             this.label13.TabIndex = 3;
             this.label13.Text = "阈值";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -870,12 +870,12 @@
             this.tableLayoutPanel15.Controls.Add(this.numUpD_maleThd, 0, 0);
             this.tableLayoutPanel15.Controls.Add(this.trackBar_maleThd, 1, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(69, 1);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(64, 1);
             this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(335, 24);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(310, 24);
             this.tableLayoutPanel15.TabIndex = 5;
             // 
             // numUpD_maleThd
@@ -889,7 +889,7 @@
             0,
             0});
             this.numUpD_maleThd.Name = "numUpD_maleThd";
-            this.numUpD_maleThd.Size = new System.Drawing.Size(58, 21);
+            this.numUpD_maleThd.Size = new System.Drawing.Size(53, 21);
             this.numUpD_maleThd.TabIndex = 0;
             this.numUpD_maleThd.Value = new decimal(new int[] {
             55,
@@ -901,10 +901,10 @@
             // trackBar_maleThd
             // 
             this.trackBar_maleThd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBar_maleThd.Location = new System.Drawing.Point(63, 3);
+            this.trackBar_maleThd.Location = new System.Drawing.Point(58, 3);
             this.trackBar_maleThd.Maximum = 255;
             this.trackBar_maleThd.Name = "trackBar_maleThd";
-            this.trackBar_maleThd.Size = new System.Drawing.Size(269, 18);
+            this.trackBar_maleThd.Size = new System.Drawing.Size(249, 18);
             this.trackBar_maleThd.TabIndex = 1;
             this.trackBar_maleThd.TickStyle = System.Windows.Forms.TickStyle.None;
             this.toolTip1.SetToolTip(this.trackBar_maleThd, "取值范围X-255");

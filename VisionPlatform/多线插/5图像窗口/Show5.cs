@@ -37,6 +37,10 @@ namespace VisionPlatform
                 FormMainUI.formShowResult.Visible = true;
                 FormMainUI.formShowResult.Dock = DockStyle.Fill;
                 this.tableLayoutPanel2.Controls.Add(FormMainUI.formShowResult,0,1);
+                //运行按钮
+                FormMainUI.formRun.Visible = true;
+                FormMainUI.formRun.Dock = DockStyle.Fill;
+                this.tableLayoutPanel1.Controls.Add(FormMainUI.formRun, 0, 0);
             }
             catch (Exception ex)
             {

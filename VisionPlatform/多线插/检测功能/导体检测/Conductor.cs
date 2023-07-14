@@ -1,12 +1,5 @@
 ﻿using StaticFun;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static VisionPlatform.TMData;
 
@@ -42,6 +35,14 @@ namespace VisionPlatform
         {
             try
             {
+                if(this.type ==  ConductorType.front)
+                {
+                    label_name.Text = "导体正面";
+                }
+                else
+                {
+                    label_name.Text = "导体侧面";
+                }
                 LocationSet_Head = new LocationSet(this)
                 {
                     Visible = true,

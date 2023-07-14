@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Show5));
             this.tLPanel_CamShow = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -38,11 +37,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.but_Run = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tLPanel_CamShow.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tLPanel_CamShow
@@ -133,7 +130,6 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.Controls.Add(this.but_Run, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -142,21 +138,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(278, 92);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // but_Run
-            // 
-            this.but_Run.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.but_Run.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.but_Run.Image = ((System.Drawing.Image)(resources.GetObject("but_Run.Image")));
-            this.but_Run.Location = new System.Drawing.Point(0, 0);
-            this.but_Run.Margin = new System.Windows.Forms.Padding(0);
-            this.but_Run.Name = "but_Run";
-            this.but_Run.Size = new System.Drawing.Size(166, 92);
-            this.but_Run.TabIndex = 2;
-            this.but_Run.Text = "运行";
-            this.but_Run.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.but_Run.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.but_Run.UseVisualStyleBackColor = true;
             // 
             // contextMenuStrip1
             // 
@@ -176,7 +157,6 @@
             this.Text = "Show6";
             this.tLPanel_CamShow.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -192,6 +172,5 @@
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         public System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        public System.Windows.Forms.Button but_Run;
     }
 }

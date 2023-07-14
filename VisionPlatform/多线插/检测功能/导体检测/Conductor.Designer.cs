@@ -49,6 +49,8 @@
             this.numUp_Location_Thr = new System.Windows.Forms.NumericUpDown();
             this.numUp_Location_Erosion = new System.Windows.Forms.NumericUpDown();
             this.trackBar_Location_Thr = new System.Windows.Forms.TrackBar();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_name = new System.Windows.Forms.Label();
             this.tableLayoutPanel3.SuspendLayout();
             this.tabControl_InspectItem.SuspendLayout();
             this.tabPage_Head.SuspendLayout();
@@ -60,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numUp_Location_Thr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUp_Location_Erosion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Location_Thr)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel3
@@ -117,11 +120,11 @@
             this.tabControl_InspectItem.Controls.Add(this.tabPage1);
             this.tabControl_InspectItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl_InspectItem.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabControl_InspectItem.Location = new System.Drawing.Point(1, 86);
+            this.tabControl_InspectItem.Location = new System.Drawing.Point(1, 101);
             this.tabControl_InspectItem.Margin = new System.Windows.Forms.Padding(1);
             this.tabControl_InspectItem.Name = "tabControl_InspectItem";
             this.tabControl_InspectItem.SelectedIndex = 0;
-            this.tabControl_InspectItem.Size = new System.Drawing.Size(354, 459);
+            this.tabControl_InspectItem.Size = new System.Drawing.Size(354, 444);
             this.tabControl_InspectItem.TabIndex = 3;
             // 
             // tabPage_Head
@@ -133,7 +136,7 @@
             this.tabPage_Head.Location = new System.Drawing.Point(4, 26);
             this.tabPage_Head.Name = "tabPage_Head";
             this.tabPage_Head.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Head.Size = new System.Drawing.Size(346, 429);
+            this.tabPage_Head.Size = new System.Drawing.Size(346, 414);
             this.tabPage_Head.TabIndex = 0;
             this.tabPage_Head.Text = "头部";
             // 
@@ -168,7 +171,7 @@
             this.tabPage_Central.Location = new System.Drawing.Point(4, 26);
             this.tabPage_Central.Name = "tabPage_Central";
             this.tabPage_Central.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Central.Size = new System.Drawing.Size(346, 429);
+            this.tabPage_Central.Size = new System.Drawing.Size(346, 324);
             this.tabPage_Central.TabIndex = 1;
             this.tabPage_Central.Text = "中部";
             // 
@@ -203,7 +206,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(346, 429);
+            this.tabPage1.Size = new System.Drawing.Size(346, 324);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "尾部";
             // 
@@ -237,9 +240,9 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox3.Location = new System.Drawing.Point(1, 1);
+            this.groupBox3.Location = new System.Drawing.Point(1, 24);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(354, 85);
+            this.groupBox3.Size = new System.Drawing.Size(354, 77);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "定位";
@@ -247,6 +250,7 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoScroll = true;
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
@@ -260,21 +264,22 @@
             this.tableLayoutPanel1.Controls.Add(this.trackBar_Location_Thr, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 19);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(348, 63);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(348, 55);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // trackBar_Location_Erosion
             // 
             this.trackBar_Location_Erosion.BackColor = System.Drawing.SystemColors.Window;
             this.trackBar_Location_Erosion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBar_Location_Erosion.Location = new System.Drawing.Point(141, 35);
+            this.trackBar_Location_Erosion.Location = new System.Drawing.Point(141, 31);
             this.trackBar_Location_Erosion.Maximum = 300;
             this.trackBar_Location_Erosion.Name = "trackBar_Location_Erosion";
-            this.trackBar_Location_Erosion.Size = new System.Drawing.Size(203, 24);
+            this.trackBar_Location_Erosion.Size = new System.Drawing.Size(203, 20);
             this.trackBar_Location_Erosion.TabIndex = 5;
             this.trackBar_Location_Erosion.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar_Location_Erosion.Value = 250;
@@ -286,7 +291,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(4, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 30);
+            this.label1.Size = new System.Drawing.Size(54, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "阈值";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -295,9 +300,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(4, 32);
+            this.label2.Location = new System.Drawing.Point(4, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 30);
+            this.label2.Size = new System.Drawing.Size(54, 26);
             this.label2.TabIndex = 1;
             this.label2.Text = "定位";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -306,14 +311,15 @@
             // 
             this.numUp_Location_Thr.BackColor = System.Drawing.SystemColors.Window;
             this.numUp_Location_Thr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numUp_Location_Thr.Location = new System.Drawing.Point(65, 4);
+            this.numUp_Location_Thr.Location = new System.Drawing.Point(63, 2);
+            this.numUp_Location_Thr.Margin = new System.Windows.Forms.Padding(1);
             this.numUp_Location_Thr.Maximum = new decimal(new int[] {
             250,
             0,
             0,
             0});
             this.numUp_Location_Thr.Name = "numUp_Location_Thr";
-            this.numUp_Location_Thr.Size = new System.Drawing.Size(69, 23);
+            this.numUp_Location_Thr.Size = new System.Drawing.Size(73, 23);
             this.numUp_Location_Thr.TabIndex = 2;
             this.numUp_Location_Thr.Value = new decimal(new int[] {
             250,
@@ -325,14 +331,16 @@
             // numUp_Location_Erosion
             // 
             this.numUp_Location_Erosion.BackColor = System.Drawing.SystemColors.Window;
-            this.numUp_Location_Erosion.Location = new System.Drawing.Point(65, 35);
+            this.numUp_Location_Erosion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numUp_Location_Erosion.Location = new System.Drawing.Point(63, 29);
+            this.numUp_Location_Erosion.Margin = new System.Windows.Forms.Padding(1);
             this.numUp_Location_Erosion.Maximum = new decimal(new int[] {
             300,
             0,
             0,
             0});
             this.numUp_Location_Erosion.Name = "numUp_Location_Erosion";
-            this.numUp_Location_Erosion.Size = new System.Drawing.Size(69, 23);
+            this.numUp_Location_Erosion.Size = new System.Drawing.Size(73, 23);
             this.numUp_Location_Erosion.TabIndex = 3;
             this.numUp_Location_Erosion.Value = new decimal(new int[] {
             250,
@@ -348,11 +356,38 @@
             this.trackBar_Location_Thr.Location = new System.Drawing.Point(141, 4);
             this.trackBar_Location_Thr.Maximum = 250;
             this.trackBar_Location_Thr.Name = "trackBar_Location_Thr";
-            this.trackBar_Location_Thr.Size = new System.Drawing.Size(203, 24);
+            this.trackBar_Location_Thr.Size = new System.Drawing.Size(203, 20);
             this.trackBar_Location_Thr.TabIndex = 4;
             this.trackBar_Location_Thr.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar_Location_Thr.Value = 250;
             this.trackBar_Location_Thr.Scroll += new System.EventHandler(this.trackBar_Location_Thr_Scroll);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.label_name, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(1, 1);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(354, 23);
+            this.tableLayoutPanel2.TabIndex = 5;
+            // 
+            // label_name
+            // 
+            this.label_name.AutoSize = true;
+            this.label_name.BackColor = System.Drawing.SystemColors.Control;
+            this.label_name.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label_name.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_name.Location = new System.Drawing.Point(0, 0);
+            this.label_name.Margin = new System.Windows.Forms.Padding(0);
+            this.label_name.Name = "label_name";
+            this.label_name.Size = new System.Drawing.Size(354, 23);
+            this.label_name.TabIndex = 0;
+            this.label_name.Text = "导体";
+            this.label_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Conductor
             // 
@@ -363,6 +398,7 @@
             this.Controls.Add(this.tabControl_InspectItem);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "Conductor";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Size = new System.Drawing.Size(356, 581);
@@ -378,6 +414,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numUp_Location_Thr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUp_Location_Erosion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Location_Thr)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -404,5 +442,7 @@
         private System.Windows.Forms.NumericUpDown numUp_Location_Erosion;
         private System.Windows.Forms.TrackBar trackBar_Location_Erosion;
         private System.Windows.Forms.TrackBar trackBar_Location_Thr;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label_name;
     }
 }

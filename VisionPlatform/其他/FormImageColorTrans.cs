@@ -69,12 +69,6 @@ namespace VisionPlatform
                         Show1.formCamShow1.Dock = DockStyle.Fill;
                         this.panelWindow.Controls.Add(Show1.formCamShow1);
                         break;
-                    case 2:
-                        Show2.dic_formCamShow[cam][sub_cam].form.TopLevel = false;
-                        Show2.dic_formCamShow[cam][sub_cam].form.Visible = true;
-                        Show2.dic_formCamShow[cam][sub_cam].form.Dock = DockStyle.Fill;
-                        this.panelWindow.Controls.Add(Show2.dic_formCamShow[cam][sub_cam].form);
-                        break;
                     default:
                         this.panelWindow.Controls.Clear();
                         FormMainUI.m_dicFormCamShows[cam][sub_cam].form.TopLevel = false;

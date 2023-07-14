@@ -273,64 +273,6 @@
   <data name="tLPanel_resultShow.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="but_Run.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="but_Run.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 12pt, style=Bold</value>
-  </data>
-  <data name="but_Run.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAnFJREFUaEPd
-        2k2ITlEAxvE3sfCVwo4dspEkkiJsMJGPhUIpC5EFkw1JYUQhG2mUUEQKpSRJFj6KUGJDWZiSbMhGrCj+
-        j96nTm/NNPe+5557rn/90izUeZqvew+t/7mJOIet/z5qYIfxp+0KZqBRhQPkM3agMXnAw/afdgOzkH3h
-        gDV42f5YvqEXWRcOUONxHB4htzEXWdY5wK3AE3jED+xFdg02QI1EH37DQ+5jAbJpqAFuCR7AI37hILJo
-        OAPcfvyEhzzCItRakQFKXz534BFyDLVVdIDbA/2Y9YjnWIbklR2gZuMmPEJOIWndDHA7oUcQj3iN5UhS
-        jAFKD4FX4RFyGpUXa4DTY/kAPOIdVqGyYg9QU3EBHiFnMQrRq2KA2wh9BjxCn5l1iFqVA9RknIFHyHmM
-        QZSqHuDWQj+dPEI/tTag61INUGNxEh4hlzABpUs5wOl3xDN4xFdsRqnqGKBG4Ag8QlajcHUO0LtGOGAp
-        ClfXl9BT+OBfsAmlSv1NfAI+uFyE3sNLl2qAbjxewQf/iPXouqoHTIIe6nxw6cdoRKnKAfpF9RY++Hus
-        RNSqGDAFujD2wUUvOrrliF7sAVvwAT74G1T6qhlrwHRchg8uR1F5MQZsR/hKqRf8xUhSNwN0e30dPrgc
-        QNLKDtiN8FpFf38hkld0wHzottoHl1ovfYsM2AfdUvvg9zAPtTacAfqG1K20D67LXd3MZdFQA/SL5xDC
-        6/VbmINsGmyAHnkfwwf/jl3Irs4B49D5T0xZ/4NfOECPvC/aH4teNHTvmXXhAB9crmEmss8D7BO2oTGF
-        A/QwNg2Nqgd30dj/7NGAWq2/CrkX2rAKC/8AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="but_Run.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="but_Run.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="but_Run.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="but_Run.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 217</value>
-  </data>
-  <data name="but_Run.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="but_Run.Text" xml:space="preserve">
-    <value>运行</value>
-  </data>
-  <data name="but_Run.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>BottomCenter</value>
-  </data>
-  <data name="but_Run.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageAboveText</value>
-  </data>
-  <data name="&gt;&gt;but_Run.Name" xml:space="preserve">
-    <value>but_Run</value>
-  </data>
-  <data name="&gt;&gt;but_Run.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;but_Run.Parent" xml:space="preserve">
-    <value>tLPanel</value>
-  </data>
-  <data name="&gt;&gt;but_Run.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="tLPanel_ImageSave.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -338,7 +280,7 @@
     <value>Fill</value>
   </data>
   <data name="tLPanel_ImageSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>954, 0</value>
+    <value>953, 0</value>
   </data>
   <data name="tLPanel_ImageSave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -347,7 +289,7 @@
     <value>1</value>
   </data>
   <data name="tLPanel_ImageSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 217</value>
+    <value>128, 217</value>
   </data>
   <data name="tLPanel_ImageSave.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -362,7 +304,7 @@
     <value>tLPanel</value>
   </data>
   <data name="&gt;&gt;tLPanel_ImageSave.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="tLPanel_ImageSave.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
@@ -377,7 +319,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="panel_Message.Size" type="System.Drawing.Size, System.Drawing">
-    <value>374, 217</value>
+    <value>373, 217</value>
   </data>
   <data name="panel_Message.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -392,7 +334,7 @@
     <value>tLPanel</value>
   </data>
   <data name="&gt;&gt;panel_Message.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="tLPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -425,7 +367,7 @@
     <value>1</value>
   </data>
   <data name="tLPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tLPanel_resultShow" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="but_Run" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tLPanel_ImageSave" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="panel_Message" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,166,Percent,52.5974,Percent,47.4026,Absolute,126" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tLPanel_resultShow" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tLPanel_ImageSave" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="panel_Message" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,166,Percent,52.5974,Percent,47.4026,Absolute,127" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

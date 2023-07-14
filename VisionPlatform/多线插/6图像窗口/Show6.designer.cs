@@ -30,11 +30,9 @@ namespace VisionPlatform
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Show6));
             this.miniToolStrip = new System.Windows.Forms.ToolStrip();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tLPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.panel0 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -45,9 +43,7 @@ namespace VisionPlatform
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.but_Run = new System.Windows.Forms.Button();
             this.tLPanel.SuspendLayout();
-            this.panel0.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +67,6 @@ namespace VisionPlatform
             this.tLPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tLPanel.ColumnCount = 1;
             this.tLPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tLPanel.Controls.Add(this.panel0, 0, 1);
             this.tLPanel.Controls.Add(this.panel13, 0, 2);
             this.tLPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tLPanel.Location = new System.Drawing.Point(764, 0);
@@ -83,15 +78,6 @@ namespace VisionPlatform
             this.tLPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tLPanel.Size = new System.Drawing.Size(191, 590);
             this.tLPanel.TabIndex = 5;
-            // 
-            // panel0
-            // 
-            this.panel0.Controls.Add(this.but_Run);
-            this.panel0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel0.Location = new System.Drawing.Point(4, 95);
-            this.panel0.Name = "panel0";
-            this.panel0.Size = new System.Drawing.Size(183, 103);
-            this.panel0.TabIndex = 23;
             // 
             // panel13
             // 
@@ -208,21 +194,6 @@ namespace VisionPlatform
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
             // 
-            // but_Run
-            // 
-            this.but_Run.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.but_Run.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.but_Run.Image = ((System.Drawing.Image)(resources.GetObject("but_Run.Image")));
-            this.but_Run.Location = new System.Drawing.Point(0, 0);
-            this.but_Run.Name = "but_Run";
-            this.but_Run.Size = new System.Drawing.Size(183, 103);
-            this.but_Run.TabIndex = 1;
-            this.but_Run.Text = "运行";
-            this.but_Run.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.but_Run.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.but_Run.UseVisualStyleBackColor = true;
-            this.but_Run.Click += new System.EventHandler(this.but_Run_Click);
-            // 
             // Show6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -235,7 +206,6 @@ namespace VisionPlatform
             this.Text = "Show4";
             this.Load += new System.EventHandler(this.Show4_Load);
             this.tLPanel.ResumeLayout(false);
-            this.panel0.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -246,14 +216,12 @@ namespace VisionPlatform
 
         private System.Windows.Forms.ToolStrip miniToolStrip;
         private System.Windows.Forms.ToolTip toolTip1;
-        public System.Windows.Forms.Button but_Run;
         private System.Windows.Forms.TableLayoutPanel tLPanel;
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Panel panel3;
         public System.Windows.Forms.Panel panel4;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Panel panel0;
         public System.Windows.Forms.Panel panel6;
         public System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

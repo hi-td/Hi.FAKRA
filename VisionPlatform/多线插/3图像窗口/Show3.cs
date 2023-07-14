@@ -32,10 +32,7 @@ namespace VisionPlatform
             tLPanel_ImageSave.Controls.Add(FormMainUI.formImageSave, 1, 0);
         }
 
-        private void but_Run_Click(object sender, EventArgs e)
-        {
-            //StaticFun.Run.LoadRun(but_Run, m_listFun, m_listTMFun, m_listCamSer);
-        }
+     
         
         private void Show3_Load(object sender, EventArgs e)
         {
@@ -63,6 +60,10 @@ namespace VisionPlatform
                 FormMainUI.formShowResult.Dock = DockStyle.Fill;
                 this.panel_Message.Controls.Clear();
                 this.panel_Message.Controls.Add(FormMainUI.formShowResult);
+                //运行按钮
+                FormMainUI.formRun.Visible = true;
+                FormMainUI.formRun.Dock = DockStyle.Fill;
+                this.tLPanel.Controls.Add(FormMainUI.formRun, 0, 0);
             }
             catch (Exception ex)
             {

@@ -2301,6 +2301,7 @@ namespace VisionPlatform
                 HOperatorSet.DilationRectangle1(ho_RectangleRegions, out ho_DilationRegions, 5, param.nLocation_Erosion);
                 Fun.DispRegion(ho_DilationRegions, "blue");
                 #endregion
+
                 #region 导体头部
                 ho_RectangleRegions.Dispose();
                 HOperatorSet.GenRectangle2(out ho_RectangleRegions, hv_Row_Locat, hv_Column_Locat + param.CHead.nSpace, hv_Phi_Locat, param.CHead.nWidth, param.CHead.nHeight);
@@ -2433,10 +2434,6 @@ namespace VisionPlatform
                 Fun.DispRegion(ho_Regions, "green", "margin");
                 #endregion
 
-
-
-
-
                 bResult = true;
             }
             catch (Exception ex)
@@ -2446,7 +2443,21 @@ namespace VisionPlatform
             }
             finally
             {
-
+                ho_Region?.Dispose();
+                ho_ConnectedRegions?.Dispose();
+                ho_SelectedRegions?.Dispose();
+                ho_RectangleRegions?.Dispose();
+                ho_ErosionRegions?.Dispose();
+                ho_ReducedRegions?.Dispose();
+                ho_ScaledRegions?.Dispose();
+                ho_DilationRegions?.Dispose();
+                ho_OpeningRegions?.Dispose();
+                ho_SortRegions?.Dispose();
+                ho_MovedRegions?.Dispose();
+                ho_LineRegions?.Dispose();
+                ho_Region_Up?.Dispose();
+                ho_Region_Down?.Dispose();
+                ho_Regions?.Dispose();
             }
             return bResult;
         }

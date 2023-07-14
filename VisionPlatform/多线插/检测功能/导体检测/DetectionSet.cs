@@ -14,7 +14,5 @@ namespace VisionPlatform
             InitializeComponent();
             this.form = form;
         }
-
-
     }
 }

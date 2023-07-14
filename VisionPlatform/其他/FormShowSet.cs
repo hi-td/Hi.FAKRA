@@ -1,17 +1,7 @@
 ﻿using Chustange.Functional;
 using Newtonsoft.Json;
-using StaticFun;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static VisionPlatform.TMData;
 
 namespace VisionPlatform
 {
