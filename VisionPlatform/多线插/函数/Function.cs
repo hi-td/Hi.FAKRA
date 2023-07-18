@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using HalconDotNet;
 using System.Windows.Forms;
@@ -19,8 +18,6 @@ namespace VisionPlatform
 {
     public class Function
     {
-        public static List<Function> my_fun = new List<Function>(); //只初始化一次
-
         public HWindow m_hWnd = null;
         public HWindowControl m_hWndCtrl = null;
         public HObject m_OrgImage = null;
@@ -92,7 +89,6 @@ namespace VisionPlatform
                 return;
             }
         }
-        Camimage camimagen;
         public Function(HWindowControl hWndCtrl)
         {
             if (hWndCtrl != null)
@@ -1674,17 +1670,14 @@ namespace VisionPlatform
             circleOut.dRadius = 0;
 
             HTuple hv_MetrologyHandle, hv_Width, hv_Height;
-            HTuple hv_Index, hv_Rows = null, hv_Cols;
+            HTuple hv_Index = new HTuple(), hv_Rows = new HTuple(), hv_Cols = new HTuple();
             HTuple hv_CircleRow = new HTuple(), hv_CircleCol = new HTuple(), hv_Radius = new HTuple();
             HTuple hv_StartPhi = new HTuple(), hv_EndPhi = new HTuple(), hv_PointOrder = new HTuple();
 
-            HObject ho_Contours = null, ho_ContRect = null, ho_Circle = null;
-            HObject ho_Cross = null;
-
-            HOperatorSet.GenEmptyObj(out ho_Contours);
-            HOperatorSet.GenEmptyObj(out ho_ContRect);
-            HOperatorSet.GenEmptyObj(out ho_Circle);
-            HOperatorSet.GenEmptyObj(out ho_Cross);
+            HOperatorSet.GenEmptyObj(out HObject ho_Contours);
+            HOperatorSet.GenEmptyObj(out HObject ho_ContRect);
+            HOperatorSet.GenEmptyObj(out HObject ho_Circle);
+            HOperatorSet.GenEmptyObj(out HObject ho_Cross);
             try
             {
                 int nMeasureNum = (int)((Math.PI * 2 * param.circleIn.dRadius) / (2 * param.EPMeasure.dMeasureLen2));
@@ -1704,7 +1697,7 @@ namespace VisionPlatform
                     return false;
                 HOperatorSet.GenCrossContourXld(out ho_Cross, hv_Rows, hv_Cols, 25, 0);
                 HOperatorSet.GetMetrologyObjectResultContour(out ho_Contours, hv_MetrologyHandle, "all", "all", 1.5);
-                DispRegion(ho_Contours, "blue");
+                // DispRegion(ho_Contours, "blue");
                 HOperatorSet.GetMetrologyObjectResult(hv_MetrologyHandle, hv_Index, "all", "result_type", "row", out hv_CircleRow);
                 HOperatorSet.GetMetrologyObjectResult(hv_MetrologyHandle, hv_Index, "all", "result_type", "column", out hv_CircleCol);
                 HOperatorSet.GetMetrologyObjectResult(hv_MetrologyHandle, hv_Index, "all", "result_type", "radius", out hv_Radius);
@@ -1725,15 +1718,18 @@ namespace VisionPlatform
                 circleOut.dRadius = hv_Radius.D;
 
                 //显示
-                m_hWnd.DispObj(m_hImage);
-
-                DispRegion(ho_Cross, "blue");
-                //DispRegion(ho_Contours, "green");
-                DispRegion(ho_ContRect, "green");
+                if (bShow)
+                {
+                    m_hWnd.DispObj(m_hImage);
+                    DispRegion(ho_Cross, "blue");
+                    DispRegion(ho_ContRect, "green");
+                }
                 m_hWnd.SetLineWidth(3);
                 DispRegion(ho_Circle, "red");
                 m_hWnd.DispCross(hv_CircleRow, hv_CircleCol, hv_Radius / 5, 0);
                 m_hWnd.SetLineWidth(1);
+
+
                 return true;
             }
             catch (HalconException error)
@@ -4196,9 +4192,9 @@ namespace VisionPlatform
                 ho_Region.Dispose();
                 HOperatorSet.Threshold(m_GrayImage, out ho_Region, 0, param.nThd);
                 ho_SelRegion.Dispose();
-                HOperatorSet.FillUp(ho_Region,out ho_SelRegion);
+                HOperatorSet.FillUp(ho_Region, out ho_SelRegion);
                 ho_RegionSelect.Dispose();
-                HOperatorSet.Connection(ho_SelRegion,out ho_RegionSelect);
+                HOperatorSet.Connection(ho_SelRegion, out ho_RegionSelect);
                 ho_RegionSelect1.Dispose();
                 HOperatorSet.SelectShape(ho_RegionSelect, out ho_RegionSelect1, "area",
        "and", param.nminArea, 1000000);

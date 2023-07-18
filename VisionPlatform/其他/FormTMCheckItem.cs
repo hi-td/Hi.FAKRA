@@ -1,14 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Chustange.Functional;
 using static VisionPlatform.TMData;
@@ -19,14 +11,13 @@ namespace VisionPlatform
     public partial class FormTMCheckItem : Form
     {
         int m_cam;
-        string bh;
+        int sub_cam;
         string selctModel;
-        public FormTMCheckItem(int cam, string b,string c)
+        public FormTMCheckItem(int cam, int sub_cam, string c)
         {
-            
             InitializeComponent();
             m_cam = cam;
-            bh = b;
+            this.sub_cam = sub_cam;
             selctModel = c;
         }
 
@@ -35,7 +26,7 @@ namespace VisionPlatform
             //保存打端检测项
             try
             {
-                string a = m_cam.ToString() + bh;
+                string a = m_cam.ToString() + sub_cam.ToString();
                 TMData.TMCheckItem tmCheckItem = new TMData.TMCheckItem();
                 tmCheckItem.SkinWeld = checkBox_SkinWeld.Checked;
                 tmCheckItem.SkinPos = checkBox_SkinPos.Checked;
@@ -85,7 +76,7 @@ namespace VisionPlatform
         {
             try
             {
-                string a = m_cam.ToString() + bh;
+                string a = m_cam.ToString() + sub_cam.ToString(); ;
                 if (TMData_Serializer._globalData.dicTMCheckList.ContainsKey(a))
                 {
                     if (TMData_Serializer._globalData.dicTMCheckList[a].ContainsKey(selctModel))

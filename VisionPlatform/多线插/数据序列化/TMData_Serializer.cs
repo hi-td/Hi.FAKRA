@@ -1,10 +1,6 @@
 ﻿using BaseData;
-using HalconDotNet;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static VisionPlatform.TMData;
 
 namespace VisionPlatform
@@ -16,13 +12,12 @@ namespace VisionPlatform
         {
             //相机对应的检测功能列表
             public Dictionary<int, List<TMData.InspectItem>> dicInspectList = new Dictionary<int, List<TMData.InspectItem>>();
-            //同心度检测:ConcentricityParam[] = new ConcentricityParam[2]；
-            //公头：ConcentricityParam[0]
-            //母头：ConcentricityParam[1]
-            public Dictionary<int, ConcentricityParam[]> dicConcentricity = new Dictionary<int, ConcentricityParam[]>();
+            //同心度检测
+            public Dictionary<int, ConcentricityData> dicConcentricity = new Dictionary<int, ConcentricityData>();
             //panel及其对应的图像显示窗口
             public Dictionary<int, CamShowParam> dicCamShowParam = new Dictionary<int, CamShowParam>();
 
+            public Dictionary<int, ConductorParam[]> dicConductor = new Dictionary<int, ConductorParam[]>();
             //端子检测项
             public Dictionary<string, Dictionary<string, TMCheckItem>>  dicTMCheckList = new Dictionary<string, Dictionary<string, TMCheckItem>>();//string由相机与界面几组成
             //显示数据

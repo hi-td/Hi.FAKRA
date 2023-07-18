@@ -20,7 +20,15 @@ namespace VisionPlatform
             StripLen,     //剥皮检测
             TM,           //端子检测
             Conductor,    //导体检测
-            Concentricity //同心度检测
+            Concentricity_female, //同心度检测
+            Concentricity_male,
+        }
+        [Serializable]
+        public enum ConductorType
+        {
+            Defult,
+            front,      //正面
+            side,       //侧面
         }
         [Serializable]
         public enum ConcentricityType
@@ -238,9 +246,27 @@ namespace VisionPlatform
 
         #region 同心度参数
         [Serializable]
+        public struct ConcentricityData
+        {
+            public ConcentricityType type;       //同心圆类型
+            public ConcentricityParam female;    //母头
+            public ConcentricityParam male;      //公头
+            public ConcentricityParam GetData()
+            {
+                if (type == ConcentricityType.female)
+                {
+                    return female;
+                }
+                else
+                {
+                    return male;
+                }
+            }
+        }
+
+        [Serializable]
         public struct ConcentricityParam
         {
-            public TMData.ConcentricityType type;    //同心圆类型
             public FitCircleParam outerCircle;       //外导体圆
             public bool bInsultationCircle;          //是否检测绝缘体圆
             public FitCircleParam insulationCircle;  //绝缘体圆
@@ -250,6 +276,18 @@ namespace VisionPlatform
             public double dOuterInnerHigh;           //外导体-内导体同心度上限
             public double dOuterInsulation;          //外导体-绝缘体同心度
             public double dOuterInsulationHigh;      //外导体-绝缘体同心度上限
+        }
+        #endregion
+        [Serializable]
+        public struct ConductorParam
+        {
+            public int nLocation_Thr;                //导体定位阈值参数
+            public int nLocation_Erosion;            //导体定位裁剪参数
+            public LocationSetMeasure CHead;                  //导体头部定位
+            public LocationSetMeasure CCentral;               //导体中部定位
+            public LocationSetMeasure CTail;                  //导体尾部定位
+            public TMData.ConductorType type;        //导体检测类型
+
         }
 
         [Serializable]
@@ -284,6 +322,13 @@ namespace VisionPlatform
             public double dDist1;           //外导体-内导体同心度
             public double dDist2;           //外导体-绝缘体同心度
         }
-        #endregion
+
+        public struct ConductorResult
+        {
+            public Circle outerCircle;
+            public Circle innerCircle;
+            public Circle insulationCircle;
+        }
+
     }
 }

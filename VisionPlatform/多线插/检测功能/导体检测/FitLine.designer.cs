@@ -1,6 +1,6 @@
 ﻿namespace VisionPlatform
 {
-    partial class FitCircle
+    partial class FitLine
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -72,16 +72,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(388, 71);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(388, 74);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(4, 47);
+            this.label3.Location = new System.Drawing.Point(4, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 23);
+            this.label3.Size = new System.Drawing.Size(70, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "阈值";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -89,10 +89,10 @@
             // trackBar_Len2
             // 
             this.trackBar_Len2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBar_Len2.Location = new System.Drawing.Point(158, 27);
+            this.trackBar_Len2.Location = new System.Drawing.Point(158, 28);
             this.trackBar_Len2.Maximum = 100;
             this.trackBar_Len2.Name = "trackBar_Len2";
-            this.trackBar_Len2.Size = new System.Drawing.Size(226, 16);
+            this.trackBar_Len2.Size = new System.Drawing.Size(226, 17);
             this.trackBar_Len2.TabIndex = 7;
             this.trackBar_Len2.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar_Len2.Value = 25;
@@ -101,7 +101,7 @@
             // numUpD_Thd
             // 
             this.numUpD_Thd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numUpD_Thd.Location = new System.Drawing.Point(79, 48);
+            this.numUpD_Thd.Location = new System.Drawing.Point(79, 50);
             this.numUpD_Thd.Margin = new System.Windows.Forms.Padding(1);
             this.numUpD_Thd.Maximum = new decimal(new int[] {
             255,
@@ -121,10 +121,10 @@
             // trackBar_Thd
             // 
             this.trackBar_Thd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBar_Thd.Location = new System.Drawing.Point(158, 50);
+            this.trackBar_Thd.Location = new System.Drawing.Point(158, 52);
             this.trackBar_Thd.Maximum = 255;
             this.trackBar_Thd.Name = "trackBar_Thd";
-            this.trackBar_Thd.Size = new System.Drawing.Size(226, 17);
+            this.trackBar_Thd.Size = new System.Drawing.Size(226, 18);
             this.trackBar_Thd.TabIndex = 8;
             this.trackBar_Thd.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar_Thd.Value = 10;
@@ -142,7 +142,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(182, 22);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(182, 23);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // label4
@@ -151,7 +151,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 22);
+            this.label4.Size = new System.Drawing.Size(83, 23);
             this.label4.TabIndex = 6;
             this.label4.Text = "边缘点";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -174,9 +174,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(4, 24);
+            this.label1.Location = new System.Drawing.Point(4, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 22);
+            this.label1.Size = new System.Drawing.Size(70, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "搜索框宽";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -187,7 +187,7 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Location = new System.Drawing.Point(4, 1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 22);
+            this.label2.Size = new System.Drawing.Size(70, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "灰度变化";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -195,7 +195,7 @@
             // numUpD_Len2
             // 
             this.numUpD_Len2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numUpD_Len2.Location = new System.Drawing.Point(79, 25);
+            this.numUpD_Len2.Location = new System.Drawing.Point(79, 26);
             this.numUpD_Len2.Margin = new System.Windows.Forms.Padding(1);
             this.numUpD_Len2.Name = "numUpD_Len2";
             this.numUpD_Len2.Size = new System.Drawing.Size(74, 21);
@@ -227,7 +227,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FitCircle";
-            this.Size = new System.Drawing.Size(388, 71);
+            this.Size = new System.Drawing.Size(388, 74);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Len2)).EndInit();

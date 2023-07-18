@@ -117,26 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="60f97dac2a846" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\60f97dac2a846.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="camera2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\camera2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="favicon (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\favicon (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="runing" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\运行中.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\暂停.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="subcam" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\分支机构.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="tgrss-xtrq6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tgrss-xtrq6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="butRun.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
   </data>
 </root>

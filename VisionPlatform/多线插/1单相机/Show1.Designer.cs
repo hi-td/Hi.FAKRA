@@ -66,15 +66,15 @@ namespace VisionPlatform
             // 
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 125);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 96);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.tLPanel);
-            this.splitContainer1.Size = new System.Drawing.Size(280, 418);
-            this.splitContainer1.SplitterDistance = 176;
+            this.splitContainer1.Size = new System.Drawing.Size(280, 447);
+            this.splitContainer1.SplitterDistance = 188;
             this.splitContainer1.TabIndex = 9;
             // 
             // tLPanel
@@ -86,7 +86,7 @@ namespace VisionPlatform
             this.tLPanel.Name = "tLPanel";
             this.tLPanel.RowCount = 1;
             this.tLPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tLPanel.Size = new System.Drawing.Size(278, 174);
+            this.tLPanel.Size = new System.Drawing.Size(278, 186);
             this.tLPanel.TabIndex = 6;
             // 
             // tableLayoutPanel7
@@ -96,11 +96,11 @@ namespace VisionPlatform
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(134, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(140, 0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 128F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(146, 125);
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(140, 96);
             this.tableLayoutPanel7.TabIndex = 8;
             // 
             // but_Run
@@ -111,7 +111,7 @@ namespace VisionPlatform
             this.but_Run.Image = ((System.Drawing.Image)(resources.GetObject("but_Run.Image")));
             this.but_Run.Location = new System.Drawing.Point(0, 0);
             this.but_Run.Name = "but_Run";
-            this.but_Run.Size = new System.Drawing.Size(134, 125);
+            this.but_Run.Size = new System.Drawing.Size(140, 96);
             this.but_Run.TabIndex = 0;
             this.but_Run.TabStop = false;
             this.but_Run.Text = "运行";
@@ -159,7 +159,7 @@ namespace VisionPlatform
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(280, 125);
+            this.panel2.Size = new System.Drawing.Size(280, 96);
             this.panel2.TabIndex = 0;
             // 
             // Show1

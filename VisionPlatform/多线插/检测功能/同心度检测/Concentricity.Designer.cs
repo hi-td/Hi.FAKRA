@@ -158,7 +158,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(419, 35);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(389, 35);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // but_Test
@@ -167,9 +167,9 @@
             this.but_Test.Dock = System.Windows.Forms.DockStyle.Fill;
             this.but_Test.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.but_Test.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.but_Test.Location = new System.Drawing.Point(169, 3);
+            this.but_Test.Location = new System.Drawing.Point(157, 3);
             this.but_Test.Name = "but_Test";
-            this.but_Test.Size = new System.Drawing.Size(119, 29);
+            this.but_Test.Size = new System.Drawing.Size(110, 29);
             this.but_Test.TabIndex = 0;
             this.but_Test.Text = "测试";
             this.but_Test.UseVisualStyleBackColor = false;
@@ -181,9 +181,9 @@
             this.but_SaveData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.but_SaveData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.but_SaveData.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.but_SaveData.Location = new System.Drawing.Point(294, 3);
+            this.but_SaveData.Location = new System.Drawing.Point(273, 3);
             this.but_SaveData.Name = "but_SaveData";
-            this.but_SaveData.Size = new System.Drawing.Size(122, 29);
+            this.but_SaveData.Size = new System.Drawing.Size(113, 29);
             this.but_SaveData.TabIndex = 1;
             this.but_SaveData.Text = "保存数据";
             this.but_SaveData.UseVisualStyleBackColor = false;
@@ -205,7 +205,7 @@
             this.tLPanel_InsulationCircle.RowCount = 2;
             this.tLPanel_InsulationCircle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tLPanel_InsulationCircle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tLPanel_InsulationCircle.Size = new System.Drawing.Size(419, 111);
+            this.tLPanel_InsulationCircle.Size = new System.Drawing.Size(389, 111);
             this.tLPanel_InsulationCircle.TabIndex = 1;
             // 
             // tableLayoutPanel10
@@ -216,12 +216,12 @@
             this.tableLayoutPanel10.Controls.Add(this.numUpD_InsulationRadius, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.trackBar_InsulationRadius, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(51, 1);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(48, 1);
             this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(367, 23);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(340, 23);
             this.tableLayoutPanel10.TabIndex = 3;
             // 
             // numUpD_InsulationRadius
@@ -235,17 +235,17 @@
             0,
             0});
             this.numUpD_InsulationRadius.Name = "numUpD_InsulationRadius";
-            this.numUpD_InsulationRadius.Size = new System.Drawing.Size(71, 21);
+            this.numUpD_InsulationRadius.Size = new System.Drawing.Size(66, 21);
             this.numUpD_InsulationRadius.TabIndex = 0;
             this.numUpD_InsulationRadius.ValueChanged += new System.EventHandler(this.Inspect);
             // 
             // trackBar_InsulationRadius
             // 
             this.trackBar_InsulationRadius.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBar_InsulationRadius.Location = new System.Drawing.Point(76, 3);
+            this.trackBar_InsulationRadius.Location = new System.Drawing.Point(71, 3);
             this.trackBar_InsulationRadius.Maximum = 5999;
             this.trackBar_InsulationRadius.Name = "trackBar_InsulationRadius";
-            this.trackBar_InsulationRadius.Size = new System.Drawing.Size(288, 17);
+            this.trackBar_InsulationRadius.Size = new System.Drawing.Size(266, 17);
             this.trackBar_InsulationRadius.TabIndex = 1;
             this.trackBar_InsulationRadius.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar_InsulationRadius.Scroll += new System.EventHandler(this.trackBar_InsulationRadius_Scroll);
@@ -256,7 +256,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(4, 1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 23);
+            this.label3.Size = new System.Drawing.Size(40, 23);
             this.label3.TabIndex = 1;
             this.label3.Text = "半径";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -267,7 +267,7 @@
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Location = new System.Drawing.Point(4, 25);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 85);
+            this.label8.Size = new System.Drawing.Size(40, 85);
             this.label8.TabIndex = 2;
             this.label8.Text = "圆心";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -298,7 +298,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(419, 18);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(389, 18);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // tableLayoutPanel4
@@ -313,7 +313,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(419, 18);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(389, 18);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
             // label4
@@ -342,7 +342,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(419, 19);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(389, 19);
             this.tableLayoutPanel5.TabIndex = 5;
             // 
             // checkBox_Insulation
@@ -375,7 +375,7 @@
             this.tLPanel_OuterCircle.RowCount = 2;
             this.tLPanel_OuterCircle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tLPanel_OuterCircle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tLPanel_OuterCircle.Size = new System.Drawing.Size(419, 111);
+            this.tLPanel_OuterCircle.Size = new System.Drawing.Size(389, 111);
             this.tLPanel_OuterCircle.TabIndex = 6;
             // 
             // label2
@@ -384,7 +384,7 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Location = new System.Drawing.Point(4, 1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 23);
+            this.label2.Size = new System.Drawing.Size(40, 23);
             this.label2.TabIndex = 0;
             this.label2.Text = "半径";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -395,7 +395,7 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Location = new System.Drawing.Point(4, 25);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 85);
+            this.label7.Size = new System.Drawing.Size(40, 85);
             this.label7.TabIndex = 1;
             this.label7.Text = "圆心";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -408,12 +408,12 @@
             this.tableLayoutPanel9.Controls.Add(this.numUpD_OuterRadius, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.trackBar_OuterRadius, 1, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(51, 1);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(48, 1);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(367, 23);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(340, 23);
             this.tableLayoutPanel9.TabIndex = 2;
             // 
             // numUpD_OuterRadius
@@ -427,17 +427,17 @@
             0,
             0});
             this.numUpD_OuterRadius.Name = "numUpD_OuterRadius";
-            this.numUpD_OuterRadius.Size = new System.Drawing.Size(71, 21);
+            this.numUpD_OuterRadius.Size = new System.Drawing.Size(66, 21);
             this.numUpD_OuterRadius.TabIndex = 0;
             this.numUpD_OuterRadius.ValueChanged += new System.EventHandler(this.Inspect);
             // 
             // trackBar_OuterRadius
             // 
             this.trackBar_OuterRadius.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBar_OuterRadius.Location = new System.Drawing.Point(76, 3);
+            this.trackBar_OuterRadius.Location = new System.Drawing.Point(71, 3);
             this.trackBar_OuterRadius.Maximum = 5999;
             this.trackBar_OuterRadius.Name = "trackBar_OuterRadius";
-            this.trackBar_OuterRadius.Size = new System.Drawing.Size(288, 17);
+            this.trackBar_OuterRadius.Size = new System.Drawing.Size(266, 17);
             this.trackBar_OuterRadius.TabIndex = 1;
             this.trackBar_OuterRadius.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar_OuterRadius.Scroll += new System.EventHandler(this.trackBar_OuterRadius_Scroll);
@@ -460,7 +460,7 @@
             this.tLPanel_InnerCircle.RowCount = 2;
             this.tLPanel_InnerCircle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tLPanel_InnerCircle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tLPanel_InnerCircle.Size = new System.Drawing.Size(405, 69);
+            this.tLPanel_InnerCircle.Size = new System.Drawing.Size(375, 69);
             this.tLPanel_InnerCircle.TabIndex = 7;
             // 
             // label9
@@ -469,7 +469,7 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Location = new System.Drawing.Point(4, 1);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 24);
+            this.label9.Size = new System.Drawing.Size(38, 24);
             this.label9.TabIndex = 3;
             this.label9.Text = "阈值";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -482,12 +482,12 @@
             this.tableLayoutPanel2.Controls.Add(this.numUpD_InnerThd, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.trackBar_InnerThd, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(50, 1);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(46, 1);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(354, 24);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(328, 24);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // numUpD_InnerThd
@@ -501,7 +501,7 @@
             0,
             0});
             this.numUpD_InnerThd.Name = "numUpD_InnerThd";
-            this.numUpD_InnerThd.Size = new System.Drawing.Size(61, 21);
+            this.numUpD_InnerThd.Size = new System.Drawing.Size(57, 21);
             this.numUpD_InnerThd.TabIndex = 0;
             this.numUpD_InnerThd.Value = new decimal(new int[] {
             55,
@@ -513,10 +513,10 @@
             // trackBar_InnerThd
             // 
             this.trackBar_InnerThd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBar_InnerThd.Location = new System.Drawing.Point(66, 3);
+            this.trackBar_InnerThd.Location = new System.Drawing.Point(62, 3);
             this.trackBar_InnerThd.Maximum = 255;
             this.trackBar_InnerThd.Name = "trackBar_InnerThd";
-            this.trackBar_InnerThd.Size = new System.Drawing.Size(285, 18);
+            this.trackBar_InnerThd.Size = new System.Drawing.Size(263, 18);
             this.trackBar_InnerThd.TabIndex = 1;
             this.trackBar_InnerThd.TickStyle = System.Windows.Forms.TickStyle.None;
             this.toolTip1.SetToolTip(this.trackBar_InnerThd, "取值范围：0-X");
@@ -529,7 +529,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(4, 26);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 42);
+            this.label5.Size = new System.Drawing.Size(38, 42);
             this.label5.TabIndex = 6;
             this.label5.Text = "半径";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -542,12 +542,12 @@
             this.tableLayoutPanel6.Controls.Add(this.label_PreInnerRadius, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(50, 26);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(46, 26);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(354, 42);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(328, 42);
             this.tableLayoutPanel6.TabIndex = 7;
             // 
             // label_PreInnerRadius
@@ -556,7 +556,7 @@
             this.label_PreInnerRadius.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_PreInnerRadius.Location = new System.Drawing.Point(3, 0);
             this.label_PreInnerRadius.Name = "label_PreInnerRadius";
-            this.label_PreInnerRadius.Size = new System.Drawing.Size(57, 42);
+            this.label_PreInnerRadius.Size = new System.Drawing.Size(53, 42);
             this.label_PreInnerRadius.TabIndex = 0;
             this.label_PreInnerRadius.Text = "--";
             this.label_PreInnerRadius.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -576,13 +576,13 @@
             this.tableLayoutPanel7.Controls.Add(this.numUpD_PreInnerRadius, 1, 1);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel12, 0, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(63, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(59, 0);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(291, 42);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(269, 42);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // tableLayoutPanel13
@@ -593,12 +593,12 @@
             this.tableLayoutPanel13.Controls.Add(this.numUpD_PreInnerRadiusHigh, 0, 0);
             this.tableLayoutPanel13.Controls.Add(this.label_PreInnerRadiusHigh, 1, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(185, 17);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(171, 17);
             this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(105, 24);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(97, 24);
             this.tableLayoutPanel13.TabIndex = 5;
             // 
             // numUpD_PreInnerRadiusHigh
@@ -623,23 +623,23 @@
             0,
             0});
             this.numUpD_PreInnerRadiusHigh.Name = "numUpD_PreInnerRadiusHigh";
-            this.numUpD_PreInnerRadiusHigh.Size = new System.Drawing.Size(50, 21);
+            this.numUpD_PreInnerRadiusHigh.Size = new System.Drawing.Size(46, 21);
             this.numUpD_PreInnerRadiusHigh.TabIndex = 5;
             this.numUpD_PreInnerRadiusHigh.Value = new decimal(new int[] {
-            1,
+            12,
             0,
             0,
-            0});
+            65536});
             this.numUpD_PreInnerRadiusHigh.ValueChanged += new System.EventHandler(this.Inspect);
             // 
             // label_PreInnerRadiusHigh
             // 
             this.label_PreInnerRadiusHigh.AutoSize = true;
             this.label_PreInnerRadiusHigh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_PreInnerRadiusHigh.Location = new System.Drawing.Point(52, 0);
+            this.label_PreInnerRadiusHigh.Location = new System.Drawing.Point(48, 0);
             this.label_PreInnerRadiusHigh.Margin = new System.Windows.Forms.Padding(0);
             this.label_PreInnerRadiusHigh.Name = "label_PreInnerRadiusHigh";
-            this.label_PreInnerRadiusHigh.Size = new System.Drawing.Size(53, 24);
+            this.label_PreInnerRadiusHigh.Size = new System.Drawing.Size(49, 24);
             this.label_PreInnerRadiusHigh.TabIndex = 6;
             this.label_PreInnerRadiusHigh.Text = "--";
             this.label_PreInnerRadiusHigh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -649,10 +649,10 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Location = new System.Drawing.Point(106, 1);
+            this.label10.Location = new System.Drawing.Point(98, 1);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 15);
+            this.label10.Size = new System.Drawing.Size(72, 15);
             this.label10.TabIndex = 0;
             this.label10.Text = "设定值";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -665,7 +665,7 @@
             this.label11.Location = new System.Drawing.Point(1, 1);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(104, 15);
+            this.label11.Size = new System.Drawing.Size(96, 15);
             this.label11.TabIndex = 1;
             this.label11.Text = "下限";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -675,10 +675,10 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Location = new System.Drawing.Point(185, 1);
+            this.label12.Location = new System.Drawing.Point(171, 1);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(105, 15);
+            this.label12.Size = new System.Drawing.Size(97, 15);
             this.label12.TabIndex = 2;
             this.label12.Text = "上限";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -692,11 +692,16 @@
             0,
             0,
             131072});
-            this.numUpD_PreInnerRadius.Location = new System.Drawing.Point(107, 18);
+            this.numUpD_PreInnerRadius.Location = new System.Drawing.Point(99, 18);
             this.numUpD_PreInnerRadius.Margin = new System.Windows.Forms.Padding(1);
             this.numUpD_PreInnerRadius.Name = "numUpD_PreInnerRadius";
-            this.numUpD_PreInnerRadius.Size = new System.Drawing.Size(76, 21);
+            this.numUpD_PreInnerRadius.Size = new System.Drawing.Size(70, 21);
             this.numUpD_PreInnerRadius.TabIndex = 3;
+            this.numUpD_PreInnerRadius.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             this.numUpD_PreInnerRadius.ValueChanged += new System.EventHandler(this.Inspect);
             // 
             // tableLayoutPanel12
@@ -712,7 +717,7 @@
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(104, 24);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(96, 24);
             this.tableLayoutPanel12.TabIndex = 4;
             // 
             // numUpD_PreInnerRadiusLow
@@ -724,7 +729,7 @@
             0,
             0,
             131072});
-            this.numUpD_PreInnerRadiusLow.Location = new System.Drawing.Point(53, 1);
+            this.numUpD_PreInnerRadiusLow.Location = new System.Drawing.Point(49, 1);
             this.numUpD_PreInnerRadiusLow.Margin = new System.Windows.Forms.Padding(1);
             this.numUpD_PreInnerRadiusLow.Maximum = new decimal(new int[] {
             1,
@@ -732,8 +737,13 @@
             0,
             0});
             this.numUpD_PreInnerRadiusLow.Name = "numUpD_PreInnerRadiusLow";
-            this.numUpD_PreInnerRadiusLow.Size = new System.Drawing.Size(50, 21);
+            this.numUpD_PreInnerRadiusLow.Size = new System.Drawing.Size(46, 21);
             this.numUpD_PreInnerRadiusLow.TabIndex = 4;
+            this.numUpD_PreInnerRadiusLow.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            65536});
             this.numUpD_PreInnerRadiusLow.ValueChanged += new System.EventHandler(this.Inspect);
             // 
             // label_PreInnerRadiusLow
@@ -743,7 +753,7 @@
             this.label_PreInnerRadiusLow.Location = new System.Drawing.Point(0, 0);
             this.label_PreInnerRadiusLow.Margin = new System.Windows.Forms.Padding(0);
             this.label_PreInnerRadiusLow.Name = "label_PreInnerRadiusLow";
-            this.label_PreInnerRadiusLow.Size = new System.Drawing.Size(52, 24);
+            this.label_PreInnerRadiusLow.Size = new System.Drawing.Size(48, 24);
             this.label_PreInnerRadiusLow.TabIndex = 5;
             this.label_PreInnerRadiusLow.Text = "--";
             this.label_PreInnerRadiusLow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -751,7 +761,7 @@
             // numUpD_InnerRadius
             // 
             this.numUpD_InnerRadius.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numUpD_InnerRadius.Location = new System.Drawing.Point(86, 2);
+            this.numUpD_InnerRadius.Location = new System.Drawing.Point(80, 2);
             this.numUpD_InnerRadius.Margin = new System.Windows.Forms.Padding(1);
             this.numUpD_InnerRadius.Maximum = new decimal(new int[] {
             5999,
@@ -759,17 +769,17 @@
             0,
             0});
             this.numUpD_InnerRadius.Name = "numUpD_InnerRadius";
-            this.numUpD_InnerRadius.Size = new System.Drawing.Size(81, 21);
+            this.numUpD_InnerRadius.Size = new System.Drawing.Size(75, 21);
             this.numUpD_InnerRadius.TabIndex = 0;
             this.numUpD_InnerRadius.ValueChanged += new System.EventHandler(this.Inspect);
             // 
             // trackBar_InnerRadius
             // 
             this.trackBar_InnerRadius.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBar_InnerRadius.Location = new System.Drawing.Point(172, 4);
+            this.trackBar_InnerRadius.Location = new System.Drawing.Point(160, 4);
             this.trackBar_InnerRadius.Maximum = 5999;
             this.trackBar_InnerRadius.Name = "trackBar_InnerRadius";
-            this.trackBar_InnerRadius.Size = new System.Drawing.Size(243, 17);
+            this.trackBar_InnerRadius.Size = new System.Drawing.Size(225, 17);
             this.trackBar_InnerRadius.TabIndex = 1;
             this.trackBar_InnerRadius.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar_InnerRadius.Scroll += new System.EventHandler(this.trackBar_InnerRadius_Scroll);
@@ -780,7 +790,7 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Location = new System.Drawing.Point(4, 1);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 23);
+            this.label6.Size = new System.Drawing.Size(71, 23);
             this.label6.TabIndex = 1;
             this.label6.Text = "检测范围";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -795,7 +805,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(419, 105);
+            this.tabControl1.Size = new System.Drawing.Size(389, 105);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage_female
@@ -806,7 +816,7 @@
             this.tabPage_female.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_female.Name = "tabPage_female";
             this.tabPage_female.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_female.Size = new System.Drawing.Size(411, 75);
+            this.tabPage_female.Size = new System.Drawing.Size(381, 75);
             this.tabPage_female.TabIndex = 0;
             this.tabPage_female.Text = "母头";
             // 
@@ -819,7 +829,7 @@
             this.tabPage_male.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_male.Name = "tabPage_male";
             this.tabPage_male.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_male.Size = new System.Drawing.Size(411, 75);
+            this.tabPage_male.Size = new System.Drawing.Size(381, 75);
             this.tabPage_male.TabIndex = 1;
             this.tabPage_male.Text = "公头";
             // 
@@ -837,9 +847,8 @@
             this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(405, 26);
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(375, 26);
             this.tableLayoutPanel8.TabIndex = 8;
             // 
             // label13
@@ -848,7 +857,7 @@
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Location = new System.Drawing.Point(4, 1);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 36);
+            this.label13.Size = new System.Drawing.Size(56, 24);
             this.label13.TabIndex = 3;
             this.label13.Text = "阈值";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -861,12 +870,12 @@
             this.tableLayoutPanel15.Controls.Add(this.numUpD_maleThd, 0, 0);
             this.tableLayoutPanel15.Controls.Add(this.trackBar_maleThd, 1, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(69, 1);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(64, 1);
             this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(335, 36);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(310, 24);
             this.tableLayoutPanel15.TabIndex = 5;
             // 
             // numUpD_maleThd
@@ -880,7 +889,7 @@
             0,
             0});
             this.numUpD_maleThd.Name = "numUpD_maleThd";
-            this.numUpD_maleThd.Size = new System.Drawing.Size(58, 21);
+            this.numUpD_maleThd.Size = new System.Drawing.Size(53, 21);
             this.numUpD_maleThd.TabIndex = 0;
             this.numUpD_maleThd.Value = new decimal(new int[] {
             55,
@@ -892,10 +901,10 @@
             // trackBar_maleThd
             // 
             this.trackBar_maleThd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBar_maleThd.Location = new System.Drawing.Point(63, 3);
+            this.trackBar_maleThd.Location = new System.Drawing.Point(58, 3);
             this.trackBar_maleThd.Maximum = 255;
             this.trackBar_maleThd.Name = "trackBar_maleThd";
-            this.trackBar_maleThd.Size = new System.Drawing.Size(269, 30);
+            this.trackBar_maleThd.Size = new System.Drawing.Size(249, 18);
             this.trackBar_maleThd.TabIndex = 1;
             this.trackBar_maleThd.TickStyle = System.Windows.Forms.TickStyle.None;
             this.toolTip1.SetToolTip(this.trackBar_maleThd, "取值范围X-255");
@@ -917,7 +926,7 @@
             this.tableLayoutPanel20.Name = "tableLayoutPanel20";
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(419, 25);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(389, 25);
             this.tableLayoutPanel20.TabIndex = 10;
             // 
             // tableLayoutPanel11
@@ -932,7 +941,7 @@
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(419, 18);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(389, 18);
             this.tableLayoutPanel11.TabIndex = 11;
             // 
             // label14
@@ -976,17 +985,17 @@
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(419, 70);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(389, 70);
             this.tableLayoutPanel14.TabIndex = 12;
             // 
             // label_OuterInsulation
             // 
             this.label_OuterInsulation.AutoSize = true;
             this.label_OuterInsulation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_OuterInsulation.Location = new System.Drawing.Point(105, 46);
+            this.label_OuterInsulation.Location = new System.Drawing.Point(98, 46);
             this.label_OuterInsulation.Margin = new System.Windows.Forms.Padding(0);
             this.label_OuterInsulation.Name = "label_OuterInsulation";
-            this.label_OuterInsulation.Size = new System.Drawing.Size(103, 23);
+            this.label_OuterInsulation.Size = new System.Drawing.Size(96, 23);
             this.label_OuterInsulation.TabIndex = 14;
             this.label_OuterInsulation.Text = "--";
             this.label_OuterInsulation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -995,10 +1004,10 @@
             // 
             this.label_OuterInner.AutoSize = true;
             this.label_OuterInner.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_OuterInner.Location = new System.Drawing.Point(105, 22);
+            this.label_OuterInner.Location = new System.Drawing.Point(98, 22);
             this.label_OuterInner.Margin = new System.Windows.Forms.Padding(0);
             this.label_OuterInner.Name = "label_OuterInner";
-            this.label_OuterInner.Size = new System.Drawing.Size(103, 23);
+            this.label_OuterInner.Size = new System.Drawing.Size(96, 23);
             this.label_OuterInner.TabIndex = 13;
             this.label_OuterInner.Text = "--";
             this.label_OuterInner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1011,7 +1020,7 @@
             this.label24.Location = new System.Drawing.Point(1, 1);
             this.label24.Margin = new System.Windows.Forms.Padding(0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(103, 20);
+            this.label24.Size = new System.Drawing.Size(96, 20);
             this.label24.TabIndex = 11;
             this.label24.Text = "名称";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1021,10 +1030,10 @@
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label18.Location = new System.Drawing.Point(209, 1);
+            this.label18.Location = new System.Drawing.Point(195, 1);
             this.label18.Margin = new System.Windows.Forms.Padding(0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(103, 20);
+            this.label18.Size = new System.Drawing.Size(96, 20);
             this.label18.TabIndex = 0;
             this.label18.Text = "设定值";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1034,10 +1043,10 @@
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label20.Location = new System.Drawing.Point(313, 1);
+            this.label20.Location = new System.Drawing.Point(292, 1);
             this.label20.Margin = new System.Windows.Forms.Padding(0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(105, 20);
+            this.label20.Size = new System.Drawing.Size(96, 20);
             this.label20.TabIndex = 2;
             this.label20.Text = "上限";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1049,7 +1058,7 @@
             this.label15.Location = new System.Drawing.Point(1, 22);
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(103, 23);
+            this.label15.Size = new System.Drawing.Size(96, 23);
             this.label15.TabIndex = 0;
             this.label15.Text = "外导体-内导体";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1061,7 +1070,7 @@
             this.label16.Location = new System.Drawing.Point(1, 46);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(103, 23);
+            this.label16.Size = new System.Drawing.Size(96, 23);
             this.label16.TabIndex = 1;
             this.label16.Text = "外导体-绝缘体";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1075,11 +1084,16 @@
             0,
             0,
             131072});
-            this.numUpD_OuterInner.Location = new System.Drawing.Point(210, 23);
+            this.numUpD_OuterInner.Location = new System.Drawing.Point(196, 23);
             this.numUpD_OuterInner.Margin = new System.Windows.Forms.Padding(1);
             this.numUpD_OuterInner.Name = "numUpD_OuterInner";
-            this.numUpD_OuterInner.Size = new System.Drawing.Size(101, 21);
+            this.numUpD_OuterInner.Size = new System.Drawing.Size(94, 21);
             this.numUpD_OuterInner.TabIndex = 4;
+            this.numUpD_OuterInner.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // tableLayoutPanel16
             // 
@@ -1089,13 +1103,13 @@
             this.tableLayoutPanel16.Controls.Add(this.numUpD_OuterInnerHigh, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.label_OuterInnerHigh, 1, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(313, 22);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(292, 22);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(105, 23);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(96, 23);
             this.tableLayoutPanel16.TabIndex = 6;
             // 
             // numUpD_OuterInnerHigh
@@ -1120,22 +1134,22 @@
             0,
             0});
             this.numUpD_OuterInnerHigh.Name = "numUpD_OuterInnerHigh";
-            this.numUpD_OuterInnerHigh.Size = new System.Drawing.Size(50, 21);
+            this.numUpD_OuterInnerHigh.Size = new System.Drawing.Size(46, 21);
             this.numUpD_OuterInnerHigh.TabIndex = 5;
             this.numUpD_OuterInnerHigh.Value = new decimal(new int[] {
-            1,
+            12,
             0,
             0,
-            0});
+            65536});
             // 
             // label_OuterInnerHigh
             // 
             this.label_OuterInnerHigh.AutoSize = true;
             this.label_OuterInnerHigh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_OuterInnerHigh.Location = new System.Drawing.Point(52, 0);
+            this.label_OuterInnerHigh.Location = new System.Drawing.Point(48, 0);
             this.label_OuterInnerHigh.Margin = new System.Windows.Forms.Padding(0);
             this.label_OuterInnerHigh.Name = "label_OuterInnerHigh";
-            this.label_OuterInnerHigh.Size = new System.Drawing.Size(53, 23);
+            this.label_OuterInnerHigh.Size = new System.Drawing.Size(48, 23);
             this.label_OuterInnerHigh.TabIndex = 6;
             this.label_OuterInnerHigh.Text = "--";
             this.label_OuterInnerHigh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1148,12 +1162,12 @@
             this.tableLayoutPanel17.Controls.Add(this.numUpD_OuterInsulationHigh, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.label_OuterInsulationHigh, 1, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(313, 46);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(292, 46);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 1;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(105, 23);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(96, 23);
             this.tableLayoutPanel17.TabIndex = 7;
             // 
             // numUpD_OuterInsulationHigh
@@ -1178,22 +1192,22 @@
             0,
             0});
             this.numUpD_OuterInsulationHigh.Name = "numUpD_OuterInsulationHigh";
-            this.numUpD_OuterInsulationHigh.Size = new System.Drawing.Size(50, 21);
+            this.numUpD_OuterInsulationHigh.Size = new System.Drawing.Size(46, 21);
             this.numUpD_OuterInsulationHigh.TabIndex = 5;
             this.numUpD_OuterInsulationHigh.Value = new decimal(new int[] {
-            1,
+            12,
             0,
             0,
-            0});
+            65536});
             // 
             // label_OuterInsulationHigh
             // 
             this.label_OuterInsulationHigh.AutoSize = true;
             this.label_OuterInsulationHigh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_OuterInsulationHigh.Location = new System.Drawing.Point(52, 0);
+            this.label_OuterInsulationHigh.Location = new System.Drawing.Point(48, 0);
             this.label_OuterInsulationHigh.Margin = new System.Windows.Forms.Padding(0);
             this.label_OuterInsulationHigh.Name = "label_OuterInsulationHigh";
-            this.label_OuterInsulationHigh.Size = new System.Drawing.Size(53, 23);
+            this.label_OuterInsulationHigh.Size = new System.Drawing.Size(48, 23);
             this.label_OuterInsulationHigh.TabIndex = 6;
             this.label_OuterInsulationHigh.Text = "--";
             this.label_OuterInsulationHigh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1207,21 +1221,26 @@
             0,
             0,
             131072});
-            this.numUpD_OuterInsulation.Location = new System.Drawing.Point(210, 47);
+            this.numUpD_OuterInsulation.Location = new System.Drawing.Point(196, 47);
             this.numUpD_OuterInsulation.Margin = new System.Windows.Forms.Padding(1);
             this.numUpD_OuterInsulation.Name = "numUpD_OuterInsulation";
-            this.numUpD_OuterInsulation.Size = new System.Drawing.Size(101, 21);
+            this.numUpD_OuterInsulation.Size = new System.Drawing.Size(94, 21);
             this.numUpD_OuterInsulation.TabIndex = 8;
+            this.numUpD_OuterInsulation.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label17.Location = new System.Drawing.Point(105, 1);
+            this.label17.Location = new System.Drawing.Point(98, 1);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(103, 20);
+            this.label17.Size = new System.Drawing.Size(96, 20);
             this.label17.TabIndex = 12;
             this.label17.Text = "当前值";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1242,7 +1261,7 @@
             this.Controls.Add(this.tLPanel_OuterCircle);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Name = "Concentricity";
-            this.Size = new System.Drawing.Size(419, 539);
+            this.Size = new System.Drawing.Size(389, 539);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tLPanel_InsulationCircle.ResumeLayout(false);
             this.tLPanel_InsulationCircle.PerformLayout();

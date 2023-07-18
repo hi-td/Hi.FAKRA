@@ -30,8 +30,7 @@ namespace VisionPlatform
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Show2));
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tLPanel_CamShow = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -41,8 +40,8 @@ namespace VisionPlatform
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tLPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.but_Run = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tLPanel_CamShow.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -51,43 +50,43 @@ namespace VisionPlatform
             this.tableLayoutPanel9.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel2
+            // tLPanel_CamShow
             // 
-            this.tableLayoutPanel2.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(889, 443);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.tLPanel_CamShow.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.tLPanel_CamShow.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tLPanel_CamShow.ColumnCount = 2;
+            this.tLPanel_CamShow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tLPanel_CamShow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tLPanel_CamShow.Controls.Add(this.panel2, 1, 0);
+            this.tLPanel_CamShow.Controls.Add(this.panel1, 0, 0);
+            this.tLPanel_CamShow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tLPanel_CamShow.Location = new System.Drawing.Point(0, 0);
+            this.tLPanel_CamShow.Margin = new System.Windows.Forms.Padding(0);
+            this.tLPanel_CamShow.Name = "tLPanel_CamShow";
+            this.tLPanel_CamShow.RowCount = 1;
+            this.tLPanel_CamShow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tLPanel_CamShow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 442F));
+            this.tLPanel_CamShow.Size = new System.Drawing.Size(889, 443);
+            this.tLPanel_CamShow.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(446, 2);
+            this.panel2.Location = new System.Drawing.Point(446, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(441, 439);
+            this.panel2.Size = new System.Drawing.Size(442, 441);
             this.panel2.TabIndex = 1;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(440, 439);
+            this.panel1.Size = new System.Drawing.Size(442, 441);
             this.panel1.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -115,7 +114,6 @@ namespace VisionPlatform
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
-            this.tableLayoutPanel7.Controls.Add(this.but_Run, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.splitContainer1, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 443);
@@ -166,7 +164,7 @@ namespace VisionPlatform
             this.tableLayoutPanel9.ColumnCount = 1;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel7, 0, 1);
-            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.tLPanel_CamShow, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
@@ -177,23 +175,10 @@ namespace VisionPlatform
             this.tableLayoutPanel9.Size = new System.Drawing.Size(889, 607);
             this.tableLayoutPanel9.TabIndex = 3;
             // 
-            // but_Run
+            // contextMenuStrip2
             // 
-            this.but_Run.BackColor = System.Drawing.Color.Transparent;
-            this.but_Run.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.but_Run.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.but_Run.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.but_Run.Image = ((System.Drawing.Image)(resources.GetObject("but_Run.Image")));
-            this.but_Run.Location = new System.Drawing.Point(1, 1);
-            this.but_Run.Margin = new System.Windows.Forms.Padding(1);
-            this.but_Run.Name = "but_Run";
-            this.but_Run.Size = new System.Drawing.Size(133, 162);
-            this.but_Run.TabIndex = 3;
-            this.but_Run.Text = "运行";
-            this.but_Run.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.but_Run.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.but_Run.UseVisualStyleBackColor = false;
-            this.but_Run.Click += new System.EventHandler(this.but_Run_Click);
+            this.contextMenuStrip2.Name = "contextMenuStrip1";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
             // Show2
             // 
@@ -207,7 +192,7 @@ namespace VisionPlatform
             this.Text = "Show2";
             this.Load += new System.EventHandler(this.Show2_Load);
             this.SizeChanged += new System.EventHandler(this.Show2_SizeChanged);
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tLPanel_CamShow.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -221,7 +206,7 @@ namespace VisionPlatform
         }
 
         #endregion
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        public System.Windows.Forms.TableLayoutPanel tLPanel_CamShow;
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Timer timer1;
@@ -231,6 +216,6 @@ namespace VisionPlatform
         private System.Windows.Forms.ToolStripMenuItem 清除;
         public System.Windows.Forms.TableLayoutPanel tLPanel;
         public System.Windows.Forms.SplitContainer splitContainer1;
-        public System.Windows.Forms.Button but_Run;
+        public System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     }
 }

@@ -1,12 +1,5 @@
 ﻿using StaticFun;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static VisionPlatform.TMData;
 
@@ -46,7 +39,7 @@ namespace VisionPlatform
             }
             m_ncam = ncam;
             InitUI();
-            UIConfig.RefreshFun(ncam, 0, ref Fun, ref TMFun, ref str_CamSer);
+            UIConfig.RefreshFun(ncam, sub_cam: 0, ref Fun, ref TMFun, ref str_CamSer);
             LoadParam(type);
             FitCircleValueChanged += Inspect;
         }
@@ -80,7 +73,6 @@ namespace VisionPlatform
             TMData.ConcentricityParam param = new TMData.ConcentricityParam();
             try
             {
-                param.type = this.type;
                 //外导体圆
                 param.outerCircle.nRadius = (int)numUpD_OuterRadius.Value;
                 trackBar_OuterRadius.Value = (int)numUpD_OuterRadius.Value;
@@ -129,13 +121,13 @@ namespace VisionPlatform
                 bLoad = true;
                 if (type == ConcentricityType.male)
                 {
-                    param = TMData_Serializer._globalData.dicConcentricity[m_ncam][0];
+                    param = TMData_Serializer._globalData.dicConcentricity[m_ncam].male;
                     numUpD_InnerRadius.Value = (decimal)(param.maleCircle.nRadiusROI);
                     trackBar_InnerRadius.Value = param.maleCircle.nRadiusROI;
                 }
                 else
                 {
-                    param = TMData_Serializer._globalData.dicConcentricity[m_ncam][1];
+                    param = TMData_Serializer._globalData.dicConcentricity[m_ncam].female;
                     numUpD_InnerRadius.Value = (decimal)(param.femaleCircle.nRadiusROI);
                     trackBar_InnerRadius.Value = param.femaleCircle.nRadiusROI;
                 }
@@ -183,7 +175,7 @@ namespace VisionPlatform
                 Fun.m_hWnd.ClearWindow();
                 Fun.m_hWnd.DispObj(Fun.m_hImage);
                 TimeSpan time_start = new TimeSpan(DateTime.Now.Ticks);
-                bool bResult = TMFun.Concentricity(param, true, out ConcentricityResult result);
+                bool bResult = TMFun.Concentricity(this.type, param, true, out ConcentricityResult result);
                 TimeSpan time_end = new TimeSpan(DateTime.Now.Ticks);
                 string totalSeconds = ((time_end.Subtract(time_start).Duration().TotalSeconds) * 1000).ToString("F0");
                 StaticFun.MessageFun.ShowMessage("同心度检测用时：" + totalSeconds);
@@ -230,23 +222,39 @@ namespace VisionPlatform
         }
         private void but_SaveData_Click(object sender, EventArgs e)
         {
-            int n = 0;
-            string str = "公头";
+            string str = "";
             try
             {
-                if (this.type == ConcentricityType.female)
-                {
-                    n = 1;
-                    str = "母头";
-                }
                 if (null != TMData_Serializer._globalData.dicConcentricity && TMData_Serializer._globalData.dicConcentricity.ContainsKey(m_ncam))
                 {
-                    TMData_Serializer._globalData.dicConcentricity[m_ncam][n] = InitParam();
+                    ConcentricityData data = TMData_Serializer._globalData.dicConcentricity[m_ncam];
+                    data.type = this.type;
+                    if (this.type == ConcentricityType.female)
+                    {
+                        data.female = InitParam();
+                        str = "母头";
+                    }
+                    else
+                    {
+                        data.male = InitParam();
+                        str = "公头";
+                    }
+                    TMData_Serializer._globalData.dicConcentricity[m_ncam] = data;
                 }
                 else
                 {
-                    ConcentricityParam[] param = new ConcentricityParam[2];
-                    param[n] = InitParam();
+                    ConcentricityData param = new ConcentricityData();
+                    param.type = this.type;
+                    if (this.type == ConcentricityType.female)
+                    {
+                        param.female = InitParam();
+                        str = "母头";
+                    }
+                    else
+                    {
+                        param.male = InitParam();
+                        str = "公头";
+                    }
                     TMData_Serializer._globalData.dicConcentricity.Add(m_ncam, param);
                 }
                 MessageBox.Show("【同心度-" + str + "】数据保存成功！");

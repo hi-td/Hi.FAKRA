@@ -45,16 +45,15 @@ namespace VisionPlatform
                 FormMainUI.formShowResult.Dock = DockStyle.Fill;
                 this.panel13.Controls.Clear();
                 this.panel13.Controls.Add(FormMainUI.formShowResult);
+                //运行按钮
+                FormMainUI.formRun.Visible = true;
+                FormMainUI.formRun.Dock = DockStyle.Fill;
+                this.tLPanel.Controls.Add(FormMainUI.formRun, 0, 1);
             }
             catch (Exception ex)
             {
                 ex.ToString();
             }
-        }
-
-        private void but_Run_Click(object sender, EventArgs e)
-        {
-            //StaticFun.Run.LoadRun(but_Run, m_listFun, m_listTMFun, m_listCamSer);
         }
 
         private void Show4_Load(object sender, EventArgs e)

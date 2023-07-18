@@ -29,6 +29,7 @@ namespace VisionPlatform
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormImageSave));
             this.tLPanel = new System.Windows.Forms.TableLayoutPanel();
             this.checkBox_SaveResultImgOK = new System.Windows.Forms.CheckBox();
@@ -36,12 +37,17 @@ namespace VisionPlatform
             this.checkBox_SaveResultImgNG = new System.Windows.Forms.CheckBox();
             this.checkBox_SaveOrgImageNG = new System.Windows.Forms.CheckBox();
             this.checkBox_ShowData = new System.Windows.Forms.CheckBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.显示1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.显示2 = new System.Windows.Forms.ToolStripMenuItem();
             this.tLPanel.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tLPanel
             // 
             resources.ApplyResources(this.tLPanel, "tLPanel");
+            this.tLPanel.ContextMenuStrip = this.contextMenuStrip1;
             this.tLPanel.Controls.Add(this.checkBox_SaveResultImgOK, 0, 2);
             this.tLPanel.Controls.Add(this.checkBox_SaveOrgImageOK, 0, 1);
             this.tLPanel.Controls.Add(this.checkBox_SaveResultImgNG, 0, 4);
@@ -84,6 +90,26 @@ namespace VisionPlatform
             this.checkBox_ShowData.UseVisualStyleBackColor = true;
             this.checkBox_ShowData.CheckedChanged += new System.EventHandler(this.Save);
             // 
+            // contextMenuStrip1
+            // 
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.显示1,
+            this.显示2});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            // 
+            // 显示1
+            // 
+            resources.ApplyResources(this.显示1, "显示1");
+            this.显示1.Name = "显示1";
+            this.显示1.Click += new System.EventHandler(this.显示1_Click);
+            // 
+            // 显示2
+            // 
+            resources.ApplyResources(this.显示2, "显示2");
+            this.显示2.Name = "显示2";
+            this.显示2.Click += new System.EventHandler(this.显示2_Click);
+            // 
             // FormImageSave
             // 
             resources.ApplyResources(this, "$this");
@@ -94,6 +120,7 @@ namespace VisionPlatform
             this.Load += new System.EventHandler(this.FormImageSave_Load);
             this.tLPanel.ResumeLayout(false);
             this.tLPanel.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -106,5 +133,8 @@ namespace VisionPlatform
         private System.Windows.Forms.CheckBox checkBox_SaveResultImgNG;
         private System.Windows.Forms.CheckBox checkBox_SaveOrgImageNG;
         private System.Windows.Forms.CheckBox checkBox_ShowData;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 显示1;
+        private System.Windows.Forms.ToolStripMenuItem 显示2;
     }
 }

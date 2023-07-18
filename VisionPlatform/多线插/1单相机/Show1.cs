@@ -1,19 +1,8 @@
 ﻿using StaticFun;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Threading;
-using WENYU_IO;     //IO板卡
-using System.Diagnostics;   //计算运行时间
-using Chustange.Functional;  //IO通讯、错误日志
-using Newtonsoft.Json;
-using System.IO.Ports;
 
 namespace VisionPlatform
 {
@@ -62,6 +51,7 @@ namespace VisionPlatform
             FormMainUI.formShowResult.Dock = DockStyle.Fill;
             this.splitContainer1.Panel2.Controls.Clear();
             this.splitContainer1.Panel2.Controls.Add(FormMainUI.formShowResult);
+          
         }
 
         private void Show1_Load(object sender, EventArgs e)
@@ -85,12 +75,12 @@ namespace VisionPlatform
 
         private void but_Run_Click(object sender, EventArgs e)
         {
-            StaticFun.Run.LoadRun(but_Run, m_listFun, m_listTMFun, m_listCamSer);
+            StaticFun.Run.LoadRun(but_Run);
         }
 
         private void Show1_SizeChanged(object sender, EventArgs e)
         {
-            StaticFun.Run.Zoom(m_listFun);
+            StaticFun.Run.Zoom();
         }
 
     }

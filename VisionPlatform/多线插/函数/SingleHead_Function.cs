@@ -18,7 +18,6 @@ using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 using static System.Windows.Forms.MonthCalendar;
 using DAL;
-using EnumData;
 
 namespace VisionPlatform
 {
@@ -59,7 +58,7 @@ namespace VisionPlatform
                 {
                     str = "导体检测";
                 }
-                else if (item == InspectItem.Concentricity)
+                else if (item == InspectItem.Concentricity_female || item == InspectItem.Concentricity_male)
                 {
                     str = "同心度检测";
                 }
@@ -168,9 +167,13 @@ namespace VisionPlatform
                 {
                     item = InspectItem.Conductor;
                 }
-                else if (str == "同心度检测")
+                else if (str == "母头")
                 {
-                    item = InspectItem.Concentricity;
+                    item = InspectItem.Concentricity_female;
+                }
+                else if (str == "公头")
+                {
+                    item = InspectItem.Concentricity_male;
                 }
             }
             catch (SystemException error)
@@ -223,52 +226,7 @@ namespace VisionPlatform
             }
 
         }
-        HObject m_ImageTemp = null;
-        public void TransModelImage()
-        {
-            HOperatorSet.GenEmptyObj(out m_ImageTemp);
-            try
-            {
-                Fun.m_hImage = m_ModelImage.Clone();
-                //Fun.ColorSpaceTrans();
-                Fun.m_GrayImage?.Dispose();
-                HOperatorSet.Rgb1ToGray(Fun.m_hImage, out Fun.m_GrayImage);
-                Fun.m_hWnd.DispObj(Fun.m_hImage);
-            }
-            catch (HalconException error)
-            {
-                error.ToString();
-            }
-            finally
-            {
-            }
-            return;
-        }
-        public void ModelImageTransBack()
-        {
-            try
-            {
-                if (null == Fun.m_PreImage)
-                {
-                    return;
-                }
-                Fun.m_hImage?.Dispose();
-                Fun.m_hImage = new HObject(Fun.m_PreImage);
-                Fun.m_GrayImage?.Dispose();
-                HOperatorSet.Rgb1ToGray(Fun.m_hImage, out Fun.m_GrayImage);
-                Fun.m_hWnd.DispObj(Fun.m_hImage);
 
-            }
-            catch (Exception error)
-            {
-                error.ToString();
-            }
-            finally
-            {
-                m_ImageTemp?.Dispose();
-            }
-            return;
-        }
         public void GetLightCH(CamInspectItem camItem, out Dictionary<int, int> openLED, out Dictionary<int, int> closeLED)
         {
             openLED = new Dictionary<int, int>();
@@ -473,10 +431,10 @@ namespace VisionPlatform
                     //    //光源控制
                     //    GetLightCH(camItem1_LineColor, out dicCH_open_LineColor, out dicCH_close_LineColor);
                     //}
-                    if (item == TMData.InspectItem.Concentricity)
+                    if (item == TMData.InspectItem.Concentricity_female)
                     {
                         bCheckList[4] = true;
-                        camItem1_CoreNum.item = TMData.InspectItem.Concentricity;
+                        camItem1_CoreNum.item = TMData.InspectItem.Concentricity_female;
                         GetIOPoint(camItem1_CoreNum, out readIO[4], out sendIO[4]);
                         //光源控制
                         GetLightCH(camItem1_CoreNum, out dicCH_open_CoreNum, out dicCH_close_CoreNum);
@@ -635,10 +593,10 @@ namespace VisionPlatform
                     //    //光源控制
                     //    GetLightCH(camItem1_LineColor, out dicCH_open_LineColor, out dicCH_close_LineColor);
                     //}
-                    if (item == TMData.InspectItem.Concentricity)
+                    if (item == TMData.InspectItem.Concentricity_female)
                     {
                         bCheckList[4] = true;
-                        camItem1_CoreNum.item = TMData.InspectItem.Concentricity;
+                        camItem1_CoreNum.item = TMData.InspectItem.Concentricity_female;
                         //光源控制
                         GetLightCH(camItem1_CoreNum, out dicCH_open_CoreNum, out dicCH_close_CoreNum);
                     }
@@ -784,7 +742,7 @@ namespace VisionPlatform
                         #endregion
 
                         #region 线芯检测
-                        else if (camItem.item == InspectItem.Concentricity)
+                        else if (camItem.item == InspectItem.Concentricity_female)
                         {
                             //if (1 == TMData_Serializer._globalData.dic_CoreNumParam[camItem.cam].method)
                             //{
@@ -928,37 +886,23 @@ namespace VisionPlatform
                         }
                         #endregion
 
-                        #region 线芯检测
-                        else if (camItem.item == InspectItem.Concentricity)
+                        #region 同心度检测
+                        else if (camItem.item == InspectItem.Concentricity_female || camItem.item == InspectItem.Concentricity_male)
                         {
-                            //if (1 == TMData_Serializer._globalData.dic_CoreNumParam[camItem.cam].method)
-                            //{
-                            //    if (!CountCoreNumNEW(TMData_Serializer._globalData.dic_CoreNumParam[camItem.cam], true, out int nCoreNum))
-                            //    {
-                            //        bResult = false;
-                            //        MessageFun.ShowMessage("线芯检测失败。");
-                            //    }
-                            //    else
-                            //    {
-                            //        bResult = true;
-                            //    }
-                            //}
-                            //else
-                            //{
-                            //    if (!CountCoreNumNEWArea(TMData_Serializer._globalData.dic_CoreNumParam[camItem.cam], true, out int nCoreNum))
-                            //    {
-                            //        bResult = false;
-                            //        MessageFun.ShowMessage("线芯检测失败。");
-                            //    }
-                            //    else
-                            //    {
-                            //        bResult = true;
-                            //    }
-                            //}
-
+                            ConcentricityData data = TMData_Serializer._globalData.dicConcentricity[camItem.cam];
+                            data.type = (camItem.item == InspectItem.Concentricity_male) ? ( ConcentricityType.male) : (ConcentricityType.female);
+                            if (!Concentricity(data.type, data.GetData(), false, out ConcentricityResult concentricityResult))
+                            {
+                                bResult = false;
+                                MessageFun.ShowMessage("同心度检测失败。");
+                            }
+                            else
+                            {
+                                bResult = true;
+                            }
                             ts2 = new TimeSpan(DateTime.Now.Ticks);
                             result.InspectTime = Math.Round((ts2.Subtract(ts1).Duration().TotalSeconds) * 1000, 0);   //检测时间
-                            strInspectItem = "线芯检测";
+                            strInspectItem = "同心度检测";
                             break;
                         }
                         #endregion
@@ -1955,7 +1899,7 @@ namespace VisionPlatform
 
         #region 同心度检测
 
-        public bool Concentricity(TMData.ConcentricityParam param, bool bShow, out ConcentricityResult result)
+        public bool Concentricity(TMData.ConcentricityType type, TMData.ConcentricityParam param, bool bShow, out ConcentricityResult result)
         {
             bool bResult = true;
             result = new ConcentricityResult()
@@ -2019,7 +1963,7 @@ namespace VisionPlatform
                     Fun.FitCircle(InsulationParam, bShow, out result.insulationCircle);
                 }
                 //内导体圆
-                if (param.type == ConcentricityType.female)
+                if (type == ConcentricityType.female)
                 {
                     result.innerCircle = FemaleCircle(param.femaleCircle, result.outerCircle, bShow);
                     double dRadiusLow = Math.Round(param.femaleCircle.dRadius * param.femaleCircle.dRadiusLow, 2);
@@ -2231,9 +2175,10 @@ namespace VisionPlatform
             return circle;
         }
         #endregion
+
         #region 端子检测
         //shap_xld创建模板
-        public bool CreateXldModel(TMLocateParam param,out int model_ID, out LocateOutParams outParam)
+        public bool CreateModel(out int model_ID, out LocateOutParams outParam)
         {
             model_ID = -1;
             outParam = new LocateOutParams();
@@ -2246,14 +2191,13 @@ namespace VisionPlatform
                 inData.dAngleStart = -45;
                 inData.dAngleEnd = 90;
                 inData.bScale = false;
-                if (!Fun.CreateXldModel(inData, param, out model_ID, out LocateOutParams listOutData))
+                if (!Fun.CreateXldModel(inData, out model_ID, out LocateOutParams listOutData))
                 {
                     return false;
                 }
                 outParam = listOutData;
                 HOperatorSet.GenCrossContourXld(out HObject ho_Cross, outParam.dModelRow, outParam.dModelCol, 40, outParam.dModelAngle);
-                Fun.DispRegion(ho_Cross, "green");
-                Fun.WriteStringtoImage(20, (int)outParam.dModelRow, (int)outParam.dModelCol, outParam.dScore.ToString("f2"), "green");
+                Fun.DispRegion(ho_Cross, "red");
                 ho_Cross?.Dispose();
                 return true;
 
@@ -2265,56 +2209,6 @@ namespace VisionPlatform
                 return false;
             }
 
-        }
-        //XLD查找模板实时检测
-        public bool FindXldModel(int nModelID, bool bShow, out Rect2 newLineWeldROI, out LocateOutParams locateData)
-        {
-            locateData = new LocateOutParams();
-            newLineWeldROI = new Rect2();
-
-            HTuple hRect2Row = new HTuple(), hRect2Col = new HTuple(), hPhi = new HTuple(), hLength1 = new HTuple(), hLength2 = new HTuple();
-            HTuple hv_AlignmentHomMat2D = new HTuple();
-
-            HOperatorSet.GenEmptyObj(out HObject ho_Cross);
-            HOperatorSet.GenEmptyObj(out HObject ho_RegionROI);
-            HOperatorSet.GenEmptyObj(out HObject ho_RegionAffineTrans);
-
-            try
-            {
-
-                LocateInParams inData = new LocateInParams();
-                inData.modelType = ModelType.contour;
-                inData.dAngleStart = -45;
-                inData.dAngleEnd = 90;
-                inData.bScale = false;
-                if (!Fun.FindModel(nModelID, inData, out locateData))
-                {
-                    return false;
-                }
-                if (bShow)
-                {
-                    ho_Cross.Dispose();
-                    HOperatorSet.GenCrossContourXld(out ho_Cross, locateData.dModelRow, locateData.dModelCol, 30, new HTuple(locateData.dModelAngle).TupleRad());
-                    Fun.m_hWnd.SetDraw("margin");
-                    Fun.DispRegion(ho_Cross, "red");
-                    Fun.DispRegion(ho_RegionAffineTrans, "green");
-                }
-                return true;
-
-            }
-            catch (HalconException ex)
-            {
-                ex.ToString();
-                MessageFun.ShowMessage("查找模板失败！");
-                Fun.WriteStringtoImage(25, 12, 20, "查找模板失败！", "Model match failed!");
-                return false;
-            }
-            finally
-            {
-                ho_RegionROI?.Dispose();
-                ho_Cross?.Dispose();
-                ho_RegionAffineTrans?.Dispose();
-            }
         }
         public void GetTMregion(TMLocateParam param)
         {
@@ -2351,110 +2245,221 @@ namespace VisionPlatform
 
         }
         #endregion
-        #region  线芯飞丝
-        public bool LineCoreSideInspectNEW(TMLineCoreSideParam param, LocateOutParams model_center, LocateOutParams locateData, bool bShow, out TMData.LineCoreSideResult outData)
+
+        #region 导体检测
+        public bool Conductor(TMData.ConductorParam param, bool bShow, out ConductorResult result)
         {
-            outData = new TMData.LineCoreSideResult();
-            outData.bResult = true;
+            bool bResult = true;
+            result = new ConductorResult()
+            {
 
-            HTuple hv_area = new HTuple(), hv_row = new HTuple(), hv_column = new HTuple(), hv_HomMat2D = new HTuple();
-
+            };
+            HTuple hv_Row, hv_Column, hv_Phi, hv_LenWidth, hv_LenHeight;
             HOperatorSet.GenEmptyObj(out HObject ho_Region);
-            HOperatorSet.GenEmptyObj(out HObject ho_TotalRegion);
-            HOperatorSet.GenEmptyObj(out HObject ho_LineSideRegions);
-            HOperatorSet.GenEmptyObj(out HObject ho_ImageReduced);
-            HOperatorSet.GenEmptyObj(out HObject ho_Connections);
-            HOperatorSet.GenEmptyObj(out HObject ho_MeanImage);
-            HOperatorSet.GenEmptyObj(out HObject ho_DarkRegion);
-            // HOperatorSet.GenEmptyObj(out ho_LightRegion);
-            // HOperatorSet.GenEmptyObj(out ho_ImgEdgeAmp);
+            HOperatorSet.GenEmptyObj(out HObject ho_ConnectedRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_SelectedRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_RectangleRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_ErosionRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_ReducedRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_ScaledRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_DilationRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_OpeningRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_SortRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_MovedRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_LineRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_Region_Up);
+            HOperatorSet.GenEmptyObj(out HObject ho_Region_Down);
+            HOperatorSet.GenEmptyObj(out HObject ho_Regions);
+
 
             try
             {
-                if (null == param.arbitrary || param.arbitrary.Count == 0)
-                {
-                    //Fun.WriteStringtoImage(fontsize, row, col, "线芯飞边：无检测区域", "Conductor outside:no ROI");
-                    //row += spacing;
-                    outData.bResult = false;
-                    return false;
-                }
-                foreach (var item in param.arbitrary)
-                {
-                    hv_row = new HTuple();
-                    hv_column = new HTuple();
-                    hv_row = item.dListRow.ToArray();
-                    hv_column = item.dListCol.ToArray();
-                    ho_Region.Dispose();
-                    HOperatorSet.GenRegionPolygonFilled(out ho_Region, hv_row, hv_column);
-                    HOperatorSet.ConcatObj(ho_TotalRegion, ho_Region, out ho_TotalRegion);
-                }
-                HOperatorSet.Union1(ho_TotalRegion, out ho_TotalRegion);
-                HOperatorSet.VectorAngleToRigid(model_center.dModelRow, model_center.dModelCol, model_center.dModelAngle,
-                                 locateData.dModelRow, locateData.dModelCol, locateData.dModelAngle, out hv_HomMat2D);
-
-                ho_LineSideRegions.Dispose();
-                HOperatorSet.AffineTransRegion(ho_TotalRegion, out ho_LineSideRegions, hv_HomMat2D, "nearest_neighbor");
-                ho_ImageReduced.Dispose();
-                HOperatorSet.ReduceDomain(Fun.m_GrayImage, ho_LineSideRegions, out ho_ImageReduced);
-                if (!param.background)
-                {
-                    //白底
-                    ho_MeanImage.Dispose();
-                    HOperatorSet.MeanImage(ho_ImageReduced, out ho_MeanImage, 55, 55);
-                    ho_DarkRegion.Dispose();
-                    HOperatorSet.DynThreshold(ho_ImageReduced, ho_MeanImage, out ho_DarkRegion, 9, "dark");
-                    ho_ImageReduced.Dispose();
-                    HOperatorSet.ReduceDomain(Fun.m_GrayImage, ho_DarkRegion, out ho_ImageReduced);
-                    ho_DarkRegion.Dispose();
-                    HOperatorSet.Threshold(ho_ImageReduced, out ho_DarkRegion, 0, param.minthd);
-                }
-                else
-                {
-                    //黑底
-                    ho_DarkRegion.Dispose();
-                    HOperatorSet.Threshold(ho_ImageReduced, out ho_DarkRegion, param.minthd, 255);
-                }
-
-                ho_Connections.Dispose();
-                HOperatorSet.Connection(ho_DarkRegion, out ho_Connections);
+                #region 导体定位
                 ho_Region.Dispose();
-                HOperatorSet.SelectShape(ho_Connections, out ho_Region, "area", "and", param.minarea, 990000);
-                HOperatorSet.AreaCenter(ho_Region, out hv_area, out hv_row, out hv_column);
-                if (0 != hv_area.Length)
-                {
-                    Fun.DispRegion(ho_LineSideRegions, "red");
-                    Fun.DispRegion(ho_Region, "red", "fill");
-                    //Fun.WriteStringtoImage(fontsize, row, col, "线芯飞边：NG", "Conductor outside:NG");
-                    //row += spacing;
-                    //Fun.WriteStringtoImage(15, (int)hv_row[0].D, (int)hv_column[0].D, "飞边NG", "blue");
-                    outData.bResult = false;
-                }
-                else
-                {
-                    Fun.DispRegion(ho_LineSideRegions, "green");
-                    //Fun.WriteStringtoImage(fontsize, row, col, "线芯飞边：OK", "Conductor outside:OK", "green");
-                    //row += spacing;
-                    outData.bResult = true;
-                }
-                return true;
+                HOperatorSet.Threshold(Fun.m_GrayImage, out ho_Region, 0, param.nLocation_Thr);
+                HOperatorSet.FillUp(ho_Region, out ho_Region);
+                ho_ConnectedRegions.Dispose();
+                HOperatorSet.Connection(ho_Region, out ho_ConnectedRegions);
+                ho_SelectedRegions.Dispose();
+                HOperatorSet.SelectShape(ho_ConnectedRegions, out ho_SelectedRegions, "area", "and", 1500, 9999999);
+                HOperatorSet.SmallestRectangle2(ho_SelectedRegions, out hv_Row, out hv_Column, out hv_Phi, out hv_LenWidth, out hv_LenHeight);
+                ho_RectangleRegions.Dispose();
+                HOperatorSet.GenRectangle2(out ho_RectangleRegions, hv_Row, hv_Column, hv_Phi, hv_LenWidth, hv_LenHeight);
+                ho_ErosionRegions.Dispose();
+                HOperatorSet.ErosionRectangle1(ho_RectangleRegions, out ho_ErosionRegions, 5, param.nLocation_Erosion);
+                ho_ReducedRegions.Dispose();
+                HOperatorSet.ReduceDomain(Fun.m_GrayImage, ho_ErosionRegions, out ho_ReducedRegions);
+                ho_ScaledRegions.Dispose();
+                Fun.scale_image_range(ho_ReducedRegions, out ho_ScaledRegions, 100, 200);
+                //Fun.m_hWnd.DispObj(ho_ScaledRegions);
+                ho_Region.Dispose();
+                HOperatorSet.Threshold(ho_ScaledRegions, out ho_Region, 128, 255);
+                HOperatorSet.SmallestRectangle2(ho_Region, out HTuple hv_Row_Locat, out HTuple hv_Column_Locat, out HTuple hv_Phi_Locat, out HTuple hv_LenWidth_Locat, out HTuple hv_LenHeight_Locat);
+                ho_RectangleRegions.Dispose();
+                HOperatorSet.GenRectangle2(out ho_RectangleRegions, hv_Row_Locat, hv_Column_Locat, hv_Phi_Locat, hv_LenWidth_Locat, hv_LenHeight_Locat);
+                ho_DilationRegions.Dispose();
+                HOperatorSet.DilationRectangle1(ho_RectangleRegions, out ho_DilationRegions, 5, param.nLocation_Erosion);
+                Fun.DispRegion(ho_DilationRegions, "blue");
+                #endregion
+
+                #region 导体头部
+                ho_RectangleRegions.Dispose();
+                HOperatorSet.GenRectangle2(out ho_RectangleRegions, hv_Row_Locat, hv_Column_Locat + param.CHead.nSpace, hv_Phi_Locat, param.CHead.nWidth, param.CHead.nHeight);
+                Fun.DispRegion(ho_RectangleRegions, "red", "margin");
+                ho_ReducedRegions.Dispose();
+                HOperatorSet.ReduceDomain(Fun.m_GrayImage, ho_RectangleRegions, out ho_ReducedRegions);
+                ho_Region.Dispose();
+                HOperatorSet.Threshold(ho_ReducedRegions, out ho_Region, 0, 240);
+                #region 改
+                //ho_OpeningRegions.Dispose();
+                //HOperatorSet.OpeningCircle(ho_Region, out ho_OpeningRegions, 20);
+                //ho_DilationRegions.Dispose();
+                //HOperatorSet.DilationRectangle1(ho_OpeningRegions, out ho_DilationRegions, 1, 60);
+                //ho_ScaledRegions.Dispose();
+                //Fun.scale_image_range(ho_ReducedRegions, out ho_ScaledRegions, 100, 200);
+                //ho_Region.Dispose();
+                //HOperatorSet.Threshold(ho_ScaledRegions, out ho_Region, 0, 128);
+                //ho_ConnectedRegions.Dispose();
+                //HOperatorSet.Connection(ho_Region, out ho_ConnectedRegions);
+                //ho_SelectedRegions.Dispose();
+                //HOperatorSet.SelectShape(ho_ConnectedRegions, out ho_SelectedRegions, "area", "and", 1500, 9999999);
+                //int num = ho_SelectedRegions.CountObj();
+                //Line outLine_Up = new Line();
+                //Line outLine_Down = new Line();
+                //LineParam lineParam_Up = new LineParam();
+                //LineParam lineParam_Down = new LineParam();
+                //for (int i = 1; i < 3; i++)
+                //{
+                //    //上部分
+                //    if (i == 1)
+                //    {
+                //        ho_SortRegions.Dispose();
+                //        HOperatorSet.SortRegion(ho_SelectedRegions, out ho_SortRegions, "first_point", "true", "row");
+                //        HOperatorSet.SelectObj(ho_SortRegions, out ho_SortRegions, 1);
+                //        ho_MovedRegions.Dispose();
+                //        HOperatorSet.MoveRegion(ho_SortRegions, out ho_MovedRegions, -30, 1);
+                //        ho_ReducedRegions.Dispose();
+                //        HOperatorSet.ReduceDomain(Fun.m_GrayImage, ho_MovedRegions, out ho_ReducedRegions);
+                //        ho_Region.Dispose();
+                //        HOperatorSet.KirschAmp(ho_ReducedRegions, out ho_Region);
+                //        HOperatorSet.Threshold(ho_Region, out ho_Region, 128, 255);
+                //        HOperatorSet.Skeleton(ho_Region, out ho_Region);
+                //        HOperatorSet.GenContourRegionXld(ho_Region, out ho_Region, "border");
+                //        HOperatorSet.LengthXld(ho_Region, out HTuple hv_Len);
+                //        HTuple hv_SeletedID = ((new HTuple(((-hv_Len)).TupleSortIndex())).TupleSelectRange(0, 2)) + 1;
+                //        ho_Region_Up.Dispose();
+                //        HOperatorSet.SelectObj(ho_Region, out ho_Region_Up, hv_SeletedID[0]);
+
+                //        HOperatorSet.GenRegionContourXld(ho_Region_Up, out ho_Region_Up, "filled");
+                //        Fun.DispRegion(ho_Region_Up, "green", "margin");
+                //        //取线段端点
+                //        //HOperatorSet.SmallestRectangle2Xld(ho_Region_Up, out hv_Row, out hv_Column, out hv_Phi, out hv_LenWidth, out hv_LenHeight);
+                //        //ho_RectangleRegions.Dispose();
+                //        //HOperatorSet.GenRectangle2ContourXld(out ho_RectangleRegions, hv_Row, hv_Column, hv_Phi, hv_LenWidth, hv_LenHeight);
+                //        //HOperatorSet.GetContourXld(ho_RectangleRegions, out HTuple Row, out HTuple Col);
+                //        //lineParam_Up.measure.strTransition = "negative";
+                //        //lineParam_Up.measure.nMeasureLen1 = (int)hv_LenWidth.D;
+                //        //lineParam_Up.measure.dMeasureLen2 = (double)hv_LenHeight.D;
+                //        //lineParam_Up.measure.strSelect = "first";
+                //        //lineParam_Up.measure.nMeasureThd = 128;
+                //        //lineParam_Up.lineIn.dStartRow = Row[1];
+                //        //lineParam_Up.lineIn.dStartCol = Col[1];
+                //        //lineParam_Up.lineIn.dEndRow = Row[0];
+                //        //lineParam_Up.lineIn.dEndCol = Col[0];
+                //        //Fun.FitLine(lineParam_Up, bShow, out outLine_Up);
+                //        //ho_LineRegions.Dispose();
+                //        //HOperatorSet.GenRegionLine(out ho_LineRegions, outLine_Up.dStartRow, outLine_Up.dStartCol, outLine_Up.dEndRow, outLine_Up.dEndCol);
+                //        //Fun.DispRegion(ho_LineRegions, "red", "margin");
+                //    }
+                //    if (i == 2)
+                //    {
+                //        ho_SortRegions.Dispose();
+                //        HOperatorSet.SortRegion(ho_SelectedRegions, out ho_SortRegions, "first_point", "false", "row");
+                //        HOperatorSet.SelectObj(ho_SortRegions, out ho_SortRegions, 1);
+                //        ho_MovedRegions.Dispose();
+                //        HOperatorSet.MoveRegion(ho_SortRegions, out ho_MovedRegions, 50, 1);
+                //        ho_ReducedRegions.Dispose();
+                //        HOperatorSet.ReduceDomain(Fun.m_GrayImage, ho_MovedRegions, out ho_ReducedRegions);
+                //        ho_Region.Dispose();
+                //        HOperatorSet.KirschAmp(ho_ReducedRegions, out ho_Region);
+                //        HOperatorSet.Threshold(ho_Region, out ho_Region, 128, 255);
+                //        HOperatorSet.Skeleton(ho_Region, out ho_Region);
+                //        HOperatorSet.GenContourRegionXld(ho_Region, out ho_Region, "border");
+                //        HOperatorSet.LengthXld(ho_Region, out HTuple hv_Len);
+                //        HTuple hv_SeletedID = ((new HTuple(((-hv_Len)).TupleSortIndex())).TupleSelectRange(0, 2)) + 1;
+                //        ho_Region_Down.Dispose();
+                //        HOperatorSet.SelectObj(ho_Region, out ho_Region_Down, hv_SeletedID[0]);
+                //        HOperatorSet.GenRegionContourXld(ho_Region_Down, out ho_Region_Down, "filled");
+                //        Fun.DispRegion(ho_Region_Down, "red", "margin");
+                //        //取线段端点
+                //        //HOperatorSet.SmallestRectangle2Xld(ho_Region_Down, out hv_Row, out hv_Column, out hv_Phi, out hv_LenWidth, out hv_LenHeight);
+                //        //ho_RectangleRegions.Dispose();
+                //        //HOperatorSet.GenRectangle2ContourXld(out ho_RectangleRegions, hv_Row, hv_Column, hv_Phi, hv_LenWidth, hv_LenHeight);
+                //        //HOperatorSet.GetContourXld(ho_RectangleRegions, out HTuple Row, out HTuple Col);
+                //        //lineParam_Down.measure.strTransition = "positive";
+                //        //lineParam_Down.measure.nMeasureLen1 = (int)hv_LenWidth.D;
+                //        //lineParam_Down.measure.dMeasureLen2 = (double)hv_LenHeight.D;
+                //        //lineParam_Down.measure.strSelect = "first";
+                //        //lineParam_Down.measure.nMeasureThd = 128;
+                //        //lineParam_Down.lineIn.dStartRow = Row[1];
+                //        //lineParam_Down.lineIn.dStartCol = Col[1];
+                //        //lineParam_Down.lineIn.dEndRow = Row[0];
+                //        //lineParam_Down.lineIn.dEndCol = Col[0];
+                //        //Fun.FitLine(lineParam_Down, bShow, out outLine_Down);
+                //        //ho_LineRegions.Dispose();
+                //        //HOperatorSet.GenRegionLine(out ho_LineRegions, outLine_Down.dStartRow, outLine_Down.dStartCol, outLine_Down.dEndRow, outLine_Down.dEndCol);
+                //        //Fun.DispRegion(ho_LineRegions, "red", "margin");
+                //    }
+
+                //}
+                //ho_Region.Dispose();
+                //HOperatorSet.Union2(ho_Region_Up, ho_Region_Down, out ho_Region);
+                //HOperatorSet.SmallestRectangle2(ho_Region, out hv_Row, out hv_Column, out hv_Phi, out hv_LenWidth, out hv_LenHeight);
+                //ho_RectangleRegions.Dispose();
+                //HOperatorSet.GenRectangle2(out ho_RectangleRegions, hv_Row, hv_Column, hv_Phi, hv_LenWidth, hv_LenHeight);
+                //Fun.DispRegion(ho_RectangleRegions, "blue", "margin");
+                #endregion
+
+                HOperatorSet.SmallestRectangle2(ho_Region, out hv_Row, out hv_Column, out hv_Phi, out hv_LenWidth, out hv_LenHeight);
+                Rect2 rect2 = new Rect2();
+                rect2.dRect2Row = hv_Row.D;
+                rect2.dRect2Col = hv_Column.D;
+                rect2.dPhi = hv_Phi.D;
+                rect2.dLength1 = hv_LenWidth.D;
+                rect2.dLength2 = hv_LenHeight.D;
+                Rect2Trans(ref rect2);
+
+                ho_Regions.Dispose();
+                HOperatorSet.GenRectangle2(out ho_Regions, rect2.dRect2Row, rect2.dRect2Col, rect2.dPhi, rect2.dLength1, rect2.dLength2);
+                Fun.DispRegion(ho_Regions, "green", "margin");
+                #endregion
+
+                bResult = true;
             }
-            catch (HalconException error)
+            catch (Exception ex)
             {
-                //Fun.WriteStringtoImage(fontsize, row, col, "线芯飞边：检测错误", "Conductor outside:Error");
-                //row += spacing;
-                error.ToString().ToLog();
-                return false;
+
+                bResult = false;
             }
             finally
             {
                 ho_Region?.Dispose();
-                ho_TotalRegion?.Dispose();
-                ho_LineSideRegions?.Dispose();
-                ho_ImageReduced?.Dispose();
-                ho_Connections?.Dispose();
-                ho_MeanImage?.Dispose();
-                ho_DarkRegion?.Dispose();
+                ho_ConnectedRegions?.Dispose();
+                ho_SelectedRegions?.Dispose();
+                ho_RectangleRegions?.Dispose();
+                ho_ErosionRegions?.Dispose();
+                ho_ReducedRegions?.Dispose();
+                ho_ScaledRegions?.Dispose();
+                ho_DilationRegions?.Dispose();
+                ho_OpeningRegions?.Dispose();
+                ho_SortRegions?.Dispose();
+                ho_MovedRegions?.Dispose();
+                ho_LineRegions?.Dispose();
+                ho_Region_Up?.Dispose();
+                ho_Region_Down?.Dispose();
+                ho_Regions?.Dispose();
             }
+            return bResult;
         }
         #endregion
     }

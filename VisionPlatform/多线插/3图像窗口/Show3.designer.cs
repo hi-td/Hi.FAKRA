@@ -38,7 +38,6 @@ namespace VisionPlatform
             this.panel3 = new System.Windows.Forms.Panel();
             this.tLPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tLPanel_resultShow = new System.Windows.Forms.TableLayoutPanel();
-            this.but_Run = new System.Windows.Forms.Button();
             this.tLPanel_ImageSave = new System.Windows.Forms.TableLayoutPanel();
             this.panel_Message = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -84,7 +83,6 @@ namespace VisionPlatform
             // 
             resources.ApplyResources(this.tLPanel, "tLPanel");
             this.tLPanel.Controls.Add(this.tLPanel_resultShow, 1, 0);
-            this.tLPanel.Controls.Add(this.but_Run, 0, 0);
             this.tLPanel.Controls.Add(this.tLPanel_ImageSave, 3, 0);
             this.tLPanel.Controls.Add(this.panel_Message, 2, 0);
             this.tLPanel.Name = "tLPanel";
@@ -93,14 +91,6 @@ namespace VisionPlatform
             // 
             resources.ApplyResources(this.tLPanel_resultShow, "tLPanel_resultShow");
             this.tLPanel_resultShow.Name = "tLPanel_resultShow";
-            // 
-            // but_Run
-            // 
-            this.but_Run.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.but_Run, "but_Run");
-            this.but_Run.Name = "but_Run";
-            this.but_Run.UseVisualStyleBackColor = false;
-            this.but_Run.Click += new System.EventHandler(this.but_Run_Click);
             // 
             // tLPanel_ImageSave
             // 
@@ -142,7 +132,6 @@ namespace VisionPlatform
         public System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tLPanel;
-        public System.Windows.Forms.Button but_Run;
         private System.Windows.Forms.TableLayoutPanel tLPanel_resultShow;
         private System.Windows.Forms.TableLayoutPanel tLPanel_ImageSave;
         public System.Windows.Forms.Panel panel_Message;

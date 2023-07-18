@@ -14,13 +14,11 @@
 * 深圳市海蓝智能科技有限公司  2021  保留所有权利.
 ***********************************************************/
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace VisionPlatform
 {

@@ -7,7 +7,7 @@
 * 创建时间：2022/7/26 13:41:55
 * 作    者： WQ
 * 公    司：HaiLan Intelligent
-* 说   明：
+* 说   明： 图像保存
 * 修改时间：
 * 修 改 人：
 * 修改说明：
@@ -74,7 +74,7 @@ namespace VisionPlatform
             }
             catch(Exception ex)
             {
-
+                ex.ToString();
             }
         }
 
@@ -111,6 +111,16 @@ namespace VisionPlatform
             {
                 ex.ToString();
             }
+        }
+
+        private void 显示1_Click(object sender, EventArgs e)
+        {
+            RefeshUI(1);
+        }
+
+        private void 显示2_Click(object sender, EventArgs e)
+        {
+            RefeshUI(2);
         }
     }
 }
