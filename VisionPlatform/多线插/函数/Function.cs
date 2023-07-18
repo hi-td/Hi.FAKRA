@@ -4219,7 +4219,7 @@ namespace VisionPlatform
                     DispRegion(ho_ModelCont, "green");
                     listOutData.dModelRow = hv_Row.D;
                     listOutData.dModelCol = hv_Column.D;
-                    listOutData.dModelAngle = hv_Angle.TupleDeg();
+                    listOutData.dModelAngle = hv_Angle.D;
                     listOutData.dScore = hv_Score.D;
                     nModelID = hv_ModelID.I;
                     return true;
@@ -4243,7 +4243,7 @@ namespace VisionPlatform
 
         }
         //模板匹配
-        public bool FindModel(int nModelID, LocateInParams inParam, out LocateOutParams listOutData)
+        public bool FindModel(int nModelID,bool show, LocateInParams inParam, out LocateOutParams listOutData)
         {
             listOutData = new LocateOutParams();
 
@@ -5166,56 +5166,56 @@ namespace VisionPlatform
         //}
 
         /*适用于印刷体检测*/
-        public bool VariationCheck(LocateInParams locateParam, LocateOutParams modelCenter, int nModelID)
-        {
-            HTuple hv_width = new HTuple(), hv_height = new HTuple();
-            HTuple hv_VariationModelID = new HTuple(), hv_HomMat2D = new HTuple();
+        //public bool VariationCheck(LocateInParams locateParam, LocateOutParams modelCenter, int nModelID)
+        //{
+        //    HTuple hv_width = new HTuple(), hv_height = new HTuple();
+        //    HTuple hv_VariationModelID = new HTuple(), hv_HomMat2D = new HTuple();
 
-            HObject ho_ImageTrans = null, ho_modelCont = null;
-            HObject ho_contTrans = null, ho_RegionROI = null, ho_ImageReduced = null, ho_RegionDiff = null;
+        //    HObject ho_ImageTrans = null, ho_modelCont = null;
+        //    HObject ho_contTrans = null, ho_RegionROI = null, ho_ImageReduced = null, ho_RegionDiff = null;
 
-            HOperatorSet.GenEmptyObj(out ho_ImageTrans);
-            HOperatorSet.GenEmptyObj(out ho_modelCont);
-            HOperatorSet.GenEmptyObj(out ho_contTrans);
-            HOperatorSet.GenEmptyObj(out ho_RegionROI);
-            HOperatorSet.GenEmptyObj(out ho_ImageReduced);
-            HOperatorSet.GenEmptyObj(out ho_RegionDiff);
+        //    HOperatorSet.GenEmptyObj(out ho_ImageTrans);
+        //    HOperatorSet.GenEmptyObj(out ho_modelCont);
+        //    HOperatorSet.GenEmptyObj(out ho_contTrans);
+        //    HOperatorSet.GenEmptyObj(out ho_RegionROI);
+        //    HOperatorSet.GenEmptyObj(out ho_ImageReduced);
+        //    HOperatorSet.GenEmptyObj(out ho_RegionDiff);
 
-            try
-            {
-                LocateOutParams pre_model = new LocateOutParams();
-                if (!FindModel(nModelID, locateParam, out pre_model))
-                {
-                    return false;
-                }
-                HOperatorSet.VectorAngleToRigid(modelCenter.dModelRow, modelCenter.dModelCol, modelCenter.dModelAngle,
-                                                   pre_model.dModelRow, pre_model.dModelCol, pre_model.dModelAngle, out hv_HomMat2D);
-                HOperatorSet.AffineTransImage(m_hImage, out ho_ImageTrans, hv_HomMat2D, "constant", "false");
-                //设定对比区域
-                HOperatorSet.GetShapeModelContours(out ho_modelCont, nModelID, 1);
-                HOperatorSet.AffineTransContourXld(ho_modelCont, out ho_contTrans, hv_HomMat2D);
-                HOperatorSet.ShapeTransXld(ho_contTrans, out ho_contTrans, "convex");
-                HOperatorSet.GenRegionContourXld(ho_contTrans, out ho_RegionROI, "filled");
-                HOperatorSet.ReduceDomain(ho_ImageTrans, ho_RegionROI, out ho_ImageReduced);
-                //与模板比较，找出异常点
-                HOperatorSet.CompareVariationModel(ho_ImageReduced, out ho_RegionDiff, hv_VariationModelID);
-                HOperatorSet.Connection(ho_RegionDiff, out ho_RegionDiff);
-                //筛选
-                //HOperatorSet.SelectShape(ho_RegionDiff, out ho_RegionsError, "area", "and", 20, 1000000);
-                //HOperatorSet.CountObj(ho_RegionsError, out hv_NumError);
+        //    try
+        //    {
+        //        LocateOutParams pre_model = new LocateOutParams();
+        //        if (!FindModel(nModelID, locateParam, out pre_model))
+        //        {
+        //            return false;
+        //        }
+        //        HOperatorSet.VectorAngleToRigid(modelCenter.dModelRow, modelCenter.dModelCol, modelCenter.dModelAngle,
+        //                                           pre_model.dModelRow, pre_model.dModelCol, pre_model.dModelAngle, out hv_HomMat2D);
+        //        HOperatorSet.AffineTransImage(m_hImage, out ho_ImageTrans, hv_HomMat2D, "constant", "false");
+        //        //设定对比区域
+        //        HOperatorSet.GetShapeModelContours(out ho_modelCont, nModelID, 1);
+        //        HOperatorSet.AffineTransContourXld(ho_modelCont, out ho_contTrans, hv_HomMat2D);
+        //        HOperatorSet.ShapeTransXld(ho_contTrans, out ho_contTrans, "convex");
+        //        HOperatorSet.GenRegionContourXld(ho_contTrans, out ho_RegionROI, "filled");
+        //        HOperatorSet.ReduceDomain(ho_ImageTrans, ho_RegionROI, out ho_ImageReduced);
+        //        //与模板比较，找出异常点
+        //        HOperatorSet.CompareVariationModel(ho_ImageReduced, out ho_RegionDiff, hv_VariationModelID);
+        //        HOperatorSet.Connection(ho_RegionDiff, out ho_RegionDiff);
+        //        //筛选
+        //        //HOperatorSet.SelectShape(ho_RegionDiff, out ho_RegionsError, "area", "and", 20, 1000000);
+        //        //HOperatorSet.CountObj(ho_RegionsError, out hv_NumError);
 
-                return true;
-            }
-            catch (HalconException error)
-            {
-                error.ToString();
-                return false;
-            }
-            finally
-            {
+        //        return true;
+        //    }
+        //    catch (HalconException error)
+        //    {
+        //        error.ToString();
+        //        return false;
+        //    }
+        //    finally
+        //    {
 
-            }
-        }
+        //    }
+        //}
 
         #region XY标定
         public static double m_dCalibVal = 0.018;    //标定系数

@@ -929,7 +929,7 @@ namespace VisionPlatform
             Fun.ClearObjShow();
             FakraParam param = InitParam();
             //TMFun.setseiz();
-            if (!TMFun.FindXldModel(param.tMLocateParam.nModelID, true, out Rect2 LineWeldROI, out LocateOutParams locateReult))
+            if (!TMFun.FindXLDModel(param.tMLocateParam, true,out LocateOutParams locateReult))
             {
                 MessageFun.ShowMessage("定位失败！");
                 return;
@@ -1749,7 +1749,7 @@ namespace VisionPlatform
                     return;
                 }
                 TMLocateParam param = InitTMLocateParam();
-                if (TMFun.CreateXldModel(param,out model_ID, out m_LocateResult))
+                if (TMFun.CreateXLDModel(param,out model_ID, out m_LocateResult))
                 {
                     //保存模板
                     string model_name = "camera" + m_ncam.ToString() + "_"+ sub_cam +"_" + m_TMType.ToString();
@@ -1769,7 +1769,8 @@ namespace VisionPlatform
         }
         private void but_TestModel_Click(object sender, EventArgs e)
         {
-            TMFun.FindXldModel(model_ID, true, out Rect2 newLineWeldROI, out LocateOutParams locateData);
+            TMLocateParam param = InitTMLocateParam();
+            TMFun.FindXLDModel(param, true, out LocateOutParams locateData);
         }
 
         #endregion

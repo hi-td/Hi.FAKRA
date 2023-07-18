@@ -18,6 +18,7 @@ using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 using static System.Windows.Forms.MonthCalendar;
 using DAL;
+using EnumData;
 
 namespace VisionPlatform
 {
@@ -2177,8 +2178,53 @@ namespace VisionPlatform
         #endregion
 
         #region 端子检测
+        HObject m_ImageTemp = null;
+        public void TransModelImage()
+        {
+            HOperatorSet.GenEmptyObj(out m_ImageTemp);
+            try
+            {
+                Fun.m_hImage = m_ModelImage.Clone();
+                Fun.m_GrayImage?.Dispose();
+                HOperatorSet.Rgb1ToGray(Fun.m_hImage, out Fun.m_GrayImage);
+                Fun.m_hWnd.DispObj(Fun.m_hImage);
+            }
+            catch (HalconException error)
+            {
+                error.ToString();
+            }
+            finally
+            {
+            }
+            return;
+        }
+        public void ModelImageTransBack()
+        {
+            try
+            {
+                if (null == Fun.m_PreImage)
+                {
+                    return;
+                }
+                Fun.m_hImage?.Dispose();
+                Fun.m_hImage = new HObject(Fun.m_PreImage);
+                Fun.m_GrayImage?.Dispose();
+                HOperatorSet.Rgb1ToGray(Fun.m_hImage, out Fun.m_GrayImage);
+                Fun.m_hWnd.DispObj(Fun.m_hImage);
+
+            }
+            catch (Exception error)
+            {
+                error.ToString();
+            }
+            finally
+            {
+                m_ImageTemp?.Dispose();
+            }
+            return;
+        }
         //shap_xld创建模板
-        public bool CreateModel(out int model_ID, out LocateOutParams outParam)
+        public bool CreateXLDModel(TMLocateParam param,out int model_ID, out LocateOutParams outParam)
         {
             model_ID = -1;
             outParam = new LocateOutParams();
@@ -2191,7 +2237,7 @@ namespace VisionPlatform
                 inData.dAngleStart = -45;
                 inData.dAngleEnd = 90;
                 inData.bScale = false;
-                if (!Fun.CreateXldModel(inData, out model_ID, out LocateOutParams listOutData))
+                if (!Fun.CreateXldModel(inData, param, out model_ID, out LocateOutParams listOutData))
                 {
                     return false;
                 }
@@ -2208,7 +2254,31 @@ namespace VisionPlatform
                 Fun.ClearObjShow();
                 return false;
             }
-
+        }
+        public bool FindXLDModel(TMLocateParam param,bool show, out LocateOutParams locateData)
+        {
+            locateData = new LocateOutParams();
+            try
+            {
+                LocateInParams inData = new LocateInParams();
+                inData.modelType = ModelType.contour;
+                inData.dAngleStart = -45;
+                inData.dAngleEnd = 90;
+                inData.bScale = false;
+                if (!Fun.FindModel(param.nModelID, show, inData, out LocateOutParams OutData))
+                {
+                    return false;
+                }
+                locateData = OutData;
+                return true;
+            }
+            catch (HalconException ex)
+            {
+                ex.ToString();
+                MessageFun.ShowMessage("查找模板失败！");
+                Fun.WriteStringtoImage(25, 12, 20, "查找模板失败！", "red");
+                return false;
+            }
         }
         public void GetTMregion(TMLocateParam param)
         {
@@ -2243,6 +2313,110 @@ namespace VisionPlatform
                 ho_SelRegion?.Dispose();
             }
 
+        }
+        public bool LineCoreSideInspectNEW(TMLineCoreSideParam param, LocateOutParams model_center, LocateOutParams locateData, bool bShow, out TMData.LineCoreSideResult outData)
+        {
+            outData = new TMData.LineCoreSideResult();
+            outData.bResult = true;
+
+            HTuple hv_area = new HTuple(), hv_row = new HTuple(), hv_column = new HTuple(), hv_HomMat2D = new HTuple();
+
+            HOperatorSet.GenEmptyObj(out HObject ho_Region);
+            HOperatorSet.GenEmptyObj(out HObject ho_TotalRegion);
+            HOperatorSet.GenEmptyObj(out HObject ho_LineSideRegions);
+            HOperatorSet.GenEmptyObj(out HObject ho_ImageReduced);
+            HOperatorSet.GenEmptyObj(out HObject ho_Connections);
+            HOperatorSet.GenEmptyObj(out HObject ho_MeanImage);
+            HOperatorSet.GenEmptyObj(out HObject ho_DarkRegion);
+            // HOperatorSet.GenEmptyObj(out ho_LightRegion);
+            // HOperatorSet.GenEmptyObj(out ho_ImgEdgeAmp);
+
+            try
+            {
+                if (null == param.arbitrary || param.arbitrary.Count == 0)
+                {
+                    //Fun.WriteStringtoImage(fontsize, row, col, "线芯飞边：无检测区域", "Conductor outside:no ROI");
+                    //row += spacing;
+                    outData.bResult = false;
+                    return false;
+                }
+                foreach (var item in param.arbitrary)
+                {
+                    hv_row = new HTuple();
+                    hv_column = new HTuple();
+                    hv_row = item.dListRow.ToArray();
+                    hv_column = item.dListCol.ToArray();
+                    ho_Region.Dispose();
+                    HOperatorSet.GenRegionPolygonFilled(out ho_Region, hv_row, hv_column);
+                    HOperatorSet.ConcatObj(ho_TotalRegion, ho_Region, out ho_TotalRegion);
+                }
+                HOperatorSet.Union1(ho_TotalRegion, out ho_TotalRegion);
+                HOperatorSet.VectorAngleToRigid(model_center.dModelRow, model_center.dModelCol, model_center.dModelAngle,
+                                 locateData.dModelRow, locateData.dModelCol, locateData.dModelAngle, out hv_HomMat2D);
+
+                ho_LineSideRegions.Dispose();
+                HOperatorSet.AffineTransRegion(ho_TotalRegion, out ho_LineSideRegions, hv_HomMat2D, "nearest_neighbor");
+                ho_ImageReduced.Dispose();
+                HOperatorSet.ReduceDomain(Fun.m_GrayImage, ho_LineSideRegions, out ho_ImageReduced);
+                if (!param.background)
+                {
+                    //白底
+                    ho_MeanImage.Dispose();
+                    HOperatorSet.MeanImage(ho_ImageReduced, out ho_MeanImage, 55, 55);
+                    ho_DarkRegion.Dispose();
+                    HOperatorSet.DynThreshold(ho_ImageReduced, ho_MeanImage, out ho_DarkRegion, 9, "dark");
+                    ho_ImageReduced.Dispose();
+                    HOperatorSet.ReduceDomain(Fun.m_GrayImage, ho_DarkRegion, out ho_ImageReduced);
+                    ho_DarkRegion.Dispose();
+                    HOperatorSet.Threshold(ho_ImageReduced, out ho_DarkRegion, 0, param.minthd);
+                }
+                else
+                {
+                    //黑底
+                    ho_DarkRegion.Dispose();
+                    HOperatorSet.Threshold(ho_ImageReduced, out ho_DarkRegion, param.minthd, 255);
+                }
+
+                ho_Connections.Dispose();
+                HOperatorSet.Connection(ho_DarkRegion, out ho_Connections);
+                ho_Region.Dispose();
+                HOperatorSet.SelectShape(ho_Connections, out ho_Region, "area", "and", param.minarea, 990000);
+                HOperatorSet.AreaCenter(ho_Region, out hv_area, out hv_row, out hv_column);
+                if (0 != hv_area.Length)
+                {
+                    Fun.DispRegion(ho_LineSideRegions, "red");
+                    Fun.DispRegion(ho_Region, "red", "fill");
+                      //Fun.WriteStringtoImage(fontsize, row, col, "线芯飞边：NG", "Conductor outside:NG");
+                      //row += spacing;
+                    //Fun.WriteStringtoImage(15, (int)hv_row[0].D, (int)hv_column[0].D, "飞边NG", "blue");
+                    outData.bResult = false;
+                }
+                else
+                {
+                    Fun.DispRegion(ho_LineSideRegions, "green");
+                    //Fun.WriteStringtoImage(fontsize, row, col, "线芯飞边：OK", "Conductor outside:OK", "green");
+                    //row += spacing;
+                    outData.bResult = true;
+                }
+                return true;
+            }
+            catch (HalconException error)
+            {
+                //Fun.WriteStringtoImage(fontsize, row, col, "线芯飞边：检测错误", "Conductor outside:Error");
+                //row += spacing;
+                error.ToString().ToLog();
+                return false;
+            }
+            finally
+            {
+                ho_Region?.Dispose();
+                ho_TotalRegion?.Dispose();
+                ho_LineSideRegions?.Dispose();
+                ho_ImageReduced?.Dispose();
+                ho_Connections?.Dispose();
+                ho_MeanImage?.Dispose();
+                ho_DarkRegion?.Dispose();
+            }
         }
         #endregion
 
