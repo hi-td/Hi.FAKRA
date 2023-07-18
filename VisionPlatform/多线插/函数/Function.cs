@@ -13,6 +13,7 @@ using EnumData;
 using Chustange.Functional;
 using StaticFun;
 using System.Drawing.Imaging;
+using static VisionPlatform.TMData;
 
 namespace VisionPlatform
 {
@@ -26,6 +27,7 @@ namespace VisionPlatform
         public HObject m_hImage = null;
         public HObject m_GrayImage = null;
         public HObject ho_Reduceimage = null;
+        public HObject m_PreImage = null;    //当前图像：中转使用
         public static int imageWidth;
         public static int imageHeight;
 
@@ -830,7 +832,69 @@ namespace VisionPlatform
                 return;
             }
         }
+        public void ShowArbitrary(Arbitrary arbitrary)
+        {
+            try
+            {
+                if (null == arbitrary.dListRow)
+                {
+                    MessageFun.ShowMessage("无任意形状轮廓所需轮廓点。");
+                    return;
+                }
+                if (null != m_hImage)
+                {
+                    m_hWnd.DispObj(m_hImage);
+                }
+                HTuple hv_row = arbitrary.dListRow.ToArray();
+                HTuple hv_col = arbitrary.dListCol.ToArray();
+                m_hWnd.SetColor("green");
+                m_hWnd.DispCross(hv_row, hv_col, 20, 0);
+                m_hWnd.SetColor("red");
+                HOperatorSet.GenContourPolygonXld(out m_XLDCont, hv_row, hv_col);
+                DispRegion(m_XLDCont, "green");
+                return;
+            }
+            catch (HalconException ex)
+            {
+                MessageFun.ShowMessage("获取任意形状轮廓出错：" + ex.ToString());
+                return;
+            }
+        }
+        public void GenArbitrary(List<Arbitrary> arbitrary)
+        {
+            HObject ho_Contour = null, ho_bitrary = null;
+            HTuple hv_row = new HTuple(), hv_column = new HTuple();
 
+            HOperatorSet.GenEmptyObj(out ho_Contour);
+            HOperatorSet.GenEmptyObj(out ho_bitrary);
+
+            try
+            {
+                foreach (var item in arbitrary)
+                {
+                    hv_row = item.dListRow.ToArray();
+                    hv_column = item.dListCol.ToArray();
+
+                    HOperatorSet.GenRegionPolygonFilled(out ho_Contour, hv_row, hv_column);
+                    HOperatorSet.ConcatObj(ho_bitrary, ho_Contour, out ho_bitrary);
+                }
+                ClearObjShow();
+                m_hWnd.SetDraw("margin");
+                m_hWnd.DispObj(m_hImage);
+                DispRegion(ho_bitrary, "green");
+            }
+            catch (HalconException ex)
+            {
+                MessageFun.ShowMessage(ex.ToString());
+                return;
+            }
+            finally
+            {
+                ho_Contour?.Dispose();
+                ho_bitrary?.Dispose();
+            }
+
+        }
         //画点
         public PointF DrawPoint()
         {
@@ -1275,7 +1339,7 @@ namespace VisionPlatform
                 if ("" != strFilePath)
                 {
                     //HOperatorSet.DumpWindow(m_hWnd, "bmp", strFilePath);
-                    HOperatorSet.DumpWindow(m_hWnd, "jpeg", str);
+                    HOperatorSet.DumpWindow(m_hWnd, "jpg", str);
                 }
             }
             catch (HalconException error)
@@ -1284,7 +1348,28 @@ namespace VisionPlatform
                 return;
             }
         }
-
+        //保存BMP图片
+        public void SaveBmpImage(string strFilePath)  //输入文件夹路径，不包含文件名字
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(strFilePath))
+                    return;
+                var folder = Path.GetDirectoryName(strFilePath);
+                if (!Directory.Exists(folder))
+                    Directory.CreateDirectory(folder);
+                string str = strFilePath.Replace("\\", "/");
+                if ("" != strFilePath)
+                {
+                    HOperatorSet.WriteImage(m_hImage, "bmp", 0, str);
+                }
+            }
+            catch (HalconException error)
+            {
+                StaticFun.MessageFun.ShowMessage(error.ToString());
+                return;
+            }
+        }
         public void SaveResultImageToByte(string strFilePath)
         {
             HTuple hv_Pointer = new HTuple(), hv_Type = new HTuple(), hv_Width = new HTuple(), hv_Height = new HTuple();
@@ -4087,7 +4172,7 @@ namespace VisionPlatform
                 if (null != ho_cross) ho_cross.Dispose();
             }
         }
-        public bool CreateXldModel(LocateInParams inParam, out int nModelID, out LocateOutParams listOutData)
+        public bool CreateXldModel(LocateInParams inParam, TMLocateParam param, out int nModelID, out LocateOutParams listOutData)
         {
             listOutData = new LocateOutParams();
             nModelID = -1;
@@ -4109,19 +4194,18 @@ namespace VisionPlatform
                 ho_RegionROI.Dispose();
                 ho_RegionROI = GetLastDrawObj(m_lastDraw);
                 ho_Region.Dispose();
-                HOperatorSet.Threshold(m_GrayImage, out ho_Region, 0, 200);
+                HOperatorSet.Threshold(m_GrayImage, out ho_Region, 0, param.nThd);
                 ho_SelRegion.Dispose();
                 HOperatorSet.FillUp(ho_Region,out ho_SelRegion);
                 ho_RegionSelect.Dispose();
                 HOperatorSet.Connection(ho_SelRegion,out ho_RegionSelect);
                 ho_RegionSelect1.Dispose();
                 HOperatorSet.SelectShape(ho_RegionSelect, out ho_RegionSelect1, "area",
-       "and", 100, 50000);
+       "and", param.nminArea, 1000000);
                 ho_ImageReduced.Dispose();
                 HOperatorSet.ReduceDomain(ho_RegionSelect1, ho_RegionROI, out ho_ImageReduced);
                 ho_ModelCont.Dispose();
                 HOperatorSet.GenContourRegionXld(ho_ImageReduced, out ho_ModelCont, "border");
-
 
                 HOperatorSet.CreateShapeModelXld(ho_ModelCont, 5, inParam.dAngleStart, inParam.dAngleEnd, "auto", "auto", "ignore_local_polarity", 5, out hv_ModelID);
                 HOperatorSet.FindShapeModel(m_hImage, hv_ModelID, new HTuple(inParam.dAngleStart).TupleRad(), new HTuple(inParam.dAngleEnd).TupleRad(), 0.5, 1, 0.5,
@@ -4134,8 +4218,9 @@ namespace VisionPlatform
                 else
                 {
 
-                    m_hWnd.DispObj(ho_ModelCont);
-                    HOperatorSet.DispCross(m_hWnd, hv_Row, hv_Column, 20, hv_Angle);
+                    //m_hWnd.DispObj(ho_ModelCont);
+                    //HOperatorSet.DispCross(m_hWnd, hv_Row, hv_Column, 20, hv_Angle);
+                    DispRegion(ho_ModelCont, "green");
                     listOutData.dModelRow = hv_Row.D;
                     listOutData.dModelCol = hv_Column.D;
                     listOutData.dModelAngle = hv_Angle.TupleDeg();
@@ -4162,9 +4247,9 @@ namespace VisionPlatform
 
         }
         //模板匹配
-        public bool FindModel(int nModelID, LocateInParams inParam, out List<LocateOutParams> listOutData)
+        public bool FindModel(int nModelID, LocateInParams inParam, out LocateOutParams listOutData)
         {
-            listOutData = new List<LocateOutParams>();
+            listOutData = new LocateOutParams();
 
             HTuple hv_Row = new HTuple(), hv_Column = new HTuple(), hv_Angle = new HTuple();
             HTuple hv_Score = new HTuple(), hv_HomMat2D = new HTuple();
@@ -4201,25 +4286,12 @@ namespace VisionPlatform
                     m_hWnd.DispObj(ho_ContoursAffinTrans);
                 }
 
-                for (int i = 0; i < hv_Row.TupleLength(); i++)
-                {
-                    LocateOutParams outData = new LocateOutParams();
-                    outData.dModelRow = hv_Row[i].D;
-                    outData.dModelCol = hv_Column[i].D;
-                    outData.dModelAngle = hv_Angle.TupleSelect(i).TupleDeg();
-                    outData.dScore = hv_Score[i].D;
-                    if (i == 0)
-                    {
-                        m_hWnd.SetLineWidth(3);
-                    }
-                    else
-                    {
-                        m_hWnd.SetLineWidth(1);
-                    }
-                    HOperatorSet.GenCrossContourXld(out ho_cross, hv_Row[i], hv_Column[i], 30, 0);
-                    m_hWnd.DispObj(ho_cross);
-                    listOutData.Add(outData);
-                }
+                listOutData.dModelRow = hv_Row.D;
+                listOutData.dModelCol = hv_Column.D;
+                listOutData.dModelAngle = hv_Angle.D;
+                listOutData.dScore = hv_Score.D;
+                HOperatorSet.GenCrossContourXld(out ho_cross, hv_Row, hv_Column, 30, 0);
+                m_hWnd.DispObj(ho_cross);
                 return true;
             }
             catch (HalconException ex)
@@ -4303,7 +4375,7 @@ namespace VisionPlatform
 
         }
         //保存模板
-        public bool WriteModel(int ncam, string strModelName, ModelType modelType, int nModelID)
+        public bool WriteModel( string strModelName, ModelType modelType, int nModelID)
         {
             try
             {
@@ -4311,30 +4383,29 @@ namespace VisionPlatform
                 {
                     return false;
                 }
-                string strFilePath = GlobalPath.SavePath.ModelPath + "相机" + ncam.ToString();
+                string strFilePath = GlobalPath.SavePath.ModelPath;
 
                 if (!Directory.Exists(strFilePath))
                     Directory.CreateDirectory(strFilePath);
 
-                string strSavePath = "";
-                if (modelType == ModelType.contour || modelType == ModelType.region)
-                    strSavePath = strFilePath + "\\" + strModelName + ".shm";//不能包含中文
-                else
-                    strSavePath = strFilePath + "\\" + strModelName + ".ncm";//不能包含中文
 
                 if (modelType == ModelType.contour || modelType == ModelType.region)
                 {
-                    HOperatorSet.WriteShapeModel(nModelID, strSavePath);
+                    strFilePath = strFilePath + strModelName + ".shm";//不能包含中文
+                    HOperatorSet.WriteShapeModel(nModelID, strFilePath);
                 }
                 else if (modelType == ModelType.ncc)
                 {
-                    HOperatorSet.WriteNccModel(nModelID, strSavePath);
+                    strFilePath = strFilePath + strModelName + ".ncm";//不能包含中文
+                    HOperatorSet.WriteNccModel(nModelID, strFilePath);
                 }
                 return true;
             }
             catch (System.Exception ex)
             {
                 MessageBox.Show("模板保存失败！" + ex.ToString());
+                HOperatorSet.ClearNccModel(nModelID);
+                HOperatorSet.ClearShapeModel(nModelID);
                 return false;
             }
         }
@@ -5116,13 +5187,13 @@ namespace VisionPlatform
 
             try
             {
-                List<LocateOutParams> pre_model = new List<LocateOutParams>();
+                LocateOutParams pre_model = new LocateOutParams();
                 if (!FindModel(nModelID, locateParam, out pre_model))
                 {
                     return false;
                 }
                 HOperatorSet.VectorAngleToRigid(modelCenter.dModelRow, modelCenter.dModelCol, modelCenter.dModelAngle,
-                                                   pre_model[0].dModelRow, pre_model[0].dModelCol, pre_model[0].dModelAngle, out hv_HomMat2D);
+                                                   pre_model.dModelRow, pre_model.dModelCol, pre_model.dModelAngle, out hv_HomMat2D);
                 HOperatorSet.AffineTransImage(m_hImage, out ho_ImageTrans, hv_HomMat2D, "constant", "false");
                 //设定对比区域
                 HOperatorSet.GetShapeModelContours(out ho_modelCont, nModelID, 1);

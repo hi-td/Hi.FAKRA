@@ -837,8 +837,8 @@
             this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(405, 26);
             this.tableLayoutPanel8.TabIndex = 8;
             // 
@@ -848,7 +848,7 @@
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Location = new System.Drawing.Point(4, 1);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 30);
+            this.label13.Size = new System.Drawing.Size(61, 36);
             this.label13.TabIndex = 3;
             this.label13.Text = "阈值";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -866,7 +866,7 @@
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(335, 30);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(335, 36);
             this.tableLayoutPanel15.TabIndex = 5;
             // 
             // numUpD_maleThd
@@ -895,7 +895,7 @@
             this.trackBar_maleThd.Location = new System.Drawing.Point(63, 3);
             this.trackBar_maleThd.Maximum = 255;
             this.trackBar_maleThd.Name = "trackBar_maleThd";
-            this.trackBar_maleThd.Size = new System.Drawing.Size(269, 24);
+            this.trackBar_maleThd.Size = new System.Drawing.Size(269, 30);
             this.trackBar_maleThd.TabIndex = 1;
             this.trackBar_maleThd.TickStyle = System.Windows.Forms.TickStyle.None;
             this.toolTip1.SetToolTip(this.trackBar_maleThd, "取值范围X-255");

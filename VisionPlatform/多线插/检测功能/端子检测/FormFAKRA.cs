@@ -36,6 +36,8 @@ namespace VisionPlatform
         private List<Arbitrary> m_arbitrary = new List<Arbitrary>();  //绘制的线芯飞边区域
         int model_ID;                                                 //模板ID
         FormImageColorTrans formImageColorTrans;                      //图像颜色空间转换
+        Rect1 m_rect1Crimpheight;                              //压接高度检测区域
+        Rect1 m_rect1Crimpwidth;                            //压接宽度检测区域
 
         private bool TorF = false;
         public FormFAKRA(int ncam, int sub_cam)
@@ -57,8 +59,6 @@ namespace VisionPlatform
                 tabPage_LinePos.Parent = null;
                 tabPage_LineSide.Parent = null;
                 tabPage_TMwing.Parent = null;
-                checkBox_bColorSpaceTrans.Checked = false;
-                tLPanel_ColorSpace.Visible = false;
 
                 radioBut_LinePos_methodLine.Checked = true;
                 tabPage_BackGround.Parent = null;
@@ -133,6 +133,31 @@ namespace VisionPlatform
             {
                 MessageFun.ShowMessage("selectcombox()初始化异常：" + ex.ToString());
             }
+        }
+        private TMData.FakraParam InitParam()
+        {
+            TMData.FakraParam param = new TMData.FakraParam();
+            try
+            {
+                //param.LineWeldROI = m_LineWeldROI;
+                //param.model_center = m_LocateResult;
+                param.tMLocateParam = InitTMLocateParam();
+                param.tMlineCoreSideParam = InitlineCoreSideParam();
+                //param.lineWeld = InitLineWeldParam();
+                //param.lineOnWeld = InitLineOnWeldParam();
+                //param.lineCorePos = InitLinePosParam();
+                //param.lineCoreSide = InitLineSideParam();
+                //param.tmNose = InitTMNoseParam();
+                //param.tmhead = InitTMheadParam();
+                //param.tmwing = InitTMwingParam();
+                //param.lineColor = InitLineColorParam();
+            }
+
+            catch (SystemException error)
+            {
+                MessageFun.ShowMessage("压端子检测参数初始化异常：" + error.ToString());
+            }
+            return param;
         }
         private void LoadParam()
         {
@@ -224,6 +249,8 @@ namespace VisionPlatform
                         {
                             FakraParam m_TMParam = TMData_Serializer._globalData.fakraParam[a][m_TMType];
 
+                            LoadLineCoreSideParam(m_TMParam.tMlineCoreSideParam);
+                            LoadTMLocateParam(m_TMParam.tMLocateParam);
                         }
                         else
                         {
@@ -437,106 +464,7 @@ namespace VisionPlatform
         //        ex.ToString();
         //    }
         }
-        private void trackBar_SkinPosWidth_Scroll(object sender, EventArgs e)
-        {
-            numericUpDown_SkinPosWidth.Value = trackBar_SkinPosWidth.Value;
-        }
-        private void numericUpDown_SkinPosLen_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinPosInspect();
-            }
-        }
-        private void trackBar_SkinPosHeight_Scroll(object sender, EventArgs e)
-        {
-            numericUpDown_SkinPosHeight.Value = trackBar_SkinPosHeight.Value;
-        }
-        private void numericUpDown_SkinPosHeight_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinPosInspect();
-            }
-        }
-        private void trackBar_SkinPosGap_Scroll(object sender, EventArgs e)
-        {
-            numericUpDown_SkinPosGap.Value = trackBar_SkinPosGap.Value;
-        }
-        private void numericUpDown_SkinPosGap_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinPosInspect();
-            }
-        }
-        private void trackBar_SkinPosLineThd_Scroll(object sender, EventArgs e)
-        {
-            numUpD_SkinPos_LineThd.Value = trackBar_SkinPos_LineThd.Value;
-        }
-        private void numUpD_SkinPosLineThd_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinPosInspect();
-            }
-        }
-        private void trackBar_skinpos_dynThd_Scroll(object sender, EventArgs e)
-        {
-            numUpD_skinpos_dynThd.Value = trackBar_skinpos_dynThd.Value;
-        }
-        private void numUpD_skinpos_dynThd_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinPosInspect();
-            }
-        }
-        private void numUpD_SkinPos_AreaRatioMin_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinPosInspect();
-            }
-        }
-        private void numUpD_SkinPos_AreaRatioMax_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //SkinPosInspect();
-            }
-        }
-        private void but_ReSelColorSpace_Click(object sender, EventArgs e)
-        {
-            //if (null == formImageColorTrans)
-            //{
-            //    formImageColorTrans?.Dispose();
-            //    formImageColorTrans = new FormImageColorTrans(m_ncam, label_ImageChannel, label_ColorSpace);
-            //    formImageColorTrans.TopMost = true;
-            //}
-            //else if (null != formImageColorTrans && formImageColorTrans.IsDisposed)
-            //{
-            //    formImageColorTrans?.Dispose();
-            //    formImageColorTrans = new FormImageColorTrans(m_ncam, label_ImageChannel, label_ColorSpace);
-            //    formImageColorTrans.TopMost = true;
-            //}
-            //formImageColorTrans.Show();
-        }
-        private void checkBox_bColorSpaceTrans_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox_bColorSpaceTrans.Checked)
-            {
-                tLPanel_ColorSpace.Visible = true;
-            }
-            else
-            {
-                tLPanel_ColorSpace.Visible = false;
-            }
-        }
-        private void but_SkinPos_Show_Click(object sender, EventArgs e)
-        {
-            //Fun.m_hWnd.DispObj(Fun.ColorSpaceTrans(GetColorSpace(label_ImageChannel, label_ColorSpace)));
-        }
+
         #endregion
 
         #region 线芯压脚
@@ -623,18 +551,6 @@ namespace VisionPlatform
         //        ex.ToString();
         //    }
         }
-        private void trackBar_LineWeld_Rect2MidLen2_Scroll(object sender, EventArgs e)
-        {
-            numUpD_LineWeld_Rect2MidLen2.Value = trackBar_LineWeld_Rect2MidLen2.Value;
-        }
-
-        private void numUpD_LineWeld_Rect2MidLen2_ValueChanged(object sender, EventArgs e)
-        {
-            if (TorF)
-            {
-                //LineWeldInspect();
-            }
-        }
 
         private void numUpD_LineWeld_AreaRatioMax_ValueChanged(object sender, EventArgs e)
         {
@@ -650,11 +566,6 @@ namespace VisionPlatform
             {
                // LineWeldInspect();
             }
-        }
-
-        private void trackBar_LineWeld_Dislocation_Scroll(object sender, EventArgs e)
-        {
-            numUpD_LineWeld_Dislocation.Value = trackBar_LineWeld_Dislocation.Value;
         }
 
         private void numUpD_LineWeld_Dislocation_ValueChanged(object sender, EventArgs e)
@@ -958,110 +869,97 @@ namespace VisionPlatform
 
         #endregion
 
-        #region 线芯两侧飞边
-        //private LineCoreSideParam InitLineSideParam()
-        //{
-        //    LineCoreSideParam param = new LineCoreSideParam();
-        //    try
-        //    {
-        //        param.arbitrary = m_arbitrary;
-        //        param.minthd = trackBar_minthd.Value;
-        //        numUpD_minThd.Value = param.minthd;
-        //        param.minarea = (int)numUpD_minArea.Value;
-        //        trackBar_minArea.Value = param.minarea;
+        #region 线芯两侧飞丝
+        private TMLineCoreSideParam InitlineCoreSideParam()
+        {
+            TMLineCoreSideParam param = new TMLineCoreSideParam();
+            try
+            {
+                param.arbitrary = m_arbitrary;
+                param.minthd = trackBar_minthd.Value;
+                numUpD_minThd.Value = param.minthd;
+                param.minarea = (int)numUpD_minArea.Value;
+                trackBar_minArea.Value = param.minarea;
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ex.ToString();
-        //    }
-        //    return param;
-        //}
+            }
+            catch (Exception ex)
+            {
+                MessageFun.ShowMessage(ex.ToString());
+            }
+            return param;
+        }
 
-        //private void LoadLineCoreSideParam(LineCoreSideParam param)
-        //{
-        //    try
-        //    {
-        //        if (param.arbitrary != null)
-        //        {
-        //            m_arbitrary = param.arbitrary;
-        //        }
-        //        for (int n = 0; n < param.arbitrary.Count; n++)
-        //        {
-        //            comBox_LineSide_ROI.Items.Add("检测区域" + (n + 1).ToString());
-        //        }
-        //        trackBar_minthd.Value = param.minthd;
-        //        numUpD_minThd.Value = param.minthd;
-        //        trackBar_minArea.Value = param.minarea;
-        //        numUpD_minArea.Value = param.minarea;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ex.ToString();
-        //    }
-        //}
+        private void LoadLineCoreSideParam(TMLineCoreSideParam param)
+        {
+            try
+            {
+                if (param.arbitrary != null)
+                {
+                    m_arbitrary = param.arbitrary;
+                }
+                for (int n = 0; n < param.arbitrary.Count; n++)
+                {
+                    comBox_LineSide_ROI.Items.Add("检测区域" + (n + 1).ToString());
+                }
+                trackBar_minthd.Value = param.minthd;
+                numUpD_minThd.Value = param.minthd;
+                trackBar_minArea.Value = param.minarea;
+                numUpD_minArea.Value = param.minarea;
+            }
+            catch (Exception ex)
+            {
+                MessageFun.ShowMessage(ex.ToString());
+            }
+        }
 
         private void LineCoreSideInpect(object sender, EventArgs e)
         {
-            //if (null == TMFun || null == Fun.m_hImage || !TorF)
-            //{
-            //    return;
-            //}
-            //if (radioBut_ModelImage.Checked)
-            //{
-            //    TMFun.TransModelImage();
-            //}
-            //if (radioBut_PreImage.Checked)
-            //{
-            //    TMFun.ModelImageTransBack();
-            //}
-            //Fun.ClearObjShow();
-            //TMParam param = InitParam();
+            if (null == TMFun || null == Fun.m_hImage || !TorF)
+            {
+                return;
+            }
+            if (radioBut_ModelImage.Checked)
+            {
+                TMFun.TransModelImage();
+            }
+            if (radioBut_PreImage.Checked)
+            {
+                TMFun.ModelImageTransBack();
+            }
+            Fun.ClearObjShow();
+            FakraParam param = InitParam();
             //TMFun.setseiz();
-            //if (!TMFun.FindNccModelYXSS(param, true, out Rect2 LineWeldROI, out LocateOutParams locateReult))
-            //{
-            //    MessageFun.ShowMessage("定位失败！");
-            //    return;
-            //}
-            //TMFun.LineCoreSideInspectNEW(param.lineCoreSide, param.model_center, locateReult, true, out TMData.LineCoreSideResult outData);
+            if (!TMFun.FindXldModel(param.tMLocateParam.nModelID, true, out Rect2 LineWeldROI, out LocateOutParams locateReult))
+            {
+                MessageFun.ShowMessage("定位失败！");
+                return;
+            }
+            TMFun.LineCoreSideInspectNEW(param.tMlineCoreSideParam, param.tMLocateParam.model_center, locateReult, true, out TMData.LineCoreSideResult outData);
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void but_LineSide_AddROI_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (Fun.m_arbitrary.dListCol == null)
-            //    {
-            //        if (GlobalData.Config._language == EnumData.Language.english)
-            //        {
-            //            MessageBox.Show("[Imaging window]-[The right mouse button]-[Draw]-[Aribtrary]");
-
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("图像窗口-鼠标右键-绘制-选择“任意形状”");
-            //        }
-
-            //        return;
-            //    }
-            //    if (m_arbitrary.Contains(Fun.m_arbitrary)) //如果当前已添加，则返回
-            //    {
-            //        return;
-            //    }
-            //    m_arbitrary.Add(Fun.m_arbitrary);
-            //    int n = comBox_LineSide_ROI.Items.Count;
-            //    comBox_LineSide_ROI.Items.Add("检测区域" + (n + 1).ToString());
-            //    if (GlobalData.Config._language == EnumData.Language.english)
-            //    {
-            //        comBox_LineSide_ROI.Items.Add("ROI" + (n + 1).ToString());
-            //    }
-            //    comBox_LineSide_ROI.SelectedIndex = n;
-            //    Fun.m_arbitrary = new Arbitrary();
-            //}
-            //catch (SystemException ex)
-            //{
-            //    MessageFun.ShowMessage(ex.ToString());
-            //    return;
-            //}
+            try
+            {
+                if (Fun.m_arbitrary.dListCol == null)
+                {
+                    MessageBox.Show("图像窗口-鼠标右键-绘制-选择“任意形状”");
+                    return;
+                }
+                if (m_arbitrary.Contains(Fun.m_arbitrary)) //如果当前已添加，则返回
+                {
+                    return;
+                }
+                m_arbitrary.Add(Fun.m_arbitrary);
+                int n = comBox_LineSide_ROI.Items.Count;
+                comBox_LineSide_ROI.Items.Add("检测区域" + (n + 1).ToString());
+                comBox_LineSide_ROI.SelectedIndex = n;
+                Fun.m_arbitrary = new Arbitrary();
+            }
+            catch (SystemException ex)
+            {
+                MessageFun.ShowMessage(ex.ToString());
+                return;
+            }
         }
 
         Arbitrary pre_Arbitrary = new Arbitrary();
@@ -1074,13 +972,13 @@ namespace VisionPlatform
                 if (n < m_arbitrary.Count())
                 {
                     pre_Arbitrary = m_arbitrary[n];
-                    //Fun.ShowArbitrary(pre_Arbitrary);
+                    Fun.ShowArbitrary(pre_Arbitrary);
                 }
 
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                MessageFun.ShowMessage(ex.ToString());
             }
         }
         private void but_LineSide_DelPreROI_Click(object sender, EventArgs e)
@@ -1103,13 +1001,13 @@ namespace VisionPlatform
                     {
                         comBox_LineSide_ROI.Text = "";
                     }
-                    //Fun.GenArbitrary(m_arbitrary);
+                    Fun.GenArbitrary(m_arbitrary);
                     pre_Arbitrary = new Arbitrary();
                 }
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                MessageFun.ShowMessage(ex.ToString());
             }
         }
 
@@ -1133,7 +1031,7 @@ namespace VisionPlatform
 
         private void but_LineSide_ShowAllROI_Click(object sender, EventArgs e)
         {
-            //Fun.GenArbitrary(m_arbitrary);
+            Fun.GenArbitrary(m_arbitrary);
         }
 
         private void trackBar_minthd_Scroll(object sender, EventArgs e)
@@ -1151,37 +1049,6 @@ namespace VisionPlatform
 
 
 
-        private void but_SetModel_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Fun.m_rect2.dLength1 == 0 && Fun.m_rect2.dLength2 == 0)
-                {
-                    MessageBox.Show("请在图像窗口-鼠标右键-绘制-选择“矩形2”，画出定位区域,并右键确认完成。");
-                    return;
-                }
-                if (TMFun.CreateModel(out model_ID, out m_LocateResult))
-                {
-                    //保存模板
-                    string model_name = "camera" + m_ncam.ToString() + "_" + m_TMType.ToString();
-                    //Fun.WriteModel(model_name, ModelType.ncc, model_ID);
-                    //保存模板图像
-                    string strPath = System.IO.Path.Combine(GlobalPath.SavePath.ModelImagePath, model_name);
-                    //Fun.SaveImageWithoutDate(strPath);
-                    TMFun.m_ModelImage = Fun.m_hImage.Clone();
-                    MessageBox.Show("模板创建成功！");
-                }
-            }
-            catch (Exception ex)
-            {
-               MessageBox.Show("模板创建失败！"+ ex.ToString());
-            }
-
-        }
-        private void but_TestModel_Click(object sender, EventArgs e)
-        {
-            //TMFun.FindNccModelYXSS(InitParam(), true, out Rect2 newLineWeldROI, out LocateOutParams locateData);
-        }
         private void radioBut_ModelImage_CheckedChanged(object sender, EventArgs e)
         {
             if (null != TMFun)
@@ -1789,13 +1656,35 @@ namespace VisionPlatform
                 trackBar_LocateminArea.Value = (int)numericUpDown_LocateminArea.Value;
                 //最低匹配分数
                 param.nminscore = (int)numericUpDown_LocateScore.Value;
-                //亮度取值
+                //模板中心
+                param.model_center = m_LocateResult;
             }
             catch (Exception ex)
             {
                 ex.ToString();
             }
             return param;
+        }
+        private void LoadTMLocateParam(TMLocateParam param)
+        {
+            try
+            {
+                //亮度
+                 numericUpDown_Locatethd.Value= param.nThd;
+                trackBar_Locatethd.Value = param.nThd;
+                //最小面积
+                numericUpDown_LocateminArea.Value= param.nminArea;
+                trackBar_LocateminArea.Value = param.nminArea;
+                //最低匹配分数
+                numericUpDown_LocateScore.Value=(decimal)param.nminscore;
+                //模板中心
+                m_LocateResult= param.model_center;
+
+            }
+            catch (Exception ex)
+            {
+                MessageFun.ShowMessage(ex.ToString());
+            }
         }
         private void TMLocateInspect()
         {
@@ -1842,15 +1731,80 @@ namespace VisionPlatform
 
             }
         }
-
         private void numericUpDown_LocateminArea_ValueChanged(object sender, EventArgs e)
         {
             Fun.ClearObjShow();
             TMLocateParam param = InitTMLocateParam();
             TMFun.GetTMregion(param);
         }
-        #endregion
 
+        private void but_SetModel_Click(object sender, EventArgs e)
+        {
+            try
+
+            {
+                if (Fun.m_rect2.dLength1 == 0 && Fun.m_rect2.dLength2 == 0)
+                {
+                    MessageBox.Show("请在图像窗口-鼠标右键-绘制-选择“矩形2”，画出定位区域,并右键确认完成。");
+                    return;
+                }
+                TMLocateParam param = InitTMLocateParam();
+                if (TMFun.CreateXldModel(param,out model_ID, out m_LocateResult))
+                {
+                    //保存模板
+                    string model_name = "camera" + m_ncam.ToString() + "_"+ sub_cam +"_" + m_TMType.ToString();
+                    Fun.WriteModel(model_name, ModelType.contour, model_ID);
+                    //保存模板图像
+                    string strPath = System.IO.Path.Combine(GlobalPath.SavePath.ModelImagePath, model_name);
+                    Fun.SaveBmpImage(strPath);
+                    TMFun.m_ModelImage = Fun.m_hImage.Clone();
+                    MessageBox.Show("模板创建成功！");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("模板创建失败！" + ex.ToString());
+            }
+
+        }
+        private void but_TestModel_Click(object sender, EventArgs e)
+        {
+            TMFun.FindXldModel(model_ID, true, out Rect2 newLineWeldROI, out LocateOutParams locateData);
+        }
+
+        #endregion
+        #region  压接高度
+        private void button_Crimpheight_AddROI_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Fun.m_rect1.dRectCol2 == 0)
+                {
+                   MessageBox.Show("图像窗口-鼠标右键-绘制-选择“矩形1”-绘制芯线检测区域");
+                    return;
+                }
+                m_rect1Crimpheight = Fun.m_rect1;
+            }
+            catch (SystemException ex)
+            {
+                MessageFun.ShowMessage(ex.ToString());
+                return;
+            }
+        }
+
+        private void button_Crimpheight_DelPreROI_Click(object sender, EventArgs e)
+        {
+            m_rect1Crimpheight.dRectRow1 = 0;
+            m_rect1Crimpheight.dRectRow2 = 0;
+            m_rect1Crimpheight.dRectCol1 = 0;
+            m_rect1Crimpheight.dRectCol2 = 0;
+        }
+
+        private void button_Crimpheight_ShowROI_Click(object sender, EventArgs e)
+        {
+            Fun.ShowRect1(m_rect1Crimpheight);
+        }
+        #endregion
 
     }
 }

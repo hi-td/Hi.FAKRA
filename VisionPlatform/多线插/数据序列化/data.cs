@@ -98,17 +98,34 @@ namespace VisionPlatform
         [Serializable]
         public struct FakraParam
         {
-            public TMLocateParam tMLocateParam;
+            public TMLocateParam tMLocateParam;     //匹配
+            public TMLineCoreSideParam tMlineCoreSideParam; //线芯飞丝
 
         }
         #region 端子匹配参数
         public struct TMLocateParam
         {
+            public int nModelID;                   //模板ID号
             public double nminscore;              //最小分数
             public int nThd;               //端子亮度：静态阈值
             public int nminArea;           //端子筛选最小面积
+            public LocateOutParams model_center;   //模板的中心点
         }
         #endregion
+        //线芯飞丝
+        [Serializable]
+        public struct TMLineCoreSideParam
+        {
+            public List<Arbitrary> arbitrary;    //轮廓提取区域
+            public int minthd;
+            public int minarea;
+            public bool background;   //背景颜色
+        }
+        [Serializable]
+        public struct LineCoreSideResult
+        {
+            public bool bResult;
+        }
         public struct RubberResult
         {
 
