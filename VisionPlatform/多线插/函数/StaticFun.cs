@@ -86,41 +86,41 @@ namespace StaticFun
                     but_Run.Image = Resources.runing;
 
                     #region test
-                    if (StaticFun.Run.Start())
-                    {
-                        FormMainUI.bRun = true;
-                        TMFunction.isAuto = true;
-                        but_Run.Text = "运行中";
-                        but_Run.BackColor = Color.LightGreen;
-                    }
-                    else
-                    {
-                        FormMainUI.bRun = false;
-                        TMFunction.isAuto = false;
-                    }
-                    #endregion
-                    #region 原
-                    //if (CamSDK.CamCommon.m_listCamSer.Count != 0)
+                    //if (StaticFun.Run.Start())
                     //{
-                    //    CamSDK.CamCommon.StopLiveAll();   //防止抓拍出来的图片不对
-                    //    if (StaticFun.Run.Start())
-                    //    {
-                    //        FormMainUI.bRun = true;
-                    //        TMFunction.isAuto = true;
-                    //        but_Run.Text = "运行中";
-                    //        but_Run.BackColor = Color.LightGreen;
-                    //    }
-                    //    else
-                    //    {
-                    //        FormMainUI.bRun = false;
-                    //        TMFunction.isAuto = false;
-                    //    }
+                    //    FormMainUI.bRun = true;
+                    //    TMFunction.isAuto = true;
+                    //    but_Run.Text = "运行中";
+                    //    but_Run.BackColor = Color.LightGreen;
                     //}
                     //else
                     //{
                     //    FormMainUI.bRun = false;
-                    //    MessageBox.Show("相机连接异常！", "提示", MessageBoxButtons.OK);
+                    //    TMFunction.isAuto = false;
                     //}
+                    #endregion
+                    #region 自动运行
+                    if (CamSDK.CamCommon.m_listCamSer.Count != 0)
+                    {
+                        CamSDK.CamCommon.StopLiveAll();   //防止抓拍出来的图片不对
+                        if (StaticFun.Run.Start())
+                        {
+                            FormMainUI.bRun = true;
+                            TMFunction.isAuto = true;
+                            but_Run.Text = "运行中";
+                            but_Run.BackColor = Color.LightGreen;
+                        }
+                        else
+                        {
+                            FormMainUI.bRun = false;
+                            TMFunction.isAuto = false;
+                        }
+                    }
+                    else
+                    {
+                        FormMainUI.bRun = false;
+                        MessageBox.Show("相机连接异常！", "提示", MessageBoxButtons.OK);
+                    }
                     #endregion
 
 
@@ -168,19 +168,19 @@ namespace StaticFun
                 if (GlobalData.Config._InitConfig.initConfig.comMode.TYPE == EnumData.COMType.IO)
                 {
 
-                    #region 原
-                    //int try_connect = 0;
-                    //while (!WENYU.isOpen && try_connect < 3)
-                    //{
-                    //    WENYU.OpenIO();
-                    //    try_connect++;
-                    //    Thread.Sleep(20);
-                    //}
-                    //if (!WENYU.isOpen)
-                    //{
-                    //    MessageBox.Show("板卡通讯异常！", "提示", MessageBoxButtons.OK);
-                    //    return false;
-                    //}
+                    #region IO通讯
+                    int try_connect = 0;
+                    while (!WENYU.isOpen && try_connect < 3)
+                    {
+                        WENYU.OpenIO();
+                        try_connect++;
+                        Thread.Sleep(20);
+                    }
+                    if (!WENYU.isOpen)
+                    {
+                        MessageBox.Show("板卡通讯异常！", "提示", MessageBoxButtons.OK);
+                        return false;
+                    }
                     #endregion
 
                     TMFunction.isAuto = true;

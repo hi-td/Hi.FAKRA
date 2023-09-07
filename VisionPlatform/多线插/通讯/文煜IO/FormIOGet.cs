@@ -120,7 +120,7 @@ namespace VisionPlatform
                     if (io.camItem.cam == m_camItem.cam && io.camItem.item == m_camItem.item &&
                         io.camItem.surfaceType == surfaceType && io.camItem.type == type && io.camItem.sub_cam == m_camItem.sub_cam)
                     {
-                        int nRead = io.read;
+                        long nRead = io.read;
                         int nLen = 8;
                         if (GlobalData.Config._InitConfig.initConfig.comMode.IO == EnumData.IO.WENYU16)
                         {
