@@ -22,6 +22,7 @@ using static VisionPlatform.Auxiliary.Variable;
 using static VisionPlatform.Security.Md5;
 using StaticFun;
 using DAL;
+using EnumData;
 
 namespace VisionPlatform
 {
@@ -237,22 +238,6 @@ namespace VisionPlatform
                     string strPLCData = File.ReadAllText(tup_Path);
                     TMData_Serializer._PlcRTU.PlcRTU = JsonConvert.DeserializeObject<TMData.PLCRTU>(strPLCData);
                 }
-                #region 导入打端检测项
-                string strData;
-                if (File.Exists(GlobalPath.SavePath.TMCheckListPath))
-                {
-                    strData = File.ReadAllText(GlobalPath.SavePath.TMCheckListPath);
-                    strData = Registered.DESDecrypt(strData);
-                    var DynamicObject = JsonConvert.DeserializeObject<Dictionary<int, TMCheckItem>>(strData);
-                    //TMData_Serializer._globalData.dicTMCheckList = DynamicObject;
-                }
-                //数据显示位置
-                if (File.Exists(GlobalPath.SavePath.TMShowSetPath))
-                {
-                    LoadConfig.LoadTMSet();
-                }
-                #endregion
-
                 //加载通讯
                 StaticFun.LoadConfig.LoadCOMConfig();
                 if (null != GlobalData.Config._InitConfig.initConfig.comMode)
@@ -289,6 +274,23 @@ namespace VisionPlatform
                         MessageBox.Show("光源控制器链接异常，请检查光源控制器。");
                     }
                 }
+                #region 导入打端检测项
+                string strData;
+                if (File.Exists(GlobalPath.SavePath.TMCheckListPath))
+                {
+                    strData = File.ReadAllText(GlobalPath.SavePath.TMCheckListPath);
+                    strData = Registered.DESDecrypt(strData);
+                    var DynamicObject = JsonConvert.DeserializeObject<Dictionary<int, TMCheckItem>>(strData);
+                    //TMData_Serializer._globalData.dicTMCheckList = DynamicObject;
+                }
+                //数据显示位置
+                if (File.Exists(GlobalPath.SavePath.TMShowSetPath))
+                {
+                    LoadConfig.LoadTMSet();
+                }
+                #endregion
+
+                
             }
             catch (Exception ex)
             {
@@ -622,6 +624,7 @@ namespace VisionPlatform
                         {
                             FormIOcomm formIOcomm = new FormIOcomm();
                             formIOcomm.ShowDialog();
+
                         }
                         else if (GlobalData.Config._InitConfig.initConfig.comMode.IO == EnumData.IO.WENYU232)
                         {

@@ -84,27 +84,45 @@ namespace StaticFun
                 if (but_Run.Text == "运行")
                 {
                     but_Run.Image = Resources.runing;
-                    if (CamSDK.CamCommon.m_listCamSer.Count != 0)
+
+                    #region test
+                    if (StaticFun.Run.Start())
                     {
-                        CamSDK.CamCommon.StopLiveAll();   //防止抓拍出来的图片不对
-                        if (StaticFun.Run.Start())
-                        {
-                            FormMainUI.bRun = true;
-                            TMFunction.isAuto = true;
-                            but_Run.Text = "运行中";
-                            but_Run.BackColor = Color.LightGreen;
-                        }
-                        else
-                        {
-                            FormMainUI.bRun = false;
-                            TMFunction.isAuto = false;
-                        }
+                        FormMainUI.bRun = true;
+                        TMFunction.isAuto = true;
+                        but_Run.Text = "运行中";
+                        but_Run.BackColor = Color.LightGreen;
                     }
                     else
                     {
                         FormMainUI.bRun = false;
-                        MessageBox.Show("相机连接异常！", "提示", MessageBoxButtons.OK);
+                        TMFunction.isAuto = false;
                     }
+                    #endregion
+                    #region 原
+                    //if (CamSDK.CamCommon.m_listCamSer.Count != 0)
+                    //{
+                    //    CamSDK.CamCommon.StopLiveAll();   //防止抓拍出来的图片不对
+                    //    if (StaticFun.Run.Start())
+                    //    {
+                    //        FormMainUI.bRun = true;
+                    //        TMFunction.isAuto = true;
+                    //        but_Run.Text = "运行中";
+                    //        but_Run.BackColor = Color.LightGreen;
+                    //    }
+                    //    else
+                    //    {
+                    //        FormMainUI.bRun = false;
+                    //        TMFunction.isAuto = false;
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    FormMainUI.bRun = false;
+                    //    MessageBox.Show("相机连接异常！", "提示", MessageBoxButtons.OK);
+                    //}
+                    #endregion
+
 
                 }
                 else
@@ -149,27 +167,31 @@ namespace StaticFun
                 //检测IO通讯是否正常
                 if (GlobalData.Config._InitConfig.initConfig.comMode.TYPE == EnumData.COMType.IO)
                 {
-                    int try_connect = 0;
-                    while (!WENYU.isOpen && try_connect < 3)
-                    {
-                        WENYU.OpenIO();
-                        try_connect++;
-                        Thread.Sleep(20);
-                    }
-                    if (!WENYU.isOpen)
-                    {
-                        MessageBox.Show("板卡通讯异常！", "提示", MessageBoxButtons.OK);
-                        return false;
-                    }
+
+                    #region 原
+                    //int try_connect = 0;
+                    //while (!WENYU.isOpen && try_connect < 3)
+                    //{
+                    //    WENYU.OpenIO();
+                    //    try_connect++;
+                    //    Thread.Sleep(20);
+                    //}
+                    //if (!WENYU.isOpen)
+                    //{
+                    //    MessageBox.Show("板卡通讯异常！", "提示", MessageBoxButtons.OK);
+                    //    return false;
+                    //}
+                    #endregion
+
                     TMFunction.isAuto = true;
                     foreach(int cam in FormMainUI.m_dicFormCamShows.Keys)
                     {
                         ShowItems[] arrayShows = FormMainUI.m_dicFormCamShows[cam];
-                        for (int i = 0; i < arrayShows.Length; i++)
+                        for (int sub_cam = 0; sub_cam < arrayShows.Length - 1; sub_cam++)
                         {
-                            TMFunction TMFun = arrayShows[i].form.TM_fun;
-                            String strCamSer = arrayShows[i].form.m_strCamSer;
-                            new Task(() => { TMFun.RunCam_IO((i + 1), strCamSer); }, TaskCreationOptions.LongRunning).Start();
+                            TMFunction TMFun = arrayShows[sub_cam].form.TM_fun;
+                            String strCamSer = arrayShows[sub_cam].form.m_strCamSer;
+                            new Task(() => { TMFun.RunCam_IO(cam, sub_cam, strCamSer); }, TaskCreationOptions.LongRunning).Start();
                             Thread.Sleep(20);
                         }
                     }
@@ -866,11 +888,12 @@ namespace StaticFun
                 bool bContain = false;
                 if (TMData_Serializer._COMConfig.listIOSet.Count != 0)
                 {
-
                     for (int i = 0; i < TMData_Serializer._COMConfig.listIOSet.Count; i++)
                     {
                         IOSet io = TMData_Serializer._COMConfig.listIOSet[i];
-                        if (ioSet.camItem.cam == io.camItem.cam && ioSet.camItem.item == io.camItem.item)
+                        if (ioSet.camItem.cam == io.camItem.cam && ioSet.camItem.item == io.camItem.item &&
+                            ioSet.camItem.surfaceType == io.camItem.surfaceType && ioSet.camItem.type == io.camItem.type && io.camItem.sub_cam == ioSet.camItem.sub_cam
+                            )
                         {
                             TMData_Serializer._COMConfig.listIOSet[i] = ioSet;
                             bContain = true;
@@ -902,8 +925,8 @@ namespace StaticFun
                     for (int i = 0; i < TMData_Serializer._globalData.listLightCtrl.Count; i++)
                     {
                         LightCtrlSet orgLightSet = TMData_Serializer._globalData.listLightCtrl[i];
-                        if (lightCtrlSet.camItem.cam == orgLightSet.camItem.cam &&
-                            lightCtrlSet.camItem.item == orgLightSet.camItem.item)
+                        if (lightCtrlSet.camItem.cam == orgLightSet.camItem.cam && lightCtrlSet.camItem.item == orgLightSet.camItem.item &&
+                            lightCtrlSet.camItem.surfaceType == orgLightSet.camItem.surfaceType && lightCtrlSet.camItem.type == orgLightSet.camItem.type && orgLightSet.camItem.sub_cam == lightCtrlSet.camItem.sub_cam)
                         {
                             orgLightSet.CH = new bool[6];
                             orgLightSet.CH = lightCtrlSet.CH;
@@ -918,28 +941,7 @@ namespace StaticFun
                 {
                     TMData_Serializer._globalData.listLightCtrl.Add(lightCtrlSet);
                 }
-                //删除多余的项目，仅保留现在配置项
-                List<LightCtrlSet> lightCtrlSets = new List<LightCtrlSet>();
-                //foreach (int cam in TMData_Serializer._globalData.dicInspectList.Keys)
-                //{
-                //    CamInspectItem camitem = new CamInspectItem();
-                //    camitem.cam = cam;
-                //    foreach (InspectItem item in TMData_Serializer._globalData.dicInspectList[cam])
-                //    {
-                //        camitem.item = item;
-                //        for (int n = 0; n < TMData_Serializer._globalData.listLightCtrl.Count; n++)
-                //        {
-                //            if (cam == TMData_Serializer._globalData.listLightCtrl[n].camItem.cam &&
-                //                item == TMData_Serializer._globalData.listLightCtrl[n].camItem.item)
-                //            {
-                //                lightCtrlSets.Add(TMData_Serializer._globalData.listLightCtrl[n]);
-                //            }
-                //        }
-                //    }
-                //}
-                TMData_Serializer._globalData.listLightCtrl = new List<LightCtrlSet>();
-                TMData_Serializer._globalData.listLightCtrl = lightCtrlSets;
-
+                
                 var json = JsonConvert.SerializeObject(TMData_Serializer._COMConfig);
                 System.IO.File.WriteAllText(GlobalPath.SavePath.IOPath, json);
             }

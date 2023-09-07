@@ -15,33 +15,51 @@ namespace VisionPlatform
         string str_CamSer;                      //当前相机序列号
         int m_ncam;                             //当前相机
         bool bLoad = false;                     //是否在加载数据中
-        TMData.ConductorType type;              //导体类型
+        TMData.DetectionType type;              //导体类型
+        TMData.SurfaceType surfaceType;         //导体检测面
         public event LocationSetValueChangedEvenHandler LocationSetValueChanged;
         public void LocationSetValueChange(object sender, EventArgs e) => LocationSetValueChanged?.Invoke(sender, e);
 
 
-        public Conductor(int ncam, TMData.ConductorType type)
+        public Conductor(int ncam, TMData.DetectionType type, SurfaceType surfaceType)
         {
             InitializeComponent();
             this.type = type;
+            this.surfaceType = surfaceType;
             m_ncam = ncam;
             InitUI();
             UIConfig.RefreshFun(ncam, 0, ref Fun, ref TMFun, ref str_CamSer);
             LoadParam(type);
             LocationSetValueChanged += Inspect;
+            
         }
 
         private void InitUI()
         {
             try
             {
-                if(this.type ==  ConductorType.front)
+                if(this.surfaceType == SurfaceType.FirstSide)
                 {
-                    label_name.Text = "导体正面";
+                    if (this.type == DetectionType.male)
+                    {
+                        label_name.Text = "导体_一面_公头";
+                    }
+                    else
+                    {
+                        label_name.Text = "导体_一面_公头";
+                    }
+                    
                 }
                 else
                 {
-                    label_name.Text = "导体侧面";
+                    if (this.type == DetectionType.male)
+                    {
+                        label_name.Text = "导体_二面_公头";
+                    }
+                    else
+                    {
+                        label_name.Text = "导体_二面_公头";
+                    }
                 }
                 LocationSet_Head = new LocationSet(this)
                 {
@@ -90,7 +108,7 @@ namespace VisionPlatform
 
         }
 
-        private void LoadParam(TMData.ConductorType type)
+        private void LoadParam(TMData.DetectionType type)
         {
             ConductorParam param = new ConductorParam();
             try
@@ -118,12 +136,12 @@ namespace VisionPlatform
                 Fun.m_hWnd.ClearWindow();
                 Fun.m_hWnd.DispObj(Fun.m_hImage);
                 TimeSpan time_start = new TimeSpan(DateTime.Now.Ticks);
-                bool bResult = TMFun.Conductor(param, false, out var result);
+                bool bResult = TMFun.Conductor(param, false, out ConductorResult result);
 
             }
             catch (Exception ex)
             {
-                StaticFun.MessageFun.ShowMessage(ex.ToString());
+                MessageFun.ShowMessage(ex.ToString());
             }
         }
 

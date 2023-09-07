@@ -46,82 +46,90 @@ namespace VisionPlatform
                     //将json返回dynamic对象
                     string strConfigData = System.IO.File.ReadAllText(path);
                     var DynamicObject = JsonConvert.DeserializeObject<GlobalData.Config.InitConfig>(strConfigData);
-                    GlobalData.Config._InitConfig = DynamicObject;
-                    CamCommon.m_camBrand = GlobalData.Config._InitConfig.initConfig.camBrand;
-                    //导入公司名称
-                    string str_company = null;
-                    try
+                    if (DynamicObject != null)
                     {
-                        if (File.Exists(GlobalPath.SavePath.CompanyNamePath))
+                        GlobalData.Config._InitConfig = DynamicObject;
+                        CamCommon.m_camBrand = GlobalData.Config._InitConfig.initConfig.camBrand;
+                        //导入公司名称
+                        string str_company = null;
+                        try
                         {
-                            string strData = System.IO.File.ReadAllText(GlobalPath.SavePath.CompanyNamePath);
-                            strData = Registered.DESDecrypt(strData);
-                            var DynamicObject1 = JsonConvert.DeserializeObject<string>(strData);
-                            str_company = DynamicObject1;
+                            if (File.Exists(GlobalPath.SavePath.CompanyNamePath))
+                            {
+                                string strData = System.IO.File.ReadAllText(GlobalPath.SavePath.CompanyNamePath);
+                                strData = Registered.DESDecrypt(strData);
+                                var DynamicObject1 = JsonConvert.DeserializeObject<string>(strData);
+                                str_company = DynamicObject1;
+                            }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        ex.ToString();
-                        StaticFun.MessageFun.ShowMessage("公司名称导入出错。");
-                    }
-                    var main = new FormMainUI(str_company);
+                        catch (Exception ex)
+                        {
+                            ex.ToString();
+                            StaticFun.MessageFun.ShowMessage("公司名称导入出错。");
+                        }
+                        var main = new FormMainUI(str_company);
 
 #if DOG
-                    if (FindPort(0, ref DogPath) != 0)
-                    {
-                        MessageBox.Show("未找到加密狗,请插入加密狗后，再进行操作。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Environment.Exit(0);
-                    }
-                    else
-                    {
-                        Company = GetValue("Company", DogPath);
-                        Author = GetValue("Author", DogPath);
-                        ModeChar = GetValue("ModeChar", DogPath);
-                        Md5Value = GetValue("Md5", DogPath);
-                        SerserialNumber = GetValue("SerserialNumber", DogPath);
-                        GetOrder = GetValue("GetOrder", DogPath);
-                        GetState = GetValue("GetState", DogPath);
-                        GetAdaptImageSize = GetValue("GetAdaptImageSize", DogPath);
-                        GetAdministrator = GetValue("GetAdministrator", DogPath);
-                        GetEnvPathName = GetValue("GetEnvPathName", DogPath);
-                        var filed = GetValue("Filed", DogPath);
-                        var fsn = GetValue("FSN", DogPath);
-                        //从加密狗中加载公钥
-                        RSAKeyValues = new RSAKeyValue()
+                        if (FindPort(0, ref DogPath) != 0)
                         {
-                            Modulus = GetValue("GetModulus1", DogPath) + GetValue("GetModulus2", DogPath) + GetValue("GetModulus3", DogPath) + GetValue("GetModulus4", DogPath) + GetValue("GetModulus5", DogPath) + GetValue("GetModulus6", DogPath) + GetValue("GetModulus7", DogPath),
-                            D = GetValue("GetD1", DogPath) + GetValue("GetD2", DogPath) + GetValue("GetD3", DogPath) + GetValue("GetD4", DogPath),
-                            DP = GetValue("GetDP1", DogPath) + GetValue("GetDP2", DogPath) + GetValue("GetDP3", DogPath) + GetValue("GetDP4", DogPath) + GetValue("GetDP5", DogPath) + GetValue("GetDP6", DogPath),
-                            DQ = GetValue("GetDQ1", DogPath) + GetValue("GetDQ2", DogPath) + GetValue("GetDQ3", DogPath) + GetValue("GetDQ4", DogPath) + GetValue("GetDQ5", DogPath) + GetValue("GetDQ6", DogPath),
-                            Exponent = GetValue("GetExponent", DogPath),
-                            InverseQ = GetValue("GetInverseQ1", DogPath) + GetValue("GetInverseQ2", DogPath) + GetValue("GetInverseQ3", DogPath),
-                            P = GetValue("GetP1", DogPath) + GetValue("GetP2", DogPath) + GetValue("GetP3", DogPath) + GetValue("GetP4", DogPath) + GetValue("GetP5", DogPath),
-                            Q = GetValue("GetQ1", DogPath) + GetValue("GetQ2", DogPath) + GetValue("GetQ3", DogPath)
-                        };
-                        if (string.IsNullOrEmpty(Company) || string.IsNullOrEmpty(Author) || string.IsNullOrEmpty(ModeChar) || string.IsNullOrEmpty(Md5Value) || string.IsNullOrEmpty(SerserialNumber) || string.IsNullOrEmpty(GetOrder) || string.IsNullOrEmpty(GetState) || string.IsNullOrEmpty(GetAdaptImageSize))
-                        {
-                            MessageBox.Show("当前加密狗未经检验，请联系厂家进行出厂校验！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            Environment.Exit(0);
-                        }
-                        if (filed != "WiringHarness")
-                        {
-                            MessageBox.Show("当前加密狗不是此项目的，请联系厂家进行更改！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("未找到加密狗,请插入加密狗后，再进行操作。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             Environment.Exit(0);
                         }
                         else
                         {
-                            if (Md5Value.Equals(Encrypt(Company)))
+                            Company = GetValue("Company", DogPath);
+                            Author = GetValue("Author", DogPath);
+                            ModeChar = GetValue("ModeChar", DogPath);
+                            Md5Value = GetValue("Md5", DogPath);
+                            SerserialNumber = GetValue("SerserialNumber", DogPath);
+                            GetOrder = GetValue("GetOrder", DogPath);
+                            GetState = GetValue("GetState", DogPath);
+                            GetAdaptImageSize = GetValue("GetAdaptImageSize", DogPath);
+                            GetAdministrator = GetValue("GetAdministrator", DogPath);
+                            GetEnvPathName = GetValue("GetEnvPathName", DogPath);
+                            var filed = GetValue("Filed", DogPath);
+                            var fsn = GetValue("FSN", DogPath);
+                            //从加密狗中加载公钥
+                            RSAKeyValues = new RSAKeyValue()
                             {
-                                var rsaScurity = @"D:\Program Files\VisionPlatform\License.lic".DeserializeData<byte[]>();
-                                if (rsaScurity != null)
+                                Modulus = GetValue("GetModulus1", DogPath) + GetValue("GetModulus2", DogPath) + GetValue("GetModulus3", DogPath) + GetValue("GetModulus4", DogPath) + GetValue("GetModulus5", DogPath) + GetValue("GetModulus6", DogPath) + GetValue("GetModulus7", DogPath),
+                                D = GetValue("GetD1", DogPath) + GetValue("GetD2", DogPath) + GetValue("GetD3", DogPath) + GetValue("GetD4", DogPath),
+                                DP = GetValue("GetDP1", DogPath) + GetValue("GetDP2", DogPath) + GetValue("GetDP3", DogPath) + GetValue("GetDP4", DogPath) + GetValue("GetDP5", DogPath) + GetValue("GetDP6", DogPath),
+                                DQ = GetValue("GetDQ1", DogPath) + GetValue("GetDQ2", DogPath) + GetValue("GetDQ3", DogPath) + GetValue("GetDQ4", DogPath) + GetValue("GetDQ5", DogPath) + GetValue("GetDQ6", DogPath),
+                                Exponent = GetValue("GetExponent", DogPath),
+                                InverseQ = GetValue("GetInverseQ1", DogPath) + GetValue("GetInverseQ2", DogPath) + GetValue("GetInverseQ3", DogPath),
+                                P = GetValue("GetP1", DogPath) + GetValue("GetP2", DogPath) + GetValue("GetP3", DogPath) + GetValue("GetP4", DogPath) + GetValue("GetP5", DogPath),
+                                Q = GetValue("GetQ1", DogPath) + GetValue("GetQ2", DogPath) + GetValue("GetQ3", DogPath)
+                            };
+                            if (string.IsNullOrEmpty(Company) || string.IsNullOrEmpty(Author) || string.IsNullOrEmpty(ModeChar) || string.IsNullOrEmpty(Md5Value) || string.IsNullOrEmpty(SerserialNumber) || string.IsNullOrEmpty(GetOrder) || string.IsNullOrEmpty(GetState) || string.IsNullOrEmpty(GetAdaptImageSize))
+                            {
+                                MessageBox.Show("当前加密狗未经检验，请联系厂家进行出厂校验！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                Environment.Exit(0);
+                            }
+                            if (filed != "WiringHarness")
+                            {
+                                MessageBox.Show("当前加密狗不是此项目的，请联系厂家进行更改！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                Environment.Exit(0);
+                            }
+                            else
+                            {
+                                if (Md5Value.Equals(Encrypt(Company)))
                                 {
-                                    if (rsaScurity.GetString().Equals(Encrypt(RSAKeyValues.P.GetByte().GetString())))
+                                    var rsaScurity = @"D:\Program Files\VisionPlatform\License.lic".DeserializeData<byte[]>();
+                                    if (rsaScurity != null)
                                     {
-                                        GetParameter = Analyze(ModeChar, SerserialNumber, Author);
-                                        if (fsn.Equals(Encrypt(filed + GetParameter)))
+                                        if (rsaScurity.GetString().Equals(Encrypt(RSAKeyValues.P.GetByte().GetString())))
                                         {
-                                            Application.Run(main);
+                                            GetParameter = Analyze(ModeChar, SerserialNumber, Author);
+                                            if (fsn.Equals(Encrypt(filed + GetParameter)))
+                                            {
+                                                Application.Run(main);
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("当前加密狗未经授权，请联系厂家进行授权使用！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                Environment.Exit(0);
+                                            }
                                         }
                                         else
                                         {
@@ -131,20 +139,18 @@ namespace VisionPlatform
                                     }
                                     else
                                     {
-                                        MessageBox.Show("当前加密狗未经授权，请联系厂家进行授权使用！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        MessageBox.Show("当前找不到许可证文件，请联系厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         Environment.Exit(0);
                                     }
                                 }
-                                else
-                                {
-                                    MessageBox.Show("当前找不到许可证文件，请联系厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    Environment.Exit(0);
-                                }
                             }
                         }
-                    }
 #endif
-
+                    }
+                    else
+                    {
+                        Application.Run(new FormUIConfig());
+                    }
                 }
                 else
                 {

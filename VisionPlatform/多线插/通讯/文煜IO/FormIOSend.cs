@@ -17,19 +17,24 @@ namespace VisionPlatform
         string m_strCheckItem;
         TMData.CamInspectItem m_camItem;
         bool is_Load = false;
+        TMData.SurfaceType surfaceType;
+        TMData.DetectionType type;
         /// <summary>
         /// 相机及其对应的检测项目的IO输出信号
         /// </summary>
         /// <param name="cam"></param>   相机
         /// <param name="strCheckItem"></param> string类型的检测项名称
         /// <param name="inspectItem"></param>enum类型的检测项名称
-        public FormIOSend(int cam, string strCheckItem, TMData.InspectItem inspectItem)
+        public FormIOSend(int cam, int sub_cam, TMData.InspectItem inspectItem, TMData.SurfaceType surfaceType = default, TMData.DetectionType type = default)
         {
             InitializeComponent();
-            InitUI();
             m_camItem.cam = cam;
+            m_camItem.sub_cam = sub_cam;
             m_camItem.item = inspectItem;
-            m_strCheckItem = strCheckItem;
+            this.surfaceType = surfaceType;
+            this.type = type;
+            InitUI();
+            
             this.Text = "相机" + cam.ToString() + "【" + m_strCheckItem + "】I/O输出点位配置";
         }
 
@@ -92,7 +97,8 @@ namespace VisionPlatform
                 {
 
                     IOSet io = TMData_Serializer._COMConfig.listIOSet[n];
-                    if (io.camItem.cam == m_camItem.cam && io.camItem.item == m_camItem.item)
+                    if (io.camItem.cam == m_camItem.cam && io.camItem.item == m_camItem.item &&
+                        io.camItem.surfaceType == surfaceType && io.camItem.type == type && io.camItem.sub_cam == m_camItem.sub_cam)
                     {
                         label_PreSendOK.Text = io.send.sendOK.ToString();
                         label_PreSendNG.Text = io.send.sendNG.ToString();
@@ -149,6 +155,8 @@ namespace VisionPlatform
                 ioSet.camItem = m_camItem;
                 ioSet.send.bSendOK = checkBox_OK.Checked;
                 ioSet.send.bSendNG = checkBox_NG.Checked;
+                ioSet.camItem.surfaceType = this.surfaceType;
+                ioSet.camItem.type = this.type;
                 if (-1 != comboBox_OK.SelectedIndex)
                 {
                     ioSet.send.sendOK = comboBox_OK.SelectedIndex;
@@ -161,7 +169,8 @@ namespace VisionPlatform
                 ioSet.send.nSleep = (int)numUpD_Sleep.Value;
                 foreach (IOSet io in TMData_Serializer._COMConfig.listIOSet)
                 {
-                    if (io.camItem.cam == m_camItem.cam && io.camItem.item == m_camItem.item)
+                    if (io.camItem.cam == m_camItem.cam && io.camItem.item == m_camItem.item &&
+                        io.camItem.surfaceType == surfaceType && io.camItem.type == type && io.camItem.sub_cam == m_camItem.sub_cam)
                     {
                         ioSet.read = io.read;
                     }

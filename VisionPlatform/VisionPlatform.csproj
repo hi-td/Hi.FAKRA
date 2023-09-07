@@ -77,8 +77,7 @@
     <StartupObject>VisionPlatform.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>20210125022420555_easyicon_net_96.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -281,6 +280,12 @@
       <DependentUpon>FormLedSet.cs</DependentUpon>
     </Compile>
     <Compile Include="多线插\通讯\光源控制器\LEDSet.cs" />
+    <Compile Include="多线插\通讯\文煜IO\FormIOGet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="多线插\通讯\文煜IO\FormIOGet.Designer.cs">
+      <DependentUpon>FormIOGet.cs</DependentUpon>
+    </Compile>
     <Compile Include="多线插\通讯\文煜IO\FormIOSend.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -531,6 +536,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="多线插\通讯\光源控制器\FormLedSet.resx">
       <DependentUpon>FormLedSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\通讯\文煜IO\FormIOGet.en-US.resx">
+      <DependentUpon>FormIOGet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="多线插\通讯\文煜IO\FormIOGet.resx">
+      <DependentUpon>FormIOGet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="多线插\通讯\文煜IO\FormIOSend.resx">
       <DependentUpon>FormIOSend.cs</DependentUpon>

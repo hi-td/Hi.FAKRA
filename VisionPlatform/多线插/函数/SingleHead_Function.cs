@@ -42,6 +42,142 @@ namespace VisionPlatform
         }
         ~TMFunction() { }
 
+        public static void GetSurfaceType(string strSel, out SurfaceType surfaceType)
+        {
+            surfaceType = new SurfaceType();
+            try
+            {
+                switch (strSel)
+                {
+                    case "一面":
+                        surfaceType = SurfaceType.FirstSide;
+                        break;
+                    case "二面":
+                        surfaceType = SurfaceType.SecondSide;
+                        break;
+                    case "三面":
+                        surfaceType = SurfaceType.ThirdSide;
+                        break;
+                    case "四面":
+                        surfaceType = SurfaceType.FourthSide;
+                        break;
+                    default:
+                        surfaceType = SurfaceType.Defult;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToString().ToLog();
+            }
+        }
+
+        public static void GetDetectionType(string strSel, out DetectionType detectionType)
+        {
+            detectionType = new DetectionType();
+            try
+            {
+                switch (strSel)
+                {
+                    case "公头":
+                        detectionType = DetectionType.male;
+                        break;
+                    case "母头":
+                        detectionType = DetectionType.female;
+                        break;
+                    default:
+                        detectionType = DetectionType.Defult;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToString().ToLog();
+            }
+        }
+
+        public static void GetCheckItem(string strSel, out InspectItem item)
+        {
+            item = new InspectItem();
+            try
+            {
+                switch (strSel)
+                {
+                    case "剥皮检测":
+                        item = InspectItem.StripLen;
+                        break;
+                    case "端子检测":
+                        item = InspectItem.TM;
+                        break;
+                    case "导体检测":
+                        item = InspectItem.Conductor;
+                        break;
+                    case "同心度检测":
+                        item = InspectItem.Concentricity;
+                        break;
+                    default:
+                        item = InspectItem.Defult;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToString().ToLog();
+            }
+        }
+        public static string GetStrSurfaceType(SurfaceType surfaceType)
+        {
+            string str = ""; 
+            try
+            {
+                switch (surfaceType)
+                {
+                    case SurfaceType.FirstSide:
+                        str = "一面";
+                        break;
+                    case SurfaceType.SecondSide:
+                        str = "二面";
+                        break;
+                    case SurfaceType.ThirdSide:
+                        str = "三面";
+                        break;
+                    case SurfaceType.FourthSide:
+                        str = "四面";
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToString().ToLog();
+            }
+            return str;
+        }
+        public static string GetStrDetectionType(DetectionType detectionType)
+        {
+            string str = "";
+            try
+            {
+                switch (detectionType)
+                {
+                    case DetectionType.male:
+                        str = "公头";
+                        break;
+                    case DetectionType.female:
+                        str = "母头";
+                        break;
+                    default:
+                        str = "";
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToString().ToLog();
+            }
+            return str;
+        }
         public static string GetStrCheckItem(InspectItem item)
         {
             string str = "";
@@ -59,7 +195,7 @@ namespace VisionPlatform
                 {
                     str = "导体检测";
                 }
-                else if (item == InspectItem.Concentricity_female || item == InspectItem.Concentricity_male)
+                else if (item == InspectItem.Concentricity)
                 {
                     str = "同心度检测";
                 }
@@ -70,6 +206,8 @@ namespace VisionPlatform
             }
             return str;
         }
+
+
         public void InitPicBox(Dictionary<string, PictureBox> pictureBox)
         {
 
@@ -151,31 +289,12 @@ namespace VisionPlatform
 
             }
         }
-        public static TMData.InspectItem GetEnumCheckItem(string str)
+        public static TMData.CamInspectItem GetEnumCheckItem(TreeNode str)
         {
-            TMData.InspectItem item = new InspectItem();
+            TMData.CamInspectItem item = new CamInspectItem();
             try
             {
-                if (str == "剥皮检测")
-                {
-                    item = InspectItem.StripLen;
-                }
-                else if (str == "端子检测")
-                {
-                    item = InspectItem.TM;
-                }
-                else if (str == "导体检测")
-                {
-                    item = InspectItem.Conductor;
-                }
-                else if (str == "母头")
-                {
-                    item = InspectItem.Concentricity_female;
-                }
-                else if (str == "公头")
-                {
-                    item = InspectItem.Concentricity_male;
-                }
+                
             }
             catch (SystemException error)
             {
@@ -245,25 +364,21 @@ namespace VisionPlatform
                         for (int i = 0; i < TMData_Serializer._globalData.listLightCtrl.Count; i++)
                         {
                             LightCtrlSet orgLightSet = TMData_Serializer._globalData.listLightCtrl[i];
-                            if (camItem.cam == orgLightSet.camItem.cam)
+                            if (camItem.cam == orgLightSet.camItem.cam && camItem.item == orgLightSet.camItem.item && 
+                                camItem.sub_cam == orgLightSet.camItem.sub_cam && camItem.surfaceType == orgLightSet.camItem.surfaceType &&
+                                camItem.type == orgLightSet.camItem.type)
                             {
-                                if (camItem.item == orgLightSet.camItem.item)
+                                if (null == orgLightSet.CH) return;
+                                for (int n = 0; n < orgLightSet.CH.Length; n++)
                                 {
-                                    //if (TMData_Serializer._globalData.dicInspectList[camItem.cam].Contains(camItem.item))
-                                    //{
-                                    //    if (null == orgLightSet.CH) return;
-                                    //    for (int n = 0; n < orgLightSet.CH.Length; n++)
-                                    //    {
-                                    //        if (orgLightSet.CH[n])
-                                    //        {
-                                    //            openLED.Add(n + 1, orgLightSet.nBrightness[n]);
-                                    //        }
-                                    //        else
-                                    //        {
-                                    //            closeLED.Add(n + 1, orgLightSet.nBrightness[n]);
-                                    //        }
-                                    //    }
-                                    //}
+                                    if (orgLightSet.CH[n])
+                                    {
+                                        openLED.Add(n + 1, orgLightSet.nBrightness[n]);
+                                    }
+                                    else
+                                    {
+                                        closeLED.Add(n + 1, orgLightSet.nBrightness[n]);
+                                    }
                                 }
                             }
                         }
@@ -326,28 +441,41 @@ namespace VisionPlatform
 
         }
 
-        public void GetIOPoint(CamInspectItem camItem, out int readIO, out IOSend sendIO)
+        /// <summary>
+        /// 获取通讯点位
+        /// </summary>
+        /// <param name="camItem">检测项</param>
+        /// <param name="io_value">IO输入值</param>
+        /// <param name="io_send">IO输出值</param>
+        public void GetIOPoint(CamInspectItem camItem,out long io_value, out TMData.IOSend io_send)
         {
-            readIO = -1;
-            sendIO = new IOSend();
-            sendIO.sendOK = -1;
-            sendIO.sendNG = -1;
+            io_value = -1L;
+            io_send = new TMData.IOSend();
             try
             {
-                bool bContains = false;
-                foreach (IOSet ioSet in TMData_Serializer._COMConfig.listIOSet)
+                if (TMData_Serializer._COMConfig.listIOSet.Count != 0)
                 {
-                    if (ioSet.camItem.cam == camItem.cam && ioSet.camItem.item == camItem.item)
+                    bool bContains = false;
+                    foreach (IOSet io in TMData_Serializer._COMConfig.listIOSet)
                     {
-                        readIO = ioSet.read;
-                        sendIO = ioSet.send;
-                        bContains = true;
+                        if (io.camItem.cam == camItem.cam && io.camItem.item == camItem.item && io.camItem.surfaceType == camItem.surfaceType &&
+                            io.camItem.type == camItem.type && io.camItem.sub_cam == camItem.sub_cam)
+                        {
+                            io_value = io.read;
+                            io_send = io.send;
+                            bContains = true;
+                            break;
+                        }
+                    }
+                    if (!bContains)
+                    {
+                        StaticFun.MessageFun.ShowMessage("相机" + camItem.cam.ToString() + "无【" + GetStrCheckItem(camItem.item) + "】IO配置！");
+                        return;
                     }
                 }
-                if (!bContains)
+                else
                 {
-                    StaticFun.MessageFun.ShowMessage("相机" + camItem.cam.ToString() + "无【" + GetStrCheckItem(camItem.item) + "】IO配置！");
-                    return;
+                    MessageBox.Show("请先设置通讯！");
                 }
             }
             catch (Exception ex)
@@ -356,174 +484,81 @@ namespace VisionPlatform
                 StaticFun.MessageFun.ShowMessage("获取相机" + camItem.cam.ToString() + "【" + GetStrCheckItem(camItem.item) + "】IO点位错误：" + ex.ToString());
             }
         }
-        public void RunCam_IO(int cam, string strCamSer)
+        public void RunCam_IO(int cam,int sub_cam, string strCamSer)
         {
-            int bit1 = -1, bit2 = -1, bit3 = -1, bit4 = -1, bit5 = -1;
-            bool BTF1 = false;
-            bool BTF2 = false;
-            bool BTF3 = false;
-            bool BTF4 = false;
-            bool BTF5 = false;
-            TMData.CamInspectItem camItem1_stripLen = new TMData.CamInspectItem();
-            TMData.CamInspectItem camItem1_Rubber = new TMData.CamInspectItem();
-            TMData.CamInspectItem camItem1_TM = new TMData.CamInspectItem();
-            TMData.CamInspectItem camItem1_LineColor = new TMData.CamInspectItem();
-            TMData.CamInspectItem camItem1_CoreNum = new TMData.CamInspectItem();
-            Dictionary<int, int> dicCH_open_stripLen = new Dictionary<int, int>();
-            Dictionary<int, int> dicCH_open_Rubber = new Dictionary<int, int>();
-            Dictionary<int, int> dicCH_open_TM = new Dictionary<int, int>();
-            Dictionary<int, int> dicCH_open_LineColor = new Dictionary<int, int>();
-            Dictionary<int, int> dicCH_open_CoreNum = new Dictionary<int, int>();
-            Dictionary<int, int> dicCH_close_stripLen = new Dictionary<int, int>();
-            Dictionary<int, int> dicCH_close_Rubber = new Dictionary<int, int>();
-            Dictionary<int, int> dicCH_close_TM = new Dictionary<int, int>();
-            Dictionary<int, int> dicCH_close_LineColor = new Dictionary<int, int>();
-            Dictionary<int, int> dicCH_close_CoreNum = new Dictionary<int, int>();
+            bool BTF = false;
             object lc_write = new object();
-            bool[] bCheckList = new bool[5];
-            int[] readIO = new int[5];
-            TMData.IOSend[] sendIO = new TMData.IOSend[5];
+
+
+            Dictionary<long, TMData.AutoRunData> readIO = new Dictionary<long, TMData.AutoRunData>();
+            List<InspectItemAll>  dicInspectLists = TMData_Serializer._globalData.dicInspectLists[cam][sub_cam];
+            if (dicInspectLists.Count != 0)
+            {
+                foreach (InspectItemAll InspectLists in dicInspectLists)
+                {
+                    foreach (KeyValuePair<InspectItem, Dictionary<SurfaceType, List<DetectionType>>> LInspect in InspectLists.data)
+                    {
+                        foreach (KeyValuePair<SurfaceType, List<DetectionType>> LSurfaceType in LInspect.Value)
+                        {
+                            SurfaceType surfaceType = LSurfaceType.Key;
+                            foreach (DetectionType type in LSurfaceType.Value)
+                            {
+                                CamInspectItem Item = new CamInspectItem();
+                                TMData.AutoRunData autoRunData = new TMData.AutoRunData()
+                                {
+                                    CamInspectItem = new CamInspectItem(),
+                                    iOSend = new IOSend(),
+                                    open_LED = new Dictionary<int, int>(),
+                                    close_LED = new Dictionary<int, int>(),
+                                };
+                                Item.cam = cam;
+                                Item.sub_cam = sub_cam;
+                                Item.item = LInspect.Key;
+                                Item.surfaceType = surfaceType;
+                                Item.type = type;
+                                //获取信号
+                                GetIOPoint(Item, out long read_value,out IOSend io_send);
+                                //光源控制
+                                GetLightCH(Item, out Dictionary<int, int> open_LED, out Dictionary<int, int> close_LED);
+                                autoRunData.CamInspectItem = Item;
+                                autoRunData.iOSend = io_send;
+                                autoRunData.open_LED = open_LED;
+                                autoRunData.close_LED = close_LED;
+                                //添加数据
+                                readIO.Add(read_value, autoRunData);
+                            }
+                        }
+                    }
+                }
+            }
+            
+
 
             try
             {
-                camItem1_stripLen.cam = cam;
-                camItem1_Rubber.cam = cam;
-                camItem1_TM.cam = cam;
-                camItem1_LineColor.cam = cam;
-                camItem1_CoreNum.cam = cam;
-                //if (!TMData_Serializer._globalData.dicInspectList.ContainsKey(cam))
-                //{
-                //    StaticFun.MessageFun.ShowMessage("未给相机" + cam.ToString() + "配置检测项！");
-                //    return;
-                //}
-                List<TMData.InspectItem> listItems = new(); //TMData_Serializer._globalData.dicInspectList[cam];
-                //LEDSet.SetLEDCH(cam, out int[] nSetLed, out Dictionary<int, List<int>> nDelLed);
-                foreach (TMData.InspectItem item in listItems)
-                {
-                    //if (item == TMData.InspectItem.StripLen)
-                    //{
-                    //    bCheckList[0] = true;
-                    //    camItem1_stripLen.item = TMData.InspectItem.StripLen;
-                    //    GetIOPoint(camItem1_stripLen, out readIO[0], out sendIO[0]);
-                    //    //光源控制
-                    //    GetLightCH(camItem1_stripLen, out dicCH_open_stripLen, out dicCH_close_stripLen);
-                    //}
-                    //if (item == TMData.InspectItem.Rubber)
-                    //{
-                    //    bCheckList[1] = true;
-                    //    camItem1_Rubber.item = TMData.InspectItem.Rubber;
-                    //    GetIOPoint(camItem1_Rubber, out readIO[1], out sendIO[1]);
-                    //    //光源控制
-                    //    GetLightCH(camItem1_Rubber, out dicCH_open_Rubber, out dicCH_close_Rubber);
-                    //}
-                    //if (item == TMData.InspectItem.TM)
-                    //{
-                    //    bCheckList[2] = true;
-                    //    camItem1_TM.item = TMData.InspectItem.TM;
-                    //    GetIOPoint(camItem1_TM, out readIO[2], out sendIO[2]);
-                    //    //光源控制
-                    //    GetLightCH(camItem1_TM, out dicCH_open_TM, out dicCH_close_TM);
-                    //}
-                    //if (item == TMData.InspectItem.LineColor)
-                    //{
-                    //    bCheckList[3] = true;
-                    //    camItem1_LineColor.item = TMData.InspectItem.LineColor;
-                    //    GetIOPoint(camItem1_LineColor, out readIO[3], out sendIO[3]);
-                    //    //光源控制
-                    //    GetLightCH(camItem1_LineColor, out dicCH_open_LineColor, out dicCH_close_LineColor);
-                    //}
-                    if (item == TMData.InspectItem.Concentricity_female)
-                    {
-                        bCheckList[4] = true;
-                        camItem1_CoreNum.item = TMData.InspectItem.Concentricity_female;
-                        GetIOPoint(camItem1_CoreNum, out readIO[4], out sendIO[4]);
-                        //光源控制
-                        GetLightCH(camItem1_CoreNum, out dicCH_open_CoreNum, out dicCH_close_CoreNum);
-                    }
-                }
                 while (isAuto)
                 {
-                    //lock (lc_write)
-                    //{
-                    //剥皮检测
-                    if (bCheckList[0] && 0 == WENYU.ReadIO(readIO[0], ref bit1))
+                    lock (lc_write)
                     {
-                        if (bit1 == 0 && !BTF1)
+                        long InputData = -1L;
+                        if(WENYU.Read_IO(ref InputData) == 0)
                         {
-                            BTF1 = true;
-                            SetLED(dicCH_open_stripLen, dicCH_close_stripLen);
-                            Inspect(camItem1_stripLen, strCamSer, sendIO[0]);
-                            LEDOff(dicCH_open_stripLen);
+                            if (readIO.ContainsKey(InputData) && !BTF)
+                            {
+                                BTF = true;
+                                AutoRunData autoRunData = readIO[InputData];
+                                SetLED(autoRunData.open_LED,autoRunData.close_LED);
+                                Inspect(autoRunData.CamInspectItem, strCamSer, autoRunData.iOSend);
+                                LEDOff(autoRunData.open_LED);
+                            }
                         }
-                        else if (bit1 == 1)
+                        else if (InputData == 0)
                         {
-                            BTF1 = false;
-                        }
-
-                    }
-                    //插壳检测
-                    if (bCheckList[1] && 0 == WENYU.ReadIO(readIO[1], ref bit2))
-                    {
-                        if (bit2 == 0 && !BTF2)
-                        {
-                            BTF2 = true;
-                            SetLED(dicCH_open_Rubber, dicCH_close_Rubber);
-                            Inspect(camItem1_Rubber, strCamSer, sendIO[1]);
-                            LEDOff(dicCH_open_Rubber);
-                        }
-                        else if (bit2 == 1)
-                        {
-                            BTF2 = false;
+                            BTF = false;
                         }
                     }
-                    //打端检测
-                    if (bCheckList[2] && 0 == WENYU.ReadIO(readIO[2], ref bit3))
-                    {
-                        if (bit3 == 0 && !BTF3)
-                        {
-                            BTF3 = true;
-                            SetLED(dicCH_open_TM, dicCH_close_TM);
-                            Inspect(camItem1_TM, strCamSer, sendIO[2]);
-                            LEDOff(dicCH_open_TM);
-                        }
-                        else if (bit3 == 1)
-                        {
-                            BTF3 = false;
-                        }
-                    }
-                    //线序检测
-                    if (bCheckList[3] && 0 == WENYU.ReadIO(readIO[3], ref bit4))
-                    {
-                        if (bit4 == 0 && !BTF4)
-                        {
-                            BTF4 = true;
-                            SetLED(dicCH_open_LineColor, dicCH_close_LineColor);
-                            Inspect(camItem1_LineColor, strCamSer, sendIO[3]);
-                            LEDOff(dicCH_open_LineColor);
-                        }
-                        else if (bit4 == 1)
-                        {
-                            BTF4 = false;
-                        }
-                    }
-                    //芯线数量
-                    if (bCheckList[4] && 0 == WENYU.ReadIO(readIO[4], ref bit5))
-                    {
-                        if (bit5 == 0 && !BTF5)
-                        {
-                            BTF5 = true;
-                            SetLED(dicCH_open_CoreNum, dicCH_close_CoreNum);
-                            Inspect(camItem1_CoreNum, strCamSer, sendIO[4]);
-                            LEDOff(dicCH_open_CoreNum);
-                        }
-                        else if (bit5 == 1)
-                        {
-                            BTF5 = false;
-                        }
-                    }
-                }
                 Thread.Sleep(2);
-                //}
+                }
             }
             catch (SystemException error)
             {

@@ -38,11 +38,17 @@ namespace VisionPlatform
         FormImageColorTrans formImageColorTrans;                      //图像颜色空间转换
         Rect1 m_rect1Crimpheight;                              //压接高度检测区域
         Rect1 m_rect1Crimpwidth;                            //压接宽度检测区域
+        TMData.DetectionType type;              //端子类型
+        TMData.SurfaceType surfaceType;         //端子检测面
+
+
 
         private bool TorF = false;
-        public FormFAKRA(int ncam, int sub_cam)
+        public FormFAKRA(int ncam, int sub_cam,DetectionType type,SurfaceType surfaceType)
         {
             InitializeComponent();
+            this.type = type;
+            this.surfaceType = surfaceType;
             m_ncam = ncam;
             this.sub_cam = sub_cam;
             UIConfig.RefreshFun(ncam, sub_cam, ref Fun, ref TMFun, ref str_CamSer);

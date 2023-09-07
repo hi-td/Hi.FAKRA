@@ -8,11 +8,15 @@ namespace VisionPlatform
     public partial class FormLightCH : Form
     {
         bool isLoad = true;
-        CamInspectItem m_camItem = new CamInspectItem();
-        public FormLightCH(CamInspectItem camitem)
+        CamInspectItem m_camItem;
+        public FormLightCH(int cam, int sub_cam, TMData.InspectItem inspectItem, TMData.SurfaceType surfaceType = default, TMData.DetectionType type = default)
         {
             InitializeComponent();
-            m_camItem = camitem;
+            m_camItem.cam = cam;
+            m_camItem.sub_cam = sub_cam;
+            m_camItem.item = inspectItem;
+            m_camItem.surfaceType = surfaceType;
+            m_camItem.type = type;
             InitUI();
         }
 
@@ -65,6 +69,9 @@ namespace VisionPlatform
                 {
                     param.camItem.cam = m_camItem.cam;
                     param.camItem.item = m_camItem.item;
+                    param.camItem.sub_cam = m_camItem.sub_cam;
+                    param.camItem.surfaceType = m_camItem.surfaceType;
+                    param.camItem.type = m_camItem.type;
                     if (checkBox1.Checked)
                     {
                         param.CH[0] = true;
@@ -137,12 +144,12 @@ namespace VisionPlatform
                     for (int i = 0; i < TMData_Serializer._globalData.listLightCtrl.Count; i++)
                     {
                         LightCtrlSet lightCtrl = TMData_Serializer._globalData.listLightCtrl[i];
-                        if (m_camItem.cam == lightCtrl.camItem.cam && m_camItem.item == lightCtrl.camItem.item)
+                        if (m_camItem.cam == lightCtrl.camItem.cam && m_camItem.item == lightCtrl.camItem.item &&
+                            m_camItem.sub_cam == lightCtrl.camItem.sub_cam && m_camItem.type == lightCtrl.camItem.type &&
+                            m_camItem.surfaceType == lightCtrl.camItem.surfaceType)
                         {
                             if (null != lightCtrl.CH)
                             {
-
-
                                 if (lightCtrl.CH[0])
                                 {
                                     checkBox1.Checked = true;

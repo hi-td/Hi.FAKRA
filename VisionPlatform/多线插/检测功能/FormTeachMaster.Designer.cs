@@ -41,14 +41,29 @@ namespace VisionPlatform
             this.label_SelCam = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem_Add = new System.Windows.Forms.ToolStripMenuItem();
-            this.剥皮检测 = new System.Windows.Forms.ToolStripMenuItem();
-            this.插壳检测 = new System.Windows.Forms.ToolStripMenuItem();
-            this.打端检测 = new System.Windows.Forms.ToolStripMenuItem();
-            this.导体_正面 = new System.Windows.Forms.ToolStripMenuItem();
-            this.导体_侧面 = new System.Windows.Forms.ToolStripMenuItem();
+            this.端子检测 = new System.Windows.Forms.ToolStripMenuItem();
+            this.端子_一面 = new System.Windows.Forms.ToolStripMenuItem();
+            this.端子_一面_公头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.端子_一面_母头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.端子_二面 = new System.Windows.Forms.ToolStripMenuItem();
+            this.端子_二面_公头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.端子_二面_母头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.端子_三面 = new System.Windows.Forms.ToolStripMenuItem();
+            this.端子_三面_公头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.端子_三面_母头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.端子_四面 = new System.Windows.Forms.ToolStripMenuItem();
+            this.端子_四面_公头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.端子_四面_母头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.导体检测 = new System.Windows.Forms.ToolStripMenuItem();
+            this.导体_一面 = new System.Windows.Forms.ToolStripMenuItem();
+            this.导体_一面_公头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.导体_一面_母头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.导体_二面 = new System.Windows.Forms.ToolStripMenuItem();
+            this.导体_二面_公头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.导体_二面_母头 = new System.Windows.Forms.ToolStripMenuItem();
             this.同心度检测 = new System.Windows.Forms.ToolStripMenuItem();
-            this.公头 = new System.Windows.Forms.ToolStripMenuItem();
-            this.母头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.同心度_公头 = new System.Windows.Forms.ToolStripMenuItem();
+            this.同心度_母头 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.ts_But_close = new System.Windows.Forms.ToolStripButton();
             this.ts_Label_cam = new System.Windows.Forms.ToolStripLabel();
@@ -187,75 +202,193 @@ namespace VisionPlatform
             // toolStripMenuItem_Add
             // 
             this.toolStripMenuItem_Add.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.剥皮检测,
-            this.插壳检测,
-            this.打端检测,
+            this.端子检测,
+            this.导体检测,
             this.同心度检测});
             this.toolStripMenuItem_Add.Name = "toolStripMenuItem_Add";
             this.toolStripMenuItem_Add.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem_Add.Text = "添加";
             // 
-            // 剥皮检测
+            // 端子检测
             // 
-            this.剥皮检测.Name = "剥皮检测";
-            this.剥皮检测.Size = new System.Drawing.Size(180, 22);
-            this.剥皮检测.Text = "剥皮检测";
-            this.剥皮检测.Click += new System.EventHandler(this.AddCheckItem);
+            this.端子检测.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.端子_一面,
+            this.端子_二面,
+            this.端子_三面,
+            this.端子_四面});
+            this.端子检测.Name = "端子检测";
+            this.端子检测.Size = new System.Drawing.Size(180, 22);
+            this.端子检测.Text = "端子检测";
             // 
-            // 插壳检测
+            // 端子_一面
             // 
-            this.插壳检测.Name = "插壳检测";
-            this.插壳检测.Size = new System.Drawing.Size(180, 22);
-            this.插壳检测.Text = "端子检测";
-            this.插壳检测.Click += new System.EventHandler(this.AddCheckItem);
+            this.端子_一面.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.端子_一面_公头,
+            this.端子_一面_母头});
+            this.端子_一面.Name = "端子_一面";
+            this.端子_一面.Size = new System.Drawing.Size(180, 22);
+            this.端子_一面.Text = "一面";
             // 
-            // 打端检测
+            // 端子_一面_公头
             // 
-            this.打端检测.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.导体_正面,
-            this.导体_侧面});
-            this.打端检测.Name = "打端检测";
-            this.打端检测.Size = new System.Drawing.Size(180, 22);
-            this.打端检测.Text = "导体检测";
-            this.打端检测.Click += new System.EventHandler(this.AddCheckItem);
+            this.端子_一面_公头.Name = "端子_一面_公头";
+            this.端子_一面_公头.Size = new System.Drawing.Size(180, 22);
+            this.端子_一面_公头.Text = "公头";
+            this.端子_一面_公头.Click += new System.EventHandler(this.AddCheckItem);
             // 
-            // 导体_正面
+            // 端子_一面_母头
             // 
-            this.导体_正面.Name = "导体_正面";
-            this.导体_正面.Size = new System.Drawing.Size(180, 22);
-            this.导体_正面.Text = "正面";
-            this.导体_正面.Click += new System.EventHandler(this.AddCheckItem);
+            this.端子_一面_母头.Name = "端子_一面_母头";
+            this.端子_一面_母头.Size = new System.Drawing.Size(180, 22);
+            this.端子_一面_母头.Text = "母头";
+            this.端子_一面_母头.Click += new System.EventHandler(this.AddCheckItem);
             // 
-            // 导体_侧面
+            // 端子_二面
             // 
-            this.导体_侧面.Name = "导体_侧面";
-            this.导体_侧面.Size = new System.Drawing.Size(180, 22);
-            this.导体_侧面.Text = "侧面";
-            this.导体_侧面.Click += new System.EventHandler(this.AddCheckItem);
+            this.端子_二面.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.端子_二面_公头,
+            this.端子_二面_母头});
+            this.端子_二面.Name = "端子_二面";
+            this.端子_二面.Size = new System.Drawing.Size(180, 22);
+            this.端子_二面.Text = "二面";
+            // 
+            // 端子_二面_公头
+            // 
+            this.端子_二面_公头.Name = "端子_二面_公头";
+            this.端子_二面_公头.Size = new System.Drawing.Size(180, 22);
+            this.端子_二面_公头.Text = "公头";
+            this.端子_二面_公头.Click += new System.EventHandler(this.AddCheckItem);
+            // 
+            // 端子_二面_母头
+            // 
+            this.端子_二面_母头.Name = "端子_二面_母头";
+            this.端子_二面_母头.Size = new System.Drawing.Size(180, 22);
+            this.端子_二面_母头.Text = "母头";
+            this.端子_二面_母头.Click += new System.EventHandler(this.AddCheckItem);
+            // 
+            // 端子_三面
+            // 
+            this.端子_三面.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.端子_三面_公头,
+            this.端子_三面_母头});
+            this.端子_三面.Name = "端子_三面";
+            this.端子_三面.Size = new System.Drawing.Size(180, 22);
+            this.端子_三面.Text = "三面";
+            // 
+            // 端子_三面_公头
+            // 
+            this.端子_三面_公头.Name = "端子_三面_公头";
+            this.端子_三面_公头.Size = new System.Drawing.Size(180, 22);
+            this.端子_三面_公头.Text = "公头";
+            this.端子_三面_公头.Click += new System.EventHandler(this.AddCheckItem);
+            // 
+            // 端子_三面_母头
+            // 
+            this.端子_三面_母头.Name = "端子_三面_母头";
+            this.端子_三面_母头.Size = new System.Drawing.Size(180, 22);
+            this.端子_三面_母头.Text = "母头";
+            this.端子_三面_母头.Click += new System.EventHandler(this.AddCheckItem);
+            // 
+            // 端子_四面
+            // 
+            this.端子_四面.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.端子_四面_公头,
+            this.端子_四面_母头});
+            this.端子_四面.Name = "端子_四面";
+            this.端子_四面.Size = new System.Drawing.Size(180, 22);
+            this.端子_四面.Text = "四面";
+            // 
+            // 端子_四面_公头
+            // 
+            this.端子_四面_公头.Name = "端子_四面_公头";
+            this.端子_四面_公头.Size = new System.Drawing.Size(180, 22);
+            this.端子_四面_公头.Text = "公头";
+            this.端子_四面_公头.Click += new System.EventHandler(this.AddCheckItem);
+            // 
+            // 端子_四面_母头
+            // 
+            this.端子_四面_母头.Name = "端子_四面_母头";
+            this.端子_四面_母头.Size = new System.Drawing.Size(180, 22);
+            this.端子_四面_母头.Text = "母头";
+            this.端子_四面_母头.Click += new System.EventHandler(this.AddCheckItem);
+            // 
+            // 导体检测
+            // 
+            this.导体检测.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.导体_一面,
+            this.导体_二面});
+            this.导体检测.Name = "导体检测";
+            this.导体检测.Size = new System.Drawing.Size(180, 22);
+            this.导体检测.Text = "导体检测";
+            // 
+            // 导体_一面
+            // 
+            this.导体_一面.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.导体_一面_公头,
+            this.导体_一面_母头});
+            this.导体_一面.Name = "导体_一面";
+            this.导体_一面.Size = new System.Drawing.Size(180, 22);
+            this.导体_一面.Text = "一面";
+            // 
+            // 导体_一面_公头
+            // 
+            this.导体_一面_公头.Name = "导体_一面_公头";
+            this.导体_一面_公头.Size = new System.Drawing.Size(180, 22);
+            this.导体_一面_公头.Text = "公头";
+            this.导体_一面_公头.Click += new System.EventHandler(this.AddCheckItem);
+            // 
+            // 导体_一面_母头
+            // 
+            this.导体_一面_母头.Name = "导体_一面_母头";
+            this.导体_一面_母头.Size = new System.Drawing.Size(180, 22);
+            this.导体_一面_母头.Text = "母头";
+            this.导体_一面_母头.Click += new System.EventHandler(this.AddCheckItem);
+            // 
+            // 导体_二面
+            // 
+            this.导体_二面.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.导体_二面_公头,
+            this.导体_二面_母头});
+            this.导体_二面.Name = "导体_二面";
+            this.导体_二面.Size = new System.Drawing.Size(180, 22);
+            this.导体_二面.Text = "二面";
+            // 
+            // 导体_二面_公头
+            // 
+            this.导体_二面_公头.Name = "导体_二面_公头";
+            this.导体_二面_公头.Size = new System.Drawing.Size(180, 22);
+            this.导体_二面_公头.Text = "公头";
+            this.导体_二面_公头.Click += new System.EventHandler(this.AddCheckItem);
+            // 
+            // 导体_二面_母头
+            // 
+            this.导体_二面_母头.Name = "导体_二面_母头";
+            this.导体_二面_母头.Size = new System.Drawing.Size(180, 22);
+            this.导体_二面_母头.Text = "母头";
+            this.导体_二面_母头.Click += new System.EventHandler(this.AddCheckItem);
             // 
             // 同心度检测
             // 
             this.同心度检测.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.公头,
-            this.母头});
+            this.同心度_公头,
+            this.同心度_母头});
             this.同心度检测.Name = "同心度检测";
             this.同心度检测.Size = new System.Drawing.Size(180, 22);
             this.同心度检测.Text = "同心度检测";
-            this.同心度检测.Click += new System.EventHandler(this.AddCheckItem);
             // 
-            // 公头
+            // 同心度_公头
             // 
-            this.公头.Name = "公头";
-            this.公头.Size = new System.Drawing.Size(180, 22);
-            this.公头.Text = "公头";
-            this.公头.Click += new System.EventHandler(this.AddCheckItem);
+            this.同心度_公头.Name = "同心度_公头";
+            this.同心度_公头.Size = new System.Drawing.Size(180, 22);
+            this.同心度_公头.Text = "公头";
+            this.同心度_公头.Click += new System.EventHandler(this.AddCheckItem);
             // 
-            // 母头
+            // 同心度_母头
             // 
-            this.母头.Name = "母头";
-            this.母头.Size = new System.Drawing.Size(180, 22);
-            this.母头.Text = "母头";
-            this.母头.Click += new System.EventHandler(this.AddCheckItem);
+            this.同心度_母头.Name = "同心度_母头";
+            this.同心度_母头.Size = new System.Drawing.Size(180, 22);
+            this.同心度_母头.Text = "母头";
+            this.同心度_母头.Click += new System.EventHandler(this.AddCheckItem);
             // 
             // toolStrip1
             // 
@@ -350,8 +483,7 @@ namespace VisionPlatform
         private System.Windows.Forms.Panel panelWindow;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Add;
-        private System.Windows.Forms.ToolStripMenuItem 剥皮检测;
-        private System.Windows.Forms.ToolStripMenuItem 插壳检测;
+        private System.Windows.Forms.ToolStripMenuItem 端子检测;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel_message;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -359,16 +491,32 @@ namespace VisionPlatform
         private System.Windows.Forms.ToolStripLabel ts_Label_cam;
         private System.Windows.Forms.TreeView treeViewFun;
         private System.Windows.Forms.Label label_SelCam;
-        private System.Windows.Forms.ToolStripMenuItem 打端检测;
+        private System.Windows.Forms.ToolStripMenuItem 导体检测;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ToolStripMenuItem 同心度检测;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem 公头;
-        private System.Windows.Forms.ToolStripMenuItem 母头;
-        private System.Windows.Forms.ToolStripMenuItem 导体_正面;
-        private System.Windows.Forms.ToolStripMenuItem 导体_侧面;
+        private System.Windows.Forms.ToolStripMenuItem 同心度_公头;
+        private System.Windows.Forms.ToolStripMenuItem 同心度_母头;
+        private System.Windows.Forms.ToolStripMenuItem 导体_一面;
+        private System.Windows.Forms.ToolStripMenuItem 导体_二面;
+        private System.Windows.Forms.ToolStripMenuItem 端子_一面;
+        private System.Windows.Forms.ToolStripMenuItem 端子_一面_公头;
+        private System.Windows.Forms.ToolStripMenuItem 端子_一面_母头;
+        private System.Windows.Forms.ToolStripMenuItem 端子_二面;
+        private System.Windows.Forms.ToolStripMenuItem 端子_二面_公头;
+        private System.Windows.Forms.ToolStripMenuItem 端子_二面_母头;
+        private System.Windows.Forms.ToolStripMenuItem 端子_三面;
+        private System.Windows.Forms.ToolStripMenuItem 端子_三面_公头;
+        private System.Windows.Forms.ToolStripMenuItem 端子_三面_母头;
+        private System.Windows.Forms.ToolStripMenuItem 端子_四面;
+        private System.Windows.Forms.ToolStripMenuItem 端子_四面_公头;
+        private System.Windows.Forms.ToolStripMenuItem 端子_四面_母头;
+        private System.Windows.Forms.ToolStripMenuItem 导体_一面_公头;
+        private System.Windows.Forms.ToolStripMenuItem 导体_一面_母头;
+        private System.Windows.Forms.ToolStripMenuItem 导体_二面_公头;
+        private System.Windows.Forms.ToolStripMenuItem 导体_二面_母头;
     }
 }

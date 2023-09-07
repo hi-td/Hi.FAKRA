@@ -12,6 +12,8 @@ namespace VisionPlatform
         {
             //相机对应的检测功能列表
             public Dictionary<int, List<TMData.InspectItem>> dicInspectList = new Dictionary<int, List<TMData.InspectItem>>();
+            //相机对应检测功能及检测面和类型
+            public Dictionary<int, Dictionary<int, List<InspectItemAll>>> dicInspectLists = new Dictionary<int, Dictionary<int, List<InspectItemAll>>>();
             //同心度检测
             public Dictionary<int, ConcentricityData> dicConcentricity = new Dictionary<int, ConcentricityData>();
             //panel及其对应的图像显示窗口
@@ -29,10 +31,7 @@ namespace VisionPlatform
             public Dictionary<string, CamSDK.CamCommon.CamParam> camParam = new Dictionary<string, CamSDK.CamCommon.CamParam>();    //相机序列号及其对应的参数
             //光源控制器各通道对应的亮度值
             //public Dictionary<int, int> dic_Brightness = new Dictionary<int, int>();
-            public List<LightCtrlSet> listLightCtrl = new List<LightCtrlSet>()
-            {
-                new LightCtrlSet()
-            };  //光源通道配置
+            public List<LightCtrlSet> listLightCtrl = new List<LightCtrlSet>();  //光源通道配置
                 //相机及其对应选择模板名称
             public Dictionary<string, string> dic_selectmodel = new Dictionary<string, string>();
         }
@@ -47,7 +46,7 @@ namespace VisionPlatform
         [Serializable]
         public class GlobalData_COM
         {
-            public List<IOSet> listIOSet = new List<IOSet>();                    //WENYU8或WENYU16-IO信号配置
+            public List<IOSet> listIOSet = new List<IOSet>();                    //WENYU8或WENYU16-IO信号配置                 
             public int WENYU232_ComPort = -1;                                    //WENYU232转IO通讯端口号
             public TMData.LEDRTU Led = new TMData.LEDRTU();                      //光源控制器串口配置
         }

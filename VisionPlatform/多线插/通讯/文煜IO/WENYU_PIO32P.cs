@@ -1725,6 +1725,21 @@ namespace WENYU_IO
             }
             return nResult;
         }
+
+        public static int Read_IO(ref long InputData)
+        {
+            int nResult = -1; //表示函数返状态  0:正确    1:板卡连接失败
+            try
+            {
+                nResult = WENYU_PIO32P.WY_GetInPutData(DevID, ref InputData);
+            }
+            catch (Exception ex)
+            {
+                (DateTime.Now.ToString() + "：" + "ReadIO："+ ex.ToString()).ToLog();
+            }
+            return nResult;
+        }
+
     }
 
 

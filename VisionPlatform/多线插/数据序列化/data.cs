@@ -17,18 +17,40 @@ namespace VisionPlatform
         public enum InspectItem
         {
             Defult,
-            StripLen,     //剥皮检测
-            TM,           //端子检测
-            Conductor,    //导体检测
+            StripLen,             //剥皮检测   
+            TM,                   //端子检测
+            Conductor,            //导体检测
+            Concentricity,        //同心度检测
             Concentricity_female, //同心度检测
             Concentricity_male,
         }
+        
+        //检测面
+        [Serializable]
+        public enum SurfaceType
+        {
+            Defult,
+            FirstSide,        //第一面
+            SecondSide,       //第二面
+            ThirdSide,        //第三面
+            FourthSide,       //第四面
+        }
+        [Serializable]
+        public enum DetectionType
+        {
+            Defult,
+            male,          //公头
+            female,        //母头
+        }
+
         [Serializable]
         public enum ConductorType
         {
             Defult,
-            front,      //正面
-            side,       //侧面
+            FirstSide,        //第一面
+            SecondSide,       //第二面
+            ThirdSide,        //第三面
+            FourthSide,       //第四面
         }
         [Serializable]
         public enum ConcentricityType
@@ -42,18 +64,29 @@ namespace VisionPlatform
             public FormCamShow form;     //相机显示窗体
             public Panel panel;          //该窗体对应的panel
         }
-
+        [Serializable]
+        public struct InspectItemAll
+        {
+            //public InspectItem item;
+            //public List<SurfaceType> LsurfaceType;  //检测面
+            //public List<DetectionType> Ltype;       //检测类型
+            public Dictionary<InspectItem, Dictionary<SurfaceType, List<DetectionType>>> data;
+        }
         [Serializable]
         public struct CamInspectItem
         {
-            public int cam;
+            public int cam;       //主相机
+            public int sub_cam;   //子画面
             public InspectItem item;
+            public SurfaceType surfaceType;  //检测面
+            public DetectionType type;       //检测类型
             public void Init()
             {
                 cam = -1;
                 item = InspectItem.Defult;
             }
         }
+        [Serializable]
         public struct InspectResult
         {
             public double InspectTime;  //检测时间
@@ -61,12 +94,22 @@ namespace VisionPlatform
             public Dictionary<string, string> outcome; //端子检测结果：检测项及其对应的OK/NG结果
         }
 
+        [Serializable]
+        public struct AutoRunData
+        {
+            public CamInspectItem CamInspectItem;
+            public IOSend iOSend;
+            public Dictionary<int, int> open_LED;
+            public Dictionary<int, int> close_LED;
+        }
+
         #region WENYU8 或 WENYU16
+
         [Serializable]
         public struct IOSet
         {
             public CamInspectItem camItem;   //相机及其对应的检测
-            public int read;                 //读取的点位
+            public long read;                 //读取的点位
             public IOSend send;
         }
 
@@ -229,18 +272,19 @@ namespace VisionPlatform
             public int nCoreNumArea2;      //线芯标准面积
             public int nThd2;             //分割
         }
-
+        [Serializable]
         public struct ColorSpaceParam
         {
             public bool bTrans;
             public ColorSpace colorSpace;
             public int nChannel;
         }
-
+        [Serializable]
         public struct CamShowParam
         {
             public int cam;
             public int sub_cam;
+           
         }
 
 
@@ -286,7 +330,8 @@ namespace VisionPlatform
             public LocationSetMeasure CHead;                  //导体头部定位
             public LocationSetMeasure CCentral;               //导体中部定位
             public LocationSetMeasure CTail;                  //导体尾部定位
-            public TMData.ConductorType type;        //导体检测类型
+            public TMData.DetectionType type;                 //导体类型
+            public SurfaceType surfaceType;                   //导体检测面
 
         }
 
